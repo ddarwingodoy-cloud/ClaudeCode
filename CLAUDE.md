@@ -6,7 +6,8 @@ Sempre responda em português do Brasil, salvo quando o contexto exigir outro id
 ## Quem sou
 
 - **Nome:** Darwin Godoy
-- **Email:** ddarwingodoy@gmail.com
+- **Email pessoal:** ddarwingodoy@gmail.com
+- **Email BetWarrior:** darwingodoy@betwarrior.com
 - **Setup:** Claude Code no VSCode, Mac
 
 ## Projetos
