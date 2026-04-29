@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolucao da Plataforma de Marca — BetWarrior Brasil</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0 !important;
+  }
+
+  :root {
+    --orange: #FF3900;
+    --black: #000000;
+    --white: #FFFFFF;
+    --row-alt-1: #111111;
+    --row-alt-2: #1a1a1a;
+    --light-gray: #F5F5F5;
+    --border-gray: #E0E0E0;
+  }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    color: var(--white);
+    background: var(--black);
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: 297mm 210mm landscape;
+    margin: 0;
+  }
+
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .page {
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+  }
+
+  .page {
+    width: 297mm;
+    height: 210mm;
+    padding: 50px 60px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  .page-black { background: var(--black); color: var(--white); }
+  .page-white { background: var(--white); color: var(--black); }
+  .page-orange { background: var(--orange); color: var(--black); }
+
+  /* Watermark top-right — now uses img */
+  .watermark {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    opacity: 0.7;
+    z-index: 10;
+  }
+  .watermark img {
+    height: 18px;
+    display: block;
+  }
+  .page-white .watermark { opacity: 0.5; }
+  .page-orange .watermark { opacity: 0.4; }
+
+  /* Typography */
+  h1, h2, h3, h4 {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  h1 { font-size: 48px; line-height: 1.1; }
+  h2 { font-size: 32px; line-height: 1.2; }
+  h3 { font-size: 24px; line-height: 1.3; }
+  h4 { font-size: 18px; line-height: 1.4; }
+
+  p, li, td, th {
+    font-family: 'Archivo', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Tables — dark variant (default) */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0 !important;
+  }
+
+  table th {
+    background: var(--orange);
+    color: var(--black);
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  table td {
+    padding: 9px 14px;
+    font-size: 12px;
+    border-bottom: 1px solid #222;
+  }
+
+  table tr:nth-child(odd) td { background: var(--row-alt-1); }
+  table tr:nth-child(even) td { background: var(--row-alt-2); }
+
+  /* Tables — light variant for white pages */
+  .table-light th {
+    background: var(--orange);
+    color: var(--white);
+  }
+  .table-light td {
+    color: var(--black);
+    border-bottom: 1px solid var(--border-gray);
+  }
+  .table-light tr:nth-child(odd) td { background: var(--white); }
+  .table-light tr:nth-child(even) td { background: var(--light-gray); }
+
+  /* Tables — dark body on white page (for desdobramentos/parcerias) */
+  .table-dark-on-white th {
+    background: var(--orange);
+    color: var(--white);
+  }
+  .table-dark-on-white td {
+    color: var(--white);
+    border-bottom: 1px solid #333;
+  }
+  .table-dark-on-white tr:nth-child(odd) td { background: var(--row-alt-1); }
+  .table-dark-on-white tr:nth-child(even) td { background: var(--row-alt-2); }
+
+  /* Divider pages */
+  .divider-number {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 220px;
+    color: var(--orange);
+    opacity: 0.15;
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    line-height: 1;
+  }
+
+  .divider-title {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 42px;
+    color: var(--white);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+  }
+
+  .divider-section {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 18px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Cards — dark bg */
+  .card {
+    background: var(--black);
+    border-left: 4px solid var(--orange);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  /* Cards — light bg (for white pages) */
+  .card-light {
+    background: var(--light-gray);
+    border-left: 4px solid var(--orange);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 13px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .card-title-dark {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 13px;
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .card-validated {
+    font-family: 'Archivo', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .card-text {
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    color: #ccc;
+    line-height: 1.5;
+  }
+
+  .card-text-dark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Highlight boxes */
+  .highlight-orange {
+    background: var(--orange);
+    color: var(--black);
+    padding: 14px 20px;
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .highlight-border {
+    border: 3px solid var(--orange);
+    padding: 14px 20px;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* Persona mini-cards — dark */
+  .persona-card {
+    background: var(--black);
+    border: 2px solid var(--orange);
+    padding: 10px 14px;
+  }
+
+  /* Persona mini-cards — light */
+  .persona-card-light {
+    background: var(--light-gray);
+    border: 2px solid var(--orange);
+    padding: 10px 14px;
+  }
+
+  .persona-label {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    font-size: 9px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .persona-text {
+    font-family: 'Archivo', sans-serif;
+    font-size: 10.5px;
+    color: var(--white);
+    line-height: 1.45;
+  }
+
+  .persona-text-dark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 10.5px;
+    color: var(--black);
+    line-height: 1.45;
+  }
+
+  /* Utilities */
+  .text-orange { color: var(--orange); }
+  .text-white { color: var(--white); }
+  .text-black { color: var(--black); }
+  .bg-orange { background: var(--orange); }
+  .bg-black { background: var(--black); }
+  .bg-white { background: var(--white); }
+  .uppercase { text-transform: uppercase; }
+  .bold { font-weight: 700; }
+  .center { text-align: center; }
+  .mt-8 { margin-top: 8px; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-20 { margin-top: 20px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-12 { margin-bottom: 12px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-20 { margin-bottom: 20px; }
+  .flex { display: flex; }
+  .flex-col { flex-direction: column; }
+  .gap-12 { gap: 12px; }
+  .gap-16 { gap: 16px; }
+  .gap-20 { gap: 20px; }
+  .justify-center { justify-content: center; }
+  .align-center { align-items: center; }
+  .flex-1 { flex: 1; }
+
+  /* Footer */
+  .page-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    right: 60px;
+    font-size: 10px;
+    color: #666;
+    font-family: 'Archivo', sans-serif;
+  }
+  .page-white .page-footer { color: #999; }
+  .page-orange .page-footer { color: rgba(0,0,0,0.4); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAG 1 — CAPA -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div style="margin-bottom: 32px;">
+    <img src="bw-icon.png" alt="W" style="height: 60px; margin-bottom: 24px;">
+    <div style="width: 80px; height: 6px; background: var(--orange); margin-bottom: 40px;"></div>
+    <h1 style="font-size: 56px; color: var(--orange); line-height: 1.05; max-width: 800px;">
+      EVOLUCAO DA<br>PLATAFORMA<br>DE MARCA
+    </h1>
+    <div style="margin-top: 28px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--white); text-transform: uppercase; letter-spacing: 3px;">BETWARRIOR BRASIL</span>
+    </div>
+  </div>
+  <div class="page-footer" style="color: #555; font-size: 11px;">
+    Abril 2026 &nbsp;|&nbsp; Confidencial
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 2 — INDICE -->
+<!-- ============================================================ -->
+<div class="page page-white">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="color: var(--black); font-size: 28px; margin-bottom: 36px;">INDICE</h2>
+  <div style="width: 60px; height: 4px; background: var(--orange); margin-bottom: 32px;"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">01</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">O QUE APRENDEMOS</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">3</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">02</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">O QUE O BRANDBOOK ACERTA</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">6</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">03</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">O QUE PROPOMOS EVOLUIR</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">8</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">04</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">AS NOVAS PERSONAS</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">10</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">05</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">O CONCEITO</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">15</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">06</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">APLICACAO NAS PARCERIAS</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">20</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 20px; border-bottom: 1px solid #ddd; padding-bottom: 14px;">
+      <span style="font-family: 'Archivo Black', sans-serif; font-size: 36px; color: var(--orange);">07</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: var(--black); text-transform: uppercase;">A JANELA</span>
+      <span style="flex: 1; border-bottom: 1px dotted #ccc; margin: 0 8px; transform: translateY(-4px);"></span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 14px; color: #999;">22</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 3 — DIVIDER 01 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">01</div>
+  <div class="divider-section">SECAO 01</div>
+  <div class="divider-title">O QUE<br>APRENDEMOS</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 4 — DADOS DE PERFORMANCE (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 28px; color: var(--black); margin-bottom: 6px;">90 DIAS DE DADOS REAIS</h2>
+  <p style="color: #888; font-size: 12px; margin-bottom: 24px;">Performance da operacao Brasil — Fevereiro a Abril 2026</p>
+
+  <table class="table-light">
+    <thead>
+      <tr>
+        <th style="width: 30%; color: var(--white);">METRICA</th>
+        <th style="text-align: center; color: var(--white);">FEV 2026</th>
+        <th style="text-align: center; color: var(--white);">MAR 2026</th>
+        <th style="text-align: center; color: var(--white);">ABR MTD (16D)</th>
+        <th style="text-align: center; color: var(--white);">TENDENCIA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: 600; color: var(--black);">FTDs/dia</td>
+        <td style="text-align: center; color: var(--black);">43</td>
+        <td style="text-align: center; color: var(--black);">58</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">156</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">+263%</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: var(--black);">Conversao e2e</td>
+        <td style="text-align: center; color: var(--black);">10.1%</td>
+        <td style="text-align: center; color: var(--black);">10.6%</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">22.2%</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">+12pp</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: var(--black);">GGR (BRL)</td>
+        <td style="text-align: center; color: var(--black);">+68K</td>
+        <td style="text-align: center; color: var(--black);">+149.8K</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">+133.2K (16d)</td>
+        <td style="text-align: center; color: var(--black); font-size: 16px;">&#8593;&#8593;</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: var(--black);">GGR Margin</td>
+        <td style="text-align: center; color: var(--black);">2.12%</td>
+        <td style="text-align: center; color: var(--black);">3.95%</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">4.19%</td>
+        <td style="text-align: center; color: var(--black); font-size: 16px;">&#8593;</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: var(--black);">Bonus/GGR</td>
+        <td style="text-align: center; color: var(--black);">37%</td>
+        <td style="text-align: center; color: var(--black);">16%</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">7.5%</td>
+        <td style="text-align: center; color: var(--black); font-size: 16px;">&#8593;</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: var(--black);">Unique Bettors</td>
+        <td style="text-align: center; color: var(--black);">2.971</td>
+        <td style="text-align: center; color: var(--black);">3.105</td>
+        <td style="text-align: center; color: var(--orange); font-weight: 700;">3.560 (16d)</td>
+        <td style="text-align: center; color: var(--black); font-size: 16px;">&#8593;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-orange" style="margin-top: 28px; font-size: 16px;">
+    ABRIL CAMINHA PARA SER O MELHOR MES DA OPERACAO BRASIL
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 5 — O QUE FUNCIONOU vs O QUE NAO FUNCIONOU (MANTER SPLIT) -->
+<!-- ============================================================ -->
+<div class="page page-black" style="padding: 40px 50px;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 22px; color: var(--white); margin-bottom: 20px;">LICOES DOS PRIMEIROS 90 DIAS</h2>
+
+  <div style="display: flex; gap: 20px; height: calc(100% - 120px);">
+    <!-- Esquerdo — Funcionou -->
+    <div style="flex: 1; background: var(--orange); padding: 28px 24px; display: flex; flex-direction: column;">
+      <h3 style="font-size: 18px; color: var(--black); margin-bottom: 18px;">O QUE FUNCIONOU</h3>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--black); text-transform: uppercase;">CazeTV &rarr; Libertadores/Sulamericana</div>
+          <div style="font-size: 11px; color: rgba(0,0,0,0.7); margin-top: 3px;">Reducao de 51% no custo por aquisicao. Audiencia esportiva converte.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--black); text-transform: uppercase;">NFA &rarr; Modelo de Afiliacao</div>
+          <div style="font-size: 11px; color: rgba(0,0,0,0.7); margin-top: 3px;">750 FTDs desde o pivot. Performance pura, sem risco de marca.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--black); text-transform: uppercase;">Squad de Influenciadores</div>
+          <div style="font-size: 11px; color: rgba(0,0,0,0.7); margin-top: 3px;">Alinhados a torcidas e futebol. Conexao autentica com o publico.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--black); text-transform: uppercase;">FutbolSites / Casa Mundialista</div>
+          <div style="font-size: 11px; color: rgba(0,0,0,0.7); margin-top: 3px;">Reducao de 22% no investimento. Territorio de Copa bem posicionado.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--black); text-transform: uppercase;">Danilo Lavieri</div>
+          <div style="font-size: 11px; color: rgba(0,0,0,0.7); margin-top: 3px;">Conexao forte com futebol. Credibilidade editorial.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--black); text-transform: uppercase;">Politica de Bonus Reformulada</div>
+          <div style="font-size: 11px; color: rgba(0,0,0,0.7); margin-top: 3px;">Bonus/GGR caiu de 37% para 7.5%. Qualidade acima de volume.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direito — Nao funcionou -->
+    <div style="flex: 1; background: var(--black); border: 2px solid #333; padding: 28px 24px; display: flex; flex-direction: column;">
+      <h3 style="font-size: 18px; color: var(--white); margin-bottom: 18px;">O QUE NAO FUNCIONOU</h3>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--white); text-transform: uppercase;">GR6 / Musicalize (USD 541K)</div>
+          <div style="font-size: 11px; color: #888; margin-top: 3px;">CANCELADO. Artista investigado pela PF. Risco reputacional inaceitavel.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--white); text-transform: uppercase;">Peleja (USD 629K)</div>
+          <div style="font-size: 11px; color: #888; margin-top: 3px;">Sem conversao significativa. Investimento alto, retorno proximo de zero.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--white); text-transform: uppercase;">Tribu Podcast (USD 347K)</div>
+          <div style="font-size: 11px; color: #888; margin-top: 3px;">Baixo impacto em aquisicao e awareness. Audiencia desconectada do core.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--white); text-transform: uppercase;">Escopo Original CazeTV (Olimpiadas)</div>
+          <div style="font-size: 11px; color: #888; margin-top: 3px;">Olimpiadas nao converte como futebol. Pivot para Libertadores salvou o deal.</div>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 12px; color: var(--white); text-transform: uppercase;">Escopo Original NFA (eSports)</div>
+          <div style="font-size: 11px; color: #888; margin-top: 3px;">eSports nao gerou volume. Pivot para afiliacao esportiva deu resultado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--black); border: 3px solid var(--orange); padding: 14px 24px; margin-top: 16px; position: absolute; bottom: 40px; left: 50px; right: 50px;">
+    <p style="font-family: 'Archivo Black', sans-serif; font-size: 13px; color: var(--orange); text-transform: uppercase; text-align: center; line-height: 1.5;">
+      O PADRAO E CLARO: TUDO QUE SE APROXIMOU DO FUTEBOL GEROU RESULTADO.<br>
+      TUDO QUE ESTAVA EM FUNK, ESPORTS OU CONTEUDO GENERICO FALHOU OU TEVE QUE SER PIVOTADO.
+    </p>
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 6 — DIVIDER 02 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">02</div>
+  <div class="divider-section">SECAO 02</div>
+  <div class="divider-title">O QUE O BRANDBOOK<br>ACERTA</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 7 — INSIGHTS CULTURAIS VALIDADOS (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 40px 50px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 24px; color: var(--black); margin-bottom: 6px;">INSIGHTS CULTURAIS VALIDADOS</h2>
+  <p style="color: #888; font-size: 11px; margin-bottom: 20px;">5 pilares do brandbook confirmados pelos dados da operacao</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+    <!-- Card 1 -->
+    <div class="card-light">
+      <div class="card-title-dark">A EMOCAO DE TORCER E UNIVERSAL</div>
+      <div class="card-validated">Validado:</div>
+      <div class="card-text-dark">Picos de registro coincidem com dias de Libertadores e Brasileirao. Futebol e o gatilho #1 de aquisicao. Quando tem jogo grande, o Brasil inteiro aposta.</div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card-light">
+      <div class="card-title-dark">APOSTA E JOGO EM GRUPO</div>
+      <div class="card-validated">Validado:</div>
+      <div class="card-text-dark">94% dos brasileiros participam de grupos no WhatsApp. Aposta no Brasil e social — bolao, palpite, debate. Ninguem aposta sozinho.</div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card-light">
+      <div class="card-title-dark">O FUTEBOL SEGUE SOBERANO</div>
+      <div class="card-validated">Validado:</div>
+      <div class="card-text-dark">86% do nosso GGR vem de apostas esportivas, com futebol como categoria dominante. Tentativas fora do futebol nao escalaram.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 66%;">
+    <!-- Card 4 -->
+    <div class="card-light">
+      <div class="card-title-dark">ATE O AZARAO TEM VEZ</div>
+      <div class="card-validated">Validado:</div>
+      <div class="card-text-dark">A virada e a zebra sao os momentos de maior emocao do esporte brasileiro. O inesperado e o combustivel da aposta.</div>
+    </div>
+    <!-- Card 5 -->
+    <div class="card-light">
+      <div class="card-title-dark">SECOND SCREEN</div>
+      <div class="card-validated">Validado:</div>
+      <div class="card-text-dark">50% comentam em redes sociais enquanto assistem TV. O momento do jogo na TV e o momento da aposta no celular.</div>
+    </div>
+  </div>
+
+  <div class="highlight-border" style="margin-top: 20px;">
+    <p style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase;">
+      ESSES INSIGHTS CULTURAIS SAO FORTES. ELES PERMANECEM COMO NOSSA FUNDACAO.
+    </p>
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 8 — DIVIDER 03 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">03</div>
+  <div class="divider-section">SECAO 03</div>
+  <div class="divider-title">O QUE PROPOMOS<br>EVOLUIR</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 9 — TABELA DE EVOLUCAO (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 22px; color: var(--black); margin-bottom: 4px;">TABELA DE EVOLUCAO</h2>
+  <p style="color: #888; font-size: 11px; margin-bottom: 16px;">O que muda — e o que permanece</p>
+
+  <table class="table-light" style="font-size: 11px;">
+    <thead>
+      <tr>
+        <th style="width: 14%; color: var(--white);">ELEMENTO</th>
+        <th style="width: 40%; background: #eee; color: var(--black); font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 10px;">ATUAL</th>
+        <th style="width: 46%; border-left: 4px solid var(--orange); color: var(--white);">EVOLUCAO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">PERSONA</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">"Cria Visionario" — jovem periferico, funk, eSports</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>"Warrior"</strong> — torcedor apaixonado, multi-classe, centrado no esporte</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">FOCO DE CLASSE</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">C/D, periferia</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>A/B/C</strong>, unidos pela paixao esportiva</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">TERRITORIO</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">Funk + eSports</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>Futebol</strong> (+ esportes como complemento)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">PALAVRAS-CHAVE</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">Garra, Paixao, Do Corre</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>Paixao, Garra, Do Jogo</strong></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">PROPOSITO</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">"Ser o lugar de quem joga junto — onde garra e paixao viram pertencimento"</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>"Ser o lugar de quem vive o jogo — onde paixao e conhecimento viram emocao"</strong></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">POSICIONAMENTO</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">"A bet que transforma torcedores e fas em warriors"</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>"A bet de quem sabe que o jogo sempre pode virar"</strong></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">CONCEITO</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">"Nunca foi sorte, sempre foi corre"</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px; font-weight: 800; font-size: 13px;">"VIRA O JOGO"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">TOM DE VOZ</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">Rua + inteligencia, malemolencia</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>Paixao esportiva + inteligencia</strong>, cumplice do torcedor</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange); font-size: 10px;">VISUAL</td>
+        <td style="background: #eee !important; color: #777; font-size: 11px;">DJs, street culture, bone, Supreme</td>
+        <td style="border-left: 4px solid var(--orange); color: var(--black); font-size: 11px;"><strong>Torcedores, estadio, bar, celular, celebracoes</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-orange" style="margin-top: 20px; font-size: 18px; letter-spacing: 2px;">
+    88% DO BRANDBOOK E PRESERVADO. APENAS 12% PRECISA MUDAR.
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 10 — DIVIDER 04 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">04</div>
+  <div class="divider-section">SECAO 04</div>
+  <div class="divider-title">AS NOVAS<br>PERSONAS</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 11 — PERSONA 1: TORCEDOR RAIZ (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <div style="display: flex; gap: 28px; height: 100%;">
+    <!-- Left: Name + Sub -->
+    <div style="width: 260px; display: flex; flex-direction: column; justify-content: center;">
+      <div style="width: 50px; height: 4px; background: var(--orange); margin-bottom: 20px;"></div>
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">PERSONA 01</div>
+      <h2 style="font-size: 34px; color: var(--black); line-height: 1.05; margin-bottom: 16px;">O TORCEDOR<br>RAIZ</h2>
+      <p style="font-size: 15px; color: #666; font-style: italic; font-weight: 500;">"O jogo comeca antes do apito"</p>
+    </div>
+    <!-- Right: Attribute cards -->
+    <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: center;">
+      <div class="persona-card-light">
+        <div class="persona-label">QUEM E</div>
+        <div class="persona-text-dark">Homem, 25-40 anos, classe B/C. Fanatico por futebol. Sabe estatisticas, escala, historico. Acompanha todos os jogos do time.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">COMO APOSTA</div>
+        <div class="persona-text-dark">Regularmente, especialmente jogos do time. Gosta de combinadas. Ticket R$20-80. Mobile (Android). Aposta semanal.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">O QUE VALORIZA</div>
+        <div class="persona-text-dark">Odds boas, saque rapido, promocoes em jogos que assiste, conteudo relevante sobre futebol.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">ONDE ESTA</div>
+        <div class="persona-text-dark">Instagram, YouTube, Twitter/X em dia de jogo, WhatsApp (grupos de torcida), TikTok.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">COMO DESCOBRE</div>
+        <div class="persona-text-dark">Indicacao de amigo, influenciador de futebol, conteudo de palpites, grupos de WhatsApp.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">VALOR</div>
+        <div class="persona-text-dark">Medio-alto. Frequencia alta, ticket controlado. Constancia gera valor. LTV cresce com o tempo.</div>
+      </div>
+      <div class="persona-card-light" style="grid-column: 1 / -1;">
+        <div class="persona-label">PAPEL NO FUNIL</div>
+        <div class="persona-text-dark">Conversao direta + retencao alta (habito semanal). E o jogador que a gente quer reter. Responde bem a CRM e conteudo.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 12 — PERSONA 2: O ESTRATEGISTA (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <div style="display: flex; gap: 28px; height: 100%;">
+    <!-- Left -->
+    <div style="width: 260px; display: flex; flex-direction: column; justify-content: center;">
+      <div style="width: 50px; height: 4px; background: var(--orange); margin-bottom: 20px;"></div>
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">PERSONA 02</div>
+      <h2 style="font-size: 34px; color: var(--black); line-height: 1.05; margin-bottom: 16px;">O<br>ESTRATEGISTA</h2>
+      <p style="font-size: 15px; color: #666; font-style: italic; font-weight: 500;">"Nao e sorte. E leitura de jogo."</p>
+    </div>
+    <!-- Right -->
+    <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: center;">
+      <div class="persona-card-light">
+        <div class="persona-label">QUEM E</div>
+        <div class="persona-text-dark">H/M, 28-45 anos, classe A/B. Analisa dados, compara odds, usa planilhas. Tem metodo e disciplina.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">COMO APOSTA</div>
+        <div class="persona-text-dark">Com metodo. Ticket R$100-500. Multiplas casas. Bankroll management. Busca value bets.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">O QUE VALORIZA</div>
+        <div class="persona-text-dark">Odds competitivas, profundidade de mercados, programa VIP, saques rapidos, limites altos.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">ONDE ESTA</div>
+        <div class="persona-text-dark">Twitter/X (tipsters), YouTube (analises taticas), apps de stats, forums de apostas.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">COMO DESCOBRE</div>
+        <div class="persona-text-dark">Comparadores de odds, forums especializados, tipsters, redes de afiliados, boca a boca.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">VALOR</div>
+        <div class="persona-text-dark">Alto. Volume consistente, churn baixo. Jogador que fica porque a plataforma entrega o que ele precisa.</div>
+      </div>
+      <div class="persona-card-light" style="grid-column: 1 / -1;">
+        <div class="persona-label">PAPEL NO FUNIL</div>
+        <div class="persona-text-dark">VIP pipeline. NGR sustentavel. Menos sensivel a bonus, mais sensivel a produto. Retencao por qualidade.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 13 — PERSONA 3: O SOCIAL BETTOR (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <div style="display: flex; gap: 28px; height: 100%;">
+    <!-- Left -->
+    <div style="width: 260px; display: flex; flex-direction: column; justify-content: center;">
+      <div style="width: 50px; height: 4px; background: var(--orange); margin-bottom: 20px;"></div>
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">PERSONA 03</div>
+      <h2 style="font-size: 34px; color: var(--black); line-height: 1.05; margin-bottom: 16px;">O SOCIAL<br>BETTOR</h2>
+      <p style="font-size: 15px; color: #666; font-style: italic; font-weight: 500;">"Apostar e parte da diversao"</p>
+    </div>
+    <!-- Right -->
+    <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: center;">
+      <div class="persona-card-light">
+        <div class="persona-label">QUEM E</div>
+        <div class="persona-text-dark">H/M, 21-35 anos, A/B/C. Vida social ativa. Copa do Mundo e evento do ano. Aposta e parte do programa.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">COMO APOSTA</div>
+        <div class="persona-text-dark">Diversao social — aposta do churras, desafios, boloes. Ticket R$10-50. Irregular. Eventos grandes.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">O QUE VALORIZA</div>
+        <div class="persona-text-dark">Facilidade (cadastro rapido, pix), promocoes de entrada, diversao, compartilhamento com amigos.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">ONDE ESTA</div>
+        <div class="persona-text-dark">Instagram, TikTok, YouTube, WhatsApp, streaming. Onde a galera ta, ele ta.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">COMO DESCOBRE</div>
+        <div class="persona-text-dark">Influenciador, amigo, promocao viral, Copa. Entrada por impulso social, nao por pesquisa.</div>
+      </div>
+      <div class="persona-card-light">
+        <div class="persona-label">VALOR</div>
+        <div class="persona-text-dark">Baixo individual, alto em volume. Base de aquisicao. Custo de aquisicao baixo quando viral.</div>
+      </div>
+      <div class="persona-card-light" style="grid-column: 1 / -1;">
+        <div class="persona-label">PAPEL NO FUNIL</div>
+        <div class="persona-text-dark">Topo massivo. Parte converte em Torcedor Raiz ao longo do tempo. Porta de entrada do ecossistema.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 14 — O FIO CONDUTOR (MANTER LARANJA) -->
+<!-- ============================================================ -->
+<div class="page page-orange" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+
+  <h2 style="font-size: 20px; color: var(--black); margin-bottom: 40px; letter-spacing: 3px;">O FIO CONDUTOR</h2>
+
+  <!-- Center concept -->
+  <div style="font-family: 'Archivo Black', sans-serif; font-size: 38px; color: var(--black); text-transform: uppercase; margin-bottom: 40px; line-height: 1.1;">
+    PAIXAO PELO<br>ESPORTE
+  </div>
+
+  <!-- 3 arrows -->
+  <div style="display: flex; gap: 30px; justify-content: center; width: 100%;">
+    <div style="flex: 1; max-width: 280px; background: var(--black); padding: 24px 20px; text-align: center;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase; margin-bottom: 8px;">TORCEDOR RAIZ</div>
+      <div style="font-size: 28px; color: var(--orange); margin-bottom: 8px;">&#9660;</div>
+      <div style="font-size: 12px; color: var(--white); font-weight: 600; text-transform: uppercase;">Frequencia + Retencao</div>
+      <div style="font-size: 11px; color: #888; margin-top: 6px;">O motor do dia a dia. Joga toda semana. Fidelidade construida com conteudo e experiencia.</div>
+    </div>
+    <div style="flex: 1; max-width: 280px; background: var(--black); padding: 24px 20px; text-align: center;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase; margin-bottom: 8px;">ESTRATEGISTA</div>
+      <div style="font-size: 28px; color: var(--orange); margin-bottom: 8px;">&#9660;</div>
+      <div style="font-size: 12px; color: var(--white); font-weight: 600; text-transform: uppercase;">Volume + NGR</div>
+      <div style="font-size: 11px; color: #888; margin-top: 6px;">O motor financeiro. Ticket alto, disciplina, churn baixo. Retido por produto, nao por bonus.</div>
+    </div>
+    <div style="flex: 1; max-width: 280px; background: var(--black); padding: 24px 20px; text-align: center;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 14px; color: var(--orange); text-transform: uppercase; margin-bottom: 8px;">SOCIAL BETTOR</div>
+      <div style="font-size: 28px; color: var(--orange); margin-bottom: 8px;">&#9660;</div>
+      <div style="font-size: 12px; color: var(--white); font-weight: 600; text-transform: uppercase;">Escala + Aquisicao</div>
+      <div style="font-size: 11px; color: #888; margin-top: 6px;">O motor de crescimento. Volume massivo na Copa e grandes eventos. Parte migra para Torcedor Raiz.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px; max-width: 800px;">
+    <p style="font-size: 14px; color: var(--black); font-weight: 600; line-height: 1.6;">
+      O que os une: os tres vivem o esporte como momento de emocao, conexao e diversao. A aposta amplifica essa experiencia. A BetWarrior entra nesse momento.
+    </p>
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 15 — DIVIDER 05 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">05</div>
+  <div class="divider-section">SECAO 05</div>
+  <div class="divider-title">O CONCEITO</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 16 — VIRA O JOGO (impacto) — MANTER PRETO -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div style="font-family: 'Archivo Black', sans-serif; font-size: 148px; color: var(--orange); text-transform: uppercase; line-height: 0.95; letter-spacing: -2px;">
+    VIRA O<br>JOGO
+  </div>
+  <div style="margin-top: 30px; font-family: 'Archivo Black', sans-serif; font-size: 28px; color: var(--white); text-transform: uppercase; letter-spacing: 8px;">
+    BETWARRIOR
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 17 — POR QUE VIRA O JOGO (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 24px; color: var(--black); margin-bottom: 20px;">POR QUE "VIRA O JOGO"</h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+    <!-- Block 1 - orange -->
+    <div style="background: var(--orange); padding: 22px 20px;">
+      <h4 style="font-size: 14px; color: var(--black); margin-bottom: 10px;">E A EMOCAO MAXIMA</h4>
+      <p style="font-size: 11.5px; color: rgba(0,0,0,0.8); line-height: 1.55;">A virada e o momento que todo torcedor vive pra ver. Estar perdendo e virar — nao tem nada mais forte no esporte. Esse sentimento e universal.</p>
+    </div>
+    <!-- Block 2 - black -->
+    <div style="background: var(--black); padding: 22px 20px;">
+      <h4 style="font-size: 14px; color: var(--white); margin-bottom: 10px;">CONTA NOSSA HISTORIA</h4>
+      <p style="font-size: 11.5px; color: #aaa; line-height: 1.55;">A BetWarrior esta literalmente virando o jogo no Brasil. De FTDs de 43/dia para 156/dia. O conceito fala da marca e do consumidor ao mesmo tempo.</p>
+    </div>
+    <!-- Block 3 - orange -->
+    <div style="background: var(--orange); padding: 22px 20px;">
+      <h4 style="font-size: 14px; color: var(--black); margin-bottom: 10px;">FUNCIONA COMO CTA</h4>
+      <p style="font-size: 11.5px; color: rgba(0,0,0,0.8); line-height: 1.55;">"Vira o jogo agora" e um call to action natural. Funciona em performance, social, CRM, influencers. Nao precisa adaptar — ja nasce acionavel.</p>
+    </div>
+    <!-- Block 4 - black -->
+    <div style="background: var(--black); padding: 22px 20px;">
+      <h4 style="font-size: 14px; color: var(--white); margin-bottom: 10px;">JA ESTAVA NO BRANDBOOK</h4>
+      <p style="font-size: 11.5px; color: #aaa; line-height: 1.55;">Pagina 14: "fazer o jogo virar a seu favor." A semente ja estava plantada. Nao estamos inventando — estamos fazendo crescer o que ja existia.</p>
+    </div>
+    <!-- Block 5 - orange -->
+    <div style="background: var(--orange); padding: 22px 20px;">
+      <h4 style="font-size: 14px; color: var(--black); margin-bottom: 10px;">TERRITORIO LIMPO</h4>
+      <p style="font-size: 11.5px; color: rgba(0,0,0,0.8); line-height: 1.55;">Nenhuma casa de apostas, nenhuma marca esportiva usa "Vira o Jogo" como plataforma. E nosso pra tomar. Territorio disponivel e poderoso.</p>
+    </div>
+    <!-- Block 6 - black -->
+    <div style="background: var(--black); padding: 22px 20px;">
+      <h4 style="font-size: 14px; color: var(--white); margin-bottom: 10px;">COPA DO MUNDO</h4>
+      <p style="font-size: 11.5px; color: #aaa; line-height: 1.55;">Imagina o Brasil perdendo e todo mundo gritando "VIRA O JOGO". A BetWarrior seria dona desse momento. Copa 2026 e a janela perfeita.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 18 — MANIFESTO (MANTER PRETO) -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 80px;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+
+  <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; color: var(--orange); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 24px; align-self: flex-start;">MANIFESTO</div>
+
+  <div style="font-family: 'Archivo', sans-serif; font-size: 17px; color: var(--white); line-height: 2; font-weight: 500; max-width: 700px;">
+    No futebol, ninguem ganha antes do apito final.<br><br>
+    O placar pode estar contra.<br>
+    O tempo pode estar acabando.<br>
+    O estadio inteiro pode ter desistido.<br><br>
+    <span style="color: var(--orange); font-weight: 700;">Mas voce nao.</span><br><br>
+    Porque voce viu o lance que ninguem viu.<br>
+    Sentiu a virada antes dela acontecer.<br>
+    Apostou quando todo mundo duvidou.<br><br>
+    Voce nao torce por sorte.<br>
+    Voce torce porque conhece o jogo.<br>
+    Porque sabe que um passe muda tudo.<br>
+    Que um gol nos acrescimos reescreve a historia.<br>
+    Que o impossivel so e impossivel<br>
+    <span style="color: var(--orange); font-weight: 700;">ate alguem provar o contrario.</span><br><br>
+    E quando o jogo vira —<br>
+    quando a torcida explode,<br>
+    quando o narrador perde a voz,<br>
+    quando o celular vibra com a notificacao —<br><br>
+    <span style="color: var(--orange); font-weight: 700;">voce sorri.</span><br>
+    Porque voce ja sabia.
+  </div>
+
+  <div style="margin-top: 24px; font-family: 'Archivo Black', sans-serif; font-size: 28px; color: var(--orange); text-transform: uppercase; letter-spacing: 3px;">
+    BETWARRIOR. VIRA O JOGO.
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 19 — DESDOBRAMENTOS (BRANCO com tabela escura) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 22px; color: var(--black); margin-bottom: 4px;">COMO "VIRA O JOGO" SE DESDOBRA</h2>
+  <p style="color: #888; font-size: 11px; margin-bottom: 18px;">Um conceito, multiplas aplicacoes — performance, brand, CRM, parcerias</p>
+
+  <table class="table-dark-on-white">
+    <thead>
+      <tr>
+        <th style="width: 22%; color: var(--white);">APLICACAO</th>
+        <th style="color: var(--white);">EXEMPLO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Tagline</td>
+        <td>BetWarrior — Vira o Jogo</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Performance</td>
+        <td>"O jogo pode virar — faz tua aposta"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">CazeTV</td>
+        <td>"Momento Vira o Jogo — odds BetWarrior"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Copa 2026</td>
+        <td>"O Brasil vai virar o jogo — com a BetWarrior"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Social</td>
+        <td>#ViraOJogo — reacoes a viradas em tempo real</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Influencers</td>
+        <td>"Eu chamei a virada — e tu?"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">CRM Welcome</td>
+        <td>"Sua hora de virar o jogo chegou"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">CRM Reativacao</td>
+        <td>"O jogo nao acabou — vira o jogo com a BetWarrior"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Genius Sports</td>
+        <td>"Perdendo 1x0 — vira o jogo? Odds [X]"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Casino</td>
+        <td>"Vira o jogo no casino — enquanto espera o proximo lance"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">VIP</td>
+        <td>"Warriors que viram o jogo — beneficios exclusivos"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: var(--orange);">Hashtag</td>
+        <td>#ViraOJogo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 20 — DIVIDER 06 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">06</div>
+  <div class="divider-section">SECAO 06</div>
+  <div class="divider-title">APLICACAO NAS<br>PARCERIAS</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 21 — MAPA DE PARCERIAS (BRANCO com tabela escura) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 36px 46px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 22px; color: var(--black); margin-bottom: 4px;">MAPA DE PARCERIAS</h2>
+  <p style="color: #888; font-size: 11px; margin-bottom: 16px;">Mesmas parcerias, mensagem unificada — "Vira o Jogo" aplicado a cada canal</p>
+
+  <table class="table-dark-on-white" style="font-size: 11px;">
+    <thead>
+      <tr>
+        <th style="width: 16%; color: var(--white);">PARCERIA</th>
+        <th style="width: 14%; color: var(--white);">INVESTIMENTO</th>
+        <th style="width: 12%; color: var(--white);">FUNIL</th>
+        <th style="color: var(--white);">APLICACAO "VIRA O JOGO"</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: 700;">CazeTV</td>
+        <td>R$ 4.3M</td>
+        <td>Topo</td>
+        <td>"Vira o Jogo na Libertadores" — segmentos com odds ao vivo em momentos de virada</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">FutbolSites</td>
+        <td>USD 700K</td>
+        <td>Topo+Meio</td>
+        <td>"Vira o Jogo na Copa" — Casa Mundialista com branding completo</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">Squad Influencers</td>
+        <td>USD 895K</td>
+        <td>Meio</td>
+        <td>Cada influenciador chama viradas. #ViraOJogo como hashtag unificada</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">Danilo Lavieri</td>
+        <td>TBD</td>
+        <td>Topo+Meio</td>
+        <td>"Onde o jogo vai virar?" — analises pre-jogo com integracao de odds</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">Genius Sports</td>
+        <td>TBD</td>
+        <td>Fundo</td>
+        <td>Odds ao vivo em jogos apertados — "Vira o Jogo" como trigger de bet</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">NFA (afiliacao)</td>
+        <td>USD 651K</td>
+        <td>Fundo</td>
+        <td>Materiais com branding "Vira o Jogo" para toda a rede de afiliados</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">Performance</td>
+        <td>Variavel</td>
+        <td>Fundo</td>
+        <td>"O jogo pode virar — R$100 de bonus" — criativos de performance</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">Social Organico</td>
+        <td>—</td>
+        <td>Topo+Meio</td>
+        <td>#ViraOJogo — conteudo reativo em tempo real durante jogos</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700;">CRM</td>
+        <td>—</td>
+        <td>Retencao</td>
+        <td>"Quem vira o jogo, joga na BetWarrior" — welcome, reativacao, VIP</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-border" style="margin-top: 20px;">
+    <p style="font-family: 'Archivo Black', sans-serif; font-size: 13px; color: var(--orange); text-transform: uppercase;">
+      NENHUM INVESTIMENTO NOVO NECESSARIO. MESMAS PARCERIAS, MENSAGEM UNIFICADA.
+    </p>
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 22 — DIVIDER 07 -->
+<!-- ============================================================ -->
+<div class="page page-black" style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <div class="divider-number">07</div>
+  <div class="divider-section">SECAO 07</div>
+  <div class="divider-title">A JANELA</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 23 — TIMELINE COPA (BRANCO) -->
+<!-- ============================================================ -->
+<div class="page page-white" style="padding: 40px 50px;">
+  <div class="watermark"><img src="bw-logo-preto.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 22px; color: var(--black); margin-bottom: 6px;">TIMELINE — COPA DO MUNDO 2026</h2>
+  <p style="color: #888; font-size: 11px; margin-bottom: 30px;">54 dias entre hoje e o inicio da Copa. Cada dia conta.</p>
+
+  <!-- Timeline -->
+  <div style="display: flex; align-items: flex-start; gap: 0; margin-bottom: 40px; position: relative;">
+    <!-- Connecting line -->
+    <div style="position: absolute; top: 36px; left: 0; right: 0; height: 4px; background: #ddd;"></div>
+
+    <!-- Block 1 -->
+    <div style="flex: 1; text-align: center; position: relative;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--orange); margin-bottom: 8px;">AGORA</div>
+      <div style="width: 70%; margin: 0 auto; background: var(--white); border: 3px solid var(--orange); padding: 10px 8px; position: relative; z-index: 2;">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--black); text-transform: uppercase;">CONCEITO</div>
+      </div>
+      <div style="font-size: 10px; color: #999; margin-top: 8px;">18/Abr</div>
+    </div>
+    <!-- Block 2 -->
+    <div style="flex: 1; text-align: center; position: relative;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: #888; margin-bottom: 8px;">FASE 2</div>
+      <div style="width: 70%; margin: 0 auto; background: var(--light-gray); padding: 10px 8px; position: relative; z-index: 2; border: 1px solid #ccc;">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--black); text-transform: uppercase;">AGENCIA BRIEFADA</div>
+      </div>
+      <div style="font-size: 10px; color: #999; margin-top: 8px;">10/Mai</div>
+    </div>
+    <!-- Block 3 -->
+    <div style="flex: 1; text-align: center; position: relative;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: #888; margin-bottom: 8px;">FASE 3</div>
+      <div style="width: 70%; margin: 0 auto; background: var(--light-gray); padding: 10px 8px; position: relative; z-index: 2; border: 1px solid #ccc;">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--black); text-transform: uppercase;">ASSETS PRODUZIDOS</div>
+      </div>
+      <div style="font-size: 10px; color: #999; margin-top: 8px;">31/Mai</div>
+    </div>
+    <!-- Block 4 -->
+    <div style="flex: 1; text-align: center; position: relative;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--orange); margin-bottom: 8px;">LANCAMENTO</div>
+      <div style="width: 70%; margin: 0 auto; background: var(--orange); padding: 10px 8px; position: relative; z-index: 2;">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--black); text-transform: uppercase;">GO-LIVE</div>
+      </div>
+      <div style="font-size: 10px; color: #999; margin-top: 8px;">01/Jun</div>
+    </div>
+    <!-- Block 5 -->
+    <div style="flex: 1.3; text-align: center; position: relative;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--orange); margin-bottom: 8px;">COPA</div>
+      <div style="width: 80%; margin: 0 auto; background: var(--orange); padding: 14px 8px; position: relative; z-index: 2;">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 13px; color: var(--black); text-transform: uppercase;">COPA DO MUNDO</div>
+      </div>
+      <div style="font-size: 10px; color: #999; margin-top: 8px;">11/Jun</div>
+    </div>
+    <!-- Block 6 -->
+    <div style="flex: 0.8; text-align: center; position: relative;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--orange); margin-bottom: 8px;">FINAL</div>
+      <div style="width: 70%; margin: 0 auto; background: var(--orange); padding: 10px 8px; position: relative; z-index: 2;">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; color: var(--black); text-transform: uppercase;">FINAL</div>
+      </div>
+      <div style="font-size: 10px; color: #999; margin-top: 8px;">19/Jul</div>
+    </div>
+  </div>
+
+  <!-- 3 data blocks -->
+  <div style="display: flex; gap: 20px; margin-top: 10px;">
+    <div style="flex: 1; background: var(--black); padding: 24px 20px; border-left: 4px solid var(--orange); text-align: center;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 32px; color: var(--orange);">R$ 19 BI</div>
+      <div style="font-size: 12px; color: #aaa; margin-top: 6px; text-transform: uppercase; font-weight: 600;">Volume projetado de apostas na Copa</div>
+    </div>
+    <div style="flex: 1; background: var(--black); padding: 24px 20px; border-left: 4px solid var(--orange); text-align: center;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 32px; color: var(--orange);">3-5x</div>
+      <div style="font-size: 12px; color: #aaa; margin-top: 6px; text-transform: uppercase; font-weight: 600;">Multiplicador de registros durante o torneio</div>
+    </div>
+    <div style="flex: 1; background: var(--black); padding: 24px 20px; border-left: 4px solid var(--orange); text-align: center;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 24px; color: var(--orange);">1&#170; COPA</div>
+      <div style="font-size: 12px; color: #aaa; margin-top: 6px; text-transform: uppercase; font-weight: 600;">Primeira Copa com mercado regulado no Brasil</div>
+    </div>
+  </div>
+
+  <div class="page-footer">Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAG 24 — O PEDIDO + ENCERRAMENTO (MANTER PRETO) -->
+<!-- ============================================================ -->
+<div class="page page-black" style="padding: 40px 50px;">
+  <div class="watermark"><img src="bw-logo.png" alt="BetWarrior"></div>
+  <h2 style="font-size: 26px; color: var(--orange); margin-bottom: 28px;">O QUE PEDIMOS</h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+    <div style="display: flex; gap: 16px; align-items: flex-start; background: var(--row-alt-2); padding: 20px;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 48px; color: var(--orange); line-height: 1; min-width: 50px;">1</div>
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; color: var(--white); text-transform: uppercase; margin-bottom: 6px;">VALIDAR A DIRECAO</div>
+        <div style="font-size: 12px; color: #aaa; line-height: 1.5;">Validar a direcao de evolucao — do "Cria Visionario / Do Corre" para "Warrior / Do Jogo / Vira o Jogo"</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; align-items: flex-start; background: var(--row-alt-2); padding: 20px;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 48px; color: var(--orange); line-height: 1; min-width: 50px;">2</div>
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; color: var(--white); text-transform: uppercase; margin-bottom: 6px;">APROVAR O CONCEITO</div>
+        <div style="font-size: 12px; color: #aaa; line-height: 1.5;">Aprovar o conceito criativo — "Vira o Jogo" como plataforma de marca unificada</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; align-items: flex-start; background: var(--row-alt-2); padding: 20px;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 48px; color: var(--orange); line-height: 1; min-width: 50px;">3</div>
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; color: var(--white); text-transform: uppercase; margin-bottom: 6px;">AUTORIZAR BRIEFING</div>
+        <div style="font-size: 12px; color: #aaa; line-height: 1.5;">Autorizar briefing para agencia — desenvolvimento de identidade visual, manifesto e producao</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; align-items: flex-start; background: var(--row-alt-2); padding: 20px;">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 48px; color: var(--orange); line-height: 1; min-width: 50px;">4</div>
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; color: var(--white); text-transform: uppercase; margin-bottom: 6px;">COMPROMETER COM O TIMELINE</div>
+        <div style="font-size: 12px; color: #aaa; line-height: 1.5;">Conceito ate 10/Mai, producao ate 31/Mai, live em 01/Jun. A Copa nao espera.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Separator -->
+  <div style="width: 100%; height: 4px; background: var(--orange); margin: 20px 0;"></div>
+
+  <!-- Final phrase -->
+  <div style="text-align: center; padding: 16px 0;">
+    <div style="font-family: 'Archivo Black', sans-serif; font-size: 26px; color: var(--orange); text-transform: uppercase; line-height: 1.4;">
+      A FUNDACAO ESTAVA CERTA.<br>
+      A DIRECAO PRECISAVA EVOLUIR.<br>
+      OS DADOS MOSTRARAM COMO.
+    </div>
+  </div>
+
+  <div class="page-footer" style="text-align: center;">
+    Confidencial &mdash; BetWarrior Marketing Brasil | Abril 2026
+  </div>
+</div>
+
+</body>
+</html>

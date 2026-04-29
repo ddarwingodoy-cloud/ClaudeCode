@@ -1,0 +1,2877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=297mm, initial-scale=1.0">
+<title>BetWarrior Brazil - Monthly Executive Report - March 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 297mm 210mm;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: #1C1C1E;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 297mm;
+    height: 210mm;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  /* ===== COVER ===== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-top {
+    flex: 1;
+    background: #1C1C1E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+    position: relative;
+  }
+
+  .cover-top h1 {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .cover-top .subtitle {
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .cover-bottom {
+    height: 105mm;
+    background: #FF3900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+    position: relative;
+  }
+
+  .cover-bottom .month {
+    color: #fff;
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .cover-bottom .year {
+    color: rgba(255,255,255,0.7);
+    font-size: 36px;
+    font-weight: 300;
+  }
+
+  .cover-bottom .tagline {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .cover-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+  }
+
+  .cover-logo img {
+    height: 36px;
+    opacity: 0.9;
+  }
+
+  .cover-top .cover-logo {
+    top: 30px;
+    bottom: auto;
+    right: 60px;
+  }
+
+  .cover-top .cover-logo img {
+    height: 28px;
+    opacity: 0.5;
+  }
+
+  /* ===== SECTION DIVIDERS ===== */
+  .divider {
+    display: flex;
+  }
+
+  .divider-left {
+    width: 45%;
+    height: 210mm;
+    background: #FF3900;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 50px;
+  }
+
+  .divider-left h2 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 900;
+    text-align: right;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .divider-right {
+    width: 55%;
+    height: 210mm;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+  }
+
+  .divider-right .section-number {
+    font-size: 120px;
+    font-weight: 900;
+    color: #F2F2F7;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .divider-right .section-desc {
+    font-size: 15px;
+    color: #666;
+    font-weight: 400;
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  /* ===== CONTENT PAGES ===== */
+  .content-page {
+    padding: 35px 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #FF3900;
+  }
+
+  .page-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #FF3900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .page-header .logo-small {
+    height: 22px;
+  }
+
+  .page-footer {
+    position: absolute;
+    bottom: 15px;
+    right: 50px;
+    font-size: 10px;
+    color: #bbb;
+    font-weight: 400;
+  }
+
+  /* ===== EXECUTIVE SUMMARY ===== */
+  .exec-grid {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+  }
+
+  .exec-left {
+    flex: 1.1;
+  }
+
+  .exec-right {
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .exec-narrative {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .exec-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exec-bullets li {
+    padding: 8px 0 8px 28px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .exec-bullets li::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url('bw-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 6px;
+    top: 10px;
+  }
+
+  .exec-bullets li strong {
+    color: #1C1C1E;
+  }
+
+  .exec-card {
+    background: #1C1C1E;
+    border-radius: 10px;
+    padding: 20px 22px;
+    flex: 1;
+  }
+
+  .exec-card.drivers {
+    border-left: 4px solid #FF3900;
+  }
+
+  .exec-card.challenges {
+    border-left: 4px solid #666;
+  }
+
+  .exec-card h3 {
+    color: #FF3900;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .exec-card.challenges h3 {
+    color: #999;
+  }
+
+  .exec-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exec-card ul li {
+    color: rgba(255,255,255,0.85);
+    font-size: 12px;
+    line-height: 1.55;
+    padding: 5px 0 5px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .exec-card ul li::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url('bw-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    opacity: 0.6;
+  }
+
+  .exec-card ul li:last-child {
+    border-bottom: none;
+  }
+
+  /* ===== KPI TABLE ===== */
+  .kpi-table-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kpi-table {
+    width: 85%;
+    margin: 0 auto 20px auto;
+    border-collapse: collapse;
+  }
+
+  .kpi-table thead th {
+    background: #1C1C1E;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 14px 20px;
+    text-align: left;
+  }
+
+  .kpi-table thead th:first-child {
+    border-radius: 8px 0 0 0;
+  }
+
+  .kpi-table thead th:last-child {
+    border-radius: 0 8px 0 0;
+    text-align: center;
+  }
+
+  .kpi-table thead th:nth-child(3),
+  .kpi-table thead th:nth-child(4) {
+    text-align: center;
+  }
+
+  .kpi-table tbody td {
+    padding: 10px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .kpi-table tbody td:first-child {
+    font-weight: 600;
+    color: #1C1C1E;
+  }
+
+  .kpi-table tbody td:nth-child(2) {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1C1C1E;
+  }
+
+  .kpi-table tbody td:nth-child(3),
+  .kpi-table tbody td:nth-child(4) {
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .kpi-table tbody td:last-child {
+    text-align: center;
+  }
+
+  .kpi-table tbody tr:last-child td {
+    border-bottom: 2px solid #1C1C1E;
+  }
+
+  .up { color: #00C853; }
+  .down { color: #FF3900; }
+  .neutral { color: #666; }
+
+  .kpi-note {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #555;
+    background: #F2F2F7;
+    padding: 16px 20px;
+    border-radius: 8px;
+  }
+
+  /* ===== CHART AREAS ===== */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .chart-box {
+    background: #F9F9FB;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chart-box h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1C1C1E;
+    margin-bottom: 10px;
+  }
+
+  .chart-area {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    position: relative;
+    padding-bottom: 24px;
+    padding-top: 22px;
+  }
+
+  .chart-area .x-labels {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 10px;
+    color: #999;
+    font-weight: 600;
+  }
+
+  /* Bar chart styles */
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    position: relative;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .bar-group .bars {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+    height: calc(100% - 2px);
+  }
+
+  .bar {
+    width: 28px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    min-height: 2px;
+    transition: height 0.3s;
+  }
+
+  .bar.orange { background: #FF3900; }
+  .bar.dark { background: #1C1C1E; }
+  .bar.target { background: #FFD6C9; border: 1px solid #FF6B3D; }
+  .bar.target .bar-val { color: #FF6B3D; }
+  .bar.gray { background: #ccc; }
+  .bar.light-orange { background: #FF8A65; }
+  .bar.green { background: #00C853; }
+  .bar.red { background: #FF3900; }
+  .bar.blue { background: #2979FF; }
+
+  .bar .bar-val {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    font-weight: 700;
+    color: #555;
+    white-space: nowrap;
+  }
+
+  /* Stacked area chart via colored blocks */
+  .area-chart {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 1px;
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .area-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .area-block {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .area-block.sports { background: #1C1C1E; }
+  .area-block.casino { background: #FF3900; }
+
+  .area-val {
+    font-size: 9px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  /* Line chart dots */
+  .line-chart {
+    flex: 1;
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .line-chart svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Legend */
+  .chart-legend {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #666;
+    font-weight: 600;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* ===== BUSINESS PERFORMANCE ===== */
+  .biz-grid {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .biz-card {
+    flex: 1;
+    background: #1C1C1E;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .biz-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #FF3900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .biz-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .biz-table th {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .biz-table th:nth-child(n+2) {
+    text-align: right;
+  }
+
+  .biz-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .biz-table td:first-child {
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    padding-left: 0;
+  }
+
+  .biz-table td:nth-child(2) {
+    text-align: right;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .biz-table td:nth-child(3),
+  .biz-table td:nth-child(4) {
+    text-align: right;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .biz-analysis {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ===== PLACEHOLDER PAGES ===== */
+  .placeholder-grid {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .placeholder-card {
+    flex: 1;
+    background: #1C1C1E;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .placeholder-card.orange-border {
+    border-left: 4px solid #FF3900;
+  }
+
+  .placeholder-card.red-border {
+    border-left: 4px solid #FF3900;
+  }
+
+  .placeholder-card.blue-border {
+    border-left: 4px solid #2979FF;
+  }
+
+  .placeholder-card.gray-border {
+    border-left: 4px solid #666;
+  }
+
+  .placeholder-card h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #FF3900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+
+  .placeholder-card .ph-text {
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .placeholder-card .ph-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .ph-metric-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .ph-metric-box .ph-val {
+    font-size: 20px;
+    font-weight: 800;
+    color: #FF3900;
+  }
+
+  .ph-metric-box .ph-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  .next-steps {
+    margin-top: auto;
+    background: rgba(255,57,0,0.08);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .next-steps h4 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #FF3900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .next-steps ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .next-steps ul li {
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    padding: 3px 0;
+    line-height: 1.5;
+  }
+
+  .next-steps ul li::before {
+    content: ">";
+    color: #FF3900;
+    margin-right: 6px;
+    font-weight: 700;
+  }
+
+  /* Grouped bar for Real x Target */
+  .target-chart {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding-bottom: 24px;
+    position: relative;
+  }
+
+  .target-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .target-group .tg-bars {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tg-bar {
+    width: 28px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+  }
+
+  .tg-bar.real { background: #FF3900; }
+  .tg-bar.target { background: #FFD6C9; border: 1px solid #FF6B3D; }
+
+  .tg-bar .tg-val {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    font-weight: 700;
+    color: #555;
+    white-space: nowrap;
+  }
+
+  /* P&L Placeholder */
+  .pnl-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pnl-placeholder .icon {
+    font-size: 48px;
+    color: #ddd;
+  }
+
+  .pnl-placeholder .msg {
+    font-size: 16px;
+    color: #999;
+    font-weight: 500;
+  }
+
+  .pnl-placeholder .sub {
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
+    max-width: 500px;
+  }
+
+  /* Negative bar handling — same color, no opacity change */
+  .bar.negative {
+    /* colors maintained from .bar.orange / .bar.dark */
+  }
+
+  /* Target recalibration */
+  .recal-grid {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+  }
+
+  .recal-left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .recal-right {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .recal-card {
+    background: #F9F9FB;
+    border-radius: 10px;
+    padding: 18px 22px;
+    border-left: 4px solid #FF3900;
+  }
+
+  .recal-card h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1C1C1E;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .recal-card p {
+    font-size: 12px;
+    line-height: 1.65;
+    color: #555;
+  }
+
+  .blocker-item {
+    background: #1C1C1E;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .blocker-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .blocker-item .blocker-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #FF3900;
+    margin-bottom: 3px;
+  }
+
+  .blocker-item .blocker-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-logo"><img src="bw-logo.png" alt="BetWarrior"></div>
+    <h1>Brazil Monthly<br>Executive Report</h1>
+    <div class="subtitle">Key Insights and Updates</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="month">March</div>
+    <div class="year">2026</div>
+    <div class="tagline">Confidential - Internal Use Only</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: DIVIDER - EXECUTIVE SUMMARY ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Executive<br>Summary</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">01</div>
+      <div class="section-desc">High-level overview of March 2026 performance, key drivers and challenges facing the Brazil operation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: EXECUTIVE SUMMARY CONTENT ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Executive Summary</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="exec-grid">
+    <div class="exec-left">
+      <p class="exec-narrative">
+        March 2026 marked a turning point for BetWarrior Brazil. The operation delivered its strongest month of the year, with GGR reaching R$149,819 (+120% MoM) and NGR at R$126,058 (+197% MoM). This recovery followed two consecutive negative months in January and February, signaling that the structural adjustments implemented in Q1 are beginning to yield results.
+      </p>
+      <p class="exec-narrative">
+        Acquisition efficiency improved materially: FTDs grew 49% MoM to 1,784, while conversion rate (FTDs / Full Registrations NoLock) climbed to 22.2% from 20.6% in February (+1.6pp). Bonus cost discipline was maintained at R$23,761, representing 15.9% of GGR - a significant improvement from February's 37.6%. The casino vertical continued its consistent positive contribution at R$109,340 GGR, while Sports recovered from near-zero to R$40,479.
+      </p>
+
+      <ul class="exec-bullets">
+        <li><strong>GGR R$149,819</strong> (+120% MoM) - best result since October 2025</li>
+        <li><strong>NGR R$126,058</strong> (+197% MoM) - three consecutive months of improvement</li>
+        <li><strong>FTDs 1,784</strong> (+49% MoM) - conversion rate FTD/FRNL at 22.2% (+1.6pp)</li>
+        <li><strong>Bonus Cost/GGR at 15.9%</strong> - down from 37.6% in Feb, showing improved efficiency</li>
+        <li><strong>Deposits R$1.65M</strong> (+15% MoM) - Withdrawals R$1.55M (-4% MoM)</li>
+        <li><strong>GTM strategy fully revised</strong> - new acquisition and retention framework in place</li>
+      </ul>
+    </div>
+
+    <div class="exec-right">
+      <div class="exec-card drivers">
+        <h3>Key Drivers</h3>
+        <ul>
+          <li>Casino GGR consistency: R$109K with 6.3% margin, stable revenue base across all months</li>
+          <li>Sports recovery: GGR turned positive at R$40K after 4 months of losses or near-zero results</li>
+          <li>Bonus cost discipline: Ratio dropped from 37.6% to 15.9% of GGR, improving unit economics</li>
+          <li>Funnel optimization: 42% more registrations flowing through with better conversion rates</li>
+          <li>Deposit growth (+15%) outpacing withdrawal growth (-4%), improving cash flow dynamics</li>
+        </ul>
+      </div>
+
+      <div class="exec-card challenges">
+        <h3>Challenges</h3>
+        <ul>
+          <li>GGR at 26.4% of target (R$149K vs R$567K) - significant gap to close in coming months</li>
+          <li>FTDs at 29.7% of target (1,784 vs 6,000) - acquisition scale remains below plan</li>
+          <li>Unique Bettors at 16.7% of plan (3,105 vs 18,577) - retention and reactivation need focus</li>
+          <li>Sports margin at 2.0% - still below industry benchmarks of 13-15%</li>
+          <li>Bet volume (R$3.8M) declined 62% from November peak (R$12.0M)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 3</div>
+</div>
+
+<!-- ==================== PAGE 4: DIVIDER - KEY METRICS ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Key<br>Metrics</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">02</div>
+      <div class="section-desc">Monthly KPIs, trend analysis and performance against targets for the Brazil operation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: KPI OVERVIEW TABLE ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>KPI Overview</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="kpi-table-wrap">
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th style="width:22%">KPI</th>
+          <th style="width:22%">March 2026</th>
+          <th style="width:18%">MoM Change</th>
+          <th style="width:38%">Vs Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>New Registrations</td>
+          <td>16,809</td>
+          <td class="up">+42% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>Full Registrations</td>
+          <td>10,569</td>
+          <td class="up">+40% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>Full Reg (No Lock)</td>
+          <td>8,049</td>
+          <td class="up">+39% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>FTDs</td>
+          <td>1,784</td>
+          <td class="up">+49% &#8593;</td>
+          <td class="down">29.7% of target (6,000)</td>
+        </tr>
+        <tr>
+          <td>Conversion (FTD/FRNL)</td>
+          <td>22.2%</td>
+          <td class="up">+1.6pp &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>Unique Bettors</td>
+          <td>3,105</td>
+          <td class="up">+5% &#8593;</td>
+          <td class="down">35.6% of target (8,721)</td>
+        </tr>
+        <tr>
+          <td>Gross Bets</td>
+          <td>R$ 3,790,284</td>
+          <td class="up">+17% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>GGR</td>
+          <td>R$ 149,819</td>
+          <td class="up">+120% &#8593;</td>
+          <td class="down">26.4% of target (566,862)</td>
+        </tr>
+        <tr>
+          <td>GGR Margin</td>
+          <td>4.0%</td>
+          <td class="up">+1.9pp &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>NGR</td>
+          <td>R$ 126,058</td>
+          <td class="up">+197% &#8593;</td>
+          <td class="down">27.8% of target (453,490)</td>
+        </tr>
+        <tr>
+          <td>Bonus Cost</td>
+          <td>R$ 23,761</td>
+          <td class="up">-7% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>Deposits</td>
+          <td>R$ 1,646,337</td>
+          <td class="up">+15% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>Withdrawals</td>
+          <td>R$ 1,545,374</td>
+          <td class="up">-4% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+        <tr>
+          <td>Bet Count</td>
+          <td>442,257</td>
+          <td class="up">+45% &#8593;</td>
+          <td class="neutral">-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Note removed to save space -->
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 5</div>
+</div>
+
+<!-- ==================== PAGE 6: KPI CHARTS - MAIN ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>KPI Charts &mdash; Trend Analysis</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="charts-grid">
+
+    <!-- TOP LEFT: GGR x NGR Comparison (Jan-Mar only) -->
+    <div class="chart-box">
+      <h3>GGR vs NGR (R$ thousands)</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>GGR</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#1C1C1E"></div>NGR</div>
+      </div>
+      <!-- Data: Jan:-62/-106 Feb:68/42 Mar:150/126 -->
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange negative" style="height: 41%;"><div class="bar-val">-62</div></div>
+            <div class="bar dark negative" style="height: 71%;"><div class="bar-val">-106</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 45%;"><div class="bar-val">68</div></div>
+            <div class="bar dark" style="height: 28%;"><div class="bar-val">42</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 100%;"><div class="bar-val">150</div></div>
+            <div class="bar dark" style="height: 84%;"><div class="bar-val">126</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP RIGHT: Uniques x FTDs (Jan-Mar only) -->
+    <!-- UB: 4868, 2971, 3105 / FTDs: 1972, 1196, 1784 -->
+    <!-- Max = 4868 (UB Jan). UB must always be >= FTD bar -->
+    <div class="chart-box">
+      <h3>Unique Bettors &amp; FTDs</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Unique Bettors</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#1C1C1E"></div>FTDs</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 100%;"><div class="bar-val">4,868</div></div>
+            <div class="bar dark" style="height: 41%;"><div class="bar-val">1,972</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 61%;"><div class="bar-val">2,971</div></div>
+            <div class="bar dark" style="height: 25%;"><div class="bar-val">1,196</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 64%;"><div class="bar-val">3,105</div></div>
+            <div class="bar dark" style="height: 37%;"><div class="bar-val">1,784</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM LEFT: GGR by Vertical (Jan-Mar only) -->
+    <!-- Sports: Jan:-165 Feb:3 Mar:40 | Casino: Jan:103 Feb:65 Mar:109 -->
+    <!-- Max=165 for scale -->
+    <div class="chart-box">
+      <h3>GGR by Vertical (R$ thousands)</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1C1C1E"></div>Sports</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Casino</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar dark negative" style="height: 100%;"><div class="bar-val">-165</div></div>
+            <div class="bar orange" style="height: 62%;"><div class="bar-val">103</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar dark" style="height: 2%;"><div class="bar-val">3</div></div>
+            <div class="bar orange" style="height: 39%;"><div class="bar-val">65</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar dark" style="height: 24%;"><div class="bar-val">40</div></div>
+            <div class="bar orange" style="height: 66%;"><div class="bar-val">109</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM RIGHT: NGR by Vertical (Jan-Mar only) -->
+    <!-- Sports: Jan:-184 Feb:-15 Mar:24 | Casino: Jan:78 Feb:57 Mar:102 -->
+    <!-- Max=184 for scale -->
+    <div class="chart-box">
+      <h3>NGR by Vertical (R$ thousands)</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1C1C1E"></div>Sports</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Casino</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar dark negative" style="height: 100%;"><div class="bar-val">-184</div></div>
+            <div class="bar orange" style="height: 42%;"><div class="bar-val">78</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar dark negative" style="height: 8%;"><div class="bar-val">-15</div></div>
+            <div class="bar orange" style="height: 31%;"><div class="bar-val">57</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar dark" style="height: 13%;"><div class="bar-val">24</div></div>
+            <div class="bar orange" style="height: 55%;"><div class="bar-val">102</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 6</div>
+</div>
+
+<!-- ==================== PAGE 7: REAL x TARGET CHARTS ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>KPI Charts &mdash; Real vs Target</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="charts-grid">
+
+    <!-- GGR Real x Target (Jan-Mar only) -->
+    <!-- Target: Jan:-74K Feb:161K Mar:567K -->
+    <!-- Real: Jan:-62 Feb:68 Mar:150 -->
+    <!-- Max = 567. Scale to that -->
+    <div class="chart-box">
+      <h3>GGR &mdash; Real vs Target (R$ thousands)</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Real</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FFD6C9;border:1px solid #FF6B3D;"></div>Target</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange negative" style="height: 11%;"><div class="bar-val">-62</div></div>
+            <div class="bar target" style="height: 13%;"><div class="bar-val">-74</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 12%;"><div class="bar-val">68</div></div>
+            <div class="bar target" style="height: 28%;"><div class="bar-val">161</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 26%;"><div class="bar-val">150</div></div>
+            <div class="bar target" style="height: 100%;"><div class="bar-val">567</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NGR Real x Target (Jan-Mar only) -->
+    <!-- Target: Jan:-98K Feb:129K Mar:453K -->
+    <!-- Real: Jan:-106 Feb:42 Mar:126 -->
+    <!-- Max = 453 -->
+    <div class="chart-box">
+      <h3>NGR &mdash; Real vs Target (R$ thousands)</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Real</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FFD6C9;border:1px solid #FF6B3D;"></div>Target</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange negative" style="height: 23%;"><div class="bar-val">-106</div></div>
+            <div class="bar target" style="height: 22%;"><div class="bar-val">-98</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 9%;"><div class="bar-val">42</div></div>
+            <div class="bar target" style="height: 28%;"><div class="bar-val">129</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 28%;"><div class="bar-val">126</div></div>
+            <div class="bar target" style="height: 100%;"><div class="bar-val">453</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FTDs Real x Target (Jan-Mar only) -->
+    <!-- Target: Jan:1972 Feb:3000 Mar:6000 -->
+    <!-- Real: Jan:1972 Feb:1196 Mar:1784 -->
+    <!-- Max = 6000 -->
+    <div class="chart-box">
+      <h3>FTDs &mdash; Real vs Target</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Real</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FFD6C9;border:1px solid #FF6B3D;"></div>Target</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 33%;"><div class="bar-val">1,972</div></div>
+            <div class="bar target" style="height: 33%;"><div class="bar-val">1,972</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 20%;"><div class="bar-val">1,196</div></div>
+            <div class="bar target" style="height: 50%;"><div class="bar-val">3,000</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 30%;"><div class="bar-val">1,784</div></div>
+            <div class="bar target" style="height: 100%;"><div class="bar-val">6,000</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unique Bettors Real x Target (Jan-Mar only) -->
+    <!-- Target: Jan:10450 Feb:10537 Mar:18577 -->
+    <!-- Real: Jan:4868 Feb:2971 Mar:3105 -->
+    <!-- Max = 18577 -->
+    <div class="chart-box">
+      <h3>Unique Bettors &mdash; Real vs Target</h3>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#FF3900"></div>Real</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FFD6C9;border:1px solid #FF6B3D;"></div>Target</div>
+      </div>
+      <div class="chart-area">
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 26%;"><div class="bar-val">4,868</div></div>
+            <div class="bar target" style="height: 56%;"><div class="bar-val">10,450</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 16%;"><div class="bar-val">2,971</div></div>
+            <div class="bar target" style="height: 57%;"><div class="bar-val">10,537</div></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bars">
+            <div class="bar orange" style="height: 17%;"><div class="bar-val">3,105</div></div>
+            <div class="bar target" style="height: 100%;"><div class="bar-val">18,577</div></div>
+          </div>
+        </div>
+        <div class="x-labels">
+          <span>Jan</span><span>Feb</span><span>Mar</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 7</div>
+</div>
+
+<!-- ==================== PAGE 8: TARGET RECALIBRATION (NEW) ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Target Recalibration &mdash; Work in Progress</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="recal-grid">
+    <div class="recal-left">
+      <div class="recal-card">
+        <h4>Context</h4>
+        <p>Current targets were set before operational reality was fully understood. The significant gap between actual results and planned targets (GGR at 26% of plan, FTDs at 30% of plan) reflects assumptions that did not account for the structural challenges encountered during the first months of regulated operation.</p>
+      </div>
+      <div class="recal-card" style="border-left-color: #00C853;">
+        <h4>Diagnostic Completed</h4>
+        <p>A comprehensive diagnostic of structural blockers has been completed across all operational areas. The assessment covered tracking infrastructure, onboarding flows, agency capabilities, creative production, and governance models. Findings are being used to define realistic Q2 targets based on actual run rates and measurable improvement trajectories.</p>
+      </div>
+      <div class="recal-card" style="border-left-color: #2979FF;">
+        <h4>New Targets for Q2</h4>
+        <p>Revised targets are being defined for Q2 2026 based on three inputs: (1) actual Jan-Mar run rates as baseline, (2) expected uplift from resolved blockers, and (3) phased channel ramp-up timelines. The new framework will be presented for approval in April with monthly checkpoints built in.</p>
+      </div>
+    </div>
+
+    <div class="recal-right">
+      <div style="font-size:12px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Key Blockers Identified</div>
+
+      <div class="blocker-item">
+        <img class="blocker-icon" src="bw-icon.png" alt="">
+        <div>
+          <div class="blocker-title">Tracking & Tagging Gaps</div>
+          <div class="blocker-desc">FTD pixel was misconfigured until March 13th, causing attribution errors across all paid channels. Media spend decisions were being made on incomplete data. Tagging fix deployed mid-month; full impact expected in April.</div>
+        </div>
+      </div>
+
+      <div class="blocker-item">
+        <img class="blocker-icon" src="bw-icon.png" alt="">
+        <div>
+          <div class="blocker-title">Onboarding KYC Friction</div>
+          <div class="blocker-desc">Document verification flow causing significant drop-off. Users abandoning after initial registration due to multi-step KYC requirements.</div>
+        </div>
+      </div>
+
+      <div class="blocker-item">
+        <img class="blocker-icon" src="bw-icon.png" alt="">
+        <div>
+          <div class="blocker-title">Creative Production Capacity</div>
+          <div class="blocker-desc">Limited in-house creative output constraining campaign velocity. Dependency on external agency with slow turnaround times.</div>
+        </div>
+      </div>
+
+      <div class="blocker-item">
+        <img class="blocker-icon" src="bw-icon.png" alt="">
+        <div>
+          <div class="blocker-title">Media Attribution Accuracy</div>
+          <div class="blocker-desc">Incomplete UTM coverage and fragmented tracking across paid, organic and affiliate channels making ROI analysis unreliable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 8</div>
+</div>
+
+<!-- ==================== PAGE 9: DIVIDER - BUSINESS PERFORMANCE ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Business<br>Performance</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">03</div>
+      <div class="section-desc">Sportsbook and Casino vertical breakdown with month-over-month comparison and margin analysis.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 10: BUSINESS PERFORMANCE CONTENT ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Business Performance by Vertical</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="biz-grid">
+    <!-- SPORTSBOOK -->
+    <div class="biz-card">
+      <h3>Sportsbook</h3>
+      <table class="biz-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>March 2026</th>
+            <th>MoM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gross Bets (Turnover)</td>
+            <td style="color:#fff;font-weight:700">R$ 2,043,599</td>
+            <td class="down">-5.6%</td>
+          </tr>
+          <tr>
+            <td>Gross Wins</td>
+            <td style="color:#fff;font-weight:700">R$ 2,003,120</td>
+            <td class="down">-7.3%</td>
+          </tr>
+          <tr>
+            <td>GGR</td>
+            <td style="color:#FF3900;font-weight:700">R$ 40,479</td>
+            <td class="up">+1,383%</td>
+          </tr>
+          <tr>
+            <td>GGR Margin</td>
+            <td style="color:#fff;font-weight:700">2.0%</td>
+            <td class="up">+1.9pp</td>
+          </tr>
+          <tr>
+            <td>NGR</td>
+            <td style="color:#FF3900;font-weight:700">R$ 24,498</td>
+            <td class="up">Recovered</td>
+          </tr>
+          <tr>
+            <td>Unique Bettors</td>
+            <td style="color:#fff;font-weight:700">1,910</td>
+            <td class="down">-12.6%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="biz-analysis">
+        Sports GGR turned positive for the first time since October 2025. The 2.0% margin is still below the typical 13-15% industry range, but the recovery from near-zero in February represents meaningful progress. NGR also returned to positive territory at R$24.5K. Focus for April: improve margin through odds optimization and reduce exposure to high-risk events.
+      </div>
+    </div>
+
+    <!-- CASINO -->
+    <div class="biz-card">
+      <h3>Casino</h3>
+      <table class="biz-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>March 2026</th>
+            <th>MoM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gross Bets (Turnover)</td>
+            <td style="color:#fff;font-weight:700">R$ 1,746,684</td>
+            <td class="up">+63.4%</td>
+          </tr>
+          <tr>
+            <td>Gross Wins</td>
+            <td style="color:#fff;font-weight:700">R$ 1,637,345</td>
+            <td class="up">+63.1%</td>
+          </tr>
+          <tr>
+            <td>GGR</td>
+            <td style="color:#FF3900;font-weight:700">R$ 109,340</td>
+            <td class="up">+67.4%</td>
+          </tr>
+          <tr>
+            <td>GGR Margin</td>
+            <td style="color:#fff;font-weight:700">6.3%</td>
+            <td class="up">+0.2pp</td>
+          </tr>
+          <tr>
+            <td>NGR</td>
+            <td style="color:#FF3900;font-weight:700">R$ 101,560</td>
+            <td class="up">+77.8%</td>
+          </tr>
+          <tr>
+            <td>Unique Bettors</td>
+            <td style="color:#fff;font-weight:700">1,613</td>
+            <td class="up">+35.7%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="biz-analysis">
+        Casino continues to be the revenue backbone, delivering consistent positive results every month. March's 6.3% margin is within the expected range. Gross Bets surged 63% MoM, indicating increased engagement per player. Casino now contributes 73% of total GGR and 81% of NGR. Priorities for April: expand game portfolio and launch targeted promotions for high-value segments.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 10</div>
+</div>
+
+<!-- ==================== REORDERED SECTIONS START ==================== -->
+
+<!-- ==================== PAGE 11: DIVIDER - PERFORMANCE ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Performance</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">04</div>
+      <div class="section-desc">Paid acquisition channels, cost per acquisition metrics and FTD source attribution analysis.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 12: PERFORMANCE CONTENT ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Performance</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="placeholder-grid">
+    <div class="placeholder-card orange-border" style="flex:1.2">
+      <h3>Top Sources by Registrations</h3>
+      <table class="biz-table" style="margin-bottom:10px">
+        <thead>
+          <tr>
+            <th style="text-align:left">Source</th>
+            <th>Regs</th>
+            <th>FTDs</th>
+            <th>Conv%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Search</td>
+            <td style="color:#fff;font-weight:700">4,642</td>
+            <td style="color:#FF3900;font-weight:700">357</td>
+            <td style="color:rgba(255,255,255,0.7)">7.7%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Meta</td>
+            <td style="color:#fff;font-weight:700">3,331</td>
+            <td style="color:#FF3900;font-weight:700">259</td>
+            <td style="color:rgba(255,255,255,0.7)">7.8%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">PMax</td>
+            <td style="color:#fff;font-weight:700">2,899</td>
+            <td style="color:#FF3900;font-weight:700">175</td>
+            <td style="color:rgba(255,255,255,0.7)">6.0%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Direct</td>
+            <td style="color:#fff;font-weight:700">1,841</td>
+            <td style="color:#FF3900;font-weight:700">537</td>
+            <td style="color:#4CAF50;font-weight:700">29.2%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Deportes</td>
+            <td style="color:#fff;font-weight:700">1,355</td>
+            <td style="color:#FF3900;font-weight:700">114</td>
+            <td style="color:rgba(255,255,255,0.7)">8.4%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">TikTok</td>
+            <td style="color:#fff;font-weight:700">516</td>
+            <td style="color:#FF3900;font-weight:700">43</td>
+            <td style="color:rgba(255,255,255,0.7)">8.3%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Kwai</td>
+            <td style="color:#fff;font-weight:700">503</td>
+            <td style="color:#FF3900;font-weight:700">9</td>
+            <td style="color:#FF3900;font-weight:700">1.8%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Retargeting</td>
+            <td style="color:#fff;font-weight:700">445</td>
+            <td style="color:#FF3900;font-weight:700">61</td>
+            <td style="color:rgba(255,255,255,0.7)">13.7%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Instagram</td>
+            <td style="color:#fff;font-weight:700">366</td>
+            <td style="color:#FF3900;font-weight:700">44</td>
+            <td style="color:rgba(255,255,255,0.7)">12.0%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Taboola</td>
+            <td style="color:#fff;font-weight:700">285</td>
+            <td style="color:#FF3900;font-weight:700">9</td>
+            <td style="color:#FF3900;font-weight:700">3.2%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="biz-analysis" style="margin-top:6px;font-size:11px">
+        Paid media dominates registration volume (72%), but <strong>Direct traffic delivers the best conversion rate at 29.2%</strong>, suggesting strong brand recall among returning users. Search and Meta are the top paid performers with consistent ~7.8% conversion. <strong>Kwai (1.8%) and Taboola (3.2%) show very poor conversion</strong> and should be re-evaluated for Q2 spend allocation. Retargeting (13.7%) and Instagram (12.0%) show efficient conversion on smaller volumes.
+      </div>
+    </div>
+
+    <div class="placeholder-card orange-border" style="flex:0.8">
+      <h3>Attribution by Medium</h3>
+      <table class="biz-table" style="margin-bottom:10px">
+        <thead>
+          <tr>
+            <th style="text-align:left">Medium</th>
+            <th>Regs</th>
+            <th>FTDs</th>
+            <th>% Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Paid Media</td>
+            <td style="color:#fff;font-weight:700">12,174</td>
+            <td style="color:#FF3900;font-weight:700">850</td>
+            <td style="color:#fff;font-weight:700">72%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Affiliate</td>
+            <td style="color:#fff;font-weight:700">2,071</td>
+            <td style="color:#FF3900;font-weight:700">300</td>
+            <td style="color:#fff;font-weight:700">12%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Direct / Not Populated</td>
+            <td style="color:#fff;font-weight:700">1,756</td>
+            <td style="color:#FF3900;font-weight:700">527</td>
+            <td style="color:#fff;font-weight:700">10%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Social Paid</td>
+            <td style="color:#fff;font-weight:700">415</td>
+            <td style="color:#FF3900;font-weight:700">64</td>
+            <td style="color:#fff;font-weight:700">2.5%</td>
+          </tr>
+          <tr>
+            <td style="color:rgba(255,255,255,0.7)">Social Organic</td>
+            <td style="color:#fff;font-weight:700">366</td>
+            <td style="color:#FF3900;font-weight:700">43</td>
+            <td style="color:#fff;font-weight:700">2.2%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Visual bar breakdown -->
+      <div style="margin-top:10px">
+        <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px">FTD Distribution by Medium</div>
+        <div style="display:flex;height:18px;border-radius:4px;overflow:hidden;margin-bottom:4px">
+          <div style="width:72%;background:#FF3900" title="Paid Media 72%"></div>
+          <div style="width:12%;background:#FF6D00" title="Affiliate 12%"></div>
+          <div style="width:10%;background:#FFab40" title="Direct 10%"></div>
+          <div style="width:2.5%;background:#2979FF" title="Social Paid 2.5%"></div>
+          <div style="width:2.2%;background:#448AFF" title="Social Organic 2.2%"></div>
+        </div>
+        <div style="display:flex;gap:10px;font-size:9px;color:rgba(255,255,255,0.5);flex-wrap:wrap">
+          <span><span style="display:inline-block;width:8px;height:8px;background:#FF3900;border-radius:2px;margin-right:3px"></span>Paid Media</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:#FF6D00;border-radius:2px;margin-right:3px"></span>Affiliate</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:#FFab40;border-radius:2px;margin-right:3px"></span>Direct</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:#2979FF;border-radius:2px;margin-right:3px"></span>Social Paid</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:#448AFF;border-radius:2px;margin-right:3px"></span>Social Organic</span>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08)">
+        <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Glossary</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7">
+          <strong style="color:rgba(255,255,255,0.7)">UTM Source</strong> &mdash; identifies where the traffic comes from (e.g. Google, Meta, TikTok). Each row in the left table represents a distinct traffic origin.<br>
+          <strong style="color:rgba(255,255,255,0.7)">UTM Medium</strong> &mdash; identifies how the traffic was acquired (e.g. paid_media, affiliate, organic). Groups multiple sources into acquisition categories.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 12</div>
+</div>
+
+<!-- ==================== PAGE 13: DIVIDER - CRM ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>CRM</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">05</div>
+      <div class="section-desc">Customer relationship management, lifecycle optimization, retention metrics and campaign performance.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 14: CRM PERFORMANCE ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>CRM Performance</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div class="placeholder-grid">
+    <div class="placeholder-card orange-border" style="flex:1">
+      <h3>CRM Initiatives &amp; Performance</h3>
+      <div class="ph-text">
+        <p style="margin-bottom:8px;font-weight:600;color:#FF3900;font-size:11px;text-transform:uppercase;letter-spacing:1px;">Key Achievements in March</p>
+        <ul style="list-style:none;padding:0;margin:0 0 12px 0;font-size:11px;color:rgba(255,255,255,0.8);line-height:1.5">
+          <li style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Supported <strong>Android App launch</strong> with campaigns and feature activations across key journeys; full App journey rollout planned for Q2</li>
+          <li style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; <strong>Early-life journey revamp:</strong> fully optimized registration phase with new Quick Open and Quick Registration flows, driving <span style="color:#00C853;font-weight:700">+246% increase in completed registrations</span> (from 88 to 305 users in the first three weeks); RND gamified journey rollout planned for Q2</li>
+          <li style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Supported <strong>Telegram launch</strong>, now transitioned to Social Media ownership; SMS channel rollout planned for Q2</li>
+          <li style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; <strong>Revamped monthly reporting structure</strong>, now covering CRM performance and key initiatives by lifecycle stage (Early Life, Retention, Reactivation)</li>
+          <li style="padding:3px 0">&#9654; Established <strong>territory-based operations</strong>, with the Brazil CRM team also leading Live initiatives planning and execution</li>
+        </ul>
+      </div>
+      <div class="ph-metrics">
+        <div class="ph-metric-box">
+          <div class="ph-val" style="font-size:15px">1,445</div>
+          <div class="ph-label">CRM FTDs <span style="color:#00C853;font-size:9px">98.1% vs Forecast</span></div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">Forecast: 1,473 | +41.5% MoM</div>
+        </div>
+        <div class="ph-metric-box">
+          <div class="ph-val" style="font-size:15px">904</div>
+          <div class="ph-label">Retention <span style="color:#FF3900;font-size:9px">36.5% vs Forecast</span></div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">Forecast: 2,474 | -12% MoM</div>
+        </div>
+        <div class="ph-metric-box">
+          <div class="ph-val" style="font-size:15px">641</div>
+          <div class="ph-label">Reactivation <span style="color:#FFD60A;font-size:9px">92% vs Forecast</span></div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">Forecast: 698 | -23% MoM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="placeholder-card orange-border" style="flex:1">
+      <h3>Focus Areas &amp; Next Steps</h3>
+      <div class="ph-text">
+        <p style="margin-bottom:8px;font-weight:600;color:#FF3900;font-size:11px;text-transform:uppercase;letter-spacing:1px;">Q2 Priorities</p>
+        <ul style="list-style:none;padding:0;margin:0;font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7">
+          <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Scale <strong>Web-to-App campaign</strong> based on strong March performance (EUR 58K in deposits)</li>
+          <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Finalize <strong>Early Life journey revamp</strong>, including STD and TTD journey optimization</li>
+          <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Drive <strong>Retention and Reactivation improvements</strong> through better segmentation, personalization, and quick-win campaign optimizations</li>
+          <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Execute <strong>World Cup promotional strategy</strong> and advance real-time trigger capabilities</li>
+          <li style="padding:4px 0">&#9654; Launch <strong>SMS channel</strong> as a new CRM touchpoint</li>
+        </ul>
+
+        <p style="margin:14px 0 8px;font-weight:600;color:#FF3900;font-size:11px;text-transform:uppercase;letter-spacing:1px;">Q2 / Q3 / Q4 Targets</p>
+        <table style="width:100%;font-size:10px;color:rgba(255,255,255,0.8);border-collapse:collapse">
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:4px 0;font-weight:600">CRM FTDs</td>
+            <td style="padding:4px 6px;text-align:center">Q2: 32,847</td>
+            <td style="padding:4px 6px;text-align:center">Q3: 36,117</td>
+            <td style="padding:4px 6px;text-align:center">Q4: 36,247</td>
+            <td style="padding:4px 0;text-align:right;color:#999;font-size:9px">85% of total FTDs by Dec</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:4px 0;font-weight:600">Retention</td>
+            <td style="padding:4px 6px;text-align:center">Q2: 27,907</td>
+            <td style="padding:4px 6px;text-align:center">Q3: 55,230</td>
+            <td style="padding:4px 6px;text-align:center">Q4: 78,556</td>
+            <td style="padding:4px 0;text-align:right;color:#999;font-size:9px">26,723/mo by Dec</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:4px 0;font-weight:600">Reactivation</td>
+            <td style="padding:4px 6px;text-align:center">Q2: 6,364</td>
+            <td style="padding:4px 6px;text-align:center">Q3: 8,033</td>
+            <td style="padding:4px 6px;text-align:center">Q4: 10,578</td>
+            <td style="padding:4px 0;text-align:right;color:#999;font-size:9px">4,895/mo by Dec</td>
+          </tr>
+        </table>
+
+        <p style="margin:12px 0 6px;font-weight:600;color:#FF3900;font-size:11px;text-transform:uppercase;letter-spacing:1px;">Q2 Milestones</p>
+        <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:rgba(255,255,255,0.8);line-height:1.6">
+          <li style="padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06)">&#9654; Complete rollout and optimization of <strong>educational onboarding</strong> for Early Life journeys</li>
+          <li style="padding:3px 0">&#9654; Launch <strong>SMS channel</strong> and integrate into lifecycle campaigns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 14</div>
+</div>
+
+<!-- ==================== PAGE 15: DIVIDER - SOCIAL MEDIA ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Social Media</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">06</div>
+      <div class="section-desc">Social media performance, engagement metrics, content strategy and community management.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 16: SOCIAL MEDIA CONTENT ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Social Media</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div style="display:flex;gap:24px;flex:1;padding:0 40px 20px 40px">
+
+    <!-- LEFT: Feed Before/After stacked -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+      <h3 style="font-size:14px;font-weight:800;color:#FF3900;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Feed Evolution</h3>
+      <div style="text-align:center">
+        <div style="font-size:9px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Before</div>
+        <img src="feed-antigo.jpg" alt="Old Feed" style="width:75%;border-radius:6px;border:1px solid #eee">
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:9px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">After</div>
+        <img src="feed-novo.jpg" alt="New Feed" style="width:75%;border-radius:6px;border:1px solid #eee">
+      </div>
+    </div>
+
+    <!-- RIGHT: Followers + Key Changes -->
+    <div style="flex:0.7;display:flex;flex-direction:column">
+      <h3 style="font-size:14px;font-weight:800;color:#FF3900;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Follower Growth</h3>
+      <img src="seguidores.jpg" alt="Follower Evolution" style="width:100%;border-radius:6px;border:1px solid #eee;margin-bottom:16px">
+
+      <h3 style="font-size:12px;font-weight:800;color:#1C1C1E;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Key Changes in March</h3>
+      <p style="font-size:11px;color:#666;line-height:1.6;margin-bottom:12px">Complete visual and editorial overhaul of social media content, incorporating Brazilian teams, players and competition imagery to connect with the local audience.</p>
+      <ul style="list-style:none;padding:0;margin:0;font-size:11px;color:#555;line-height:1.7">
+        <li style="padding:4px 0;border-bottom:1px solid #eee">&#9654; <strong>Player images and club logos</strong> formally approved for use</li>
+        <li style="padding:4px 0;border-bottom:1px solid #eee">&#9654; <strong>Tone of voice</strong> adjusted to native Brazilian sports language</li>
+        <li style="padding:4px 0;border-bottom:1px solid #eee">&#9654; <strong>Telegram channel</strong> active with daily content, promotions and CTAs</li>
+        <li style="padding:4px 0;border-bottom:1px solid #eee">&#9654; Content calendar aligned with <strong>Brasileirao and Libertadores</strong></li>
+        <li style="padding:4px 0">&#9654; <strong>Community Manager</strong> already hired and onboarded</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 16</div>
+</div>
+
+<!-- ==================== PAGE 17: DIVIDER - AFFILIATES ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Affiliates</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">07</div>
+      <div class="section-desc">Affiliation program performance, partner management and conversion metrics.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 18: AFFILIATES CONTENT ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Affiliates</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div style="display:flex;gap:16px;flex:1;">
+
+    <!-- LEFT: KPIs + Pipeline -->
+    <div style="flex:0 0 38%;display:flex;flex-direction:column;gap:12px;">
+
+      <!-- KPI Cards -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:#1C1C1E;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">FTDs</div>
+          <div style="font-size:22px;font-weight:800;color:#FF3900;">293</div>
+          <div style="font-size:10px;color:#00C853;margin-top:2px;">+66% vs Feb</div>
+        </div>
+        <div style="background:#1C1C1E;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Registros</div>
+          <div style="font-size:22px;font-weight:800;color:#fff;">1,340</div>
+        </div>
+        <div style="background:#1C1C1E;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Deposits</div>
+          <div style="font-size:22px;font-weight:800;color:#fff;">$21,856</div>
+        </div>
+        <div style="background:#1C1C1E;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">NGR</div>
+          <div style="font-size:22px;font-weight:800;color:#00C853;">$3,268</div>
+        </div>
+        <div style="background:#1C1C1E;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Comisiones</div>
+          <div style="font-size:22px;font-weight:800;color:#fff;">$6,856</div>
+        </div>
+        <div style="background:#1C1C1E;border-radius:8px;padding:14px;text-align:center;">
+          <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">ROI</div>
+          <div style="font-size:22px;font-weight:800;color:#FF3900;">-52.3%</div>
+          <div style="font-size:10px;color:#FF3900;margin-top:2px;">-$3,587</div>
+        </div>
+      </div>
+
+      <!-- Pipeline -->
+      <div style="background:#1C1C1E;border-radius:8px;padding:14px;">
+        <div style="font-size:10px;color:#FF3900;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Pipeline Brasil</div>
+        <div style="display:flex;justify-content:space-around;text-align:center;">
+          <div>
+            <div style="font-size:24px;font-weight:800;color:#fff;">22</div>
+            <div style="font-size:9px;color:#666;">Active</div>
+          </div>
+          <div>
+            <div style="font-size:24px;font-weight:800;color:#FFA726;">3</div>
+            <div style="font-size:9px;color:#666;">Contracting</div>
+          </div>
+          <div>
+            <div style="font-size:24px;font-weight:800;color:#FFA726;">14</div>
+            <div style="font-size:9px;color:#666;">Negotiation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Analysis -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+
+      <!-- Highs -->
+      <div style="background:#F5F5F5;border-radius:8px;padding:14px;border-left:4px solid #00C853;">
+        <div style="font-size:10px;color:#00C853;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Highs</div>
+        <ul style="font-size:11px;color:#333;line-height:1.6;margin:0;padding-left:16px;">
+          <li>Volume recovered after February adjustment: <strong>176 → 293 FTDs (+66%)</strong></li>
+          <li>4 new affiliates onboarded with contracts signed, 11 more in pipeline</li>
+          <li>Top performers: NorhstarBR, EightroomBR2, dbbtwar — best balance between volume and player value</li>
+          <li>Onboarding time reduced from 6-8 weeks to <strong>1-2 weeks</strong> via new KYC forms and legal process</li>
+        </ul>
+      </div>
+
+      <!-- Lows -->
+      <div style="background:#F5F5F5;border-radius:8px;padding:14px;border-left:4px solid #FF3900;">
+        <div style="font-size:10px;color:#FF3900;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Lows</div>
+        <ul style="font-size:11px;color:#333;line-height:1.6;margin:0;padding-left:16px;">
+          <li>ROI closed at <strong>-52.3%</strong> (-$3,587) — volume recovery came with profitability drop</li>
+          <li>High dependency on few high-volume affiliates — creates MoM volatility</li>
+          <li>Payment delays from previous months still affecting affiliate confidence</li>
+          <li>Worst performers: eightroom_Brasil25, raphaelrossi, apuestasfree</li>
+        </ul>
+      </div>
+
+      <!-- Next Steps -->
+      <div style="background:#F5F5F5;border-radius:8px;padding:14px;border-left:4px solid #FF3900;">
+        <div style="font-size:10px;color:#FF3900;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Focus — Next Months</div>
+        <ul style="font-size:11px;color:#333;line-height:1.6;margin:0;padding-left:16px;">
+          <li>Balance volume vs. profitability — tighter control on deals and commissions</li>
+          <li>Diversify channel — reduce dependency on few high-volume partners</li>
+          <li>Scale new affiliates onboarded in Feb/Mar to generate consistent FTDs</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 18</div>
+</div>
+
+<!-- ==================== PAGE 19: DIVIDER - CUSTOMER OPERATIONS ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>Customer<br>Operations</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">08</div>
+      <div class="section-desc">Customer service, risk operations, payments processing and fraud prevention.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 20: CUSTOMER OPERATIONS CONTENT ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Customer Service &amp; Risk, Payments, Fraud</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div style="display:flex;gap:16px;flex:1;">
+
+    <!-- RISK & OPERATIONS -->
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;">
+      <h3 style="font-size:11px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">Risk &amp; Operations KPIs</h3>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:auto;">
+        <thead>
+          <tr>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;">KPI</td>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;text-align:center;">MTD</td>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;text-align:center;">YTD</td>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;text-align:center;">Target</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:8px;border-bottom:1px solid #ddd;">Withdrawal Approval &lt;2h</td>
+            <td style="font-size:13px;color:#00C853;font-weight:700;padding:8px;border-bottom:1px solid #ddd;text-align:center;">100%</td>
+            <td style="font-size:13px;color:#00C853;font-weight:700;padding:8px;border-bottom:1px solid #ddd;text-align:center;">100%</td>
+            <td style="font-size:11px;color:#666;padding:8px;border-bottom:1px solid #ddd;text-align:center;">≥100%</td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:8px;border-bottom:1px solid #ddd;">Deposit Approval Rate</td>
+            <td style="font-size:13px;color:#FF3900;font-weight:700;padding:8px;border-bottom:1px solid #ddd;text-align:center;">70%*</td>
+            <td style="font-size:13px;color:#FF3900;font-weight:700;padding:8px;border-bottom:1px solid #ddd;text-align:center;">68%*</td>
+            <td style="font-size:11px;color:#666;padding:8px;border-bottom:1px solid #ddd;text-align:center;">≥85%</td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:8px;">Zendesk SLA Compliance</td>
+            <td style="font-size:13px;color:#FF3900;font-weight:700;padding:8px;text-align:center;">66%</td>
+            <td style="font-size:13px;color:#FF3900;font-weight:700;padding:8px;text-align:center;">53%</td>
+            <td style="font-size:11px;color:#666;padding:8px;text-align:center;">≥80%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:12px;padding-top:10px;border-top:1px solid #333;">
+        Withdrawal processing at 100% — excellent. Deposit approval rate below target at 68% YTD (*data under review for possible inconsistencies). Zendesk SLA at 53% YTD — requires investigation.
+      </div>
+    </div>
+
+    <!-- PAYMENTS -->
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;">
+      <h3 style="font-size:11px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">Payments</h3>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:auto;">
+        <thead>
+          <tr>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;">Initiative</td>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;">Status</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:8px;border-bottom:1px solid #ddd;">New Payment Provider</td>
+            <td style="font-size:11px;color:rgba(255,255,255,0.8);padding:8px;border-bottom:1px solid #ddd;">3 options evaluated (Eron, Pay4Fun, Okto). Internal preference: <strong style="color:#fff;">Pay4Fun</strong></td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:8px;border-bottom:1px solid #ddd;">Bank Details via Pix</td>
+            <td style="font-size:11px;color:rgba(255,255,255,0.8);padding:8px;border-bottom:1px solid #ddd;">Proposal sent to modify flow via BTG API. Pending effort assessment</td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:8px;">Dr. Bingo</td>
+            <td style="font-size:11px;color:rgba(255,255,255,0.8);padding:8px;">Cashier tested (deposits, withdrawals, history). Soft launch Q2 2026</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:12px;padding-top:10px;border-top:1px solid #333;">
+        Pay4Fun is the preferred new provider — pending updated proposal from Okto. Bank data capture via Pix is critical to reduce drop-off between NoLock and Ready for Deposit.
+      </div>
+    </div>
+
+    <!-- FRAUD -->
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;">
+      <h3 style="font-size:11px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">Fraud Prevention</h3>
+      <div style="background:#222;border-radius:8px;padding:12px;margin-bottom:12px;">
+        <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">OKR: Median days to close fraudulent accounts</div>
+        <div style="display:flex;align-items:baseline;gap:8px;">
+          <span style="font-size:11px;color:#666;">Target: 70 days</span>
+          <span style="font-size:9px;color:#666;">→</span>
+          <span style="font-size:16px;font-weight:800;color:#00C853;">66 days</span>
+          <span style="font-size:10px;color:#00C853;">ON TRACK</span>
+        </div>
+        <div style="font-size:9px;color:#555;margin-top:4px;">Jan: 70 | Feb: 37 | Mar: 75</div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:auto;">
+        <thead>
+          <tr>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;">Initiative</td>
+            <td style="font-size:10px;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #ddd;text-align:right;">Status</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:7px 8px;border-bottom:1px solid #ddd;">Clustering / Scoring model</td>
+            <td style="font-size:11px;color:#FFA726;font-weight:600;padding:7px 8px;border-bottom:1px solid #ddd;text-align:right;">In progress</td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:7px 8px;border-bottom:1px solid #ddd;">360 Client View</td>
+            <td style="font-size:11px;color:#FF3900;font-weight:600;padding:7px 8px;border-bottom:1px solid #ddd;text-align:right;">Blocked</td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:7px 8px;border-bottom:1px solid #ddd;">Fraud / Legal / SB alignment</td>
+            <td style="font-size:11px;color:#00C853;font-weight:600;padding:7px 8px;border-bottom:1px solid #ddd;text-align:right;">Completed</td>
+          </tr>
+          <tr>
+            <td style="font-size:11px;color:#fff;padding:7px 8px;">Lexis Nexis evaluation</td>
+            <td style="font-size:11px;color:#FFA726;font-weight:600;padding:7px 8px;text-align:right;">Pending</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:12px;padding-top:10px;border-top:1px solid #333;">
+        OKR on track — Q1 median 66 days vs 70-day target. Early detection model in development. Fraud/Legal/SB alignment completed.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 20</div>
+</div>
+
+<!-- ==================== PAGE 23: DIVIDER - P&L ANALYSIS ==================== -->
+<div class="page divider">
+  <div class="divider-left">
+    <h2>P&amp;L<br>Analysis</h2>
+  </div>
+  <div class="divider-right">
+    <div>
+      <div class="section-number">10</div>
+      <div class="section-desc">Profit and loss breakdown, cost structure analysis, cash flow and financial performance overview for the Brazil operation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 24: B2C BRAZIL RESULTS ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>B2C Brazil Results</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div style="display:flex;gap:12px;flex:1;align-items:stretch;">
+
+    <!-- MARCH COLUMN -->
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="background:#FF3900;color:#fff;font-size:10px;font-weight:700;text-align:center;padding:6px;border-radius:6px 6px 0 0;letter-spacing:1px;">REAL vs RFCST — MARCH 2026</div>
+      <table style="width:100%;border-collapse:collapse;font-size:10px;background:#F5F5F5;border-radius:0 0 6px 6px;flex:1;">
+        <thead>
+          <tr>
+            <td style="padding:5px 8px;color:#666;font-weight:600;border-bottom:1px solid #ddd;">BRL</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:700;text-align:right;border-bottom:1px solid #ddd;">Real</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">RFCST</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">Var</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">%</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" style="padding:4px 8px;color:#FF3900;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">GROSS GAMING REVENUE</td></tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">GGR</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">149,819</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">568,977</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-419,158</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;font-weight:600;">-74%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">%Offsets</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">16%</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">20%</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">NGR</td>
+            <td style="padding:4px 8px;color:#FF3900;font-weight:700;text-align:right;">126,058</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">455,182</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-329,124</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;font-weight:600;">-72%</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#FF3900;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">DIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Providers</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-28,615</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-74,536</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">45,921</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-62%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Platforms</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-60,362</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-17,069</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-43,293</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">254%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Payment Proc.</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-1,875</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-34,139</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">32,264</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-95%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Direct Taxes</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-20,615</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-106,968</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">86,353</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-81%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Direct Cost</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-111,467</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-232,712</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">121,244</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;font-weight:600;">-52%</td>
+          </tr>
+          <tr style="border-bottom:2px solid #FF3900;">
+            <td style="padding:5px 8px;color:#1C1C1E;font-weight:700;">Gross Result</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:800;text-align:right;">14,591</td>
+            <td style="padding:5px 8px;color:#999;text-align:right;">222,470</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;">-207,880</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;font-weight:600;">-93%</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#FF3900;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">INDIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Staff</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-954,959</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-833,284</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-121,675</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">15%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">IT &amp; Dev</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-217,224</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-254,836</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">37,613</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-15%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Marketing</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-2,507,655</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-3,536,434</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">1,028,779</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-29%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Professional Fees</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-77,880</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-32,360</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-45,519</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">141%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Others</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-72,918</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-83,179</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">10,261</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-12%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Indirect Cost</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-3,830,636</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-4,740,094</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">909,458</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;font-weight:600;">-19%</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;color:#1C1C1E;font-weight:800;font-size:11px;">EBITDA</td>
+            <td style="padding:6px 8px;color:#FF3900;font-weight:800;text-align:right;font-size:11px;">-3,816,046</td>
+            <td style="padding:6px 8px;color:#999;text-align:right;">-4,517,624</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;">701,578</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;font-weight:700;">-16%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CUMULATIVE COLUMN -->
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="background:#333;color:#fff;font-size:10px;font-weight:700;text-align:center;padding:6px;border-radius:6px 6px 0 0;letter-spacing:1px;">CUMULATIVE 2026 (Q1)</div>
+      <table style="width:100%;border-collapse:collapse;font-size:10px;background:#F5F5F5;border-radius:0 0 6px 6px;flex:1;">
+        <thead>
+          <tr>
+            <td style="padding:5px 8px;color:#666;font-weight:600;border-bottom:1px solid #ddd;">BRL</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:700;text-align:right;border-bottom:1px solid #ddd;">Real</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">RFCST</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">Var</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">%</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" style="padding:4px 8px;color:#999;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">GROSS GAMING REVENUE</td></tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">GGR</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">156,986</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">663,855</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-506,870</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;font-weight:600;">-76%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">%Offsets</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">60%</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">25%</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">NGR</td>
+            <td style="padding:4px 8px;color:#FF3900;font-weight:700;text-align:right;">63,545</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">495,615</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-432,069</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;font-weight:600;">-87%</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#999;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">DIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Providers</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-70,231</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-95,677</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">25,447</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-27%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Platforms</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-184,109</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-78,198</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-105,911</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">135%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Payment Proc.</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-6,315</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-72,561</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">66,246</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-91%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Direct Taxes</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-30,778</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-137,308</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">106,530</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-78%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Direct Cost</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-291,433</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-383,744</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">92,312</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;font-weight:600;">-24%</td>
+          </tr>
+          <tr style="border-bottom:2px solid #FF3900;">
+            <td style="padding:5px 8px;color:#1C1C1E;font-weight:700;">Gross Result</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:800;text-align:right;">-227,887</td>
+            <td style="padding:5px 8px;color:#999;text-align:right;">111,870</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;">-339,758</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;font-weight:600;">-304%</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#999;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">INDIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Staff</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-2,554,240</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-2,346,757</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-207,482</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">9%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">IT &amp; Dev</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-693,061</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-763,436</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">70,375</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-9%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Marketing</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-6,254,733</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-9,990,661</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">3,735,927</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-37%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Professional Fees</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-268,690</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-97,081</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-171,609</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">177%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Others</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-187,004</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-248,887</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">61,883</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-25%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Indirect Cost</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-9,957,727</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-13,446,822</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">3,489,095</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;font-weight:600;">-26%</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;color:#1C1C1E;font-weight:800;font-size:11px;">EBITDA</td>
+            <td style="padding:6px 8px;color:#FF3900;font-weight:800;text-align:right;font-size:11px;">-10,185,615</td>
+            <td style="padding:6px 8px;color:#999;text-align:right;">-13,334,951</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;">3,149,337</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;font-weight:700;">-24%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 24</div>
+</div>
+
+<!-- ==================== PAGE 25: CASH FLOW ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>Cash Flow</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <div style="display:flex;gap:12px;flex:1;align-items:stretch;">
+
+    <!-- MARCH COLUMN -->
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="background:#FF3900;color:#fff;font-size:10px;font-weight:700;text-align:center;padding:6px;border-radius:6px 6px 0 0;letter-spacing:1px;">REAL vs EXPECTED — MARCH 2026</div>
+      <table style="width:100%;border-collapse:collapse;font-size:10px;background:#F5F5F5;border-radius:0 0 6px 6px;flex:1;">
+        <thead>
+          <tr>
+            <td style="padding:5px 8px;color:#666;font-weight:600;border-bottom:1px solid #ddd;">BRL</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:700;text-align:right;border-bottom:1px solid #ddd;">Real</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">PPTO</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">Var</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">%</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">Initial Balance</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">2,399,314</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">520,526</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">1,878,788</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">361%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">B2C</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">99,454</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">421,043</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-321,589</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-76%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">Deposits</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">1,646,497</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">5,689,772</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-4,043,275</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-71%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">Withdrawals</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">-1,543,523</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-4,234,591</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">3,689,067</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">-70%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;">Processing Fees</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">-1,519</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-34,139</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">32,619</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">-96%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Income</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">99,454</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">713,130</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-613,675</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">—</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#FF3900;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">DIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Direct Suppliers</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-16,588</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-21,141</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">4,554</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-22%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Direct Taxes</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">0</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-30,340</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">30,340</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-100%</td>
+          </tr>
+          <tr style="border-bottom:2px solid #FF3900;">
+            <td style="padding:5px 8px;color:#1C1C1E;font-weight:700;">Gross Result</td>
+            <td style="padding:5px 8px;color:#00C853;font-weight:800;text-align:right;">82,867</td>
+            <td style="padding:5px 8px;color:#999;text-align:right;">661,648</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;">-578,982</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;font-weight:600;">-88%</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#FF3900;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">INDIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Staff</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-1,061,864</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-777,731</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-284,133</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">37%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">IT &amp; Dev</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-2,889</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">0</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-2,889</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">—</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Marketing</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-1,904,755</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-3,036,544</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">1,131,790</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-37%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Professional Fees</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-63,797</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-16,702</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-47,095</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">282%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Others</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-172,429</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-83,179</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-89,250</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">107%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Indirect Cost</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-3,205,734</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-3,914,156</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">708,422</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;font-weight:600;">-18%</td>
+          </tr>
+          <tr style="background:#E8E8E8;border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;">Availability</td>
+            <td style="padding:4px 8px;color:#FF3900;font-weight:700;text-align:right;">-3,122,868</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-3,252,508</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">129,641</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">-4%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;">Balance BW INT</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">1,854,993</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">1,443,738</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">411,255</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">28%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;">Financial Results</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">15,001</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">—</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;color:#1C1C1E;font-weight:800;font-size:11px;">Final Balance</td>
+            <td style="padding:6px 8px;color:#00C853;font-weight:800;text-align:right;font-size:11px;">1,869,994</td>
+            <td style="padding:6px 8px;color:#999;text-align:right;">1,443,738</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;">426,256</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;font-weight:700;">30%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CUMULATIVE COLUMN -->
+    <div style="flex:1;display:flex;flex-direction:column;">
+      <div style="background:#333;color:#fff;font-size:10px;font-weight:700;text-align:center;padding:6px;border-radius:6px 6px 0 0;letter-spacing:1px;">CUMULATIVE 2026 (Q1)</div>
+      <table style="width:100%;border-collapse:collapse;font-size:10px;background:#F5F5F5;border-radius:0 0 6px 6px;flex:1;">
+        <thead>
+          <tr>
+            <td style="padding:5px 8px;color:#666;font-weight:600;border-bottom:1px solid #ddd;">BRL</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:700;text-align:right;border-bottom:1px solid #ddd;">Real</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">RFCST</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">Var</td>
+            <td style="padding:5px 8px;color:#666;font-weight:600;text-align:right;border-bottom:1px solid #ddd;">%</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">Initial Balance</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">2,387,177</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">2,287,145</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">600,032</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">26%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">B2C</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">-426,591</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">773,499</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-600,090</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">—</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">Deposits</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">5,084,192</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">13,825,306</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-8,741,113</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-63%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 8px;color:#1C1C1E;">Withdrawals</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">-5,501,043</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-13,379,294</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">6,078,251</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">-45%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;">Processing Fees</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">-9,740</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-72,561</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">62,821</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">-87%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Income</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-426,591</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">755,023</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">-1,181,614</td>
+            <td style="padding:4px 8px;color:#FF3900;text-align:right;">—</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#999;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">DIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Direct Suppliers</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-77,837</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-194,591</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">116,664</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-60%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Direct Taxes</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">0</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-304,565</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">304,565</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-100%</td>
+          </tr>
+          <tr style="border-bottom:2px solid #FF3900;">
+            <td style="padding:5px 8px;color:#1C1C1E;font-weight:700;">Gross Result</td>
+            <td style="padding:5px 8px;color:#FF3900;font-weight:800;text-align:right;">-504,428</td>
+            <td style="padding:5px 8px;color:#999;text-align:right;">259,156</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;">-763,584</td>
+            <td style="padding:5px 8px;color:#FF3900;text-align:right;font-weight:600;">-295%</td>
+          </tr>
+          <tr><td colspan="5" style="padding:4px 8px;color:#999;font-weight:700;font-size:9px;letter-spacing:1px;background:#1C1C1E;border-bottom:1px solid #ddd;">INDIRECT COST</td></tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Staff</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-2,064,947</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-307,379</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">15%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">IT &amp; Dev</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-15,179</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">0</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">—</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Marketing</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-5,041,537</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-6,144,537</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">983,000</td>
+            <td style="padding:3px 8px;color:#00C853;text-align:right;">-16%</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;color:#1C1C1E;">Professional Fees</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-144,243</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">-45,890</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-98,353</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">214%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:3px 8px;color:#1C1C1E;">Others</td>
+            <td style="padding:3px 8px;color:#1C1C1E;text-align:right;">-242,109</td>
+            <td style="padding:3px 8px;color:#999;text-align:right;">—</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">-328,734</td>
+            <td style="padding:3px 8px;color:#FF3900;text-align:right;">—</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:600;">Indirect Cost</td>
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;text-align:right;">-8,566,356</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-10,497,163</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">1,931,127</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;font-weight:600;">-18%</td>
+          </tr>
+          <tr style="background:#E8E8E8;border-bottom:1px solid #ccc;">
+            <td style="padding:4px 8px;color:#1C1C1E;font-weight:700;">Availability</td>
+            <td style="padding:4px 8px;color:#FF3900;font-weight:700;text-align:right;">-9,070,784</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">-10,238,327</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">1,167,543</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">-11%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:4px 8px;color:#1C1C1E;">Balance BW INT</td>
+            <td style="padding:4px 8px;color:#1C1C1E;text-align:right;">1,609,853</td>
+            <td style="padding:4px 8px;color:#999;text-align:right;">1,443,738</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">—</td>
+            <td style="padding:4px 8px;color:#00C853;text-align:right;">—</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;color:#1C1C1E;font-weight:800;font-size:11px;">Final Balance</td>
+            <td style="padding:6px 8px;color:#00C853;font-weight:800;text-align:right;font-size:11px;">1,869,994</td>
+            <td style="padding:6px 8px;color:#999;text-align:right;">1,443,738</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;">426,256</td>
+            <td style="padding:6px 8px;color:#00C853;text-align:right;font-weight:700;">30%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 25</div>
+</div>
+
+<!-- ==================== PAGE 26: P&L ANALYSIS ==================== -->
+<div class="page content-page">
+  <div class="page-header">
+    <h2>P&amp;L Analysis</h2>
+    <img class="logo-small" src="bw-logo-preto.png" alt="BetWarrior">
+  </div>
+
+  <!-- KPI CARDS -->
+  <div style="display:flex;gap:14px;margin-bottom:18px;">
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">NGR March</div>
+      <div style="font-size:22px;font-weight:800;color:#FF3900;">R$ 126,058</div>
+      <div style="font-size:10px;color:#666;margin-top:4px;">-72% vs forecast</div>
+    </div>
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Direct Cost</div>
+      <div style="font-size:22px;font-weight:800;color:#fff;">R$ -111,467</div>
+      <div style="font-size:10px;color:#00C853;margin-top:4px;">-52% vs forecast</div>
+    </div>
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">MKT Spend</div>
+      <div style="font-size:22px;font-weight:800;color:#fff;">R$ -2.5M</div>
+      <div style="font-size:10px;color:#00C853;margin-top:4px;">-29% vs plan</div>
+    </div>
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:9px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">EBITDA</div>
+      <div style="font-size:22px;font-weight:800;color:#FF3900;">R$ -3.8M</div>
+      <div style="font-size:10px;color:#00C853;margin-top:4px;">-16% vs forecast</div>
+    </div>
+  </div>
+
+  <!-- ANALYSIS -->
+  <div style="display:flex;gap:16px;flex:1;">
+
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;">
+      <h3 style="font-size:11px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">Revenue vs. Forecast</h3>
+      <div style="font-size:11px;color:rgba(255,255,255,0.8);line-height:1.65;">
+        <p style="margin-bottom:10px;">GGR closed at R$149.8K — <strong style="color:#FF3900;">74% below</strong> the monthly forecast of R$569K. The gap remains a critical indicator that recovery volumes are not yet tracking with the aggressive growth projections.</p>
+        <p style="margin-bottom:10px;">NGR reached R$126K, missing the R$455K forecast by 72%. Although NGR is increasing month-over-month, the operation is still failing to reach the profitability levels planned for the end of Q1.</p>
+        <p>On a year-to-date basis, cumulative NGR is R$63.5K — representing a <strong style="color:#FF3900;">87% variance</strong> against cumulative forecast. BW is effectively R$432K behind the net revenue plan.</p>
+      </div>
+    </div>
+
+    <div style="flex:1;background:#1C1C1E;border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;">
+      <h3 style="font-size:11px;font-weight:700;color:#FF3900;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">Costs &amp; Investments</h3>
+      <div style="font-size:11px;color:rgba(255,255,255,0.8);line-height:1.65;">
+        <p style="margin-bottom:10px;">Staff costs are <strong style="color:#fff;">7.5x higher</strong> than the NGR produced in March. While the ratio improved compared to February, it still reflects a high fixed-cost structure built for a user volume that the marketing funnel has yet to deliver.</p>
+        <p style="margin-bottom:10px;">Professional services reached R$77.8K, exceeding the monthly forecast by <strong style="color:#FF3900;">141%</strong>. Cumulative professional fees are now 177% over plan.</p>
+        <p>Marketing spend had a -29% variance (R$2.5M actual vs R$3.5M planned). This continued underspending can be understood as a lag driver for the missed FTD targets, directly impacting the current and future revenue potential of the operation.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">BetWarrior Brazil | March 2026 | Page 26</div>
+</div>
+
+</body>
+</html>
