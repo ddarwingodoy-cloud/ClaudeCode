@@ -2,3 +2,9 @@
 *.swp
 *.swo
 .mcp.json
+
+# Dados de produto — arquivos grandes, não versionados
+Projects/Ceramicando/Produto/*.csv
+
+# Documentos pessoais de terceiros
+Projects/BetWarrior/Recursos Humanos/

@@ -43,6 +43,27 @@ Branch principal: main
 - Moeda padrão: BRL
 - Documentos internos em português, externos conforme o contexto
 
+## Design System BetWarrior — tokens obrigatórios para qualquer material gráfico
+
+Aplicar sempre, sem precisar ler os arquivos de design:
+
+**Cores**
+- Fundo: `#1C1C1E` | Superfície: `#111111` / `#1A1A1A` | Borda: `#2A2A2A`
+- Laranja (accent/header): `#FF3900` | Texto: `#FFFFFF` | Muted: `#AAAAAA`
+- Semânticas: sucesso `#22C55E` · alerta `#F59E0B` · erro `#EF4444`
+
+**Tipografia**
+- Títulos: Archivo Black, UPPERCASE, com linha laranja de acento (`#FF3900`)
+- Corpo/dados: Archivo Regular ou Inter Regular
+- Fontes em: `Design/04-assets/fonts/archivo/`
+
+**Tabelas**
+- Header: fundo `#FF3900`, texto branco bold
+- Linhas zebra: `#111111` / `#1A1A1A`
+- Variações positivas: `#22C55E` bold · negativas: `#EF4444` bold
+
+**Regra absoluta:** apenas preto `#000000`, branco `#FFFFFF` e laranja `#FF3900` como cores de marca. Sem azul, cinza de marca ou gradientes.
+
 ## Preferências de resposta
 
 - Respostas curtas e diretas
