@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyAffiliate — Estrutura de Grupos e Campanhas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111111;
+    color: #FFFFFF;
+    font-family: 'Archivo', sans-serif;
+    font-size: 13px;
+    min-width: 1400px;
+  }
+
+  /* HEADER */
+  .header {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    padding: 14px 28px;
+    border-bottom: 2px solid #FF3900;
+    position: relative;
+  }
+  .logo-block { display: flex; align-items: center; gap: 10px; }
+  .logo-bar { width: 4px; height: 36px; background: #FF3900; }
+  .logo-text { line-height: 1.1; }
+  .logo-text .brand { font-family: 'Archivo Black', sans-serif; font-size: 18px; letter-spacing: 1px; }
+  .logo-text .sub { font-size: 10px; color: #AAAAAA; letter-spacing: 2px; text-transform: uppercase; }
+  .header-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .header-url { margin-left: auto; font-size: 11px; color: #AAAAAA; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 28px;
+    background: #1A1A1A;
+    border-bottom: 1px solid #2A2A2A;
+    font-size: 11px;
+    color: #AAAAAA;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .dot-green { background: #22C55E; }
+  .dot-orange { background: #F59E0B; }
+  .dot-gray { background: #555555; }
+
+  /* MAIN GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+    min-height: calc(100vh - 120px);
+  }
+
+  .column {
+    border-right: 1px solid #2A2A2A;
+    display: flex;
+    flex-direction: column;
+  }
+  .column:last-child { border-right: none; }
+
+  .col-header {
+    background: #FF3900;
+    padding: 12px 20px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .col-body { padding: 20px 20px 28px; flex: 1; }
+
+  /* GRUPOS */
+  .group { margin-bottom: 22px; }
+  .group-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FF3900;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #FF3900;
+  }
+
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 2px 0;
+    font-size: 12px;
+    color: #DDDDDD;
+  }
+  .item .dot { margin-top: 4px; }
+
+  .sub-item {
+    padding: 1px 0 1px 22px;
+    font-size: 11px;
+    color: #888888;
+  }
+  .sub-item::before { content: "– "; }
+
+  /* INFLUENCER / PATROCÍNIO GROUPS */
+  .inf-group { margin-bottom: 18px; }
+  .inf-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 3px;
+  }
+  .inf-sub {
+    padding: 1px 0 1px 14px;
+    font-size: 11px;
+    color: #888888;
+  }
+  .inf-sub::before { content: "– "; }
+
+  /* AFILIADOS */
+  .section-label {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FF3900;
+    margin-bottom: 10px;
+  }
+  .affiliate-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 3px 0;
+    font-size: 12px;
+    color: #DDDDDD;
+  }
+
+  /* STATUS LABELS */
+  .tag-ativo {
+    font-size: 10px;
+    color: #22C55E;
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #000000;
+    border-top: 1px solid #2A2A2A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 28px;
+    font-size: 10px;
+    color: #555555;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-block">
+    <div class="logo-bar"></div>
+    <div class="logo-text">
+      <div class="brand">BETWARRIOR</div>
+      <div class="sub">BRASIL</div>
+    </div>
+  </div>
+  <div class="header-title">MYAFFILIATE — ESTRUTURA DE GRUPOS E CAMPANHAS</div>
+  <div class="header-url">betwarrior.com/br</div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><span class="dot dot-green"></span> Já ativo</div>
+  <div class="legend-item"><span class="dot dot-orange"></span> Parcial</div>
+  <div class="legend-item"><span class="dot dot-gray"></span> A criar</div>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+  <!-- COLUNA 1: DISPLAY / PROGRAMÁTICA -->
+  <div class="column">
+    <div class="col-header">Display / Programática</div>
+    <div class="col-body">
+
+      <div class="group">
+        <div class="group-title">UOL</div>
+        <div class="item"><span class="dot dot-green"></span> 300x250 — Futebol</div>
+        <div class="item"><span class="dot dot-green"></span> 300x250 — Tênis</div>
+        <div class="item"><span class="dot dot-green"></span> 300x250 — Basquete</div>
+        <div class="item"><span class="dot dot-green"></span> 320x100 — Tênis</div>
+        <div class="item"><span class="dot dot-green"></span> 970x90 — Tênis</div>
+        <div class="item"><span class="dot dot-green"></span> 16x9 — Institucional</div>
+        <div class="item"><span class="dot dot-green"></span> Diária — Desktop</div>
+        <div class="item"><span class="dot dot-green"></span> Diária — Mobile</div>
+        <div class="item"><span class="dot dot-green"></span> 120x600 — Basquete</div>
+        <div class="item"><span class="dot dot-green"></span> 160x600 — Tênis</div>
+        <div class="item"><span class="dot dot-green"></span> 300x100 — Futebol</div>
+        <div class="item"><span class="dot dot-green"></span> 728x90 — Basquete</div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">365 Scores</div>
+        <div class="item"><span class="dot dot-green"></span> Interstitial — Institucional</div>
+        <div class="item"><span class="dot dot-green"></span> Banner — Institucional</div>
+        <div class="item"><span class="dot dot-green"></span> MPU — Institucional</div>
+        <div class="item"><span class="dot dot-green"></span> Floating Button — Institucional</div>
+        <div class="item"><span class="dot dot-green"></span> Home Page Takeover — Institucional</div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Siprocal</div>
+        <div class="item"><span class="dot dot-green"></span> Push Notification</div>
+        <div class="item"><span class="dot dot-gray"></span> SMS</div>
+        <div class="item"><span class="dot dot-gray"></span> RCS</div>
+        <div class="item"><span class="dot dot-gray"></span> MMS</div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Outros Veículos</div>
+        <div class="item"><span class="dot dot-gray"></span> Sofascore</div>
+        <div class="item"><span class="dot dot-gray"></span> Flashscore</div>
+        <div class="item"><span class="dot dot-gray"></span> Taboola</div>
+        <div class="item"><span class="dot dot-gray"></span> Verve</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COLUNA 2: INFLUENCIADOR -->
+  <div class="column">
+    <div class="col-header">Influenciador</div>
+    <div class="col-body">
+
+      <div class="group">
+        <div class="group-title">Influ — Esportes</div>
+        <div class="inf-group">
+          <div class="inf-name">Danilo Lavieri</div>
+          <div class="inf-sub">Bio Instagram</div>
+          <div class="inf-sub">Stories</div>
+          <div class="inf-sub">Live — Jogo</div>
+        </div>
+        <div class="inf-group">
+          <div class="inf-name">FBI Tricolor</div>
+          <div class="inf-sub">Bio Instagram</div>
+          <div class="inf-sub">Stories</div>
+          <div class="inf-sub">Live — Jogo</div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Streamers — Cassino</div>
+        <div class="inf-group">
+          <div class="inf-sub" style="padding-left:0;">Bio</div>
+          <div class="inf-sub" style="padding-left:0;">Live — Stream</div>
+          <div class="inf-sub" style="padding-left:0;">Clipe / Stories</div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Streamers — Counter Strike</div>
+        <div class="inf-group">
+          <div class="inf-sub" style="padding-left:0;">Bio</div>
+          <div class="inf-sub" style="padding-left:0;">Live — Stream</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COLUNA 3: PATROCÍNIOS -->
+  <div class="column">
+    <div class="col-header">Patrocínios</div>
+    <div class="col-body">
+
+      <div class="inf-group">
+        <div class="inf-name">Peleja</div>
+        <div class="inf-sub">Link — Descrição Vídeo</div>
+        <div class="inf-sub">Menção — Live</div>
+      </div>
+
+      <div class="inf-group">
+        <div class="inf-name" style="color:#22C55E;">NFA</div>
+        <div class="inf-sub" style="color:#22C55E;">Já parametrizado [ATIVO]</div>
+      </div>
+
+      <div class="inf-group">
+        <div class="inf-name">Domitila</div>
+        <div class="inf-sub">Bio Instagram</div>
+        <div class="inf-sub">Stories</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COLUNA 4: AFILIADOS -->
+  <div class="column">
+    <div class="col-header">Afiliados</div>
+    <div class="col-body">
+
+      <div class="section-label">Parceiros Ativos</div>
+
+      <div class="affiliate-item"><span class="dot dot-green"></span> Player7777</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> AfiliagamblingBR</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> raphaelrossi</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> costamedia</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> NorhstarBR</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> eightroom_Brasil25</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> apuestasfree</div>
+      <div class="affiliate-item"><span class="dot dot-green"></span> Outros</div>
+      <div style="margin-top:14px; margin-bottom:8px; border-top:1px solid #2A2A2A; padding-top:14px;">
+        <div class="section-label">A Configurar</div>
+      </div>
+      <div class="affiliate-item"><span class="dot dot-gray"></span> CazeTV</div>
+      <div class="affiliate-item"><span class="dot dot-gray"></span> Futbolsites</div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Performance · BetWarrior Brasil · 2026</span>
+  <span>Uso interno — não distribuir</span>
+  <span>MyAffiliate v1.2</span>
+</div>
+
+</body>
+</html>
