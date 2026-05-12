@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Performance Report — BetWarrior Brasil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { height: 100%; }
+body {
+  min-width: 1100px;
+  min-height: 100vh;
+  background: #F2F2F2;
+  color: #111111;
+  font-family: 'Archivo', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ══ HEADER ══ */
+.hdr {
+  background: #FFFFFF;
+  border-bottom: 2px solid #FF3900;
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 28px; height: 80px; flex-shrink: 0;
+}
+.logo-block { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-bar   { width: 4px; height: 36px; background: #FF3900; }
+.logo-text .brand { font-family: 'Archivo Black', sans-serif; font-size: 17px; letter-spacing: 1px; color: #111; }
+.logo-text .sub   { font-size: 9px; color: #999; letter-spacing: 3px; text-transform: uppercase; }
+.hdr-sep  { width: 1px; height: 44px; background: #E0E0E0; flex-shrink: 0; }
+.hdr-body { flex: 1; }
+.hdr-title {
+  font-family: 'Archivo Black', sans-serif; font-size: 22px;
+  letter-spacing: 3px; text-transform: uppercase; color: #111; line-height: 1; margin-bottom: 6px;
+}
+.hdr-sub { font-size: 12px; color: #777; line-height: 1.4; }
+.hdr-sub strong { color: #FF3900; }
+.hdr-meta { font-size: 11px; color: #999; text-align: right; line-height: 1.8; flex-shrink: 0; letter-spacing: 0.5px; }
+
+/* ══ BODY ══ */
+.body {
+  flex: 1;
+  padding: 14px 20px 14px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.row { display: flex; gap: 12px; }
+.row-top { flex: 1; min-height: 0; }
+.row-bot { flex: 1; min-height: 0; }
+
+/* ══ PANEL ══ */
+.panel {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.p-half   { flex: 1; }
+.p-wide   { flex: 5; }
+.p-narrow { flex: 4; }
+.p-hi     { flex: 2; min-width: 160px; }
+
+/* ══ PANEL HEADER ══ */
+.ph {
+  display: flex; align-items: center; gap: 10px;
+  background: #FFFFFF; padding: 10px 18px;
+  border-bottom: 2px solid #FF3900; flex-shrink: 0;
+}
+.ph svg { flex-shrink: 0; }
+.ph-title {
+  font-family: 'Archivo Black', sans-serif; font-size: 11px;
+  letter-spacing: 2px; text-transform: uppercase; color: #111;
+}
+.ph-note { margin-left: auto; font-size: 9px; color: #AAAAAA; font-style: italic; }
+.p-body  { flex: 1; padding: 14px 18px 12px; display: flex; flex-direction: column; min-height: 0; }
+
+/* ══ BAR CHART (FTD WoW) ══ */
+.bars-wrap {
+  flex: 1; display: flex; align-items: flex-end;
+  gap: 8px; padding: 0 8px; min-height: 0; max-height: 270px;
+}
+.bar-col   { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.bar-total {
+  font-family: 'Archivo Black', sans-serif; font-size: 16px;
+  color: #BBBBBB; margin-bottom: 5px; line-height: 1;
+}
+.bar-total.cur { color: #FF3900; }
+.bar {
+  width: 88%; display: flex; flex-direction: column;
+  overflow: hidden; border-radius: 2px 2px 0 0;
+}
+.seg { width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.s-aff  { background: #FF3900; }
+.s-ps   { background: #F59E0B; }
+.s-rest { background: #C8C8C8; }
+.bar-mth { font-family: 'Archivo Black', sans-serif; font-size: 11px; color: #AAAAAA; margin-top: 5px; }
+.bar-mth.cur { color: #FF3900; }
+.bar-per { font-size: 9px; color: #CCCCCC; margin-top: 2px; }
+
+.chart-legend {
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: center;
+  padding-top: 8px; border-top: 1px solid #F0F0F0; margin-top: 7px;
+  flex-shrink: 0; min-height: 34px;
+}
+.cl { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #999; }
+.cl-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+
+/* ══ BAR CHART (DEP/FTD) ══ */
+.dep-bars-wrap {
+  flex: 1; display: flex; align-items: flex-end;
+  gap: 8px; padding: 0 8px; min-height: 0; max-height: 270px; position: relative;
+}
+.dep-col   { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.dep-val {
+  font-family: 'Archivo Black', sans-serif; font-size: 16px;
+  color: #BBBBBB; margin-bottom: 5px; line-height: 1;
+}
+.dep-val.cur { color: #FF3900; }
+.dep-bar {
+  width: 88%; border-radius: 2px 2px 0 0;
+  background: #CCCCCC;
+}
+.dep-bar.cur { background: #FF3900; }
+.dep-mth { font-family: 'Archivo Black', sans-serif; font-size: 11px; color: #AAAAAA; margin-top: 5px; }
+.dep-mth.cur { color: #FF3900; }
+.dep-per { font-size: 9px; color: #CCCCCC; margin-top: 2px; }
+
+.dep-note {
+  padding-top: 8px; border-top: 1px solid #F0F0F0; margin-top: 7px;
+  font-size: 10px; color: #AAAAAA; flex-shrink: 0; line-height: 1.55; min-height: 34px;
+}
+
+/* ══ TABLE ══ */
+table { width: 100%; border-collapse: collapse; flex-shrink: 0; }
+thead tr { background: #FF3900; }
+thead th {
+  padding: 7px 10px; text-align: center; white-space: nowrap; color: #FFF;
+  font-family: 'Archivo Black', sans-serif; font-size: 10px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+thead th:first-child { text-align: left; }
+thead th.th-hi { background: #CC2E00; }
+tbody tr:nth-child(odd)  { background: #FFFFFF; }
+tbody tr:nth-child(even) { background: #F8F8F8; }
+tbody tr.cw { background: #FFF5F2; border-left: 3px solid #FF3900; }
+tbody tr.dr { background: #F5F5F5; }
+tbody td {
+  padding: 6px 10px; text-align: center;
+  white-space: nowrap; font-size: 11px; color: #777;
+}
+tbody td:first-child {
+  text-align: left; color: #333;
+  font-family: 'Archivo Black', sans-serif; font-size: 10px;
+}
+.n   { color: #EF4444 !important; font-weight: 700; }
+.mu  { color: #CCCCCC !important; }
+.hi  { color: #111111 !important; font-size: 12px !important; font-weight: 700; }
+.hi-g { color: #22C55E !important; font-size: 12px !important; font-weight: 700; }
+.tnote { margin-top: 5px; font-size: 9px; color: #BBBBBB; line-height: 1.65; flex-shrink: 0; }
+.row-bot .p-body { padding: 8px 14px 6px; }
+
+/* ══ PRIMEIRO DEPÓSITO TABLE ══ */
+.ftd-src-tbl { table-layout: fixed; }
+.ftd-src-tbl thead th { padding: 6px 5px; font-size: 9px; letter-spacing: 0.3px; }
+.ftd-src-tbl tbody td { padding: 5px 5px; font-size: 11px; }
+.ftd-src-tbl tbody td:first-child {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 10px; color: #333; text-align: left;
+}
+
+/* ══ HIGHLIGHTS COLUMN ══ */
+.hi-col { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.hi-card {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center;
+  padding: 12px 16px; gap: 5px;
+}
+.hi-card + .hi-card { border-top: 1px solid #F0F0F0; }
+.hi-lbl {
+  font-family: 'Archivo Black', sans-serif; font-size: 8px;
+  letter-spacing: 2px; text-transform: uppercase; color: #AAAAAA;
+}
+.hi-val {
+  font-family: 'Archivo Black', sans-serif; font-size: 28px;
+  line-height: 1;
+}
+.hi-sub { font-size: 11px; color: #999; line-height: 1.5; }
+.hi-sub strong { color: #555; }
+
+/* ══ FOOTER ══ */
+.ftr {
+  height: 30px; background: #FFFFFF; border-top: 1px solid #E8E8E8;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; font-size: 10px; color: #BBBBBB; letter-spacing: 1px;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="logo-block">
+    <div class="logo-bar"></div>
+    <div class="logo-text">
+      <div class="brand">BETWARRIOR</div>
+      <div class="sub">BRASIL</div>
+    </div>
+  </div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body">
+    <div class="hdr-title">WEEKLY PERFORMANCE REPORT</div>
+    <div class="hdr-sub">
+      <strong>Paid Social assume a liderança de captação pela 1ª vez em 2026.</strong>
+      GGR sustentado em R$67,6k com 2,5× menos FTDs do que Abril. Qualidade de depósito em recuperação.
+    </div>
+  </div>
+  <div class="hdr-meta">01–07 / Mai 2026<br>SB + Casino · BRL<br>Gerado 11/05</div>
+</div>
+
+<div class="body">
+
+  <!-- ══ ROW 1: FTD WoW + DEP/FTD ══ -->
+  <div class="row row-top">
+
+    <!-- CHART 1: FTD WoW -->
+    <div class="panel p-half">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="6" width="3" height="7" rx="1" fill="#FF3900"/><rect x="5" y="3" width="3" height="10" rx="1" fill="#FF3900"/><rect x="10" y="0" width="3" height="13" rx="1" fill="#FF3900"/></svg>
+        <span class="ph-title">FTDs por Semana Normalizada — Canal</span>
+        <span class="ph-note">vol.: PowerBI · canal: GA4 · âncora = 1ª Sex do mês</span>
+      </div>
+      <div class="p-body">
+        <div class="bars-wrap">
+
+          <div class="bar-col">
+            <div class="bar-total">448</div>
+            <div class="bar" style="height:63px;">
+              <div class="seg s-rest" style="height:79.0%;"></div>
+              <div class="seg s-ps"   style="height:5.4%;"></div>
+              <div class="seg s-aff"  style="height:15.6%;"></div>
+            </div>
+            <div class="bar-mth">JAN</div>
+            <div class="bar-per">02–08/01</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total">216</div>
+            <div class="bar" style="height:30px;">
+              <div class="seg s-rest" style="height:89.8%;"></div>
+              <div class="seg s-ps"   style="height:4.6%;"></div>
+              <div class="seg s-aff"  style="height:5.6%;"></div>
+            </div>
+            <div class="bar-mth">FEV</div>
+            <div class="bar-per">06–12/02</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total">354</div>
+            <div class="bar" style="height:50px;">
+              <div class="seg s-rest" style="height:78.3%;"></div>
+              <div class="seg s-ps"   style="height:11.7%;"></div>
+              <div class="seg s-aff"  style="height:10.0%;"></div>
+            </div>
+            <div class="bar-mth">MAR</div>
+            <div class="bar-per">06–12/03</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total cur">1.336</div>
+            <div class="bar" style="height:190px;">
+              <div class="seg s-rest" style="height:52.6%;"><span style="font-family:'Archivo Black',sans-serif;font-size:12px;color:rgba(255,255,255,.5);">53%</span></div>
+              <div class="seg s-ps"   style="height:9.2%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(0,0,0,.6);">9%</span></div>
+              <div class="seg s-aff"  style="height:38.2%;"><span style="font-family:'Archivo Black',sans-serif;font-size:16px;color:#FFF;">38%</span></div>
+            </div>
+            <div class="bar-mth cur">ABR ★</div>
+            <div class="bar-per">03–09/04</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total cur">533</div>
+            <div class="bar" style="height:75px;">
+              <div class="seg s-rest" style="height:74.5%;"><span style="font-family:'Archivo Black',sans-serif;font-size:11px;color:rgba(255,255,255,.6);">75%</span></div>
+              <div class="seg s-ps"   style="height:18.1%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(0,0,0,.7);">18%</span></div>
+              <div class="seg s-aff"  style="height:7.4%;"></div>
+            </div>
+            <div class="bar-mth cur">MAI ▶</div>
+            <div class="bar-per">01–07/05</div>
+          </div>
+
+        </div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900;"></div>Affiliates</div>
+          <div class="cl"><div class="cl-dot" style="background:#F59E0B;"></div>Paid Social</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8;"></div>Demais canais</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART 2: DEP/FTD -->
+    <div class="panel p-half">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="5.5" stroke="#FF3900" stroke-width="1.5" fill="none"/><line x1="6.5" y1="3.5" x2="6.5" y2="6.5" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/><circle cx="6.5" cy="9" r="1" fill="#FF3900"/></svg>
+        <span class="ph-title">Depósito Médio por FTD — Semanas Normalizadas</span>
+        <span class="ph-note">1º dep. + redepositos na semana de entrada · PowerBI · dim_player_key</span>
+      </div>
+      <div class="p-body">
+        <div class="dep-bars-wrap">
+
+          <!-- avg line at 573/1239 = 46.2% from bottom → bottom: 46.2% of ~190px ≈ 88px -->
+          <div class="dep-col">
+            <div class="dep-val">R$1.239</div>
+            <div class="dep-bar" style="height:160px;"></div>
+            <div class="dep-mth">JAN</div>
+            <div class="dep-per">02–08/01</div>
+          </div>
+
+          <div class="dep-col">
+            <div class="dep-val">R$789</div>
+            <div class="dep-bar" style="height:102px;"></div>
+            <div class="dep-mth">FEV</div>
+            <div class="dep-per">06–12/02</div>
+          </div>
+
+          <div class="dep-col">
+            <div class="dep-val">R$352</div>
+            <div class="dep-bar" style="height:45px;"></div>
+            <div class="dep-mth">MAR</div>
+            <div class="dep-per">06–12/03</div>
+          </div>
+
+          <div class="dep-col">
+            <div class="dep-val" style="color:#EF4444;">R$205</div>
+            <div class="dep-bar" style="height:26px; background:#EF4444; opacity:0.6;"></div>
+            <div class="dep-mth">ABR ★</div>
+            <div class="dep-per">03–09/04</div>
+          </div>
+
+          <div class="dep-col">
+            <div class="dep-val cur">R$278</div>
+            <div class="dep-bar cur" style="height:36px;"></div>
+            <div class="dep-mth cur">MAI ▶</div>
+            <div class="dep-per">01–07/05</div>
+          </div>
+
+        </div>
+        <div class="dep-note">
+          Depósito médio inclui primeiro depósito + redepositos dos players na semana de entrada · Abr piso da série
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /row 1 -->
+
+  <!-- ══ ROW 2: MÉTRICAS + INSIGHTS ══ -->
+  <div class="row row-bot">
+
+    <!-- TABLE -->
+    <div class="panel p-wide">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="0" width="13" height="3" rx="1" fill="#FF3900"/><rect x="0" y="5" width="13" height="3" rx="1" fill="#FF3900" opacity=".5"/><rect x="0" y="10" width="13" height="3" rx="1" fill="#FF3900" opacity=".25"/></svg>
+        <span class="ph-title">Métricas de Negócio — Janela Comparável 7 Dias</span>
+        <span class="ph-note">player-level · SB + Casino · BRL</span>
+      </div>
+      <div class="p-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Mês / Período</th>
+              <th>FullReg NL</th>
+              <th>FTDs</th>
+              <th>CR%</th>
+              <th class="th-hi">GGR (R$)</th>
+              <th class="th-hi">NGR (R$)</th>
+              <th class="th-hi">Marg. Total</th>
+              <th>Marg. SB</th>
+              <th>Marg. CS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jan · 02–08/01</td>
+              <td>318</td><td>448</td><td class="n">140,9%†</td>
+              <td class="n hi">-66.352</td>
+              <td class="n hi">-76.582</td>
+              <td class="n hi">-3,4%</td>
+              <td>-6,0%</td>
+              <td>5,2%</td>
+            </tr>
+            <tr>
+              <td>Fev · 06–12/02</td>
+              <td>540</td><td>216</td><td>40,0%</td>
+              <td>32.997</td><td>27.992</td><td>3,6%</td>
+              <td>2,6%</td><td>5,0%</td>
+            </tr>
+            <tr>
+              <td>Mar · 06–12/03</td>
+              <td>2.101</td><td>354</td><td>16,8%</td>
+              <td>18.646</td><td>12.879</td><td>2,4%</td>
+              <td>-3,6%</td><td>13,8%</td>
+            </tr>
+            <tr>
+              <td>Abr ★ · 03–09/04</td>
+              <td>3.101</td><td style="color:#FF3900;font-weight:700;">1.336</td>
+              <td>43,1%</td>
+              <td>70.548</td><td>66.703</td><td>6,7%</td>
+              <td>4,2%</td><td>8,5%</td>
+            </tr>
+            <tr class="cw">
+              <td>Mai ▶ · 01–07/05</td>
+              <td>2.309</td><td style="color:#111;font-weight:700;">533</td>
+              <td>23,1%</td>
+              <td class="hi-g">67.614</td>
+              <td class="hi-g">64.569</td>
+              <td class="hi">4,3%</td>
+              <td>4,0%</td><td>4,6%</td>
+            </tr>
+            <tr class="dr">
+              <td class="mu">Δ vs Abr</td>
+              <td class="n">-25,5%</td>
+              <td class="n">-60,1%</td>
+              <td class="n">-20,0 pp</td>
+              <td>-4,2%</td><td>-3,2%</td><td>-2,4 pp</td>
+              <td>-0,2 pp</td><td>-3,9 pp</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tnote">
+          ★ Semana Santa + pico de Affiliates · ▶ Semana atual · CR% = FTDs / FullReg NOT_LOCKED · † Jan: alto volume de contas lockadas a posteriori · Marg. SB e CS calculadas sobre Gross Bets do respectivo produto
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIMEIRO DEPÓSITO MÉDIO POR SOURCE -->
+    <div class="panel p-narrow">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="0" width="5" height="5" rx="1" fill="#FF3900"/><rect x="8" y="0" width="5" height="5" rx="1" fill="#FF3900" opacity=".5"/><rect x="0" y="8" width="5" height="5" rx="1" fill="#FF3900" opacity=".5"/><rect x="8" y="8" width="5" height="5" rx="1" fill="#FF3900" opacity=".25"/></svg>
+        <span class="ph-title">1º Depósito Médio por Origem</span>
+        <span class="ph-note">somente o 1º depósito · sem redepositos · Mai parcial*</span>
+      </div>
+      <div class="p-body" style="padding: 10px 0 8px;">
+        <table class="ftd-src-tbl">
+          <colgroup>
+            <col style="width:28%">
+            <col style="width:14%">
+            <col style="width:14%">
+            <col style="width:14%">
+            <col style="width:15%">
+            <col style="width:15%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Origem</th>
+              <th>Jan</th>
+              <th>Fev</th>
+              <th>Mar</th>
+              <th class="th-hi">Abr</th>
+              <th>Mai▶</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>casino</td>
+              <td class="mu">—</td><td>1.550</td><td>37</td><td class="n">27</td><td>337</td>
+            </tr>
+            <tr>
+              <td>Sem atrib.</td>
+              <td>982</td><td>652</td><td>615</td><td>459</td><td>251</td>
+            </tr>
+            <tr>
+              <td>retargeting</td>
+              <td>142</td><td>196</td><td>151</td><td>232</td><td>165</td>
+            </tr>
+            <tr>
+              <td>search</td>
+              <td>393</td><td>586</td><td>268</td><td>193</td><td>100</td>
+            </tr>
+            <tr>
+              <td>pmax</td>
+              <td>286</td><td>285</td><td>138</td><td>120</td><td>78</td>
+            </tr>
+            <tr>
+              <td>deportes</td>
+              <td>178</td><td>125</td><td>89</td><td>49</td><td>68</td>
+            </tr>
+            <tr>
+              <td>seo</td>
+              <td>69</td><td>65</td><td>83</td><td>80</td><td>68</td>
+            </tr>
+            <tr>
+              <td>instagram</td>
+              <td>244</td><td>295</td><td>70</td><td>97</td><td>67</td>
+            </tr>
+            <tr>
+              <td>meta</td>
+              <td>59</td><td>87</td><td>70</td><td>50</td><td>61</td>
+            </tr>
+            <tr>
+              <td>tiktok</td>
+              <td>56</td><td>34</td><td>37</td><td>61</td><td>59</td>
+            </tr>
+            <tr class="dr">
+              <td>Média geral</td>
+              <td>739</td><td>420</td><td>286</td>
+              <td class="n">145</td>
+              <td style="color:#FF3900;font-weight:700;">114</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tnote" style="padding: 5px 14px 0;">* Mai 01–07 · Abr pico Affiliates · valores em R$</div>
+      </div>
+    </div>
+
+    <!-- HIGHLIGHTS COLUMN -->
+    <div class="panel p-hi">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><polygon points="6.5,0.5 8,4.5 12.5,4.5 9,7.5 10.5,12 6.5,9.2 2.5,12 4,7.5 0.5,4.5 5,4.5" fill="#FF3900"/></svg>
+        <span class="ph-title">Destaques</span>
+      </div>
+      <div class="hi-col">
+
+        <div class="hi-card">
+          <div class="hi-lbl">FTD · Canal</div>
+          <div class="hi-val" style="color:#F59E0B;">18,1%</div>
+          <div class="hi-sub"><strong>Paid Social</strong> assume a 1ª posição em 2026<br>Affiliates: 38% → 7% em 30 dias</div>
+        </div>
+
+        <div class="hi-card">
+          <div class="hi-lbl">Dep / FTD · Qualidade</div>
+          <div class="hi-val" style="color:#FF3900;">R$278</div>
+          <div class="hi-sub"><strong>+35%</strong> vs Abr (R$205)<br>1º dep. médio Mai: R$114</div>
+        </div>
+
+        <div class="hi-card">
+          <div class="hi-lbl">GGR · Negócio</div>
+          <div class="hi-val" style="color:#22C55E;">R$67,6k</div>
+          <div class="hi-sub">−4,2% vs Abr · <strong>2,5× menos FTDs</strong><br>NGR R$64,6k · Marg. +4,3%</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /row 2 -->
+
+</div><!-- /body -->
+
+<div class="ftr">
+  <span>Performance · BetWarrior Brasil · 2026</span>
+  <span>Uso interno — não distribuir</span>
+  <span>PowerBI (SB+CS) · GA4 property 512299072</span>
+</div>
+
+</body>
+</html>
