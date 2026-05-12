@@ -103,7 +103,7 @@ body {
     <div class="hdr-title">WEEKLY PERFORMANCE REPORT — PÁG. 3</div>
     <div class="hdr-sub">
       <strong>Performance de Mídia — Mai 01–07.</strong>
-      Google concentra 72% dos FTDs com 33% do budget (CPA R$102) · Taboola R$12,9k investido sem FTD atribuído · TikTok CPA 7× o do Google.
+      TikTok CPA mais baixo (R$750, 22 FTDs) · Google concentra 62% dos FTDs com 53% do budget (CPA R$822) · R$22k em Taboola e X sem atribuição.
     </div>
   </div>
   <div class="hdr-meta">01–07 / Mai 2026<br>Mídia Paga · BRL<br>12/05/2026</div>
@@ -120,7 +120,7 @@ body {
         <path d="M3.5 3 L 8.5 10" stroke="#1C1C1E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
       </svg>
       <span class="ph-title">Budget vs FTDs por Veículo — Eficiência de Mídia</span>
-      <span class="ph-note">Investimento BRL · FTD calculado BI · Mai 01–07 · semana normalizada</span>
+      <span class="ph-note">Investimento BRL · FTD PowerBI + GA4 · Mai 01–07 · semana normalizada</span>
     </div>
     <div class="p-body">
 
@@ -145,9 +145,14 @@ body {
       <!-- SVG CHART
            viewBox: 0 0 600 210
            Chart area: x=46..546, y=16..164 (w=500, h=148)
-           5 groups × 100px, bars 24px wide, gap 4px, pad 22px left / 26px right
+           5 groups × 100px, bars 24px wide, gap 4px
            Budget bar x: 68,168,268,368,468  |  FTD bar x: 96,196,296,396,496
-           Scale: 1% = 1.48px  |  CPA max R$800 = 148px
+           Scale: 1% = 1.48px  |  CPA max R$1200 = 148px (R$1 = 0.1233px)
+           Google:  budget 53% h=79 y=85  / ftd 62% h=91 y=73  / CPA R$822 → dot y=63
+           Meta:    budget 31% h=46 y=118 / ftd 30% h=45 y=119 / CPA R$983 → dot y=43
+           TikTok:  budget  7% h=10 y=154 / ftd  8% h=12 y=152 / CPA R$750 → dot y=72
+           Taboola: budget  5% h=8  y=156 / ftd s/attr †
+           X:       budget  4% h=5  y=159 / ftd s/attr †
       -->
       <svg viewBox="0 0 600 210" style="flex:1;width:100%;display:block;min-height:200px;"
            preserveAspectRatio="xMidYMid meet">
@@ -166,105 +171,79 @@ body {
         <text x="42" y="56"  text-anchor="end" font-family="Archivo" font-size="8" fill="#CCCCCC">75%</text>
         <text x="42" y="19"  text-anchor="end" font-family="Archivo" font-size="8" fill="#CCCCCC">100%</text>
 
-        <!-- RIGHT Y-AXIS: CPA scale (max R$800) -->
-        <text x="550" y="130" text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$200</text>
-        <text x="550" y="92"  text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$400</text>
-        <text x="550" y="55"  text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$600</text>
-        <text x="550" y="19"  text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$800</text>
+        <!-- RIGHT Y-AXIS: CPA scale (max R$1200) -->
+        <text x="550" y="130" text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$300</text>
+        <text x="550" y="93"  text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$600</text>
+        <text x="550" y="56"  text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$900</text>
+        <text x="550" y="19"  text-anchor="start" font-family="Archivo" font-size="7" fill="#CCCCCC">R$1.2k</text>
 
-        <!-- AVG CPA R$221 → y=123 -->
-        <line x1="46" y1="123" x2="546" y2="123" stroke="#CCCCCC" stroke-width="1.2" stroke-dasharray="5,3"/>
-        <text x="47" y="119" text-anchor="start" font-family="Archivo" font-size="8" fill="#BBBBBB">avg R$221</text>
+        <!-- AVG CPA R$865 → y=57 -->
+        <line x1="46" y1="57" x2="546" y2="57" stroke="#CCCCCC" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <text x="47" y="53" text-anchor="start" font-family="Archivo" font-size="8" fill="#BBBBBB">avg R$865</text>
 
-        <!-- ══════════════════════════════════
-             GOOGLE  — budget 33.2% / ftd 71.7% / CPA R$102
-             budget bar: x=68 y=115 h=49
-             ftd bar:    x=96 y=58  h=106
-             CPA dot:    x=108 y=145
-        ══════════════════════════════════ -->
-        <rect x="68" y="115" width="24" height="49" fill="#CCCCCC" rx="2"/>
-        <text x="80" y="111" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999999">33%</text>
+        <!-- ══ GOOGLE — budget 53% / ftd 62% / CPA R$822 ══ -->
+        <rect x="68"  y="85"  width="24" height="79" fill="#CCCCCC" rx="2"/>
+        <text x="80"  y="81"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999999">53%</text>
 
-        <rect x="96" y="58" width="24" height="106" fill="#FF3900" rx="2"/>
-        <!-- FTD% label inside bar (white) -->
-        <text x="108" y="113" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFFFFF">72%</text>
+        <rect x="96"  y="73"  width="24" height="91" fill="#FF3900" rx="2"/>
+        <text x="108" y="121" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFFFFF">62%</text>
 
-        <!-- ══════════════════════════════════
-             META  — budget 19.5% / ftd 21.8% / CPA R$197
-             budget bar: x=168 y=135 h=29
-             ftd bar:    x=196 y=132 h=32
-             CPA dot:    x=208 y=128
-        ══════════════════════════════════ -->
-        <rect x="168" y="135" width="24" height="29" fill="#CCCCCC" rx="2"/>
-        <text x="180" y="131" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999999">20%</text>
+        <!-- ══ META — budget 31% / ftd 30% / CPA R$983 ══ -->
+        <rect x="168" y="118" width="24" height="46" fill="#CCCCCC" rx="2"/>
+        <text x="180" y="114" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999999">31%</text>
 
-        <rect x="196" y="132" width="24" height="32" fill="#FF3900" rx="2"/>
-        <!-- FTD% label inside bar (white) -->
-        <text x="208" y="152" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FFFFFF">22%</text>
+        <rect x="196" y="119" width="24" height="45" fill="#FF3900" rx="2"/>
+        <text x="208" y="145" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FFFFFF">30%</text>
 
-        <!-- ══════════════════════════════════
-             TIKTOK  — budget 20.2% / ftd 6.0% / CPA R$751
-             budget bar: x=268 y=134 h=30
-             ftd bar:    x=296 y=155 h=9
-             CPA dot:    x=308 y=25
-        ══════════════════════════════════ -->
-        <rect x="268" y="134" width="24" height="30" fill="#CCCCCC" rx="2"/>
-        <text x="280" y="130" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999999">20%</text>
+        <!-- ══ TIKTOK — budget 7% / ftd 8% / CPA R$750 ══ -->
+        <rect x="268" y="154" width="24" height="10" fill="#CCCCCC" rx="2"/>
+        <text x="280" y="150" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999999">7%</text>
 
-        <rect x="296" y="155" width="24" height="9" fill="#FF3900" rx="2"/>
-        <text x="308" y="151" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">6%</text>
+        <rect x="296" y="152" width="24" height="12" fill="#FF3900" rx="2"/>
+        <text x="308" y="148" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">8%</text>
 
-        <!-- ══════════════════════════════════
-             X  — budget 11.2% / ftd ~0% (s/attr.) †
-             budget bar: x=368 y=147 h=17
-        ══════════════════════════════════ -->
-        <rect x="368" y="147" width="24" height="17" fill="#DDDDDD" rx="2"/>
-        <text x="380" y="143" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">11%</text>
-        <!-- FTD absent — dashed placeholder -->
-        <rect x="396" y="157" width="24" height="7" fill="none" stroke="#DDDDDD" stroke-width="1.5" stroke-dasharray="3,2" rx="1"/>
+        <!-- ══ X — budget 4% / ftd s/attr. † ══ -->
+        <rect x="368" y="159" width="24" height="5"  fill="#DDDDDD" rx="2"/>
+        <text x="380" y="155" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">4%</text>
+        <rect x="396" y="157" width="24" height="7"  fill="none" stroke="#DDDDDD" stroke-width="1.5" stroke-dasharray="3,2" rx="1"/>
 
-        <!-- ══════════════════════════════════
-             TABOOLA  — budget 15.9% / ftd 0% (s/attr.) †
-             budget bar: x=468 y=140 h=24
-        ══════════════════════════════════ -->
-        <rect x="468" y="140" width="24" height="24" fill="#DDDDDD" rx="2"/>
-        <text x="480" y="136" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">16%</text>
-        <!-- FTD absent — dashed placeholder -->
-        <rect x="496" y="157" width="24" height="7" fill="none" stroke="#DDDDDD" stroke-width="1.5" stroke-dasharray="3,2" rx="1"/>
+        <!-- ══ TABOOLA — budget 5% / ftd s/attr. † ══ -->
+        <rect x="468" y="156" width="24" height="8"  fill="#DDDDDD" rx="2"/>
+        <text x="480" y="152" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">5%</text>
+        <rect x="496" y="157" width="24" height="7"  fill="none" stroke="#DDDDDD" stroke-width="1.5" stroke-dasharray="3,2" rx="1"/>
 
-        <!-- ══════════════════════════════════
-             CPA LINE  (Google → Meta → TikTok)
-             Google:  (108, 145)
-             Meta:    (208, 128)
-             TikTok:  (308, 25)
-        ══════════════════════════════════ -->
-        <polyline points="108,145 208,128 308,25"
+        <!-- ══ CPA LINE (Google → Meta → TikTok) ══
+             Google:  (108, 63)
+             Meta:    (208, 43)
+             TikTok:  (308, 72)
+        -->
+        <polyline points="108,63 208,43 308,72"
           fill="none" stroke="#1C1C1E" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- CPA dots (white fill, dark border) -->
-        <circle cx="108" cy="145" r="4.5" fill="#FFFFFF" stroke="#1C1C1E" stroke-width="2"/>
-        <circle cx="208" cy="128" r="4.5" fill="#FFFFFF" stroke="#1C1C1E" stroke-width="2"/>
-        <circle cx="308" cy="25"  r="4.5" fill="#FFFFFF" stroke="#1C1C1E" stroke-width="2"/>
+        <!-- CPA dots -->
+        <circle cx="108" cy="63" r="4.5" fill="#FFFFFF" stroke="#1C1C1E" stroke-width="2"/>
+        <circle cx="208" cy="43" r="4.5" fill="#FFFFFF" stroke="#1C1C1E" stroke-width="2"/>
+        <circle cx="308" cy="72" r="4.5" fill="#FFFFFF" stroke="#1C1C1E" stroke-width="2"/>
 
-        <!-- CPA value labels -->
-        <text x="108" y="140" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111111">R$102</text>
-        <text x="215" y="122" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111111">R$197</text>
-        <text x="308" y="18"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111111">R$751</text>
+        <!-- CPA labels -->
+        <text x="108" y="58"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111111">R$822</text>
+        <text x="213" y="38"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111111">R$983</text>
+        <text x="308" y="67"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111111">R$750</text>
 
         <!-- X-AXIS LINE -->
         <line x1="46" y1="165" x2="546" y2="165" stroke="#E0E0E0" stroke-width="1"/>
 
-        <!-- X-AXIS LABELS: platform · FTD count · investment -->
+        <!-- X-AXIS LABELS -->
         <!-- GOOGLE -->
         <text x="96"  y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555555">GOOGLE</text>
-        <text x="96"  y="192" text-anchor="middle" font-family="Archivo Black" font-size="15" fill="#111111">265</text>
-        <text x="96"  y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAAAAA">R$27k</text>
+        <text x="96"  y="192" text-anchor="middle" font-family="Archivo Black" font-size="15" fill="#111111">163</text>
+        <text x="96"  y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAAAAA">R$134k</text>
 
         <!-- META -->
         <text x="196" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555555">META</text>
         <text x="196" y="192" text-anchor="middle" font-family="Archivo Black" font-size="15" fill="#111111">80</text>
-        <text x="196" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAAAAA">R$16k</text>
+        <text x="196" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAAAAA">R$79k</text>
 
         <!-- TIKTOK -->
         <text x="296" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555555">TIKTOK</text>
@@ -285,8 +264,8 @@ body {
 
       <!-- CHART FOOT -->
       <div class="chart-foot">
-        <span>Fonte: BW BR CPL x Mes Interno Perfo 2026 (Time Perfo Argentina) · FTD calculado BI = Reg_GA4 × CVR · † s/attr. = zero FTDs na janela 01–07/Mai</span>
-        <span>Total: R$81.480 invest · 369 FTDs · CPA avg R$221</span>
+        <span>Fonte: FTD BI PowerBI via planilha Perfo AR (Meta/TikTok/X) · Google = GA4 deposit_ftd Paid Search + Cross-network · † s/attr. = zero FTDs atribuídos no período</span>
+        <span>Total: R$251k invest · 265 FTDs atribuídos · CPA ponderado R$865</span>
       </div>
 
     </div>
