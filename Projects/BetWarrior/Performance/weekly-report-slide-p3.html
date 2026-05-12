@@ -14,8 +14,6 @@ body {
   font-family: 'Archivo', sans-serif;
   display: flex; flex-direction: column;
 }
-
-/* ══ HEADER ══ */
 .hdr {
   background: #FFFFFF; border-bottom: 2px solid #FF3900;
   display: flex; align-items: center; gap: 24px;
@@ -34,14 +32,10 @@ body {
 .hdr-sub { font-size: 12px; color: #777; line-height: 1.4; }
 .hdr-sub strong { color: #FF3900; }
 .hdr-meta { font-size: 11px; color: #999; text-align: right; line-height: 1.8; flex-shrink: 0; letter-spacing: 0.5px; }
-
-/* ══ BODY ══ */
 .body {
   flex: 1; padding: 14px 20px;
   display: flex; flex-direction: column; gap: 12px; min-height: 0;
 }
-
-/* ══ PANEL ══ */
 .panel {
   background: #FFFFFF; border: 1px solid #E0E0E0;
   border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
@@ -61,8 +55,7 @@ body {
   flex: 1; padding: 12px 20px 10px;
   display: flex; flex-direction: column; min-height: 0;
 }
-
-/* ══ TWO-CHART LAYOUT ══ */
+/* ── two charts ── */
 .charts-duo {
   flex: 1; display: flex; gap: 0; min-height: 0;
 }
@@ -71,24 +64,27 @@ body {
 }
 .chart-half:first-child { padding-right: 18px; border-right: 1px solid #F0F0F0; }
 .chart-half:last-child  { padding-left: 18px; }
-
-/* ══ LEGEND ══ */
+/* ── legend ── */
 .chart-legend {
-  display: flex; gap: 18px; margin-bottom: 8px; flex-shrink: 0; align-items: center;
+  display: flex; gap: 16px; margin-bottom: 6px; flex-shrink: 0; align-items: center;
 }
 .cleg-item { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #777; letter-spacing: 0.5px; text-transform: uppercase; }
-.cleg-box  { width: 12px; height: 12px; border-radius: 1px; flex-shrink: 0; }
-.cleg-note { margin-left: auto; font-size: 9px; color: #CCCCCC; font-style: italic; }
-
-/* ══ CHART FOOT ══ */
-.chart-foot {
-  margin-top: 6px; padding-top: 6px;
-  border-top: 1px solid #F0F0F0;
-  font-size: 9px; color: #BBBBBB;
-  display: flex; justify-content: space-between; flex-shrink: 0;
+.cleg-box  { width: 11px; height: 11px; border-radius: 1px; flex-shrink: 0; }
+/* ── insight card ── */
+.insight-card {
+  margin-top: 8px; flex-shrink: 0;
+  border: 1px solid #FF3900; border-radius: 3px;
+  padding: 6px 14px 6px 12px;
+  display: flex; align-items: baseline; gap: 10px;
 }
-
-/* ══ FOOTER ══ */
+.ic-lbl { font-size: 8px; color: #AAAAAA; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+.ic-val { font-family: 'Archivo Black'; font-size: 18px; color: #FF3900; line-height: 1; white-space: nowrap; }
+.ic-sub { font-size: 9px; color: #777; line-height: 1.3; }
+/* ── chart note ── */
+.chart-note {
+  margin-top: 5px; font-size: 8.5px; color: #BBBBBB; flex-shrink: 0;
+}
+/* ── footer ── */
 .ftr {
   height: 30px; background: #FFFFFF; border-top: 1px solid #E8E8E8;
   display: flex; align-items: center; justify-content: space-between;
@@ -99,7 +95,6 @@ body {
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="hdr">
   <div class="logo-block">
     <div class="logo-bar"></div>
@@ -113,7 +108,7 @@ body {
     <div class="hdr-title">WEEKLY PERFORMANCE REPORT — PÁG. 3</div>
     <div class="hdr-sub">
       <strong>Performance de Mídia — Mai 01–07.</strong>
-      Google retorna 1,92× o investimento em gross bets na semana 1 · TikTok quase break-even (ROAS 0,97) · Meta traz players com volume de apostas 7× menor que Google.
+      Google converte 58% dos FTDs com 53% do budget (CPA R$583) e retorna 1,92× em apostas na semana 1 · TikTok quase break-even (ROAS 0,97) · Meta: CPA similar ao Google mas players apostam 4,6× menos.
     </div>
   </div>
   <div class="hdr-meta">01–07 / Mai 2026<br>Mídia Paga · BRL<br>12/05/2026</div>
@@ -127,15 +122,16 @@ body {
         <rect x="2" y="4" width="3" height="9" rx="1" fill="#FF3900"/>
         <path d="M3.5 5 L 8.5 11" stroke="#1C1C1E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
       </svg>
-      <span class="ph-title">Eficiência de Mídia — Budget vs FTDs · Budget vs Gross Bet</span>
-      <span class="ph-note">Investimento BRL · FTD BI PowerBI · Gross Bet = coorte FTD Mai 01–07 (semana 1) · semana normalizada</span>
+      <span class="ph-title">Eficiência de Mídia — Budget · FTDs · Gross Bet · Qualidade</span>
+      <span class="ph-note">FTD BI PowerBI (utm_source) · Invest. BRL · semana normalizada 01–07/Mai</span>
     </div>
+
     <div class="p-body">
       <div class="charts-duo">
 
-        <!-- ══════════════════════════════════════════════
-             GRÁFICO 1 — % Budget vs % FTDs + linha CPA
-        ══════════════════════════════════════════════ -->
+        <!-- ═══════════════════════════════════════
+             GRÁFICO 1 · % Budget vs % FTDs + CPA
+        ═══════════════════════════════════════ -->
         <div class="chart-half">
           <div class="chart-legend">
             <div class="cleg-item">
@@ -145,104 +141,108 @@ body {
               <div class="cleg-box" style="background:#FF3900"></div>% FTDs
             </div>
             <div class="cleg-item">
-              <div style="width:20px;height:2px;background:#1C1C1E;border-radius:1px;flex-shrink:0;"></div>CPA (R$)
+              <div style="width:18px;height:1.8px;background:#1C1C1E;border-radius:1px;flex-shrink:0;"></div>CPA (R$)
             </div>
-            <div class="cleg-note">† s/attr.</div>
           </div>
 
           <!--
-            viewBox 0 0 600 210 | Chart area x=46..546 y=16..164 (h=148)
-            5 grupos × 100px | Budget x: 68,168,268,368,468 | FTD x: 96,196,296,396,496
-            Escala: 1% = 1.48px | CPA max R$1200 → 0.1233px/R$
-            Google:  budget 53% h=79 y=85 | ftd 58% h=85 y=79 | CPA R$583 y=92
-            Meta:    budget 31% h=46 y=118 | ftd 36% h=53 y=111 | CPA R$554 y=96
-            TikTok:  budget  7% h=10 y=154 | ftd  6% h=8  y=156 | CPA R$750 y=72
-            X:       budget  4% h=5  y=159 | ftd s/attr
-            Taboola: budget  5% h=8  y=156 | ftd s/attr
+            viewBox 0 0 600 210 | chart x=46-546 y=16-164 h=148
+            Budget x: 68,168,268,368,468 | FTD x: 96,196,296,396,496 | dot x: 108,208,308
+            Scale % : 1% = 1.48px | CPA max R$1.200 → 0.1233px/R$
+            Google:  bud 53% h=79 y=85 | ftd 58% h=86 y=78 | CPA R$583 y=92
+            Meta:    bud 31% h=46 y=118 | ftd 36% h=53 y=111 | CPA R$554 y=96
+            TikTok:  bud  7% h=10 y=154 | ftd  6% h=9  y=155 | CPA R$750 y=72
+            X:       bud  4% h=6  y=158 | s/attr
+            Taboola: bud  5% h=7  y=157 | s/attr
             Avg CPA R$630 → y=86
           -->
-          <svg viewBox="0 0 600 210" style="flex:1;width:100%;display:block;min-height:180px;"
+          <svg viewBox="0 0 600 210" style="flex:1;width:100%;display:block;min-height:170px;"
                preserveAspectRatio="xMidYMid meet">
 
-            <!-- BASELINE ONLY -->
             <line x1="46" y1="164" x2="546" y2="164" stroke="#E0E0E0" stroke-width="0.8"/>
 
-            <!-- AVG CPA R$630 → y=86 (thin, label right) -->
-            <line x1="46" y1="86" x2="546" y2="86" stroke="#CCCCCC" stroke-width="0.8" stroke-dasharray="4,3"/>
+            <!-- avg CPA -->
+            <line x1="46" y1="86" x2="546" y2="86" stroke="#CCCCCC" stroke-width="0.7" stroke-dasharray="4,3"/>
             <text x="542" y="83" text-anchor="end" font-family="Archivo" font-size="8" fill="#BBBBBB">avg R$630</text>
 
-            <!-- ══ GOOGLE ══ -->
-            <rect x="68" y="85"  width="24" height="79" fill="#CCCCCC" rx="2"/>
-            <text x="80" y="81"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">53%</text>
-            <rect x="96" y="79"  width="24" height="85" fill="#FF3900" rx="2"/>
+            <!-- GOOGLE -->
+            <rect x="68"  y="85"  width="24" height="79" fill="#CCCCCC" rx="2"/>
+            <text x="80"  y="81"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">53%</text>
+            <rect x="96"  y="78"  width="24" height="86" fill="#FF3900" rx="2"/>
             <text x="108" y="124" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFF">58%</text>
 
-            <!-- ══ META ══ -->
+            <!-- META -->
             <rect x="168" y="118" width="24" height="46" fill="#CCCCCC" rx="2"/>
             <text x="180" y="114" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">31%</text>
             <rect x="196" y="111" width="24" height="53" fill="#FF3900" rx="2"/>
             <text x="208" y="140" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FFF">36%</text>
 
-            <!-- ══ TIKTOK ══ -->
+            <!-- TIKTOK -->
             <rect x="268" y="154" width="24" height="10" fill="#CCCCCC" rx="2"/>
             <text x="280" y="150" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">7%</text>
-            <rect x="296" y="156" width="24" height="8"  fill="#FF3900" rx="2"/>
-            <text x="308" y="152" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">6%</text>
+            <rect x="296" y="155" width="24" height="9"  fill="#FF3900" rx="2"/>
+            <text x="308" y="151" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">6%</text>
 
-            <!-- ══ X ══ -->
-            <rect x="368" y="159" width="24" height="5"  fill="#DDDDDD" rx="2"/>
-            <text x="380" y="155" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">4%</text>
-            <rect x="396" y="157" width="24" height="7"  fill="none" stroke="#DDDDDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+            <!-- X -->
+            <rect x="368" y="158" width="24" height="6"  fill="#DDDDDD" rx="2"/>
+            <text x="380" y="154" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">4%</text>
+            <rect x="396" y="157" width="24" height="7"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
 
-            <!-- ══ TABOOLA ══ -->
-            <rect x="468" y="156" width="24" height="8"  fill="#DDDDDD" rx="2"/>
-            <text x="480" y="152" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">5%</text>
-            <rect x="496" y="157" width="24" height="7"  fill="none" stroke="#DDDDDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+            <!-- TABOOLA -->
+            <rect x="468" y="157" width="24" height="7"  fill="#DDDDDD" rx="2"/>
+            <text x="480" y="153" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">5%</text>
+            <rect x="496" y="157" width="24" height="7"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
 
-            <!-- CPA LINE: Google(108,92) → Meta(208,96) → TikTok(308,72) -->
+            <!-- CPA line -->
             <polyline points="108,92 208,96 308,72"
               fill="none" stroke="#1C1C1E" stroke-width="1.8"
               stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="108" cy="92" r="4" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
-            <circle cx="208" cy="96" r="4" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
-            <circle cx="308" cy="72" r="4" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
+            <circle cx="108" cy="92" r="3.8" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
+            <circle cx="208" cy="96" r="3.8" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
+            <circle cx="308" cy="72" r="3.8" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
 
-            <!-- CPA labels -->
-            <text x="95"  y="88"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$583</text>
+            <text x="96"  y="87"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$583</text>
             <text x="222" y="92"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$554</text>
             <text x="308" y="67"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$750</text>
 
-            <!-- X-AXIS -->
             <line x1="46" y1="165" x2="546" y2="165" stroke="#E0E0E0" stroke-width="0.8"/>
 
-            <!-- GOOGLE -->
             <text x="96"  y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555">GOOGLE</text>
             <text x="96"  y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">230</text>
             <text x="96"  y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">R$134k</text>
-            <!-- META -->
+
             <text x="196" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555">META</text>
             <text x="196" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">142</text>
             <text x="196" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">R$79k</text>
-            <!-- TIKTOK -->
+
             <text x="296" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555">TIKTOK</text>
             <text x="296" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">22</text>
             <text x="296" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">R$16k</text>
-            <!-- X -->
+
             <text x="396" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#AAA">X</text>
             <text x="396" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#CCC">1†</text>
-            <text x="396" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">R$9k</text>
-            <!-- TABOOLA -->
+            <text x="396" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#CCC">R$9k</text>
+
             <text x="496" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#AAA">TABOOLA</text>
             <text x="496" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#CCC">4†</text>
-            <text x="496" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">R$13k</text>
+            <text x="496" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#CCC">R$13k</text>
 
           </svg>
-        </div><!-- /.chart-half -->
 
-        <!-- ══════════════════════════════════════════════
-             GRÁFICO 2 — % Budget vs % Gross Bet + linha ROAS
-             Gross bet = coorte FTD semana 1 (mai 01-07)
-        ══════════════════════════════════════════════ -->
+          <div class="insight-card">
+            <span class="ic-lbl">CPA PONDERADO</span>
+            <span class="ic-val">R$630</span>
+            <span class="ic-sub">Meta R$554 · Google R$583 · TikTok R$750<br>X e Taboola: CPA inviável no período</span>
+          </div>
+
+          <div class="chart-note">
+            Fonte: FTD BI PowerBI · Google = utm_source search + pmax · Meta = meta + fb + ig · † menos de 5 FTDs atribuídos
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════
+             GRÁFICO 2 · % Budget vs % Gross Bet + apostas/FTD
+        ═══════════════════════════════════════════════ -->
         <div class="chart-half">
           <div class="chart-legend">
             <div class="cleg-item">
@@ -252,108 +252,107 @@ body {
               <div class="cleg-box" style="background:#FF3900"></div>% Gross Bet
             </div>
             <div class="cleg-item">
-              <div style="width:20px;height:2px;background:#1C1C1E;border-radius:1px;flex-shrink:0;"></div>ROAS sem. 1
+              <div style="width:18px;height:1.8px;background:#1C1C1E;border-radius:1px;flex-shrink:0;"></div>R$/FTD (apostas)
             </div>
-            <div class="cleg-note">† s/attr.</div>
           </div>
 
           <!--
-            Mesma grade e posições de barra.
             Gross Bet %: Google 83% h=122 y=42 | Meta 11% h=16 y=148 | TikTok 5% h=8 y=156
-            ROAS max 2.5 → 59.2px/unit | y = 164 - ROAS × 59.2
-            Google 1.92 → y=50 | Meta 0.44 → y=138 | TikTok 0.97 → y=107
-            Avg ROAS 1.24 → y=91
+            Apostas/FTD max R$1.200 → 0.1233px/R$ (mesma escala do CPA do G1)
+            Google R$1.118/FTD → y = 164 - 1118×0.1233 = 26
+            Meta   R$243/FTD  → y = 164 - 243×0.1233  = 134
+            TikTok R$728/FTD  → y = 164 - 728×0.1233  = 74
+            Avg R$781/FTD → y = 164 - 781×0.1233 = 68
           -->
-          <svg viewBox="0 0 600 210" style="flex:1;width:100%;display:block;min-height:180px;"
+          <svg viewBox="0 0 600 210" style="flex:1;width:100%;display:block;min-height:170px;"
                preserveAspectRatio="xMidYMid meet">
 
-            <!-- BASELINE ONLY -->
             <line x1="46" y1="164" x2="546" y2="164" stroke="#E0E0E0" stroke-width="0.8"/>
 
-            <!-- AVG ROAS 1.24 → y=91 (thin, label right) -->
-            <line x1="46" y1="91" x2="546" y2="91" stroke="#CCCCCC" stroke-width="0.8" stroke-dasharray="4,3"/>
-            <text x="542" y="88" text-anchor="end" font-family="Archivo" font-size="8" fill="#BBBBBB">avg 1.24×</text>
+            <!-- avg apostas/FTD -->
+            <line x1="46" y1="68" x2="546" y2="68" stroke="#CCCCCC" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <text x="542" y="65" text-anchor="end" font-family="Archivo" font-size="8" fill="#BBBBBB">avg R$781/FTD</text>
 
-            <!-- ══ GOOGLE ══ -->
-            <rect x="68"  y="85"  width="24" height="79" fill="#CCCCCC" rx="2"/>
+            <!-- GOOGLE -->
+            <rect x="68"  y="85"  width="24" height="79"  fill="#CCCCCC" rx="2"/>
             <text x="80"  y="81"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">53%</text>
             <rect x="96"  y="42"  width="24" height="122" fill="#FF3900" rx="2"/>
-            <text x="108" y="100" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFF">83%</text>
+            <text x="108" y="102" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFF">83%</text>
 
-            <!-- ══ META ══ -->
+            <!-- META -->
             <rect x="168" y="118" width="24" height="46" fill="#CCCCCC" rx="2"/>
             <text x="180" y="114" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">31%</text>
             <rect x="196" y="148" width="24" height="16" fill="#FF3900" rx="2"/>
             <text x="208" y="144" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">11%</text>
 
-            <!-- ══ TIKTOK ══ -->
+            <!-- TIKTOK -->
             <rect x="268" y="154" width="24" height="10" fill="#CCCCCC" rx="2"/>
             <text x="280" y="150" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#999">7%</text>
             <rect x="296" y="156" width="24" height="8"  fill="#FF3900" rx="2"/>
             <text x="308" y="152" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">5%</text>
 
-            <!-- ══ X ══ -->
-            <rect x="368" y="159" width="24" height="5"  fill="#DDDDDD" rx="2"/>
-            <text x="380" y="155" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">4%</text>
-            <rect x="396" y="157" width="24" height="7"  fill="none" stroke="#DDDDDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+            <!-- X -->
+            <rect x="368" y="158" width="24" height="6"  fill="#DDDDDD" rx="2"/>
+            <text x="380" y="154" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">4%</text>
+            <rect x="396" y="157" width="24" height="7"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
 
-            <!-- ══ TABOOLA ══ -->
-            <rect x="468" y="156" width="24" height="8"  fill="#DDDDDD" rx="2"/>
-            <text x="480" y="152" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">5%</text>
-            <rect x="496" y="157" width="24" height="7"  fill="none" stroke="#DDDDDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+            <!-- TABOOLA -->
+            <rect x="468" y="157" width="24" height="7"  fill="#DDDDDD" rx="2"/>
+            <text x="480" y="153" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#BBBBBB">5%</text>
+            <rect x="496" y="157" width="24" height="7"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
 
-            <!-- ROAS LINE: Google(108,50) → Meta(208,138) → TikTok(308,107) -->
-            <polyline points="108,50 208,138 308,107"
+            <!-- Apostas/FTD line: Google(108,26) → Meta(208,134) → TikTok(308,74) -->
+            <polyline points="108,26 208,134 308,74"
               fill="none" stroke="#1C1C1E" stroke-width="1.8"
               stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="108" cy="50"  r="4" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
-            <circle cx="208" cy="138" r="4" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
-            <circle cx="308" cy="107" r="4" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
+            <circle cx="108" cy="26"  r="3.8" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
+            <circle cx="208" cy="134" r="3.8" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
+            <circle cx="308" cy="74"  r="3.8" fill="#FFF" stroke="#1C1C1E" stroke-width="1.8"/>
 
-            <!-- ROAS labels -->
-            <text x="108" y="44"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">1.92×</text>
-            <text x="208" y="133" text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">0.44×</text>
-            <text x="308" y="102" text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">0.97×</text>
+            <text x="108" y="21"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$1.118</text>
+            <text x="208" y="129" text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$243</text>
+            <text x="308" y="69"  text-anchor="middle" font-family="Archivo Black" font-size="8" fill="#111">R$728</text>
 
-            <!-- X-AXIS -->
             <line x1="46" y1="165" x2="546" y2="165" stroke="#E0E0E0" stroke-width="0.8"/>
 
-            <!-- GOOGLE -->
             <text x="96"  y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555">GOOGLE</text>
             <text x="96"  y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$257k</text>
             <text x="96"  y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">ROAS 1.92×</text>
-            <!-- META -->
+
             <text x="196" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555">META</text>
             <text x="196" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$34k</text>
             <text x="196" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">ROAS 0.44×</text>
-            <!-- TIKTOK -->
+
             <text x="296" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#555">TIKTOK</text>
             <text x="296" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$16k</text>
             <text x="296" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#AAA">ROAS 0.97×</text>
-            <!-- X -->
+
             <text x="396" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#AAA">X</text>
             <text x="396" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#CCC">R$0†</text>
             <text x="396" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#CCC">—</text>
-            <!-- TABOOLA -->
+
             <text x="496" y="176" text-anchor="middle" font-family="Archivo Black" font-size="8" letter-spacing="1" fill="#AAA">TABOOLA</text>
             <text x="496" y="192" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#CCC">R$3k</text>
             <text x="496" y="203" text-anchor="middle" font-family="Archivo" font-size="8" fill="#CCC">0.27×</text>
 
           </svg>
-        </div><!-- /.chart-half -->
 
-      </div><!-- /.charts-duo -->
+          <div class="insight-card">
+            <span class="ic-lbl">APOSTAS / FTD · SEMANA 1</span>
+            <span class="ic-val">R$1.118</span>
+            <span class="ic-sub">Google · 4.6× acima de Meta (R$243)<br>Gross bet coorte: R$311k total gerado</span>
+          </div>
 
-      <!-- CHART FOOT -->
-      <div class="chart-foot">
-        <span>FTD BI PowerBI (utm_source) · Google = search + pmax · Meta = meta + fb + ig · Gross Bet = apostas da coorte FTD 01–07/Mai na mesma semana · † s/attr. = CPA inviável</span>
-        <span>Invest total R$251k · 399 FTDs atribuídos · Gross Bet coorte R$311k · ROAS ponderado 1.24×</span>
+          <div class="chart-note">
+            Gross bet da coorte FTD 01–07/Mai medido na mesma semana · Janela curta: LTV real estende além dos 7 dias · † menos de 5 FTDs no período
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <div class="ftr">
   <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
   <span>WPR · PÁG. 3 · PERFORMANCE DE MÍDIA · MAI 01–07/2026</span>
