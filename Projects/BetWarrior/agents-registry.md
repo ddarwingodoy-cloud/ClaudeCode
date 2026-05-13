@@ -65,14 +65,26 @@ Atualizado em: 13/05/2026
 
 ### WPR-update — Atualização Semanal do Weekly Performance Report
 
+**Quando disparar:** somente após o último dia da semana normalizada ter sido completado.
+A âncora de Maio é sexta-feira → janela = Sex a Qui → o trigger só é válido a partir de sexta-feira da semana seguinte.
+
+| Semana | Janela | Trigger disponível a partir de |
+|---|---|---|
+| Semana 1 | 01–07/mai | Sex 08/mai |
+| Semana 2 | 08–14/mai | Sex 15/mai |
+| Semana 3 | 15–21/mai | Sex 22/mai |
+| Semana 4 | 22–28/mai | Sex 29/mai |
+
 **Trigger exato** (Darwin digita):
 ```
-WPR [DD-DD/mês/YYYY]. Headline: [frase narrativa]. Destaques: [card1 | card2 | card3]
+WPR [DD-DD/mês/YYYY]
 ```
 
-Exemplo:
+O orquestrador puxa os dados, analisa e **sugere headline e destaques** antes de gerar o HTML. Darwin confirma, ajusta ou substitui o texto editorial antes da geração final.
+
+Exemplo (semana 2):
 ```
-WPR 08-14/mai/2026. Headline: "Qualidade de FTD em recuperação — Dep/FTD acima de abril." Destaques: Paid Social lidera com 38% dos FTDs | Dep/FTD R$312 +12% vs abr | GGR R$4,2M estável
+WPR 08-14/mai/2026
 ```
 
 **Pré-condições** — verificar antes de iniciar:
