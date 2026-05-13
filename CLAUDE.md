@@ -64,6 +64,16 @@ Aplicar sempre, sem precisar ler os arquivos de design:
 
 **Regra absoluta:** apenas preto `#000000`, branco `#FFFFFF` e laranja `#FF3900` como cores de marca. Sem azul, cinza de marca ou gradientes.
 
+## Agentes e automações
+
+Registro de sub-agentes disponíveis: `Projects/BetWarrior/agents-registry.md`
+
+Ao receber um trigger de workflow estruturado (ex: `WPR DD-DD/mês/YYYY. Headline: [...]. Destaques: [...]`):
+1. Carregar o registro e identificar o workflow correspondente
+2. Verificar pré-condições (arquivos necessários)
+3. Disparar sub-agentes conforme a arquitetura definida no registro
+4. Não iniciar a execução sem todos os inputs obrigatórios presentes
+
 ## Preferências de resposta
 
 - Respostas curtas e diretas
