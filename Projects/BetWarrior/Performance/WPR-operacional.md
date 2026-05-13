@@ -210,7 +210,7 @@ ROW 2 (flex:3 = 30%)
 | FTDs por canal GA4 (`deposit_ftd`) | MCP `google-analytics` (property 512299072) | **Disponível agora** |
 | Semanas normalizadas calculadas | Script Python (lógica já implementada) | **Disponível agora** |
 | Leitura de XLSX locais | Python `openpyxl` via Bash | **Disponível agora** |
-| Queries PowerBI (BI metrics) | REST API OAuth2 (guia em `/BI/guia-conexao-pbi-claude-code.md`) | **Aguarda acesso Builder do Lucas** |
+| Queries PowerBI (BI metrics) | REST API OAuth2 — tokens em `~/.claude/credentials/` | **Operacional** (refresh automático a cada sessão) |
 
 ---
 
@@ -264,6 +264,30 @@ Alta. Hoje a geração manual de uma edição do WPR leva ~2h (coleta de dados +
 
 **Trigger:** Darwin digita algo como:
 > "Atualize o WPR para a semana de [data]. Headline: [frase]. Destaques: [...]"
+
+Ao receber esse pedido, vou solicitar os arquivos abaixo antes de iniciar — ou verificar se já estão na pasta `.WEEKLY/`:
+
+---
+
+**Checklist de arquivos que vou pedir a você:**
+
+| # | Arquivo | O que contém | Quem fornece | Onde salvar |
+|---|---|---|---|---|
+| 1 | `BW BR - CPL x Mes l Interno Perfo 2026.xlsx` | Investimento e FTDs diários por plataforma (Google, Meta, TikTok, X, Taboola) | Equipe de Perfo — Argentina | `.WEEKLY/` |
+| 2 | `PACING - PERFO.xlsx` | Consumo % de orçamento e FTDs vs meta mensal, atualizado até a data do relatório | Diego | `.WEEKLY/` |
+| 3 | `2026_SB_CS.xlsx` (ou dois arquivos: `2026_SB.xlsx` + `2026_CS.xlsx`) | Métricas de negócio: FullReg, FTDs, GGR, NGR, margens, depósitos, 1º depósito por source | Export manual do PowerBI (você) | `Performance/` |
+
+**Informações editoriais que vou pedir diretamente:**
+
+| # | Informação | Exemplo |
+|---|---|---|
+| 4 | Headline das 3 páginas | "GGR sustentado com 2,5× menos FTDs. Qualidade em recuperação." |
+| 5 | Destaques P1+P2 (3 cards) | Canal líder · Dep/FTD e variação · GGR e variação |
+| 6 | Contexto da semana (se houver) | Semana Santa, anomalia de canal, evento de produto |
+
+> **Nota sobre o arquivo nº 3:** enquanto as medidas DAX exatas do Betinho não estiverem replicadas, as métricas de negócio (GGR, NGR, margens) virão do export XLSX — não diretamente da API. A API já funciona para turnover por `utm_source` (P3) e FTDs por canal (GA4).
+
+---
 
 O agente executa os passos 1–5 automaticamente e apresenta o HTML para revisão final.
 
