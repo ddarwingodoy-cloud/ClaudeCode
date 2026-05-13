@@ -7,4 +7,7 @@
 Projects/Ceramicando/Produto/*.csv
 
 # Documentos pessoais de terceiros
-Projects/BetWarrior/Recursos Humanos/
+Projects/BetWarrior/Pessoas/
+
+# Dados operacionais semanais — arquivos binários atualizados toda semana
+Projects/BetWarrior/Performance/.WEEKLY/
