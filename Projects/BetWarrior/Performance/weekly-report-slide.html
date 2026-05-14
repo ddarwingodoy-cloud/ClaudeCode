@@ -174,41 +174,14 @@ tbody td:first-child {
 }
 
 /* ══ FUNIL DE ATIVAÇÃO ══ */
-.fn-wrap { display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 0; }
-
-.fn-session {
-  display: flex; align-items: baseline; gap: 8px;
-  padding-bottom: 7px; margin-bottom: 2px;
-  border-bottom: 1px solid #EEEEEE;
-}
-.fn-s-lbl {
-  font-family: 'Archivo Black', sans-serif; font-size: 8px;
-  letter-spacing: 2px; text-transform: uppercase; color: #AAAAAA; flex: 1;
-}
-.fn-s-val { font-family: 'Archivo Black', sans-serif; font-size: 20px; line-height: 1; color: #111; }
-.fn-s-wow { font-size: 10px; font-weight: 700; }
-
-.fn-conn {
-  display: flex; align-items: center; gap: 4px;
-  padding: 3px 0; font-size: 9px; color: #BBBBBB;
-}
-.fn-conn-rate { flex: 1; }
-.fn-conn-delta { font-size: 9px; font-weight: 700; }
-
-.fn-step { display: flex; flex-direction: column; gap: 4px; }
-.fn-step-head { display: flex; align-items: baseline; gap: 6px; }
-.fn-step-lbl {
-  font-family: 'Archivo Black', sans-serif; font-size: 8px;
-  letter-spacing: 2px; text-transform: uppercase; color: #555; flex: 1;
-}
-.fn-step-num { font-family: 'Archivo Black', sans-serif; font-size: 14px; line-height: 1; color: #111; }
-.fn-bar-wrap { height: 7px; background: #F0F0F0; border-radius: 2px; overflow: hidden; }
-.fn-bar { height: 100%; border-radius: 2px; }
-
-.fn-note {
-  font-size: 8px; color: #CCCCCC; letter-spacing: 0.3px;
-  margin-top: 5px; padding-top: 5px; border-top: 1px solid #F0F0F0;
-}
+.fn-wrap   { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.fn-svg    { display: block; width: 100%; height: 100px; }
+.fn-labels { display: flex; margin-top: 10px; }
+.fn-label  { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 2px; }
+.fn-l-num  { font-family: 'Archivo Black', sans-serif; font-size: 13px; line-height: 1; color: #111; }
+.fn-l-name { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: #777; margin-top: 3px; }
+.fn-l-conv { font-size: 9px; font-weight: 700; margin-top: 2px; }
+.fn-note   { font-size: 8px; color: #CCCCCC; letter-spacing: 0.3px; margin-top: 8px; padding-top: 6px; border-top: 1px solid #F0F0F0; }
 
 /* ══ FOOTER ══ */
 .ftr {
@@ -461,64 +434,60 @@ tbody td:first-child {
         <span class="ph-title">Funil de Ativação</span>
         <span class="ph-note">GA4 + PowerBI · Mai 01–07</span>
       </div>
-      <div class="p-body" style="padding-top:8px; padding-bottom:6px;">
+      <div class="p-body" style="padding-top:10px; padding-bottom:8px;">
         <div class="fn-wrap">
 
-          <!-- Sessões -->
-          <div class="fn-session">
-            <span class="fn-s-lbl">Sessões</span>
-            <span class="fn-s-val">82.267</span>
-            <span class="fn-s-wow" style="color:#EF4444;">−30% WoW</span>
-          </div>
+          <!-- SVG FUNNEL
+               Heights at each x boundary (center = y50):
+               x=0:   h=100 (0→100)   Sessions baseline
+               x=108: h=58  (21→79)   ~58% — big visual drop Sessions→NL
+               x=216: h=31  (34.5→65.5) — 54% of NL ✓
+               x=324: h=16  (42→58)   — 52% of RFD ✓
+               x=432: h=8   (46→54)   narrow tip
+          -->
+          <svg class="fn-svg" viewBox="0 0 432 100">
+            <!-- Sessions segment -->
+            <polygon points="0,0 108,21 108,79 0,100" fill="#FF3900"/>
+            <!-- No Lock segment -->
+            <polygon points="108,21 216,34 216,66 108,79" fill="#CC2E00"/>
+            <!-- Pronto p/ Dep segment -->
+            <polygon points="216,34 324,42 324,58 216,66" fill="#8B1500"/>
+            <!-- FTD segment -->
+            <polygon points="324,42 432,46 432,54 324,58" fill="#22C55E"/>
+            <!-- White dividers -->
+            <line x1="108" y1="21" x2="108" y2="79" stroke="white" stroke-width="1.5" opacity="0.4"/>
+            <line x1="216" y1="34" x2="216" y2="66" stroke="white" stroke-width="1.5" opacity="0.4"/>
+            <line x1="324" y1="42" x2="324" y2="58" stroke="white" stroke-width="1.5" opacity="0.4"/>
+            <!-- Labels inside SVG -->
+            <text x="54"  y="44" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="17">100%</text>
+            <text x="54"  y="58" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Archivo,sans-serif" font-size="8">82.267</text>
+            <text x="162" y="45" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">2,8%</text>
+            <text x="162" y="56" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Archivo,sans-serif" font-size="7">2.264</text>
+            <text x="270" y="48" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="8">54,0%</text>
+            <text x="378" y="48" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="6">52,7%</text>
+          </svg>
 
-          <!-- → No Lock -->
-          <div class="fn-conn">
-            <span class="fn-conn-rate">▼ &nbsp;2,8% conv. sessão</span>
-            <span class="fn-conn-delta" style="color:#999;">+0,0pp WoW</span>
-          </div>
-
-          <!-- No Lock -->
-          <div class="fn-step">
-            <div class="fn-step-head">
-              <span class="fn-step-lbl">No Lock</span>
-              <span class="fn-step-num">2.264</span>
+          <!-- Labels abaixo do funil -->
+          <div class="fn-labels">
+            <div class="fn-label">
+              <span class="fn-l-num">82.267</span>
+              <span class="fn-l-name" style="color:#FF3900;">Sessões</span>
+              <span class="fn-l-conv" style="color:#EF4444;">−30% WoW</span>
             </div>
-            <div class="fn-bar-wrap">
-              <div class="fn-bar" style="width:100%; background:#FF3900;"></div>
+            <div class="fn-label">
+              <span class="fn-l-num">2.264</span>
+              <span class="fn-l-name">No Lock</span>
+              <span class="fn-l-conv" style="color:#999;">+0,0pp</span>
             </div>
-          </div>
-
-          <!-- → Pronto p/ Dep -->
-          <div class="fn-conn">
-            <span class="fn-conn-rate">▼ &nbsp;54,0% conv.</span>
-            <span class="fn-conn-delta" style="color:#EF4444;">−2,5pp WoW</span>
-          </div>
-
-          <!-- Pronto p/ Depósito -->
-          <div class="fn-step">
-            <div class="fn-step-head">
-              <span class="fn-step-lbl">Pronto p/ Dep</span>
-              <span class="fn-step-num">1.222</span>
+            <div class="fn-label">
+              <span class="fn-l-num">1.222</span>
+              <span class="fn-l-name">Pronto p/ Dep</span>
+              <span class="fn-l-conv" style="color:#EF4444;">−2,5pp</span>
             </div>
-            <div class="fn-bar-wrap">
-              <div class="fn-bar" style="width:54.0%; background:#F59E0B;"></div>
-            </div>
-          </div>
-
-          <!-- → FTD -->
-          <div class="fn-conn">
-            <span class="fn-conn-rate">▼ &nbsp;52,7% conv.</span>
-            <span class="fn-conn-delta" style="color:#22C55E;">+5,8pp WoW</span>
-          </div>
-
-          <!-- FTD -->
-          <div class="fn-step">
-            <div class="fn-step-head">
-              <span class="fn-step-lbl">FTD</span>
-              <span class="fn-step-num">644</span>
-            </div>
-            <div class="fn-bar-wrap">
-              <div class="fn-bar" style="width:28.4%; background:#22C55E;"></div>
+            <div class="fn-label">
+              <span class="fn-l-num" style="color:#22C55E;">644</span>
+              <span class="fn-l-name" style="color:#22C55E;">FTD</span>
+              <span class="fn-l-conv" style="color:#22C55E;">+5,8pp</span>
             </div>
           </div>
 
