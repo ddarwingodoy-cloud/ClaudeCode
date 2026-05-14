@@ -63,8 +63,7 @@ body {
 }
 .p-half   { flex: 1; }
 .p-wide   { flex: 5; }
-.p-narrow { flex: 4; }
-.p-hi     { flex: 2; min-width: 160px; }
+.p-hi     { flex: 3; }
 
 /* ══ PANEL HEADER ══ */
 .ph {
@@ -140,7 +139,7 @@ body {
 table { width: 100%; border-collapse: collapse; flex-shrink: 0; }
 thead tr { background: #FF3900; }
 thead th {
-  padding: 5px 10px; text-align: center; white-space: nowrap; color: #FFF;
+  padding: 5px 3px; text-align: center; white-space: nowrap; color: #FFF;
   font-family: 'Archivo Black', sans-serif; font-size: 10px;
   letter-spacing: 0.5px; text-transform: uppercase;
 }
@@ -151,7 +150,7 @@ tbody tr:nth-child(even) { background: #F8F8F8; }
 tbody tr.cw { background: #FFF5F2; border-left: 3px solid #FF3900; }
 tbody tr.dr { background: #F5F5F5; }
 tbody td {
-  padding: 4px 10px; text-align: center;
+  padding: 4px 7px; text-align: center;
   white-space: nowrap; font-size: 11px; color: #777;
 }
 tbody td:first-child {
@@ -167,11 +166,11 @@ tbody td:first-child {
 
 /* ══ PRIMEIRO DEPÓSITO TABLE ══ */
 .ftd-src-tbl { table-layout: fixed; }
-.ftd-src-tbl thead th { padding: 6px 5px; font-size: 9px; letter-spacing: 0.3px; }
-.ftd-src-tbl tbody td { padding: 5px 5px; font-size: 11px; }
+.ftd-src-tbl thead th { padding: 3px 5px; font-size: 8px; letter-spacing: 0.3px; }
+.ftd-src-tbl tbody td { padding: 2px 5px; font-size: 10px; }
 .ftd-src-tbl tbody td:first-child {
   font-family: 'Archivo Black', sans-serif;
-  font-size: 10px; color: #333; text-align: left;
+  font-size: 9px; color: #333; text-align: left;
 }
 
 /* ══ HIGHLIGHTS COLUMN ══ */
@@ -179,7 +178,8 @@ tbody td:first-child {
 .hi-card {
   flex: 1; display: flex; flex-direction: column; justify-content: center;
   align-items: center; text-align: center;
-  padding: 12px 16px; gap: 5px;
+  padding: 6px 14px; gap: 3px;
+  overflow: hidden; min-height: 0;
 }
 .hi-card + .hi-card { border-top: 1px solid #F0F0F0; }
 .hi-lbl {
@@ -187,10 +187,10 @@ tbody td:first-child {
   letter-spacing: 2px; text-transform: uppercase; color: #AAAAAA;
 }
 .hi-val {
-  font-family: 'Archivo Black', sans-serif; font-size: 28px;
+  font-family: 'Archivo Black', sans-serif; font-size: 22px;
   line-height: 1;
 }
-.hi-sub { font-size: 11px; color: #999; line-height: 1.5; }
+.hi-sub { font-size: 10px; color: #999; line-height: 1.35; }
 .hi-sub strong { color: #555; }
 
 /* ══ FOOTER ══ */
@@ -217,8 +217,8 @@ tbody td:first-child {
   <div class="hdr-body">
     <div class="hdr-title">WEEKLY PERFORMANCE REPORT</div>
     <div class="hdr-sub">
-      <strong>Paid Social assume a liderança de captação pela 1ª vez em 2026.</strong>
-      GGR sustentado em R$67,6k com 2,5× menos FTDs do que Abril. Qualidade de depósito em recuperação.
+      <strong>Qualidade compensa queda de captação: GGR mantido com 2,5× menos FTDs.</strong>
+      Dep/FTD recupera +35% em Maio. <strong>Paid Social</strong> domina FTDs e CR — Google supera em turnover por apostador.
     </div>
   </div>
   <div class="hdr-meta">01–07 / Mai 2026<br>SB + Casino · BRL<br>Gerado 11/05</div>
@@ -241,7 +241,7 @@ tbody td:first-child {
 
           <div class="bar-col">
             <div class="bar-total">448</div>
-            <div class="bar" style="height:63px;">
+            <div class="bar" style="height:33px;">
               <div class="seg s-rest" style="height:79.0%;"></div>
               <div class="seg s-ps"   style="height:5.4%;"></div>
               <div class="seg s-aff"  style="height:15.6%;"></div>
@@ -252,7 +252,7 @@ tbody td:first-child {
 
           <div class="bar-col">
             <div class="bar-total">216</div>
-            <div class="bar" style="height:30px;">
+            <div class="bar" style="height:16px;">
               <div class="seg s-rest" style="height:89.8%;"></div>
               <div class="seg s-ps"   style="height:4.6%;"></div>
               <div class="seg s-aff"  style="height:5.6%;"></div>
@@ -263,7 +263,7 @@ tbody td:first-child {
 
           <div class="bar-col">
             <div class="bar-total">354</div>
-            <div class="bar" style="height:50px;">
+            <div class="bar" style="height:26px;">
               <div class="seg s-rest" style="height:78.3%;"></div>
               <div class="seg s-ps"   style="height:11.7%;"></div>
               <div class="seg s-aff"  style="height:10.0%;"></div>
@@ -274,10 +274,10 @@ tbody td:first-child {
 
           <div class="bar-col">
             <div class="bar-total cur">1.336</div>
-            <div class="bar" style="height:190px;">
-              <div class="seg s-rest" style="height:52.6%;"><span style="font-family:'Archivo Black',sans-serif;font-size:12px;color:rgba(255,255,255,.5);">53%</span></div>
-              <div class="seg s-ps"   style="height:9.2%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(0,0,0,.6);">9%</span></div>
-              <div class="seg s-aff"  style="height:38.2%;"><span style="font-family:'Archivo Black',sans-serif;font-size:16px;color:#FFF;">38%</span></div>
+            <div class="bar" style="height:100px;">
+              <div class="seg s-rest" style="height:52.6%;"><span style="font-family:'Archivo Black',sans-serif;font-size:11px;color:rgba(255,255,255,.5);">53%</span></div>
+              <div class="seg s-ps"   style="height:9.2%;"><span style="font-family:'Archivo Black',sans-serif;font-size:9px;color:rgba(0,0,0,.6);">9%</span></div>
+              <div class="seg s-aff"  style="height:38.2%;"><span style="font-family:'Archivo Black',sans-serif;font-size:14px;color:#FFF;">38%</span></div>
             </div>
             <div class="bar-mth cur">ABR ★</div>
             <div class="bar-per">03–09/04</div>
@@ -285,9 +285,9 @@ tbody td:first-child {
 
           <div class="bar-col">
             <div class="bar-total cur">533</div>
-            <div class="bar" style="height:75px;">
-              <div class="seg s-rest" style="height:74.5%;"><span style="font-family:'Archivo Black',sans-serif;font-size:11px;color:rgba(255,255,255,.6);">75%</span></div>
-              <div class="seg s-ps"   style="height:18.1%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(0,0,0,.7);">18%</span></div>
+            <div class="bar" style="height:40px;">
+              <div class="seg s-rest" style="height:74.5%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(255,255,255,.6);">75%</span></div>
+              <div class="seg s-ps"   style="height:18.1%;"><span style="font-family:'Archivo Black',sans-serif;font-size:9px;color:rgba(0,0,0,.7);">18%</span></div>
               <div class="seg s-aff"  style="height:7.4%;"></div>
             </div>
             <div class="bar-mth cur">MAI ▶</div>
@@ -316,35 +316,35 @@ tbody td:first-child {
           <!-- avg line at 573/1239 = 46.2% from bottom → bottom: 46.2% of ~190px ≈ 88px -->
           <div class="dep-col">
             <div class="dep-val">R$1.239</div>
-            <div class="dep-bar" style="height:160px;"></div>
+            <div class="dep-bar" style="height:100px;"></div>
             <div class="dep-mth">JAN</div>
             <div class="dep-per">02–08/01</div>
           </div>
 
           <div class="dep-col">
             <div class="dep-val">R$789</div>
-            <div class="dep-bar" style="height:102px;"></div>
+            <div class="dep-bar" style="height:64px;"></div>
             <div class="dep-mth">FEV</div>
             <div class="dep-per">06–12/02</div>
           </div>
 
           <div class="dep-col">
             <div class="dep-val">R$352</div>
-            <div class="dep-bar" style="height:45px;"></div>
+            <div class="dep-bar" style="height:28px;"></div>
             <div class="dep-mth">MAR</div>
             <div class="dep-per">06–12/03</div>
           </div>
 
           <div class="dep-col">
             <div class="dep-val" style="color:#EF4444;">R$205</div>
-            <div class="dep-bar" style="height:26px; background:#EF4444; opacity:0.6;"></div>
+            <div class="dep-bar" style="height:16px; background:#EF4444; opacity:0.6;"></div>
             <div class="dep-mth">ABR ★</div>
             <div class="dep-per">03–09/04</div>
           </div>
 
           <div class="dep-col">
             <div class="dep-val cur">R$278</div>
-            <div class="dep-bar cur" style="height:36px;"></div>
+            <div class="dep-bar cur" style="height:23px;"></div>
             <div class="dep-mth cur">MAI ▶</div>
             <div class="dep-per">01–07/05</div>
           </div>
@@ -372,20 +372,20 @@ tbody td:first-child {
         <table>
           <thead>
             <tr>
-              <th>Mês / Período</th>
-              <th>FullReg NL</th>
+              <th>Mês</th>
+              <th>FullReg</th>
               <th>FTDs</th>
               <th>CR%</th>
               <th class="th-hi">GGR (R$)</th>
               <th class="th-hi">NGR (R$)</th>
-              <th class="th-hi">Marg. Total</th>
-              <th>Marg. SB</th>
-              <th>Marg. CS</th>
+              <th class="th-hi">Marg.</th>
+              <th>SB</th>
+              <th>CS</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Jan · 02–08/01</td>
+              <td>Jan</td>
               <td>318</td><td>448</td><td class="n">140,9%†</td>
               <td class="n hi">-66.352</td>
               <td class="n hi">-76.582</td>
@@ -394,26 +394,26 @@ tbody td:first-child {
               <td>5,2%</td>
             </tr>
             <tr>
-              <td>Fev · 06–12/02</td>
+              <td>Fev</td>
               <td>540</td><td>216</td><td>40,0%</td>
               <td>32.997</td><td>27.992</td><td>3,6%</td>
               <td>2,6%</td><td>5,0%</td>
             </tr>
             <tr>
-              <td>Mar · 06–12/03</td>
+              <td>Mar</td>
               <td>2.101</td><td>354</td><td>16,8%</td>
               <td>18.646</td><td>12.879</td><td>2,4%</td>
               <td>-3,6%</td><td>13,8%</td>
             </tr>
             <tr>
-              <td>Abr ★ · 03–09/04</td>
+              <td>Abr ★</td>
               <td>3.101</td><td style="color:#FF3900;font-weight:700;">1.336</td>
               <td>43,1%</td>
               <td>70.548</td><td>66.703</td><td>6,7%</td>
               <td>4,2%</td><td>8,5%</td>
             </tr>
             <tr class="cw">
-              <td>Mai ▶ · 01–07/05</td>
+              <td>Mai ▶</td>
               <td>2.309</td><td style="color:#111;font-weight:700;">533</td>
               <td>23,1%</td>
               <td class="hi-g">67.614</td>
@@ -425,95 +425,15 @@ tbody td:first-child {
               <td class="mu">Δ vs Abr</td>
               <td class="n">-25,5%</td>
               <td class="n">-60,1%</td>
-              <td class="n">-20,0 pp</td>
-              <td>-4,2%</td><td>-3,2%</td><td>-2,4 pp</td>
-              <td>-0,2 pp</td><td>-3,9 pp</td>
+              <td class="n">-20,0</td>
+              <td>-4,2%</td><td>-3,2%</td><td>-2,4</td>
+              <td>-0,2</td><td>-3,9</td>
             </tr>
           </tbody>
         </table>
         <div class="tnote">
           ★ Semana Santa + pico de Affiliates · ▶ Semana atual · CR% = FTDs / FullReg NOT_LOCKED · † Jan: alto volume de contas lockadas a posteriori · Marg. SB e CS calculadas sobre Gross Bets do respectivo produto
         </div>
-      </div>
-    </div>
-
-    <!-- PRIMEIRO DEPÓSITO MÉDIO POR SOURCE -->
-    <div class="panel p-narrow">
-      <div class="ph">
-        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="0" width="5" height="5" rx="1" fill="#FF3900"/><rect x="8" y="0" width="5" height="5" rx="1" fill="#FF3900" opacity=".5"/><rect x="0" y="8" width="5" height="5" rx="1" fill="#FF3900" opacity=".5"/><rect x="8" y="8" width="5" height="5" rx="1" fill="#FF3900" opacity=".25"/></svg>
-        <span class="ph-title">1º Depósito Médio por Origem</span>
-        <span class="ph-note">somente o 1º depósito · sem redepositos · Mai parcial*</span>
-      </div>
-      <div class="p-body" style="padding: 10px 0 8px;">
-        <table class="ftd-src-tbl">
-          <colgroup>
-            <col style="width:28%">
-            <col style="width:14%">
-            <col style="width:14%">
-            <col style="width:14%">
-            <col style="width:15%">
-            <col style="width:15%">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Origem</th>
-              <th>Jan</th>
-              <th>Fev</th>
-              <th>Mar</th>
-              <th class="th-hi">Abr</th>
-              <th>Mai▶</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>casino</td>
-              <td class="mu">—</td><td>1.550</td><td>37</td><td class="n">27</td><td>337</td>
-            </tr>
-            <tr>
-              <td>Sem atrib.</td>
-              <td>982</td><td>652</td><td>615</td><td>459</td><td>251</td>
-            </tr>
-            <tr>
-              <td>retargeting</td>
-              <td>142</td><td>196</td><td>151</td><td>232</td><td>165</td>
-            </tr>
-            <tr>
-              <td>search</td>
-              <td>393</td><td>586</td><td>268</td><td>193</td><td>100</td>
-            </tr>
-            <tr>
-              <td>pmax</td>
-              <td>286</td><td>285</td><td>138</td><td>120</td><td>78</td>
-            </tr>
-            <tr>
-              <td>deportes</td>
-              <td>178</td><td>125</td><td>89</td><td>49</td><td>68</td>
-            </tr>
-            <tr>
-              <td>seo</td>
-              <td>69</td><td>65</td><td>83</td><td>80</td><td>68</td>
-            </tr>
-            <tr>
-              <td>instagram</td>
-              <td>244</td><td>295</td><td>70</td><td>97</td><td>67</td>
-            </tr>
-            <tr>
-              <td>meta</td>
-              <td>59</td><td>87</td><td>70</td><td>50</td><td>61</td>
-            </tr>
-            <tr>
-              <td>tiktok</td>
-              <td>56</td><td>34</td><td>37</td><td>61</td><td>59</td>
-            </tr>
-            <tr class="dr">
-              <td>Média geral</td>
-              <td>739</td><td>420</td><td>286</td>
-              <td class="n">145</td>
-              <td style="color:#FF3900;font-weight:700;">114</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="tnote" style="padding: 5px 14px 0;">* Mai 01–07 · Abr pico Affiliates · valores em R$</div>
       </div>
     </div>
 
@@ -528,7 +448,7 @@ tbody td:first-child {
         <div class="hi-card">
           <div class="hi-lbl">FTD · Canal</div>
           <div class="hi-val" style="color:#F59E0B;">18,1%</div>
-          <div class="hi-sub"><strong>Paid Social</strong> assume a 1ª posição em 2026<br>Affiliates: 38% → 7% em 30 dias</div>
+          <div class="hi-sub"><strong>Paid Social</strong> lidera FTDs e CR pago em 2026<br>Affiliates colapsa: 38% → 7% em 30 dias</div>
         </div>
 
         <div class="hi-card">
@@ -540,7 +460,7 @@ tbody td:first-child {
         <div class="hi-card">
           <div class="hi-lbl">GGR · Negócio</div>
           <div class="hi-val" style="color:#22C55E;">R$67,6k</div>
-          <div class="hi-sub">−4,2% vs Abr · <strong>2,5× menos FTDs</strong><br>NGR R$64,6k · Marg. +4,3%</div>
+          <div class="hi-sub">Manutenção com <strong>2,5× menos FTDs</strong><br>NGR R$64,6k · Marg. +4,3pp</div>
         </div>
 
       </div>

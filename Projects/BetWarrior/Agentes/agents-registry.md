@@ -1,7 +1,7 @@
 # Registro de Sub-Agentes — BetWarrior
 
 Arquivo carregado automaticamente pelo orquestrador (Bira) no início de cada sessão.  
-Atualizado em: 13/05/2026
+Atualizado em: 14/05/2026
 
 ---
 
@@ -61,6 +61,47 @@ Atualizado em: 13/05/2026
 
 ---
 
+### agent-auditor
+| Campo | Valor |
+|---|---|
+| Propósito | Auditar documentos WPR: (1) verificar lastro de cada número reportado nas fontes disponíveis e (2) detectar inconsistências internas no documento |
+| Input | HTML(s) gerados pelo agent-html + payloads de dados dos demais agentes (agent-ga4, agent-powerbi, agent-xlsx) |
+| Output | Relatório de auditoria com três seções: ✓ Confirmados · ⚠ Desvio acima do threshold · ✗ Sem lastro rastreável |
+| Ferramenta | Read (HTML + fontes) + Bash (recálculos Python) |
+| Workflows | `WPR-update` |
+
+**Checklist de verificação de lastro:**
+
+| # | Dado no documento | Fonte esperada | Tolerância |
+|---|---|---|---|
+| 1 | FTDs por canal (gráfico P1) | agent-ga4 JSON | ±2% (arredondamento de barra) |
+| 2 | Total FTDs PowerBI (rodapé P1) | agent-powerbi `metricas_negocio.FTDs` | exato |
+| 3 | FullReg, FTDs, GGR, NGR, margens (tabela P1) | agent-powerbi `metricas_negocio` | ±1% (arredondamento) |
+| 4 | Dep/FTD por semana (gráfico P1) | agent-powerbi ou XLSX PowerBI | ±R$1 |
+| 5 | Spend % por plataforma (P3) | agent-xlsx `spend_por_plataforma` | ±1pp |
+| 6 | FTDs por plataforma (P3) | agent-xlsx `ftd_por_plataforma` + agent-ga4 (Google) | ±2% |
+| 7 | Pacing — % verba e % FTDs (P3 cards) | agent-xlsx `pacing` | exato |
+
+**Checklist de consistência interna:**
+
+| # | Verificação | Fórmula esperada |
+|---|---|---|
+| 1 | CR% | FTDs / FullReg NOT_LOCKED |
+| 2 | Margem Total | GGR / Gross Bets |
+| 3 | Margem SB / CS | GGR_produto / GrossBets_produto |
+| 4 | CPA por plataforma | Spend_plataforma / FTDs_plataforma |
+| 5 | Delta Δ vs período anterior | (Mai − Abr) / Abr × 100 para % · (Mai − Abr) em pp para margens |
+| 6 | Soma de participações por canal | total dos % de canal ≈ 100% (tolerância ±3pp por arredondamento) |
+| 7 | % verba ideal (pacing) | dias_veiculados / duração_flight |
+| 8 | Valores destacados nos cards | consistentes com valores na tabela/gráfico correspondente |
+
+**Critério de aprovação:**
+- Tudo ✓ → entrega imediata
+- Algum ⚠ (desvio dentro do threshold) → entrega com nota
+- Qualquer ✗ → bloquear entrega, reportar para Darwin com localização exata do problema
+
+---
+
 ## Workflows
 
 ### WPR-update — Atualização Semanal do Weekly Performance Report
@@ -103,12 +144,17 @@ Se algum arquivo estiver ausente, o orquestrador solicita antes de prosseguir.
 BIRA (orquestrador)
   │
   ├── [PARALELO] ──────────────────────────────────────────────────────┐
-  │   ├── agent-ga4    → FTDs por canal (janela normalizada)           │
+  │   ├── agent-ga4     → FTDs por canal (janela normalizada)          │
   │   ├── agent-powerbi → métricas de negócio + turnover utm_source    │
-  │   └── agent-xlsx   → spend/FTD/pacing das planilhas Perfo          │
+  │   └── agent-xlsx    → spend/FTD/pacing das planilhas Perfo         │
   │                                                                     │
   └── [SEQUENCIAL — após receber os 3 outputs] ────────────────────────┘
-      └── agent-html  → gera HTML P1+P2 e P3 com todos os valores
+      └── agent-html    → gera HTML P1+P2 e P3 com todos os valores
+          │
+          └── agent-auditor → verifica lastro + consistência interna
+              │
+              ├── [APROVADO] → entrega para Darwin (revisão editorial)
+              └── [REPROVADO] → reporta discrepância + bloqueia entrega
 
   └── [ENTREGA PARA DARWIN]
       └── HTML aberto para revisão editorial (headline já inserida, destaques inseridos)
@@ -138,4 +184,5 @@ BIRA (orquestrador)
 | Spend e pacing por plataforma (planilhas Perfo) | agent-xlsx |
 | FTDs por plataforma de mídia (planilhas Perfo) | agent-xlsx |
 | Gerar / atualizar HTML do WPR | agent-html |
-| Atualização semanal completa | WPR-update (todos os 4) |
+| Verificar lastro e consistência do documento | agent-auditor |
+| Atualização semanal completa | WPR-update (todos os 5) |
