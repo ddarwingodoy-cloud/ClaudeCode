@@ -35,23 +35,25 @@ Para período de comparação WoW: `data_inicio − 7d` e `data_fim − 7d`.
 ### Etapa 2 — Coleta paralela (4 fontes)
 
 #### 2a. Gmail — Gemini Notes
-- **Ferramenta:** `mcp__claude_ai_Gmail__search_threads`
+- **Ferramenta:** `mcp__google_workspace__search_gmail_messages` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
 - **Query:** `from:gemini-notes@google.com after:YYYY/MM/DD before:YYYY/MM/DD`
+- **Ler conteúdo:** `mcp__google_workspace__get_gmail_thread_content` para cada thread encontrada
 - **Extrair:** temas de reuniões, decisões tomadas, iniciativas mencionadas, contexto estratégico
 - **Ignorar:** cabeçalhos, rodapés genéricos, saudações
 
 #### 2b. Gmail — E-mails estratégicos gerais
-- **Ferramenta:** `mcp__claude_ai_Gmail__search_threads`
+- **Ferramenta:** `mcp__google_workspace__search_gmail_messages` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
 - **Query:** `after:YYYY/MM/DD before:YYYY/MM/DD -from:gemini-notes@google.com -from:noreply -from:no-reply -category:promotions -category:updates`
+- **Ler conteúdo:** `mcp__google_workspace__get_gmail_thread_content` para threads relevantes
 - **Filtro pós-leitura:** manter apenas threads com relevância para CMO — resultados, lançamentos, problemas, decisões, alinhamentos com outras frentes
 - **Descartar:** notificações automáticas, alertas de sistema, newsletters
 
 #### 2c. Google Calendar — darwingodoy@betwarrior.com
-- **Ferramenta:** `mcp__claude_ai_Google_Calendar__list_events`
+- **Ferramenta:** `mcp__google_workspace__get_events` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
 - **Calendário:** `darwingodoy@betwarrior.com`
 - **Período:** `data_inicio` a `data_fim`
 - **Extrair:** nome do evento, propósito inferido (não listar todos os participantes)
-- **Ignorar:** eventos recorrentes de rotina sem conteúdo relevante (ex: standups vazios), eventos cancelados
+- **Ignorar:** eventos recorrentes de rotina sem conteúdo relevante (ex: standups vazios), eventos cancelados, bloqueios pessoais (Lunch, Home, Office, English Class, Intern)
 
 #### 2d. GA4 — Métricas de aquisição
 - **Ferramenta:** `mcp__google-analytics__run_report`
@@ -92,6 +94,8 @@ Com os dados coletados, identificar:
 - Nunca número frio: sempre com comparativo ("cresceu X% WoW, passando de A para B")
 - Se múltiplas métricas elegíveis: escolher a de maior impacto no negócio (GGR > FTDs > sessões)
 - Variação negativa relevante também é highlight válido — honestidade com CMO
+- FTDs reportados = FTDs totais da operação (Power BI, filtro External + NOT_LOCKED), não apenas FTDs de mídia paga
+- WoW comparativo não ajusta sazonalidade esportiva — se calendário de jogos influenciar os resultados, mencionar no contexto do highlight
 
 Hierarquia de escolha para highlight:
 1. GGR ou NGR com variação WoW relevante (> ±10%)
@@ -145,6 +149,17 @@ _Período coberto: [dom DD/mmm] a [sáb DD/mmm]_ ← incluir sempre
    - Highlight: métrica exata, valor atual, valor anterior, variação calculada
 3. Sinalizar claramente se análise é parcial
 4. Aguardar aprovação explícita de Darwin antes de qualquer envio
+
+---
+
+### Etapa 6 — Envio após aprovação
+
+Após aprovação explícita de Darwin:
+- **Ferramenta:** `mcp__google_workspace__send_gmail_message` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
+- **Para:** `darwingodoy@betwarrior.com`
+- **Assunto:** `SANTI — [DD/mmm/YYYY]`
+- **Corpo:** draft completo em texto puro (Darwin copia para o Slack manualmente)
+- Nunca enviar para Santiago diretamente — entrega é sempre para Darwin
 
 ---
 
