@@ -68,6 +68,13 @@ Aplicar sempre, sem precisar ler os arquivos de design:
 
 Registro de sub-agentes disponíveis: `Projects/BetWarrior/Agentes/agents-registry.md`
 
+Ao receber o trigger `SANTI`:
+1. Carregar `Projects/BetWarrior/Agentes/Santi/santi-agent.md`
+2. Calcular período automaticamente (dom a sáb anterior à próxima terça)
+3. Disparar coleta em paralelo: Gmail Gemini Notes · Gmail geral · Google Calendar (betwarrior.com) · GA4 · agent-powerbi
+4. Processar storytelling e gerar draft no formato JP
+5. Apresentar draft + fontes para revisão — nunca enviar sem aprovação explícita
+
 Ao receber um trigger de workflow estruturado (ex: `WPR DD-DD/mês/YYYY`):
 1. Carregar o registro e identificar o workflow correspondente
 2. Verificar pré-condições (arquivos necessários em `.WEEKLY/` e `Performance/`)

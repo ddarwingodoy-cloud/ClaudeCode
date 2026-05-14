@@ -102,6 +102,19 @@ Atualizado em: 14/05/2026
 
 ---
 
+### agent-santi
+| Campo | Valor |
+|---|---|
+| Propósito | Coletar iniciativas, highlights e pontos críticos da semana e gerar draft do report para Santiago (CMO Global) no formato do JP |
+| Input | Automático — calcula período com base na data atual (dom a sáb anterior à próxima terça) |
+| Output | Draft Slack markdown com os 4 blocos do modelo JP, pronto para revisão de Darwin |
+| Fontes | Gmail (Gemini Notes + e-mails estratégicos) · Google Calendar (betwarrior.com) · GA4 (property 512299072) · agent-powerbi |
+| Observação | Análise parcial sinalizada no draft quando rodado antes do sábado de corte. Nunca envia sem aprovação explícita. |
+| Instruções | `Projects/BetWarrior/Agentes/Santi/santi-agent.md` |
+| Workflows | `SANTI-report` |
+
+---
+
 ## Workflows
 
 ### WPR-update — Atualização Semanal do Weekly Performance Report
@@ -174,6 +187,43 @@ BIRA (orquestrador)
 
 ---
 
+### SANTI-report — Draft Semanal para CMO Global
+
+**Quando disparar:** qualquer momento — se rodado antes do sábado de corte, entrega análise parcial sinalizada.
+
+**Trigger exato** (Darwin digita):
+```
+SANTI
+```
+
+**Período calculado automaticamente:**
+- Terça de envio = próxima terça (ou atual se hoje for terça)
+- Sábado de corte = terça − 3 dias
+- Domingo de início = sábado − 6 dias
+- Se hoje ≠ terça: cobrir domingo até ontem → sinalizar como parcial
+
+**Fluxo:**
+```
+agent-santi (orquestrador)
+  │
+  ├── [PARALELO] ────────────────────────────────────────────────┐
+  │   ├── Gmail Gemini Notes  → resumos de reuniões              │
+  │   ├── Gmail geral         → e-mails estratégicos relevantes  │
+  │   ├── Google Calendar     → eventos realizados (bw.com)      │
+  │   ├── GA4 (atual + WoW)   → sessões, usuários, FTDs          │
+  │   └── agent-powerbi       → FTDs, GGR, NGR, margens          │
+  │                                                               │
+  └── [SEQUENCIAL — após coleta] ───────────────────────────────┘
+      └── Processamento: storytelling + seleção de highlight
+          └── Draft Slack markdown no modelo JP
+              └── Apresentar para revisão de Darwin
+                  └── Aguardar aprovação antes de qualquer envio
+```
+
+**Output:** Draft Slack markdown com os 4 blocos do modelo JP + fontes listadas abaixo do draft.
+
+---
+
 ## Índice rápido — qual agente faz o quê
 
 | Preciso de... | Agente |
@@ -186,3 +236,4 @@ BIRA (orquestrador)
 | Gerar / atualizar HTML do WPR | agent-html |
 | Verificar lastro e consistência do documento | agent-auditor |
 | Atualização semanal completa | WPR-update (todos os 5) |
+| Draft report semanal para CMO (Santi) | SANTI-report (agent-santi) |
