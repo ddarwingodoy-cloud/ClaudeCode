@@ -66,13 +66,17 @@ Aplicar sempre, sem precisar ler os arquivos de design:
 
 ## Agentes e automações
 
-Registro de sub-agentes disponíveis: `Projects/BetWarrior/agents-registry.md`
+Registro de sub-agentes disponíveis: `Projects/BetWarrior/Agentes/agents-registry.md`
 
-Ao receber um trigger de workflow estruturado (ex: `WPR DD-DD/mês/YYYY. Headline: [...]. Destaques: [...]`):
+Ao receber um trigger de workflow estruturado (ex: `WPR DD-DD/mês/YYYY`):
 1. Carregar o registro e identificar o workflow correspondente
-2. Verificar pré-condições (arquivos necessários)
-3. Disparar sub-agentes conforme a arquitetura definida no registro
-4. Não iniciar a execução sem todos os inputs obrigatórios presentes
+2. Verificar pré-condições (arquivos necessários em `.WEEKLY/` e `Performance/`)
+3. Disparar coleta de dados em paralelo (agent-ga4 · agent-powerbi · agent-xlsx)
+4. Gerar HTML com os dados coletados (agent-html)
+5. Rodar agent-auditor no HTML gerado — verificar lastro de fontes e consistência interna
+   - Se aprovado: apresentar HTML + sugestão de headline e destaques para revisão editorial
+   - Se reprovado: reportar discrepância com localização exata e bloquear entrega até correção
+6. Não iniciar a execução sem todos os inputs obrigatórios presentes
 
 ## Preferências de resposta
 
