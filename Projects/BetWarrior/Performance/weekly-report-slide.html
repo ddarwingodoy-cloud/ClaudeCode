@@ -11,7 +11,8 @@
 html { height: 100%; }
 body {
   min-width: 1100px;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background: #F2F2F2;
   color: #111111;
   font-family: 'Archivo', sans-serif;
@@ -45,6 +46,7 @@ body {
   flex: 1;
   padding: 14px 20px 14px;
   display: flex; flex-direction: column; gap: 12px;
+  min-height: 0;
 }
 .row { display: flex; gap: 12px; }
 .row-top { flex: 1; min-height: 0; }
@@ -57,6 +59,7 @@ body {
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   display: flex; flex-direction: column; overflow: hidden;
+  min-height: 0;
 }
 .p-half   { flex: 1; }
 .p-wide   { flex: 5; }
@@ -137,7 +140,7 @@ body {
 table { width: 100%; border-collapse: collapse; flex-shrink: 0; }
 thead tr { background: #FF3900; }
 thead th {
-  padding: 7px 10px; text-align: center; white-space: nowrap; color: #FFF;
+  padding: 5px 10px; text-align: center; white-space: nowrap; color: #FFF;
   font-family: 'Archivo Black', sans-serif; font-size: 10px;
   letter-spacing: 0.5px; text-transform: uppercase;
 }
@@ -148,7 +151,7 @@ tbody tr:nth-child(even) { background: #F8F8F8; }
 tbody tr.cw { background: #FFF5F2; border-left: 3px solid #FF3900; }
 tbody tr.dr { background: #F5F5F5; }
 tbody td {
-  padding: 6px 10px; text-align: center;
+  padding: 4px 10px; text-align: center;
   white-space: nowrap; font-size: 11px; color: #777;
 }
 tbody td:first-child {
@@ -159,7 +162,7 @@ tbody td:first-child {
 .mu  { color: #CCCCCC !important; }
 .hi  { color: #111111 !important; font-size: 12px !important; font-weight: 700; }
 .hi-g { color: #22C55E !important; font-size: 12px !important; font-weight: 700; }
-.tnote { margin-top: 5px; font-size: 9px; color: #BBBBBB; line-height: 1.65; flex-shrink: 0; }
+.tnote { margin-top: 4px; font-size: 9px; color: #BBBBBB; line-height: 1.5; flex-shrink: 0; }
 .row-bot .p-body { padding: 8px 14px 6px; }
 
 /* ══ PRIMEIRO DEPÓSITO TABLE ══ */
@@ -548,9 +551,9 @@ tbody td:first-child {
 </div><!-- /body -->
 
 <div class="ftr">
-  <span>Performance · BetWarrior Brasil · 2026</span>
-  <span>Uso interno — não distribuir</span>
-  <span>PowerBI (SB+CS) · GA4 property 512299072</span>
+  <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+  <span>WPR · PÁG. 1 · MÉTRICAS DE NEGÓCIO · MAI 01–07/2026</span>
+  <span>11/05/2026</span>
 </div>
 
 </body>
