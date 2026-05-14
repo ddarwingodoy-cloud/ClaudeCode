@@ -173,25 +173,42 @@ tbody td:first-child {
   font-size: 9px; color: #333; text-align: left;
 }
 
-/* ══ HIGHLIGHTS COLUMN ══ */
-.hi-col { flex: 1; display: flex; flex-direction: column; min-height: 0; }
-.hi-card {
-  flex: 1; display: flex; flex-direction: column; justify-content: center;
-  align-items: center; text-align: center;
-  padding: 6px 14px; gap: 3px;
-  overflow: hidden; min-height: 0;
+/* ══ FUNIL DE ATIVAÇÃO ══ */
+.fn-wrap { display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 0; }
+
+.fn-session {
+  display: flex; align-items: baseline; gap: 8px;
+  padding-bottom: 7px; margin-bottom: 2px;
+  border-bottom: 1px solid #EEEEEE;
 }
-.hi-card + .hi-card { border-top: 1px solid #F0F0F0; }
-.hi-lbl {
+.fn-s-lbl {
   font-family: 'Archivo Black', sans-serif; font-size: 8px;
-  letter-spacing: 2px; text-transform: uppercase; color: #AAAAAA;
+  letter-spacing: 2px; text-transform: uppercase; color: #AAAAAA; flex: 1;
 }
-.hi-val {
-  font-family: 'Archivo Black', sans-serif; font-size: 22px;
-  line-height: 1;
+.fn-s-val { font-family: 'Archivo Black', sans-serif; font-size: 20px; line-height: 1; color: #111; }
+.fn-s-wow { font-size: 10px; font-weight: 700; }
+
+.fn-conn {
+  display: flex; align-items: center; gap: 4px;
+  padding: 3px 0; font-size: 9px; color: #BBBBBB;
 }
-.hi-sub { font-size: 10px; color: #999; line-height: 1.35; }
-.hi-sub strong { color: #555; }
+.fn-conn-rate { flex: 1; }
+.fn-conn-delta { font-size: 9px; font-weight: 700; }
+
+.fn-step { display: flex; flex-direction: column; gap: 4px; }
+.fn-step-head { display: flex; align-items: baseline; gap: 6px; }
+.fn-step-lbl {
+  font-family: 'Archivo Black', sans-serif; font-size: 8px;
+  letter-spacing: 2px; text-transform: uppercase; color: #555; flex: 1;
+}
+.fn-step-num { font-family: 'Archivo Black', sans-serif; font-size: 14px; line-height: 1; color: #111; }
+.fn-bar-wrap { height: 7px; background: #F0F0F0; border-radius: 2px; overflow: hidden; }
+.fn-bar { height: 100%; border-radius: 2px; }
+
+.fn-note {
+  font-size: 8px; color: #CCCCCC; letter-spacing: 0.3px;
+  margin-top: 5px; padding-top: 5px; border-top: 1px solid #F0F0F0;
+}
 
 /* ══ FOOTER ══ */
 .ftr {
@@ -240,7 +257,7 @@ tbody td:first-child {
         <div class="bars-wrap">
 
           <div class="bar-col">
-            <div class="bar-total">448</div>
+            <div class="bar-total">447</div>
             <div class="bar" style="height:33px;">
               <div class="seg s-rest" style="height:79.0%;"></div>
               <div class="seg s-ps"   style="height:5.4%;"></div>
@@ -284,7 +301,7 @@ tbody td:first-child {
           </div>
 
           <div class="bar-col">
-            <div class="bar-total cur">533</div>
+            <div class="bar-total cur">644</div>
             <div class="bar" style="height:40px;">
               <div class="seg s-rest" style="height:74.5%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(255,255,255,.6);">75%</span></div>
               <div class="seg s-ps"   style="height:18.1%;"><span style="font-family:'Archivo Black',sans-serif;font-size:9px;color:rgba(0,0,0,.7);">18%</span></div>
@@ -386,7 +403,7 @@ tbody td:first-child {
           <tbody>
             <tr>
               <td>Jan</td>
-              <td>318</td><td>448</td><td class="n">140,9%†</td>
+              <td>305</td><td>447</td><td class="n">146,6%†</td>
               <td class="n hi">-66.352</td>
               <td class="n hi">-76.582</td>
               <td class="n hi">-3,4%</td>
@@ -395,27 +412,27 @@ tbody td:first-child {
             </tr>
             <tr>
               <td>Fev</td>
-              <td>540</td><td>216</td><td>40,0%</td>
+              <td>373</td><td>216</td><td>57,9%</td>
               <td>32.997</td><td>27.992</td><td>3,6%</td>
               <td>2,6%</td><td>5,0%</td>
             </tr>
             <tr>
               <td>Mar</td>
-              <td>2.101</td><td>354</td><td>16,8%</td>
+              <td>2.085</td><td>354</td><td>17,0%</td>
               <td>18.646</td><td>12.879</td><td>2,4%</td>
               <td>-3,6%</td><td>13,8%</td>
             </tr>
             <tr>
               <td>Abr ★</td>
-              <td>3.101</td><td style="color:#FF3900;font-weight:700;">1.336</td>
-              <td>43,1%</td>
+              <td>3.066</td><td style="color:#FF3900;font-weight:700;">1.336</td>
+              <td>43,6%</td>
               <td>70.548</td><td>66.703</td><td>6,7%</td>
               <td>4,2%</td><td>8,5%</td>
             </tr>
             <tr class="cw">
               <td>Mai ▶</td>
-              <td>2.309</td><td style="color:#111;font-weight:700;">533</td>
-              <td>23,1%</td>
+              <td>2.264</td><td style="color:#111;font-weight:700;">644</td>
+              <td>28,4%</td>
               <td class="hi-g">67.614</td>
               <td class="hi-g">64.569</td>
               <td class="hi">4,3%</td>
@@ -423,9 +440,9 @@ tbody td:first-child {
             </tr>
             <tr class="dr">
               <td class="mu">Δ vs Abr</td>
-              <td class="n">-25,5%</td>
-              <td class="n">-60,1%</td>
-              <td class="n">-20,0</td>
+              <td class="n">-26,2%</td>
+              <td class="n">-51,8%</td>
+              <td class="n">-15,2</td>
               <td>-4,2%</td><td>-3,2%</td><td>-2,4</td>
               <td>-0,2</td><td>-3,9</td>
             </tr>
@@ -437,32 +454,77 @@ tbody td:first-child {
       </div>
     </div>
 
-    <!-- HIGHLIGHTS COLUMN -->
+    <!-- FUNIL DE ATIVAÇÃO -->
     <div class="panel p-hi">
       <div class="ph">
-        <svg width="13" height="13" viewBox="0 0 13 13"><polygon points="6.5,0.5 8,4.5 12.5,4.5 9,7.5 10.5,12 6.5,9.2 2.5,12 4,7.5 0.5,4.5 5,4.5" fill="#FF3900"/></svg>
-        <span class="ph-title">Destaques</span>
+        <svg width="13" height="13" viewBox="0 0 13 13"><polygon points="1,1 12,1 9,5.5 9,12 4,12 4,5.5" fill="#FF3900"/></svg>
+        <span class="ph-title">Funil de Ativação</span>
+        <span class="ph-note">GA4 + PowerBI · Mai 01–07</span>
       </div>
-      <div class="hi-col">
+      <div class="p-body" style="padding-top:8px; padding-bottom:6px;">
+        <div class="fn-wrap">
 
-        <div class="hi-card">
-          <div class="hi-lbl">FTD · Canal</div>
-          <div class="hi-val" style="color:#F59E0B;">18,1%</div>
-          <div class="hi-sub"><strong>Paid Social</strong> lidera FTDs e CR pago em 2026<br>Affiliates colapsa: 38% → 7% em 30 dias</div>
+          <!-- Sessões -->
+          <div class="fn-session">
+            <span class="fn-s-lbl">Sessões</span>
+            <span class="fn-s-val">82.267</span>
+            <span class="fn-s-wow" style="color:#EF4444;">−30% WoW</span>
+          </div>
+
+          <!-- → No Lock -->
+          <div class="fn-conn">
+            <span class="fn-conn-rate">▼ &nbsp;2,8% conv. sessão</span>
+            <span class="fn-conn-delta" style="color:#999;">+0,0pp WoW</span>
+          </div>
+
+          <!-- No Lock -->
+          <div class="fn-step">
+            <div class="fn-step-head">
+              <span class="fn-step-lbl">No Lock</span>
+              <span class="fn-step-num">2.264</span>
+            </div>
+            <div class="fn-bar-wrap">
+              <div class="fn-bar" style="width:100%; background:#FF3900;"></div>
+            </div>
+          </div>
+
+          <!-- → Pronto p/ Dep -->
+          <div class="fn-conn">
+            <span class="fn-conn-rate">▼ &nbsp;54,0% conv.</span>
+            <span class="fn-conn-delta" style="color:#EF4444;">−2,5pp WoW</span>
+          </div>
+
+          <!-- Pronto p/ Depósito -->
+          <div class="fn-step">
+            <div class="fn-step-head">
+              <span class="fn-step-lbl">Pronto p/ Dep</span>
+              <span class="fn-step-num">1.222</span>
+            </div>
+            <div class="fn-bar-wrap">
+              <div class="fn-bar" style="width:54.0%; background:#F59E0B;"></div>
+            </div>
+          </div>
+
+          <!-- → FTD -->
+          <div class="fn-conn">
+            <span class="fn-conn-rate">▼ &nbsp;52,7% conv.</span>
+            <span class="fn-conn-delta" style="color:#22C55E;">+5,8pp WoW</span>
+          </div>
+
+          <!-- FTD -->
+          <div class="fn-step">
+            <div class="fn-step-head">
+              <span class="fn-step-lbl">FTD</span>
+              <span class="fn-step-num">644</span>
+            </div>
+            <div class="fn-bar-wrap">
+              <div class="fn-bar" style="width:28.4%; background:#22C55E;"></div>
+            </div>
+          </div>
+
+          <div class="fn-note">Sessões: GA4 · No Lock + RFD: PowerBI KYC · FTD: PowerBI BWBRA</div>
+
         </div>
-
-        <div class="hi-card">
-          <div class="hi-lbl">Dep / FTD · Qualidade</div>
-          <div class="hi-val" style="color:#FF3900;">R$278</div>
-          <div class="hi-sub"><strong>+35%</strong> vs Abr (R$205)<br>1º dep. médio Mai: R$114</div>
-        </div>
-
-        <div class="hi-card">
-          <div class="hi-lbl">GGR · Negócio</div>
-          <div class="hi-val" style="color:#22C55E;">R$67,6k</div>
-          <div class="hi-sub">Manutenção com <strong>2,5× menos FTDs</strong><br>NGR R$64,6k · Marg. +4,3pp</div>
-        </div>
-
       </div>
     </div>
 
