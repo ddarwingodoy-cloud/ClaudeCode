@@ -131,23 +131,8 @@ body {
 .ch-fill.mar { background: #DDDDDD; }
 .ch-fill.abr { background: #999999; }
 .ch-fill.mai { background: #FF3900; }
-.ch-fill.s2pend {
-  background: repeating-linear-gradient(45deg, #F0F0F0, #F0F0F0 2px, #DDDDDD 2px, #DDDDDD 4px);
-}
 .ch-val      { font-family: 'Archivo Black', sans-serif; font-size: 10px; color: #111; width: 44px; flex-shrink: 0; }
 .ch-val.cur  { color: #FF3900; }
-.ch-val.nd   { color: #CCCCCC; font-style: italic; font-size: 9px; font-family: 'Archivo', sans-serif; }
-
-/* ══ PENDING BANNER ══ */
-.panel-pending {
-  background: #FFFBF0;
-  border-top: 1px solid #F5D9B0;
-  padding: 5px 18px;
-  font-size: 9px;
-  color: #B8922A;
-  font-style: italic;
-  flex-shrink: 0;
-}
 
 /* ══ FOOTER ══ */
 .ftr {
@@ -173,8 +158,8 @@ body {
   <div class="hdr-body">
     <div class="hdr-title">WEEKLY PERFORMANCE REPORT — PÁG. 2</div>
     <div class="hdr-sub">
-      <strong>Affiliates lidera FTDs pela 1ª vez · CR total sobe para 41,1%.</strong>
-      Affiliates 172 FTDs (28,3%) — de último para primeiro · Paid Search recua para 3º · FullReg e Gross Bets por canal aguardando PowerBI.
+      <strong>Affiliates lidera FTDs, Paid Search lidera em valor · CR total dobra para 41,1%.</strong>
+      Affiliates 290 FTDs (35,5%) assume o topo pela 1ª vez · Paid Search gera R$319k em GB (52%) · Org./Direct converte 50,6% · CR médio S1→S2: 24,9% → 41,1%.
     </div>
   </div>
   <div class="hdr-meta">08–14 / Mai 2026<br>SB + Casino · BRL<br>Gerado 15/05</div>
@@ -190,42 +175,41 @@ body {
       <div class="ph">
         <svg width="13" height="13" viewBox="0 0 13 13"><circle cx="6.5" cy="4" r="3" stroke="#FF3900" stroke-width="2" fill="none"/><path d="M1 12c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#FF3900" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         <span class="ph-title">Full Registration Not Locked</span>
-        <span class="ph-note">FactFullRegistration · NoLock · referência S1 · S2 aguardando PowerBI</span>
+        <span class="ph-note">FactFullRegistration · NoLock · Mai 08–14</span>
       </div>
       <div class="p-body">
         <div class="hbar-list">
           <div class="hbar-row">
             <div class="hbar-lbl">Paid Search</div>
             <div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div>
-            <div class="hbar-val">904</div>
-          </div>
-          <div class="hbar-row">
-            <div class="hbar-lbl">Others</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:49.8%"></div></div>
-            <div class="hbar-val">450</div>
-          </div>
-          <div class="hbar-row">
-            <div class="hbar-lbl">Paid Social</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:49.7%"></div></div>
-            <div class="hbar-val">449</div>
-          </div>
-          <div class="hbar-row">
-            <div class="hbar-lbl">Org. / Direct</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:39.6%"></div></div>
-            <div class="hbar-val">358</div>
+            <div class="hbar-val">678</div>
           </div>
           <div class="hbar-row">
             <div class="hbar-lbl">Affiliates</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:15.9%"></div></div>
-            <div class="hbar-val">144</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:93.4%"></div></div>
+            <div class="hbar-val">633</div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-lbl">Paid Social</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:59.7%"></div></div>
+            <div class="hbar-val">405</div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-lbl">Org. / Direct</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:38.2%"></div></div>
+            <div class="hbar-val">259</div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-lbl">Others</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:2.1%"></div></div>
+            <div class="hbar-val">14</div>
           </div>
         </div>
         <div class="chart-foot">
-          <span>S1 referência · S2 total: 1.989 (breakdown aguardando PowerBI)</span>
-          <span>S1 Total: 2.305</span>
+          <span>CR geral: 41,1% · S1 ref: PS 904 · Aff 144 · Total 2.305</span>
+          <span>Total: 1.989</span>
         </div>
       </div>
-      <div class="panel-pending">S2 aguardando renovação token PowerBI · breakdown por canal indisponível</div>
     </div>
 
     <!-- FTDs -->
@@ -233,39 +217,39 @@ body {
       <div class="ph">
         <svg width="13" height="13" viewBox="0 0 13 13"><rect x="1" y="7" width="3" height="5" rx="1" fill="#FF3900"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#FF3900" opacity=".6"/><rect x="9" y="1" width="3" height="11" rx="1" fill="#FF3900" opacity=".35"/></svg>
         <span class="ph-title">FTDs por Canal</span>
-        <span class="ph-note">GA4 deposit_ftd · Mai 08–14 · GA4: 608 · PowerBI: 817</span>
+        <span class="ph-note">FactFirstDeposit · NoLock · Mai 08–14</span>
       </div>
       <div class="p-body">
         <div class="hbar-list">
           <div class="hbar-row">
             <div class="hbar-lbl">Affiliates</div>
             <div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div>
-            <div class="hbar-val">172</div>
-          </div>
-          <div class="hbar-row">
-            <div class="hbar-lbl">Others</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:80.2%"></div></div>
-            <div class="hbar-val">138</div>
+            <div class="hbar-val">290</div>
           </div>
           <div class="hbar-row">
             <div class="hbar-lbl">Paid Search</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:76.7%"></div></div>
-            <div class="hbar-val">132</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:74.1%"></div></div>
+            <div class="hbar-val">215</div>
           </div>
           <div class="hbar-row">
             <div class="hbar-lbl">Paid Social</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:55.2%"></div></div>
-            <div class="hbar-val">95</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:61.4%"></div></div>
+            <div class="hbar-val">178</div>
           </div>
           <div class="hbar-row">
             <div class="hbar-lbl">Org. / Direct</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:41.3%"></div></div>
-            <div class="hbar-val">71</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:45.2%"></div></div>
+            <div class="hbar-val">131</div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-lbl">Others</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:1.0%"></div></div>
+            <div class="hbar-val">3</div>
           </div>
         </div>
         <div class="chart-foot">
-          <span>Dep. médio: aguardando PowerBI · S1: Paid Search 214 · Paid Social 176 · Aff 26</span>
-          <span>Total GA4: 608</span>
+          <span>S1 ref: PS 214 · Soc 176 · Aff 26</span>
+          <span>Total: 817</span>
         </div>
       </div>
     </div>
@@ -280,42 +264,41 @@ body {
       <div class="ph">
         <svg width="13" height="13" viewBox="0 0 13 13"><path d="M1 10 L4 5 L7 7 L10 2 L12 4" stroke="#FF3900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="ph-title">CR% — FTD / FullReg NoLock</span>
-        <span class="ph-note">Referência S1 · CR total S2: 41,1% · por canal aguardando PowerBI</span>
+        <span class="ph-note">Média geral: 41,1% · S1: 24,9%</span>
       </div>
       <div class="p-body">
         <div class="hbar-list">
           <div class="hbar-row">
-            <div class="hbar-lbl">Paid Social</div>
-            <div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div>
-            <div class="hbar-val">39,2%</div>
-          </div>
-          <div class="hbar-row">
             <div class="hbar-lbl">Org. / Direct</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:80.6%"></div></div>
-            <div class="hbar-val">31,6%</div>
-          </div>
-          <div class="hbar-row">
-            <div class="hbar-lbl">Paid Search</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:60.5%"></div></div>
-            <div class="hbar-val">23,7%</div>
+            <div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div>
+            <div class="hbar-val">50,6%</div>
           </div>
           <div class="hbar-row">
             <div class="hbar-lbl">Affiliates</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:46.2%"></div></div>
-            <div class="hbar-val">18,1%</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:90.5%"></div></div>
+            <div class="hbar-val">45,8%</div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-lbl">Paid Social</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:87.0%"></div></div>
+            <div class="hbar-val">44,0%</div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-lbl">Paid Search</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:62.7%"></div></div>
+            <div class="hbar-val">31,7%</div>
           </div>
           <div class="hbar-row">
             <div class="hbar-lbl">Others</div>
-            <div class="hbar-track"><div class="hbar-fill" style="width:25.0%"></div></div>
-            <div class="hbar-val">9,8%</div>
+            <div class="hbar-track"><div class="hbar-fill" style="width:42.3%"></div></div>
+            <div class="hbar-val">21,4%</div>
           </div>
         </div>
         <div class="chart-foot">
-          <span>Referência S1 (01–07/mai) · CR total S2: 41,1%</span>
-          <span>S1 Média: 24,9%</span>
+          <span>Maior = melhor eficiência de conversão</span>
+          <span>Média: 41,1%</span>
         </div>
       </div>
-      <div class="panel-pending">S2 aguardando renovação token PowerBI · CR% por canal indisponível</div>
     </div>
 
     <!-- Gross Bets 7d — Evolução por Canal -->
@@ -323,7 +306,7 @@ body {
       <div class="ph">
         <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="8" width="3" height="5" rx="1" fill="#DDDDDD"/><rect x="5" y="4" width="3" height="9" rx="1" fill="#999"/><rect x="10" y="1" width="3" height="12" rx="1" fill="#FF3900"/></svg>
         <span class="ph-title">Gross Bets 7d — Evolução por Canal</span>
-        <span class="ph-note">GB acum. 7d pós-FTD · NoLock · max ref: R$134k · S2 aguardando PowerBI</span>
+        <span class="ph-note">GB acum. 7d pós-FTD · NoLock · max: R$319k</span>
       </div>
       <div class="p-body">
         <div class="ch-group">
@@ -331,45 +314,45 @@ body {
           <div class="ch-block">
             <div class="ch-lbl">Paid Search</div>
             <div class="ch-bars">
-              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:73.9%"></div></div><div class="ch-val">R$99k</div></div>
-              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:80.6%"></div></div><div class="ch-val">R$108k</div></div>
-              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill s2pend" style="width:12%"></div></div><div class="ch-val nd">N/D</div></div>
+              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:31.0%"></div></div><div class="ch-val">R$99k</div></div>
+              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:33.9%"></div></div><div class="ch-val">R$108k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill mai" style="width:100%"></div></div><div class="ch-val cur">R$319k</div></div>
             </div>
           </div>
 
           <div class="ch-block">
             <div class="ch-lbl">Paid Social</div>
             <div class="ch-bars">
-              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:56.7%"></div></div><div class="ch-val">R$76k</div></div>
-              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:41.0%"></div></div><div class="ch-val">R$55k</div></div>
-              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill s2pend" style="width:12%"></div></div><div class="ch-val nd">N/D</div></div>
+              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:23.8%"></div></div><div class="ch-val">R$76k</div></div>
+              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:17.2%"></div></div><div class="ch-val">R$55k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill mai" style="width:38.9%"></div></div><div class="ch-val cur">R$124k</div></div>
             </div>
           </div>
 
           <div class="ch-block">
             <div class="ch-lbl">Org. / Direct</div>
             <div class="ch-bars">
-              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:100%"></div></div><div class="ch-val">R$134k</div></div>
-              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:61.9%"></div></div><div class="ch-val">R$83k</div></div>
-              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill s2pend" style="width:12%"></div></div><div class="ch-val nd">N/D</div></div>
+              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:42.0%"></div></div><div class="ch-val">R$134k</div></div>
+              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:26.0%"></div></div><div class="ch-val">R$83k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill mai" style="width:35.4%"></div></div><div class="ch-val cur">R$113k</div></div>
             </div>
           </div>
 
           <div class="ch-block">
             <div class="ch-lbl">Affiliates</div>
             <div class="ch-bars">
-              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:42.5%"></div></div><div class="ch-val">R$57k</div></div>
-              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:52.2%"></div></div><div class="ch-val">R$70k</div></div>
-              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill s2pend" style="width:12%"></div></div><div class="ch-val nd">N/D</div></div>
+              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:17.9%"></div></div><div class="ch-val">R$57k</div></div>
+              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:21.9%"></div></div><div class="ch-val">R$70k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill mai" style="width:19.1%"></div></div><div class="ch-val cur">R$61k</div></div>
             </div>
           </div>
 
           <div class="ch-block">
             <div class="ch-lbl">Others</div>
             <div class="ch-bars">
-              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:8.2%"></div></div><div class="ch-val">R$11k</div></div>
-              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:11.2%"></div></div><div class="ch-val">R$15k</div></div>
-              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill s2pend" style="width:12%"></div></div><div class="ch-val nd">N/D</div></div>
+              <div class="ch-bar-row"><div class="ch-per">Abr</div><div class="ch-track"><div class="ch-fill mar" style="width:3.4%"></div></div><div class="ch-val">R$11k</div></div>
+              <div class="ch-bar-row"><div class="ch-per">S1</div><div class="ch-track"><div class="ch-fill abr" style="width:4.7%"></div></div><div class="ch-val">R$15k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">S2▶</div><div class="ch-track"><div class="ch-fill mai" style="width:0.4%"></div></div><div class="ch-val cur">R$1k</div></div>
             </div>
           </div>
 
@@ -378,12 +361,11 @@ body {
           <div style="display:flex;gap:14px;align-items:center;">
             <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:1px;background:#DDDDDD;flex-shrink:0;"></div>Abr R$378k</div>
             <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:1px;background:#999999;flex-shrink:0;"></div>S1 R$334k</div>
-            <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:1px;background:repeating-linear-gradient(45deg,#F0F0F0,#F0F0F0 2px,#DDDDDD 2px,#DDDDDD 4px);flex-shrink:0;"></div>S2 aguardando</div>
+            <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:1px;background:#FF3900;flex-shrink:0;"></div>S2 R$617k</div>
           </div>
           <span>Semanas normalizadas · âncora 1ª Sex/mês</span>
         </div>
       </div>
-      <div class="panel-pending">S2 aguardando renovação token PowerBI · Gross Bets por canal indisponível</div>
     </div>
 
   </div>
