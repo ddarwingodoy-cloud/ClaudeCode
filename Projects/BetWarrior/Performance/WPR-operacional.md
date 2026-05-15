@@ -84,9 +84,9 @@ ROW 2 (flex:1)
 
 | Coluna | Descrição | Fórmula |
 |---|---|---|
-| FullReg NL | Full registrations NOT_LOCKED | `FactFullRegistration` filtrado |
+| FullReg NL | Full registrations NoLock | `FactFullRegistration` filtrado |
 | FTDs | Primeiros depósitos | `FactFirstDeposit` |
-| CR% | Conversão | FTDs / FullReg NOT_LOCKED |
+| CR% | Conversão | FTDs / FullReg NoLock |
 | GGR | Receita bruta | Gross Bets − Gross Wins |
 | NGR | Receita líquida | GGR − Bonus Cost |
 | Marg. Total | Margem GGR sobre aposta | GGR / Gross Bets |

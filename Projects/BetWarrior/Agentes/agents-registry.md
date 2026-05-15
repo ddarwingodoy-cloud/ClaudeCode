@@ -86,7 +86,7 @@ Atualizado em: 14/05/2026
 
 | # | Verificação | Fórmula esperada |
 |---|---|---|
-| 1 | CR% | FTDs / FullReg NOT_LOCKED |
+| 1 | CR% | FTDs / FullReg NoLock |
 | 2 | Margem Total | GGR / Gross Bets |
 | 3 | Margem SB / CS | GGR_produto / GrossBets_produto |
 | 4 | CPA por plataforma | Spend_plataforma / FTDs_plataforma |

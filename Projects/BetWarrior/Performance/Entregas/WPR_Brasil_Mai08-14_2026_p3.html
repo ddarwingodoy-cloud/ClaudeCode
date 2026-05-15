@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPR Brasil Pág. 3 — Performance de Mídia — Mai 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  min-width: 1100px;
+  background: #F2F2F2; color: #111;
+  font-family: 'Archivo', sans-serif;
+  display: flex; flex-direction: column;
+}
+/* ── header ── */
+.hdr {
+  background: #FFF; border-bottom: 2px solid #FF3900;
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 28px; height: 80px; flex-shrink: 0;
+}
+.logo-block { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-bar   { width: 4px; height: 36px; background: #FF3900; }
+.logo-text .brand { font-family: 'Archivo Black'; font-size: 17px; letter-spacing: 1px; color: #111; }
+.logo-text .sub   { font-size: 9px; color: #999; letter-spacing: 3px; text-transform: uppercase; }
+.hdr-sep  { width: 1px; height: 44px; background: #E0E0E0; flex-shrink: 0; }
+.hdr-body { flex: 1; }
+.hdr-title { font-family: 'Archivo Black'; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #111; line-height: 1; margin-bottom: 6px; }
+.hdr-sub   { font-size: 12px; color: #777; line-height: 1.4; }
+.hdr-sub strong { color: #FF3900; }
+.hdr-meta  { font-size: 11px; color: #999; text-align: right; line-height: 1.8; flex-shrink: 0; letter-spacing: 0.5px; }
+/* ── body ── */
+.body {
+  flex: 1; min-height: 0;
+  padding: 14px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+/* ── panel ── */
+.panel {
+  flex: 1; min-height: 0;
+  background: #FFF; border: 1px solid #E0E0E0;
+  border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.ph {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 18px; border-bottom: 2px solid #FF3900; flex-shrink: 0;
+  min-height: 44px;
+}
+.ph-title { font-family: 'Archivo Black'; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ph-note  { margin-left: auto; font-size: 9px; color: #AAA; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+/* ── p-body ── */
+.p-body {
+  flex: 1; min-height: 0;
+  padding: 12px 20px 10px;
+  display: flex; flex-direction: column;
+}
+/* ── charts duo ── */
+.charts-duo {
+  flex: 7; min-height: 0;
+  display: flex; gap: 12px;
+}
+.chart-box {
+  flex: 1; min-width: 0; min-height: 0;
+}
+/* ── legend ── */
+.chart-legend {
+  display: flex; gap: 16px; margin-bottom: 6px; flex-shrink: 0; align-items: center;
+}
+.cleg-item { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #777; letter-spacing: .5px; text-transform: uppercase; }
+.cleg-box  { width: 11px; height: 11px; border-radius: 1px; flex-shrink: 0; }
+/* ── chart note ── */
+.chart-note { margin-top: 5px; font-size: 8.5px; color: #BBB; line-height: 1.4; text-align: center; }
+/* ── footer ── */
+.ftr {
+  height: 30px; background: #FFF; border-top: 1px solid #E8E8E8;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; font-size: 10px; color: #BBB; letter-spacing: 1px; flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo-block">
+    <div class="logo-bar"></div>
+    <div class="logo-text">
+      <div class="brand">BETWARRIOR</div>
+      <div class="sub">BRASIL</div>
+    </div>
+  </div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body">
+    <div class="hdr-title">WEEKLY PERFORMANCE REPORT — PÁG. 3</div>
+    <div class="hdr-sub">
+      <strong>Performance de Mídia — Mai 08–14.</strong>
+      <strong>TikTok</strong> mais eficiente: CPA R$725 vs R$914 Google · Meta concentra 42% do orçamento com CPA R$1.079 · X ineficiente: R$5.228 CPA, 2 FTDs em R$10k.
+    </div>
+  </div>
+  <div class="hdr-meta">08–14 / Mai 2026<br>Mídia Paga · BRL<br>15/05/2026</div>
+</div>
+
+<div class="body">
+  <div class="charts-duo">
+
+        <!-- ═══════════════════════════════════
+             G1 · % Budget vs % FTDs + linha CPA
+             viewBox 0 0 600 320
+             Chart area x=46..554 y=16..225 h=209
+             Scale: 1%=2.09px | CPA max R$1.200 → 0.1742px/R$
+             Budget x: 68,168,268,368,468 | FTD x: 96,196,296,396,496 | dot x: 108,208,308
+             Google:  bud 46.2% h=97 y=128 | ftd 51.6% h=108 y=117 | CPA R$914 dot y=66
+             Meta:    bud 42.2% h=88 y=137 | ftd 39.8% h=83  y=142 | CPA R$1079 dot y=37
+             TikTok:  bud  5.6% h=12 y=213 | ftd  7.8% h=16  y=209 | CPA R$725 dot y=99
+             X:       bud  4.0% h=8  y=217 | s/attr (2 FTDs)
+             Taboola: bud  2.1% h=4  y=221 | s/attr (0 FTDs)
+             Avg CPA R$965 → y=57
+        ═══════════════════════════════════ -->
+        <div class="panel chart-box">
+          <div class="ph">
+            <svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="7" width="3" height="5" rx="1" fill="#CCC"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#FF3900"/><circle cx="2.5" cy="3" r="1.8" fill="none" stroke="#1C1C1E" stroke-width="1.2"/><circle cx="6.5" cy="1.5" r="1.8" fill="none" stroke="#1C1C1E" stroke-width="1.2"/><line x1="2.5" y1="4.8" x2="6.5" y2="3.3" stroke="#1C1C1E" stroke-width="0.8"/></svg>
+            <span class="ph-title">Budget vs FTDs · CPA por Plataforma</span>
+            <span class="ph-note">FTD BI (XLSX Perfo) · Google via GA4 · CPA pond. R$965 · Mai 08–14</span>
+          </div>
+          <div class="p-body">
+          <div class="chart-legend">
+            <div class="cleg-item"><div class="cleg-box" style="background:#CCC"></div>% Budget</div>
+            <div class="cleg-item"><div class="cleg-box" style="background:#FF3900"></div>% FTDs pagos</div>
+            <div class="cleg-item">
+              <div style="width:18px;height:1.8px;background:#1C1C1E;border-radius:1px;flex-shrink:0;"></div>CPA (R$)
+            </div>
+          </div>
+          <svg viewBox="0 0 600 320" style="width:100%;height:100%;display:block;min-height:0;"
+               preserveAspectRatio="xMidYMid meet">
+
+            <line x1="46" y1="225" x2="554" y2="225" stroke="#E0E0E0" stroke-width="0.8"/>
+
+            <!-- avg CPA R$965 → y=57 -->
+            <line x1="160" y1="57" x2="554" y2="57" stroke="#CCC" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <text x="550" y="53" text-anchor="end" font-family="Archivo" font-size="8.5" fill="#BBB">avg R$965</text>
+
+            <!-- GOOGLE -->
+            <rect x="68"  y="128" width="24" height="97" fill="#CCC" rx="2"/>
+            <text x="80"  y="123" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">46%</text>
+            <rect x="96"  y="117" width="24" height="108" fill="#FF3900" rx="2"/>
+            <text x="108" y="175" text-anchor="middle" font-family="Archivo Black" font-size="11" fill="#FFF">52%</text>
+
+            <!-- META -->
+            <rect x="168" y="137" width="24" height="88" fill="#CCC" rx="2"/>
+            <text x="180" y="132" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">42%</text>
+            <rect x="196" y="142" width="24" height="83" fill="#FF3900" rx="2"/>
+            <text x="208" y="186" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFF">40%</text>
+
+            <!-- TIKTOK -->
+            <rect x="268" y="213" width="24" height="12" fill="#CCC" rx="2"/>
+            <text x="280" y="208" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">6%</text>
+            <rect x="296" y="209" width="24" height="16" fill="#FF3900" rx="2"/>
+            <text x="308" y="205" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FF3900">8%</text>
+
+            <!-- X -->
+            <rect x="368" y="217" width="24" height="8"  fill="#DDD" rx="2"/>
+            <text x="380" y="212" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#BBB">4%</text>
+            <rect x="396" y="221" width="24" height="4"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+
+            <!-- TABOOLA -->
+            <rect x="468" y="221" width="24" height="4"  fill="#DDD" rx="2"/>
+            <text x="480" y="216" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#BBB">2%</text>
+            <rect x="496" y="221" width="24" height="4"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+
+            <!-- CPA line Google(108,66)→Meta(208,37)→TikTok(308,99) -->
+            <polyline points="108,66 208,37 308,99"
+              fill="none" stroke="#1C1C1E" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="108" cy="66" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+            <circle cx="208" cy="37" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+            <circle cx="308" cy="99" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+
+            <text x="108" y="82"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$914</text>
+            <text x="208" y="27"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$1.079</text>
+            <text x="308" y="113" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$725</text>
+
+            <!-- x-axis -->
+            <line x1="46" y1="226" x2="554" y2="226" stroke="#E0E0E0" stroke-width="0.8"/>
+            <text x="96"  y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">GOOGLE</text>
+            <text x="96"  y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#111">132</text>
+            <text x="96"  y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">R$121k invest.</text>
+            <text x="196" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">META</text>
+            <text x="196" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#111">102</text>
+            <text x="196" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">R$110k invest.</text>
+            <text x="296" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">TIKTOK</text>
+            <text x="296" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#111">20</text>
+            <text x="296" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">R$14k invest.</text>
+            <text x="396" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#AAA">X</text>
+            <text x="396" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#CCC">2†</text>
+            <text x="396" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#CCC">R$10k invest.</text>
+            <text x="496" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#AAA">TABOOLA</text>
+            <text x="496" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#CCC">0†</text>
+            <text x="496" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#CCC">R$5k invest.</text>
+
+          </svg>
+          </div><!-- /.p-body G1 -->
+        </div><!-- /.panel G1 -->
+
+        <!-- ═══════════════════════════════════════════
+             G2 · % Budget (S2) vs % Turnover (ref. S1) + linha R$/apostador (ref. S1)
+             Nota: turnover por canal pendente para S2 — base S1 utilizada como referência
+             Budget bars: S2 values (same as G1)
+             Turnover bars: S1 reference (muted)
+             R$/apostador line: S1 reference (muted)
+        ═══════════════════════════════════════════ -->
+        <div class="panel chart-box">
+          <div class="ph">
+            <svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="7" width="3" height="5" rx="1" fill="#CCC"/><rect x="5" y="3" width="3" height="9" rx="1" fill="#FF3900"/><line x1="2.5" y1="5" x2="6.5" y2="1.5" stroke="#1C1C1E" stroke-width="1.2" stroke-linecap="round"/><circle cx="2.5" cy="5" r="1.5" fill="#1C1C1E"/><circle cx="6.5" cy="1.5" r="1.5" fill="#1C1C1E"/></svg>
+            <span class="ph-title">Budget vs Turnover · R$/Apostador por Plataforma</span>
+            <span class="ph-note">Turnover ref. S1 · S2 pendente · Google R$2.011/ap · Mai S1 ref.</span>
+          </div>
+          <div class="p-body">
+          <div class="chart-legend">
+            <div class="cleg-item"><div class="cleg-box" style="background:#CCC"></div>% Budget (S2)</div>
+            <div class="cleg-item"><div class="cleg-box" style="background:#FFCFBF"></div>% Turnover (ref. S1)</div>
+            <div class="cleg-item">
+              <div style="width:18px;height:1.8px;background:#CCCCCC;border-radius:1px;flex-shrink:0;"></div>R$/apostador (ref. S1)
+            </div>
+          </div>
+          <svg viewBox="0 0 600 320" style="width:100%;height:100%;display:block;min-height:0;"
+               preserveAspectRatio="xMidYMid meet">
+
+            <line x1="46" y1="225" x2="554" y2="225" stroke="#E0E0E0" stroke-width="0.8"/>
+
+            <!-- avg R$/apostador S1 R$1.302 → y=116 (muted) -->
+            <line x1="160" y1="116" x2="554" y2="116" stroke="#DDD" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <text x="550" y="112" text-anchor="end" font-family="Archivo" font-size="8.5" fill="#CCC">avg R$1.302 (S1)</text>
+
+            <!-- GOOGLE — budget S2 -->
+            <rect x="68"  y="128" width="24" height="97" fill="#CCC" rx="2"/>
+            <text x="80"  y="123" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">46%</text>
+            <!-- Google turnover S1 ref (muted orange) -->
+            <rect x="96"  y="41"  width="24" height="184" fill="#FFCFBF" rx="2"/>
+            <text x="108" y="136" text-anchor="middle" font-family="Archivo Black" font-size="11" fill="#FF9070">88%</text>
+
+            <!-- META — budget S2 -->
+            <rect x="168" y="137" width="24" height="88" fill="#CCC" rx="2"/>
+            <text x="180" y="132" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">42%</text>
+            <!-- Meta turnover S1 ref -->
+            <rect x="196" y="210" width="24" height="15" fill="#FFCFBF" rx="2"/>
+            <text x="223" y="220" text-anchor="start" font-family="Archivo Black" font-size="9" fill="#FF9070">7%</text>
+
+            <!-- TIKTOK — budget S2 -->
+            <rect x="268" y="213" width="24" height="12" fill="#CCC" rx="2"/>
+            <text x="280" y="208" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">6%</text>
+            <!-- TikTok turnover S1 ref -->
+            <rect x="296" y="217" width="24" height="8"  fill="#FFCFBF" rx="2"/>
+            <text x="308" y="213" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FF9070">4%</text>
+
+            <!-- X -->
+            <rect x="368" y="217" width="24" height="8"  fill="#DDD" rx="2"/>
+            <text x="380" y="212" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#BBB">4%</text>
+            <rect x="396" y="221" width="24" height="4"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+
+            <!-- TABOOLA -->
+            <rect x="468" y="221" width="24" height="4"  fill="#DDD" rx="2"/>
+            <text x="480" y="216" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#BBB">2%</text>
+            <rect x="496" y="221" width="24" height="4"  fill="none" stroke="#DDD" stroke-width="1.2" stroke-dasharray="3,2" rx="1"/>
+
+            <!-- R$/apostador line S1 reference (muted) -->
+            <polyline points="108,57 208,205 308,142"
+              fill="none" stroke="#CCC" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5,3"/>
+            <circle cx="108" cy="57"  r="4" fill="#FFF" stroke="#CCC" stroke-width="1.5"/>
+            <circle cx="208" cy="205" r="4" fill="#FFF" stroke="#CCC" stroke-width="1.5"/>
+            <circle cx="308" cy="142" r="4" fill="#FFF" stroke="#CCC" stroke-width="1.5"/>
+
+            <text x="108" y="34"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#CCC">R$2.011</text>
+            <text x="208" y="193" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#CCC">R$243</text>
+            <text x="308" y="136" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#CCC">R$998</text>
+
+            <!-- x-axis -->
+            <line x1="46" y1="226" x2="554" y2="226" stroke="#E0E0E0" stroke-width="0.8"/>
+            <text x="96"  y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">GOOGLE</text>
+            <text x="96"  y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#111">R$121k</text>
+            <text x="96"  y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">S2 budget</text>
+            <text x="196" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">META</text>
+            <text x="196" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#111">R$110k</text>
+            <text x="196" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">S2 budget</text>
+            <text x="296" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">TIKTOK</text>
+            <text x="296" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#111">R$14k</text>
+            <text x="296" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">S2 budget</text>
+            <text x="396" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#AAA">X</text>
+            <text x="396" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#CCC">R$10k</text>
+            <text x="396" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#CCC">S2 budget</text>
+            <text x="496" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#AAA">TABOOLA</text>
+            <text x="496" y="259" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#CCC">R$5k</text>
+            <text x="496" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#CCC">S2 budget</text>
+
+          </svg>
+          </div><!-- /.p-body G2 -->
+        </div><!-- /.panel G2 -->
+
+  </div><!-- /.charts-duo -->
+
+  <!-- ══════════════════════════════════
+       PACING — ORÇAMENTO + FTDs MAI/26
+       Fonte: PACING - PERFO.xlsx (Diego) · acumulado 01–13/mai · 14 de 31 dias
+       Bar area x=105..370 (265px = 100%)
+       Ref line: 45,2% (14/31 dias)
+       USD × R$5,56
+  ══════════════════════════════════ -->
+  <div class="panel" style="flex:3; min-height:0;">
+    <div class="ph">
+      <svg width="12" height="12" viewBox="0 0 12 12">
+        <circle cx="6" cy="7" r="5" fill="none" stroke="#CCC" stroke-width="1.2"/>
+        <path d="M6 7 L9 3.5" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="6" cy="7" r="1.3" fill="#1C1C1E"/>
+      </svg>
+      <span class="ph-title">PACING — MAI/26</span>
+      <span class="ph-note">Acumulado 01–13/mai · ref 45,2% (14/31 dias) · USD × R$5,56 · fonte: Diego/Perfo</span>
+    </div>
+    <div class="p-body" style="padding:8px 16px 6px;">
+
+      <!-- REFERÊNCIA DO PERÍODO -->
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #EFEFEF;">
+        <div style="flex:1; height:1px; background:#EFEFEF;"></div>
+        <div style="display:flex; align-items:baseline; gap:6px;">
+          <span style="font-family:'Archivo Black'; font-size:18px; color:#FF3900; line-height:1;">45,2%</span>
+          <span style="font-family:'Archivo'; font-size:9px; color:#999; text-transform:uppercase; letter-spacing:1.5px;">do mês · 14 de 31 dias</span>
+        </div>
+        <div style="flex:1; height:1px; background:#EFEFEF;"></div>
+      </div>
+
+      <div style="flex:1; min-height:0; display:flex; align-items:stretch;">
+
+        <!-- ── GOOGLE ── -->
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 14px; gap:6px; border-right:1px solid #EFEFEF; text-align:center;">
+          <div style="font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; color:#999; text-transform:uppercase;">GOOGLE</div>
+          <div style="display:flex; gap:16px; align-items:center; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#111; line-height:1;">42,1%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">orçamento</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#F59E0B;">−3,1pp</div>
+            </div>
+            <div style="width:1px; height:52px; background:#EFEFEF; flex-shrink:0;"></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">19,1%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">FTDs</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−26,1pp</div>
+            </div>
+          </div>
+          <div style="font-family:'Archivo'; font-size:9px; color:#CCC;">R$254k / R$603k · 322 de 1.688</div>
+        </div>
+
+        <!-- ── META ── -->
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 14px; gap:6px; border-right:1px solid #EFEFEF; text-align:center;">
+          <div style="font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; color:#999; text-transform:uppercase;">META</div>
+          <div style="display:flex; gap:16px; align-items:center; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">32,2%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">orçamento</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−13,0pp</div>
+            </div>
+            <div style="width:1px; height:52px; background:#EFEFEF; flex-shrink:0;"></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">11,4%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">FTDs</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−33,8pp</div>
+            </div>
+          </div>
+          <div style="font-family:'Archivo'; font-size:9px; color:#CCC;">R$143k / R$445k · 151 de 1.330</div>
+        </div>
+
+        <!-- ── TIKTOK ── -->
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 14px; gap:6px; border-right:1px solid #EFEFEF; text-align:center;">
+          <div style="font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; color:#999; text-transform:uppercase;">TIKTOK</div>
+          <div style="display:flex; gap:16px; align-items:center; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">17,0%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">orçamento</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−28,2pp</div>
+            </div>
+            <div style="width:1px; height:52px; background:#EFEFEF; flex-shrink:0;"></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">5,3%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">FTDs</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−39,9pp</div>
+            </div>
+          </div>
+          <div style="font-family:'Archivo'; font-size:9px; color:#CCC;">R$24k / R$139k · 22 de 417</div>
+        </div>
+
+        <!-- ── X ── -->
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 14px; gap:6px; text-align:center;">
+          <div style="font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; color:#999; text-transform:uppercase;">X</div>
+          <div style="display:flex; gap:16px; align-items:center; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">19,6%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">orçamento</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−25,6pp</div>
+            </div>
+            <div style="width:1px; height:52px; background:#EFEFEF; flex-shrink:0;"></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+              <div style="font-family:'Archivo Black'; font-size:32px; color:#EF4444; line-height:1;">1,0%</div>
+              <div style="font-family:'Archivo'; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:1px;">FTDs</div>
+              <div style="font-family:'Archivo Black'; font-size:9px; color:#EF4444;">−44,2pp</div>
+            </div>
+          </div>
+          <div style="font-family:'Archivo'; font-size:9px; color:#CCC;">R$20k / R$100k · 3 de 300</div>
+        </div>
+
+      </div>
+      <p class="chart-note" style="flex-shrink:0; margin-top:3px;">Acumulado 01–13/mai · ref 45,2% (14/31 dias) · USD × R$5,56 · fonte: Diego/Perfo · Kwai e Programática pausados · G2 turnover: ref. S1 pending S2</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="ftr">
+  <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+  <span>WPR · PÁG. 3 · PERFORMANCE DE MÍDIA · MAI 08–14/2026</span>
+  <span>15/05/2026</span>
+</div>
+
+</body>
+</html>
