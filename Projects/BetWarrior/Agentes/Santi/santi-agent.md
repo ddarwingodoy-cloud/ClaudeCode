@@ -114,29 +114,34 @@ Hierarquia de escolha para highlight:
 
 ### Etapa 4 — Formatar draft
 
-Formato Slack (markdown Slack):
+Formato Slack — usar emojis Unicode (não shortcodes Slack), pois o texto vai para clipboard:
 
 ```
-:date: [DD/mês/AAAA]
+------------------------------------------------------------------------------------------
+*Growth | Brasil*
+
+📅 [DD/mês/AAAA]
 _Período coberto: [dom DD/mmm] a [sáb DD/mmm]_ ← incluir sempre
 [⚠️ Análise parcial — semana aberta até [DATA]] ← apenas se parcial
 
-:partying_face: *O que foi realizado na última semana?*
+🥳 *O que foi realizado na última semana?*
 • [Iniciativa 1]
 • [Iniciativa 2]
 • [Iniciativa 3]
 
-:no_entry: *Pontos críticos da última semana?*
+⛔ *Pontos críticos da última semana?*
 [deixar vazio se não houver — apenas a linha do grupo]
 
-:bulb: *Highlight da última semana*
+💡 *Highlight da última semana*
 • [Métrica principal]: [valor atual] vs [valor semana anterior] ([+X% / −X%] WoW)
 [contexto em uma linha se necessário]
 
-:muscle: *Foco da semana atual?*
+💪 *Foco da semana atual?*
 • [Iniciativa 1]
 • [Iniciativa 2]
 • [Iniciativa 3]
+
+------------------------------------------------------------------------------------------
 ```
 
 ---
@@ -152,14 +157,19 @@ _Período coberto: [dom DD/mmm] a [sáb DD/mmm]_ ← incluir sempre
 
 ---
 
-### Etapa 6 — Envio após aprovação
+### Etapa 6 — Entrega após aprovação
 
 Após aprovação explícita de Darwin:
-- **Ferramenta:** `mcp__google_workspace__send_gmail_message` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
-- **Para:** `darwingodoy@betwarrior.com`
-- **Assunto:** `SANTI — [DD/mmm/YYYY]`
-- **Corpo:** draft completo em texto puro (Darwin copia para o Slack manualmente)
-- Nunca enviar para Santiago diretamente — entrega é sempre para Darwin
+- **Ferramenta:** Bash com `pbcopy` — copiar o texto formatado direto para o clipboard
+- **Nunca usar email como intermediário** — a formatação Slack (negrito, itálico) se perde na cópia do email
+- Darwin cola do clipboard direto no Slack, onde o markdown renderiza corretamente
+- Nunca enviar para Santiago diretamente — entrega é sempre via clipboard para Darwin
+
+```bash
+cat << 'EOF' | pbcopy
+[draft completo]
+EOF
+```
 
 ---
 
