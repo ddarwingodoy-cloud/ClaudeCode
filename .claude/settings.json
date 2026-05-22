@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__google-analytics__run_report",
+      "mcp__google-analytics__get_accounts",
+      "mcp__google-analytics__get_metadata",
+      "mcp__google-analytics__get_properties",
+      "mcp__google_workspace__search_drive_files",
+      "mcp__google_workspace__search_gmail_messages",
+      "mcp__google_workspace__get_events",
+      "mcp__google_workspace__get_gmail_thread_content",
+      "mcp__google_workspace__get_gmail_messages_content_batch",
+      "mcp__google_workspace__list_drive_items",
+      "mcp__google_workspace__get_drive_file_content",
+      "mcp__google_workspace__list_gmail_labels",
+      "mcp__google_workspace__get_spreadsheet_info",
+      "mcp__google_workspace__read_sheet_values",
+      "mcp__atlassian__confluence_get_page",
+      "mcp__atlassian__confluence_search",
+      "mcp__atlassian__confluence_get_page_children",
+      "mcp__claude_ai_Gmail__search_threads"
+    ]
+  }
+}
