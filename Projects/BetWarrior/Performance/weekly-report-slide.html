@@ -353,52 +353,62 @@ tbody td:first-child {
   <!-- ══ ROW 2: FUNIL + TABELA ══ -->
   <div class="row row-bot">
 
-    <!-- FUNIL DE ATIVAÇÃO (3 etapas) -->
+    <!-- FUNIL DE ATIVAÇÃO (4 etapas) -->
     <div class="panel p-hi">
       <div class="ph">
         <svg width="13" height="13" viewBox="0 0 13 13"><polygon points="1,1 12,1 9,5.5 9,12 4,12 4,5.5" fill="#FF3900"/></svg>
         <span class="ph-title">Funil de Ativação</span>
-        <span class="ph-note">GA4 + PowerBI · Mai 01–21</span>
+        <span class="ph-note">GA4 + PowerBI · Mai 01–21 · Δ vs Abr</span>
       </div>
       <div class="p-body" style="padding-top:10px; padding-bottom:8px;">
         <div class="fn-wrap">
 
-          <!-- Nomes das etapas -->
+          <!-- Nomes das 4 etapas -->
           <div class="fn-names">
             <div class="fn-name">Sessões<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">GA4</span></div>
             <div class="fn-name">No Lock<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">PowerBI</span></div>
+            <div class="fn-name">Pronto p/ Dep<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">PowerBI KYC</span></div>
             <div class="fn-name">FTD<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">PowerBI</span></div>
           </div>
 
-          <!-- SVG FUNIL 3 etapas
-               x=0..144: Sessões (h=120→70)
-               x=144..288: No Lock (h=70→16)
-               x=288..432: FTD (h=16→8)
+          <!-- SVG FUNIL 4 etapas
+               x=0:   h=120 (0→120)
+               x=108: h=70  (25→95)   — drop visual Sessions→NoLock
+               x=216: h=32  (44→76)   — 45,9% de NoLock
+               x=324: h=21  (50→71)   — 66,2% de ProntoDep
+               x=432: h=14  (53→67)
           -->
           <svg class="fn-svg" viewBox="0 0 432 120">
-            <polygon points="0,0   144,25  144,95  0,120"  fill="#FF7A50"/>
-            <polygon points="144,25 288,52  288,68  144,95" fill="#FF3900"/>
-            <polygon points="288,52 432,56  432,64  288,68" fill="#CC2E00"/>
-            <line x1="144" y1="25" x2="144" y2="95" stroke="white" stroke-width="1.5" opacity="0.35"/>
-            <line x1="288" y1="52" x2="288" y2="68" stroke="white" stroke-width="1.5" opacity="0.35"/>
-            <text x="72"  y="64" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">339.857</text>
-            <text x="216" y="62" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">9.349</text>
-            <text x="360" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">2.156</text>
+            <polygon points="0,0   108,25  108,95  0,120"  fill="#FF7A50"/>
+            <polygon points="108,25 216,44  216,76  108,95" fill="#FF3900"/>
+            <polygon points="216,44 324,50  324,71  216,76" fill="#CC2E00"/>
+            <polygon points="324,50 432,53  432,67  324,71" fill="#8B1500"/>
+            <line x1="108" y1="25" x2="108" y2="95" stroke="white" stroke-width="1.5" opacity="0.35"/>
+            <line x1="216" y1="44" x2="216" y2="76" stroke="white" stroke-width="1.5" opacity="0.35"/>
+            <line x1="324" y1="50" x2="324" y2="71" stroke="white" stroke-width="1.5" opacity="0.35"/>
+            <text x="54"  y="64" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">339.857</text>
+            <text x="162" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">7.095</text>
+            <text x="270" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">3.257</text>
+            <text x="378" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">2.156</text>
           </svg>
 
-          <!-- Taxas de conversão -->
+          <!-- Taxas de conversão + Δ vs Abr -->
           <div class="fn-convs">
-            <div class="fn-conv" style="left:33%">
-              <div class="fn-c-pct">2,75%</div>
-              <div class="fn-c-wow" style="color:#999;">Sess.→Reg</div>
+            <div class="fn-conv" style="left:25%">
+              <div class="fn-c-pct">2,09%</div>
+              <div class="fn-c-wow" style="color:#EF4444;">−0,20pp</div>
             </div>
-            <div class="fn-conv" style="left:67%">
-              <div class="fn-c-pct">23,1%</div>
-              <div class="fn-c-wow" style="color:#F59E0B;">Reg→FTD</div>
+            <div class="fn-conv" style="left:50%">
+              <div class="fn-c-pct">45,9%</div>
+              <div class="fn-c-wow" style="color:#EF4444;">−10,8pp</div>
+            </div>
+            <div class="fn-conv" style="left:75%">
+              <div class="fn-c-pct">66,2%</div>
+              <div class="fn-c-wow" style="color:#EF4444;">−5,6pp</div>
             </div>
           </div>
 
-          <div class="fn-note">Sessões: GA4 · No Lock = FullReg NOT_LOCKED: PowerBI · FTD: PowerBI BWBRA</div>
+          <div class="fn-note">Sessões: GA4 · No Lock: FullReg NOT_LOCKED · Pronto p/ Dep: KYC PASS · FTD: PowerBI BWBRA · Δ vs Abr MTD</div>
 
         </div>
       </div>
@@ -422,8 +432,8 @@ tbody td:first-child {
               <th class="th-hi">GGR (R$)</th>
               <th class="th-hi">NGR (R$)</th>
               <th class="th-hi">Marg.</th>
-              <th>G.Bets (R$)</th>
-              <th>Avg Dep</th>
+              <th>SB</th>
+              <th>CS</th>
             </tr>
           </thead>
           <tbody>
@@ -433,26 +443,26 @@ tbody td:first-child {
               <td class="n hi">-96k</td>
               <td class="n hi">-160k</td>
               <td class="n hi">-1,8%</td>
-              <td>5.461k</td><td>R$839</td>
+              <td class="n">-4,3%</td><td>4,8%</td>
             </tr>
             <tr>
               <td>Fev</td>
               <td>5.765</td><td>879</td><td>15,3%</td>
               <td>46k</td><td class="n">-23k</td><td>1,9%</td>
-              <td>2.397k</td><td>R$387</td>
+              <td>0,1%</td><td>5,3%</td>
             </tr>
             <tr>
               <td>Mar</td>
               <td>7.386</td><td>1.099</td><td>14,9%</td>
               <td>119k</td><td>68k</td><td>4,6%</td>
-              <td>2.569k</td><td>R$252</td>
+              <td>3,1%</td><td>6,7%</td>
             </tr>
             <tr>
               <td>Abr ★</td>
               <td>10.507</td><td style="color:#FF3900;font-weight:700;">3.160</td>
               <td>30,1%</td>
               <td>176k</td><td>159k</td><td>3,4%</td>
-              <td>5.138k</td><td>R$152</td>
+              <td>4,0%</td><td>3,0%</td>
             </tr>
             <tr class="cw">
               <td>Mai ▶</td>
@@ -461,7 +471,7 @@ tbody td:first-child {
               <td class="hi-g">268k</td>
               <td class="hi-g">248k</td>
               <td class="hi">5,5%</td>
-              <td>4.906k</td><td>R$125</td>
+              <td class="hi-g">5,2%</td><td class="hi-g">5,7%</td>
             </tr>
             <tr class="dr">
               <td class="mu">Δ vs Abr</td>
@@ -471,13 +481,13 @@ tbody td:first-child {
               <td class="hi-g">+52,3%</td>
               <td class="hi-g">+55,7%</td>
               <td style="color:#22C55E;font-weight:700;">+2,1pp</td>
-              <td class="n">-4,5%</td>
-              <td class="n">-17,8%</td>
+              <td style="color:#22C55E;font-weight:700;">+1,2pp</td>
+              <td style="color:#22C55E;font-weight:700;">+2,7pp</td>
             </tr>
           </tbody>
         </table>
         <div class="tnote">
-          ★ Pico Affiliates (NFA) · ▶ Período atual · CR% = FTDs / FullReg · Marg. = GGR / Gross Bets · Períodos normalizados: âncora = 1ª sex do mês, janela de 21 dias
+          ★ Pico Affiliates (NFA) · ▶ Período atual · CR% = FTDs / FullReg · Marg. = GGR / Gross Bets · SB = Margem Sports Bets · CS = Margem Casino · Períodos normalizados: âncora = 1ª sex do mês, 21 dias
         </div>
       </div>
     </div>
