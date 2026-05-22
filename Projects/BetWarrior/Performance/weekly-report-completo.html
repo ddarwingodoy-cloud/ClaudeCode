@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPR BetWarrior Brasil — Mai 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0E0E0E; font-family: 'Archivo', sans-serif; }
+
+/* ── CAPA ── */
+.cover {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.cover-photo {
+  position: absolute;
+  right: 0; top: 0;
+  width: 72%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.cover-gradient {
+  position: absolute;
+  left: 0; top: 0;
+  width: 60%; height: 100%;
+  background: linear-gradient(to right, #000 52%, transparent 100%);
+  pointer-events: none;
+}
+.cover-accent {
+  position: absolute;
+  left: 0; top: 0;
+  width: 0.45%; height: 100%;
+  background: #FF3900;
+  z-index: 3;
+}
+.cover-content {
+  position: absolute;
+  left: 0; top: 0;
+  width: 44%; height: 100%;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 0 5% 0 4%;
+  z-index: 3;
+}
+.cover-logo {
+  display: flex; align-items: center; gap: 1%;
+  margin-bottom: 6%;
+}
+.cover-logo svg { width: 3.2vw; height: 3.2vw; flex-shrink: 0; }
+.cover-logo-text {
+  font-family: 'Archivo Black';
+  font-size: 1.5vw;
+  letter-spacing: 0.25em;
+  color: #FFF;
+  text-transform: uppercase;
+}
+.cover-title {
+  font-family: 'Archivo Black';
+  font-size: 9.5vw;
+  color: #FFF;
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 4%;
+}
+.cover-sub {
+  font-size: 1.1vw;
+  color: #666;
+  letter-spacing: 0.2em;
+  font-family: 'Archivo', sans-serif;
+}
+
+/* ── SEPARADOR ── */
+.sep {
+  width: 100%;
+  height: 32px;
+  background: #0E0E0E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.sep-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #2A2A2A;
+}
+
+/* ── SLIDE WRAPPER ── */
+.slide-wrap {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+.slide-wrap iframe {
+  width: 1920px;
+  height: 1080px;
+  border: none;
+  display: block;
+  transform-origin: top left;
+}
+</style>
+</head>
+<body>
+
+<!-- ── CAPA ── -->
+<div class="cover">
+  <img class="cover-photo" src="wpr-cover-mai2026.jpeg" alt="WPR Cover">
+  <div class="cover-gradient"></div>
+  <div class="cover-accent"></div>
+  <div class="cover-content">
+    <div class="cover-logo">
+      <svg viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 36 L13 4 L22 28 L31 4 L40 36" stroke="#FF3900" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 4 L22 28 L31 4" stroke="#FF3900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+      </svg>
+      <span class="cover-logo-text">BetWarrior</span>
+    </div>
+    <div class="cover-title">PERFO<br>RMANCE<br>2026</div>
+    <div class="cover-sub">may_26</div>
+  </div>
+</div>
+
+<!-- ── SEPARADOR 0→1 ── -->
+<div class="sep">
+  <div class="sep-dot"></div><div class="sep-dot"></div><div class="sep-dot"></div>
+</div>
+
+<!-- ── PÁG. 1 — Visão Geral ── -->
+<div class="slide-wrap" id="s1">
+  <iframe src="weekly-report-slide.html" scrolling="no" title="Pág. 1"></iframe>
+</div>
+
+<!-- ── SEPARADOR 1→2 ── -->
+<div class="sep">
+  <div class="sep-dot"></div><div class="sep-dot"></div><div class="sep-dot"></div>
+</div>
+
+<!-- ── PÁG. 2 — Aquisição por Canal ── -->
+<div class="slide-wrap" id="s2">
+  <iframe src="weekly-report-slide-p2.html" scrolling="no" title="Pág. 2"></iframe>
+</div>
+
+<!-- ── SEPARADOR 2→3 ── -->
+<div class="sep">
+  <div class="sep-dot"></div><div class="sep-dot"></div><div class="sep-dot"></div>
+</div>
+
+<!-- ── PÁG. 3 — Performance de Mídia ── -->
+<div class="slide-wrap" id="s3">
+  <iframe src="weekly-report-slide-p3.html" scrolling="no" title="Pág. 3"></iframe>
+</div>
+
+<!-- ── SEPARADOR 3→4 ── -->
+<div class="sep">
+  <div class="sep-dot"></div><div class="sep-dot"></div><div class="sep-dot"></div>
+</div>
+
+<!-- ── PÁG. 4 — Próximos Passos ── -->
+<div class="slide-wrap" id="s4">
+  <iframe src="weekly-report-slide-p4.html" scrolling="no" title="Pág. 4"></iframe>
+</div>
+
+<!-- padding final -->
+<div style="height: 40px; background: #0E0E0E;"></div>
+
+<script>
+function scaleSlides() {
+  document.querySelectorAll('.slide-wrap').forEach(wrap => {
+    const scale = wrap.clientWidth / 1920;
+    wrap.style.height = Math.round(1080 * scale) + 'px';
+    const iframe = wrap.querySelector('iframe');
+    if (iframe) iframe.style.transform = 'scale(' + scale + ')';
+  });
+}
+scaleSlides();
+window.addEventListener('resize', scaleSlides);
+</script>
+
+</body>
+</html>
