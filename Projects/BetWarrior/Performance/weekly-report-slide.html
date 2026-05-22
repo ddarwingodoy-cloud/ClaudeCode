@@ -130,6 +130,17 @@ body {
 .dep-mth.cur { color: #FF3900; }
 .dep-per { font-size: 9px; color: #CCCCCC; margin-top: 2px; }
 
+.dep-breakdown {
+  width: 100%; display: flex; flex-direction: column;
+  gap: 3px; margin-bottom: 8px;
+}
+.dep-bk-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 2px; border-bottom: 1px solid #F5F5F5;
+}
+.dep-bk-lbl { font-size: 7px; color: #CCCCCC; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+.dep-bk-val { font-family: 'Archivo Black', sans-serif; font-size: 9px; color: #888; }
+
 .dep-note {
   padding-top: 8px; border-top: 1px solid #F0F0F0; margin-top: 7px;
   font-size: 10px; color: #AAAAAA; flex-shrink: 0; line-height: 1.55; min-height: 34px;
@@ -340,6 +351,12 @@ tbody td:first-child {
 
           <!-- ABR: R$152 → 18px -->
           <div class="dep-col">
+            <div class="dep-breakdown">
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Org./Direct</span><span class="dep-bk-val">R$515</span></div>
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Soc. Paid</span><span class="dep-bk-val">R$232</span></div>
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Paid Media</span><span class="dep-bk-val">R$114</span></div>
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Affiliate</span><span class="dep-bk-val">R$39</span></div>
+            </div>
             <div class="dep-val" style="color:#EF4444;">R$152</div>
             <div class="dep-bar" style="height:18px; background:#EF4444; opacity:0.6;"></div>
             <div class="dep-mth">ABR ★</div>
@@ -348,6 +365,12 @@ tbody td:first-child {
 
           <!-- MAI: R$125 → 15px -->
           <div class="dep-col">
+            <div class="dep-breakdown">
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Org./Direct</span><span class="dep-bk-val">R$339</span></div>
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Soc. Paid</span><span class="dep-bk-val">R$126</span></div>
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Paid Media</span><span class="dep-bk-val">R$104</span></div>
+              <div class="dep-bk-row"><span class="dep-bk-lbl">Affiliate</span><span class="dep-bk-val">R$47</span></div>
+            </div>
             <div class="dep-val cur">R$125</div>
             <div class="dep-bar cur" style="height:15px;"></div>
             <div class="dep-mth cur">MAI ▶</div>
@@ -356,7 +379,7 @@ tbody td:first-child {
 
         </div>
         <div class="dep-note">
-          Novo mínimo histórico da série · queda surpreendente apesar da pausa da NFA (afiliados têm ticket menor) · investigar: mix de campanha Paid Media ou perfil dos afiliados ativos em Mai
+          Mínimo histórico da série · Org./Direct puxou o avg para baixo nos dois eixos: −35% FTDs e −34% avg (R$515→R$339) · Affiliate melhorou com pausa da NFA · PowerBI
         </div>
       </div>
     </div>
