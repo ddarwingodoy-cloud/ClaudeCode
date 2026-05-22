@@ -13,67 +13,75 @@ body { background: #0E0E0E; font-family: 'Archivo', sans-serif; }
 .cover {
   width: 100%;
   aspect-ratio: 16/9;
-  position: relative;
+  background: #111;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  background: #000;
 }
-.cover-photo {
-  position: absolute;
-  right: 0; top: 0;
-  width: 72%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
+.cv-hdr {
+  background: #111; border-bottom: 2px solid #FF3900;
+  display: flex; align-items: center; gap: 1.2vw;
+  padding: 0 1.5vw; height: 7.4%; flex-shrink: 0;
 }
-.cover-gradient {
-  position: absolute;
-  left: 0; top: 0;
-  width: 60%; height: 100%;
-  background: linear-gradient(to right, #000 52%, transparent 100%);
-  pointer-events: none;
+.cv-logo-bar { width: 4px; height: 3.4vh; background: #FF3900; flex-shrink: 0; }
+.cv-logo-brand { font-family: 'Archivo Black'; font-size: 1.1vw; letter-spacing: 1px; color: #FFF; }
+.cv-logo-sub   { font-size: 0.6vw; color: #555; letter-spacing: 3px; text-transform: uppercase; }
+.cv-hdr-sep    { width: 1px; height: 4vh; background: #2A2A2A; flex-shrink: 0; }
+.cv-hdr-label  { font-family: 'Archivo Black'; font-size: 1.1vw; letter-spacing: 3px; text-transform: uppercase; color: #FFF; flex: 1; }
+.cv-hdr-meta   { font-size: 0.7vw; color: #444; text-align: right; line-height: 1.8; letter-spacing: 0.5px; flex-shrink: 0; }
+
+.cv-body {
+  flex: 1; min-height: 0;
+  display: flex;
 }
-.cover-accent {
-  position: absolute;
-  left: 0; top: 0;
-  width: 0.45%; height: 100%;
-  background: #FF3900;
-  z-index: 3;
-}
-.cover-content {
-  position: absolute;
-  left: 0; top: 0;
-  width: 44%; height: 100%;
+.cv-left {
+  flex: 1; min-width: 0;
   display: flex; flex-direction: column;
   justify-content: center;
-  padding: 0 5% 0 4%;
-  z-index: 3;
+  padding: 4% 5% 4% 4%;
+}
+.cv-tag {
+  font-size: 0.65vw; color: #FF3900;
+  letter-spacing: 4px; text-transform: uppercase;
+  margin-bottom: 2.5%;
+}
+.cv-title {
+  font-family: 'Archivo Black';
+  font-size: 5.8vw; color: #FFF;
+  line-height: 1; text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 4%;
+}
+.cv-bar {
+  width: 3vw; height: 3px; background: #FF3900;
+  margin-bottom: 3.5%;
+}
+.cv-period {
+  font-family: 'Archivo Black';
+  font-size: 1.8vw; color: #FFF;
+  letter-spacing: 2px; margin-bottom: 1.2%;
+}
+.cv-detail {
+  font-size: 0.75vw; color: #555;
+  letter-spacing: 2px; text-transform: uppercase;
+  line-height: 1.9;
+}
+.cv-right {
+  width: 36%; flex-shrink: 0;
+  background: #FF3900;
+  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
-.cover-logo {
-  display: flex; align-items: center; gap: 1%;
-  margin-bottom: 6%;
-}
-.cover-logo svg { width: 3.2vw; height: 3.2vw; flex-shrink: 0; }
-.cover-logo-text {
+.cv-right-bg {
   font-family: 'Archivo Black';
-  font-size: 1.5vw;
-  letter-spacing: 0.25em;
-  color: #FFF;
-  text-transform: uppercase;
+  font-size: 14vw; color: rgba(0,0,0,0.12);
+  line-height: 1; letter-spacing: -4px;
+  user-select: none; white-space: nowrap;
 }
-.cover-title {
-  font-family: 'Archivo Black';
-  font-size: 9.5vw;
-  color: #FFF;
-  line-height: 0.88;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  margin-bottom: 4%;
-}
-.cover-sub {
-  font-size: 1.1vw;
-  color: #666;
-  letter-spacing: 0.2em;
-  font-family: 'Archivo', sans-serif;
+.cv-ftr {
+  height: 2.8%; background: #111; border-top: 1px solid #1E1E1E;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.5vw; font-size: 0.6vw; color: #3A3A3A;
+  letter-spacing: 1px; flex-shrink: 0;
 }
 
 /* ── SEPARADOR ── */
@@ -112,19 +120,37 @@ body { background: #0E0E0E; font-family: 'Archivo', sans-serif; }
 
 <!-- ── CAPA ── -->
 <div class="cover">
-  <img class="cover-photo" src="wpr-cover-mai2026.jpeg" alt="WPR Cover">
-  <div class="cover-gradient"></div>
-  <div class="cover-accent"></div>
-  <div class="cover-content">
-    <div class="cover-logo">
-      <svg viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 36 L13 4 L22 28 L31 4 L40 36" stroke="#FF3900" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M13 4 L22 28 L31 4" stroke="#FF3900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-      </svg>
-      <span class="cover-logo-text">BetWarrior</span>
+  <div class="cv-hdr">
+    <div class="cv-logo-bar"></div>
+    <div>
+      <div class="cv-logo-brand">BETWARRIOR</div>
+      <div class="cv-logo-sub">BRASIL</div>
     </div>
-    <div class="cover-title">PERFO<br>RMANCE<br>2026</div>
-    <div class="cover-sub">may_26</div>
+    <div class="cv-hdr-sep"></div>
+    <div class="cv-hdr-label">WEEKLY PERFORMANCE REPORT</div>
+    <div class="cv-hdr-meta">22 / Mai 2026<br>BetWarrior Brasil<br>Reunião WPR</div>
+  </div>
+
+  <div class="cv-body">
+    <div class="cv-left">
+      <div class="cv-tag">WPR · MAI 01–21 · 2026</div>
+      <div class="cv-title">WEEKLY<br>PERFORMANCE<br>REPORT</div>
+      <div class="cv-bar"></div>
+      <div class="cv-period">01–21 / MAI · 2026</div>
+      <div class="cv-detail">
+        SB + Casino · BRL · Gerado 22/05<br>
+        BetWarrior Brasil · Reunião WPR
+      </div>
+    </div>
+    <div class="cv-right">
+      <div class="cv-right-bg">WPR</div>
+    </div>
+  </div>
+
+  <div class="cv-ftr">
+    <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+    <span>WPR · CAPA · MAI 01–21/2026</span>
+    <span>22/05/2026</span>
   </div>
 </div>
 
