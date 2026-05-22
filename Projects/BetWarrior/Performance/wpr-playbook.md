@@ -3,6 +3,7 @@
 > Guia operacional para construção do Weekly Performance Report.
 > Atualizado após sessão de revisão em 22/05/2026.
 > Objetivo: reproduzir o relatório sem pontos de discussão recorrentes.
+> Última atualização: 22/05/2026 — adicionadas P4, capa e HTML unificado.
 
 ---
 
@@ -10,7 +11,8 @@
 
 - Entrega: toda **terça-feira**
 - Período coberto: MTD normalizado até o domingo anterior
-- Arquivo: `weekly-report-slide.html` (P1), `weekly-report-slide-p2.html` (P2), `weekly-report-slide-p3.html` (P3)
+- Arquivos individuais: `weekly-report-slide.html` (P1), `weekly-report-slide-p2.html` (P2), `weekly-report-slide-p3.html` (P3), `weekly-report-slide-p4.html` (P4)
+- Arquivo unificado para apresentação: `WPR_Brasil_[Período].html` — capa + P1 + P2 + P3 + P4 empilhados, escalagem automática via JS
 - Fonte de mídia paga (P3): solicitar PACING-PERFO.xlsx ao Diego na segunda-feira
 
 ---
@@ -225,7 +227,61 @@ Registrar o câmbio usado no `ph-note` do painel: ex. "CPA pond. R$912 (câmbio 
 
 ---
 
-## 8. Checklist Pré-Entrega
+## 8. P4 — Próximos Passos
+
+Slide de encerramento da reunião WPR. Criado em 22/05/2026.
+
+### Estrutura
+- **Arquivo**: `weekly-report-slide-p4.html`
+- **Conteúdo**: lista de ações e responsabilidades priorizadas para as próximas semanas
+- **Layout**: lista numerada com barra colorida lateral indicando urgência + date pill + owner tag
+
+### Sistema de cores por urgência
+| Cor | Classe | Significado |
+|-----|--------|-------------|
+| Laranja `#FF3900` | `bar-now` / `date-now` | Esta semana |
+| Âmbar `#F59E0B` | `bar-near` / `date-near` | Próximas 2 semanas |
+| Cinza `#DDDDDD` | `bar-later` / `date-later` | Estrutural / prazo mais longo |
+
+### Regras editoriais
+- Máximo de 8 ações por slide — se houver mais, priorizar
+- Título: Archivo Black uppercase, 13px
+- Descrição: 12px, cor #888, máximo 2 linhas
+- Date pill alinhado ao topo do row (não ao centro) — facilita leitura durante apresentação
+
+---
+
+## 9. Capa e HTML Unificado
+
+### Capa (`WPR_Brasil_[Período].html` — seção inicial)
+- Design em CSS puro, sem imagem externa
+- Fundo escuro `#111`, bloco laranja sólido à direita
+- Header e footer idênticos aos outros slides
+- Conteúdo: tag WPR, título grande, barra laranja, período e metadata
+
+### HTML Unificado — Arquivo de Apresentação
+- **Nomenclatura**: `WPR_Brasil_[MêsDe]-[MêsAté]_[Ano].html`
+  - Exemplo: `WPR_Brasil_Mai01-21_2026.html`
+- **Estrutura**: Capa → Sep → P1 → Sep → P2 → Sep → P3 → Sep → P4
+- **Separador**: 32px escuro com 3 pontos — transição visual entre páginas
+- **Escalagem**: JS recalcula `transform: scale(clientWidth/1920)` em cada iframe
+  - Cada iframe tem `width: 1920px; height: 1080px; transform-origin: top left`
+  - O wrapper recebe `height: 1080 * scale` px
+- **Uso**: abrir no browser e apresentar diretamente — qualidade nativa, sem blur
+
+### PDF de alta qualidade (quando necessário)
+```python
+# Geração via Python + Chrome headless
+# @page CSS: size: 1920px 1080px; margin: 0
+# Flag: --no-pdf-header-footer --window-size=1920,1080
+# Ou: screenshot 3840x2160 → Pillow → PDF @ 192dpi
+```
+- Pillow PNG→PDF produz arquivo sem gaps e sem margens indesejadas
+- Resolução equivalente: 3840×2160 @ 192dpi = 20×11.25 in (16:9 exato)
+
+---
+
+## 10. Checklist Pré-Entrega
 
 ### P1
 
@@ -253,6 +309,19 @@ Registrar o câmbio usado no `ph-note` do painel: ex. "CPA pond. R$912 (câmbio 
 - [ ] G2 tem legenda/nota explicando que valores em destaque = Gross Bets
 - [ ] R$/apostador não duplicado: só na linha, não no rótulo do eixo
 
+### P4
+
+- [ ] Ações revisadas e atualizadas para o período corrente
+- [ ] Date pills e urgência (cores) conferidos
+- [ ] Owner tags preenchidos
+
+### HTML Unificado
+
+- [ ] Capa com período correto (tag + cv-period)
+- [ ] Data da reunião atualizada no cv-hdr-meta e cv-ftr
+- [ ] Todos os 4 iframes apontando para os arquivos corretos
+- [ ] Testar abertura no browser antes da reunião
+
 ### Geral
 
 - [ ] Todas as métricas usam período MTD normalizado consistente
@@ -261,7 +330,7 @@ Registrar o câmbio usado no `ph-note` do painel: ex. "CPA pond. R$912 (câmbio 
 
 ---
 
-## 9. Referências
+## 11. Referências
 
 - **Queries PowerBI completas**: `Projects/BetWarrior/BI/pbi-overview-bira.md`
 - **Design System**: tokens no `CLAUDE.md` (raiz do projeto)
