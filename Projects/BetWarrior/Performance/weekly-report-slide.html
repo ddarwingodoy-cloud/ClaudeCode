@@ -169,7 +169,7 @@ tbody td:first-child {
 .fn-names { display: flex; margin-bottom: 5px; }
 .fn-name  { flex: 1; text-align: center; font-family: 'Archivo Black', sans-serif;
             font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: #555; line-height: 1.4; }
-.fn-svg   { display: block; width: 100%; height: 120px; }
+.fn-svg   { display: block; width: 100%; height: auto; }
 .fn-convs { position: relative; height: 46px; margin-top: 6px; }
 .fn-conv  { position: absolute; transform: translateX(-50%); text-align: center; }
 .fn-c-pct { font-family: 'Archivo Black', sans-serif; font-size: 12px; line-height: 1.2; color: #111; }
@@ -353,64 +353,75 @@ tbody td:first-child {
   <!-- ══ ROW 2: FUNIL + TABELA ══ -->
   <div class="row row-bot">
 
-    <!-- FUNIL DE ATIVAÇÃO (4 etapas) -->
+    <!-- FUNIL DE ATIVAÇÃO (4 etapas — tudo dentro do SVG para alinhamento preciso) -->
     <div class="panel p-hi">
       <div class="ph">
         <svg width="13" height="13" viewBox="0 0 13 13"><polygon points="1,1 12,1 9,5.5 9,12 4,12 4,5.5" fill="#FF3900"/></svg>
         <span class="ph-title">Funil de Ativação</span>
         <span class="ph-note">GA4 + PowerBI · Mai 01–21 · Δ vs Abr</span>
       </div>
-      <div class="p-body" style="padding-top:10px; padding-bottom:8px;">
-        <div class="fn-wrap">
+      <div class="p-body" style="padding: 8px 14px 6px;">
+        <!-- SVG unificado: labels, funil, volumes, taxas e nota compartilham o mesmo espaço de coordenadas.
+             Seções: x=0..108 | 108..216 | 216..324 | 324..432
+             Centros: x=54  (Sessões) | x=162 (No Lock) | x=270 (ProntoDep) | x=378 (FTD)
+             Intersecções: x=108 | x=216 | x=324
+        -->
+        <svg class="fn-svg" viewBox="0 0 432 200" preserveAspectRatio="xMidYMid meet">
 
-          <!-- Nomes das 4 etapas -->
-          <div class="fn-names">
-            <div class="fn-name">Sessões<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">GA4</span></div>
-            <div class="fn-name">No Lock<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">PowerBI</span></div>
-            <div class="fn-name">Pronto p/ Dep<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">PowerBI KYC</span></div>
-            <div class="fn-name">FTD<br><span style="font-family:Archivo,sans-serif;font-size:8px;color:#999;font-weight:400;letter-spacing:0;">PowerBI</span></div>
-          </div>
+          <!-- ── Step labels (centrados no meio de cada seção) ── -->
+          <text x="54"  y="14" text-anchor="middle" fill="#444" font-family="'Archivo Black',sans-serif" font-size="10" letter-spacing="1">SESSÕES</text>
+          <text x="54"  y="25" text-anchor="middle" fill="#AAAAAA" font-family="Archivo,sans-serif" font-size="9">GA4</text>
 
-          <!-- SVG FUNIL 4 etapas
-               x=0:   h=120 (0→120)
-               x=108: h=70  (25→95)   — drop visual Sessions→NoLock
-               x=216: h=32  (44→76)   — 45,9% de NoLock
-               x=324: h=21  (50→71)   — 66,2% de ProntoDep
-               x=432: h=14  (53→67)
-          -->
-          <svg class="fn-svg" viewBox="0 0 432 120">
-            <polygon points="0,0   108,25  108,95  0,120"  fill="#FF7A50"/>
-            <polygon points="108,25 216,44  216,76  108,95" fill="#FF3900"/>
-            <polygon points="216,44 324,50  324,71  216,76" fill="#CC2E00"/>
-            <polygon points="324,50 432,53  432,67  324,71" fill="#8B1500"/>
-            <line x1="108" y1="25" x2="108" y2="95" stroke="white" stroke-width="1.5" opacity="0.35"/>
-            <line x1="216" y1="44" x2="216" y2="76" stroke="white" stroke-width="1.5" opacity="0.35"/>
-            <line x1="324" y1="50" x2="324" y2="71" stroke="white" stroke-width="1.5" opacity="0.35"/>
-            <text x="54"  y="64" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">339.857</text>
-            <text x="162" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">7.095</text>
-            <text x="270" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">3.257</text>
-            <text x="378" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">2.156</text>
-          </svg>
+          <text x="162" y="14" text-anchor="middle" fill="#444" font-family="'Archivo Black',sans-serif" font-size="10" letter-spacing="1">NO LOCK</text>
+          <text x="162" y="25" text-anchor="middle" fill="#AAAAAA" font-family="Archivo,sans-serif" font-size="9">PowerBI</text>
 
-          <!-- Taxas de conversão + Δ vs Abr -->
-          <div class="fn-convs">
-            <div class="fn-conv" style="left:25%">
-              <div class="fn-c-pct">2,09%</div>
-              <div class="fn-c-wow" style="color:#EF4444;">−0,20pp</div>
-            </div>
-            <div class="fn-conv" style="left:50%">
-              <div class="fn-c-pct">45,9%</div>
-              <div class="fn-c-wow" style="color:#EF4444;">−10,8pp</div>
-            </div>
-            <div class="fn-conv" style="left:75%">
-              <div class="fn-c-pct">66,2%</div>
-              <div class="fn-c-wow" style="color:#EF4444;">−5,6pp</div>
-            </div>
-          </div>
+          <text x="270" y="14" text-anchor="middle" fill="#444" font-family="'Archivo Black',sans-serif" font-size="9" letter-spacing="0.6">PRONTO P/ DEP</text>
+          <text x="270" y="25" text-anchor="middle" fill="#AAAAAA" font-family="Archivo,sans-serif" font-size="9">KYC PASS</text>
 
-          <div class="fn-note">Sessões: GA4 · No Lock: FullReg NOT_LOCKED · Pronto p/ Dep: KYC PASS · FTD: PowerBI BWBRA · Δ vs Abr MTD</div>
+          <text x="378" y="14" text-anchor="middle" fill="#444" font-family="'Archivo Black',sans-serif" font-size="10" letter-spacing="1">FTD</text>
+          <text x="378" y="25" text-anchor="middle" fill="#AAAAAA" font-family="Archivo,sans-serif" font-size="9">PowerBI</text>
 
-        </div>
+          <!-- ── Funil trapezoidal (y=32..152, center y=92)
+               x=0:   h=120 → top=32, bottom=152
+               x=108: h=70  → top=57, bottom=127
+               x=216: h=32  → top=76, bottom=108   (45,9% de 70)
+               x=324: h=21  → top=81, bottom=103   (66,2% de 32≈21,2)
+               x=432: h=14  → top=85, bottom=99
+          ── -->
+          <polygon points="0,32   108,57  108,127  0,152"  fill="#FF7A50"/>
+          <polygon points="108,57 216,76  216,108  108,127" fill="#FF3900"/>
+          <polygon points="216,76 324,81  324,103  216,108" fill="#CC2E00"/>
+          <polygon points="324,81 432,85  432,99   324,103" fill="#8B1500"/>
+
+          <!-- Divisores nas intersecções -->
+          <line x1="108" y1="57"  x2="108" y2="127" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="216" y1="76"  x2="216" y2="108" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <line x1="324" y1="81"  x2="324" y2="103" stroke="white" stroke-width="1.5" opacity="0.4"/>
+
+          <!-- Volumes dentro do funil -->
+          <text x="54"  y="96" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="13">339.857</text>
+          <text x="162" y="96" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="13">7.095</text>
+          <text x="270" y="95" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="12">3.257</text>
+          <text x="378" y="94" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">2.156</text>
+
+          <!-- Conectores tracejados da base das intersecções até os rótulos -->
+          <line x1="108" y1="127" x2="108" y2="154" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="216" y1="108" x2="216" y2="154" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="324" y1="103" x2="324" y2="154" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="3,2"/>
+
+          <!-- ── Taxas de conversão exatamente nas intersecções (x=108, 216, 324) ── -->
+          <text x="108" y="167" text-anchor="middle" fill="#111" font-family="'Archivo Black',sans-serif" font-size="16">2,09%</text>
+          <text x="108" y="180" text-anchor="middle" fill="#EF4444" font-family="Archivo,sans-serif" font-size="10" font-weight="700">−0,20pp vs Abr</text>
+
+          <text x="216" y="167" text-anchor="middle" fill="#111" font-family="'Archivo Black',sans-serif" font-size="16">45,9%</text>
+          <text x="216" y="180" text-anchor="middle" fill="#EF4444" font-family="Archivo,sans-serif" font-size="10" font-weight="700">−10,8pp vs Abr</text>
+
+          <text x="324" y="167" text-anchor="middle" fill="#111" font-family="'Archivo Black',sans-serif" font-size="16">66,2%</text>
+          <text x="324" y="180" text-anchor="middle" fill="#EF4444" font-family="Archivo,sans-serif" font-size="10" font-weight="700">−5,6pp vs Abr</text>
+
+          <!-- Nota de fonte -->
+          <text x="216" y="196" text-anchor="middle" fill="#CCCCCC" font-family="Archivo,sans-serif" font-size="8" letter-spacing="0.3">Sessões: GA4 · No Lock: FullReg NOT_LOCKED · Pronto p/Dep: KYC PASS · FTD: PowerBI BWBRA</text>
+        </svg>
       </div>
     </div>
 
