@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE DASHBOARD — Pacing</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #111111;
+  --surface: #1A1A1A;
+  --surface2: #222222;
+  --border: #2A2A2A;
+  --orange: #FF3900;
+  --text: #FFFFFF;
+  --muted: #666666;
+  --green: #22C55E;
+  --amber: #F59E0B;
+  --red: #EF4444;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Archivo', -apple-system, sans-serif;
+  font-size: 13px;
+  min-height: 100vh;
+}
+
+/* ── HEADER (single row, fixed) ── */
+#header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 300;
+  background: #080808;
+  border-bottom: 1px solid #1E1E1E;
+}
+
+.h-row {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 0 0 14px;
+  border-bottom: 1px solid #1E1E1E;
+}
+
+.logo { display: flex; align-items: center; gap: 10px; margin-right: 20px; flex-shrink: 0; }
+
+.logo-icon { display: flex; align-items: flex-end; gap: 2px; height: 18px; }
+.logo-bar { width: 3px; border-radius: 1px; }
+
+.logo-wordmark {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #CCC; white-space: nowrap;
+}
+.logo-wordmark strong { color: #FFF; letter-spacing: 0.3em; }
+.logo-wordmark .sep { color: #333; margin: 0 8px; }
+.logo-wordmark .mi { font-size: 9px; letter-spacing: 0.16em; color: #555; }
+.logo-wordmark .br-tag { color: var(--orange); font-weight: 700; }
+
+.h-date {
+  display: flex; align-items: center; gap: 6px;
+  background: #111; border: 1px solid #2A2A2A;
+  border-radius: 3px; padding: 4px 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px; color: #AAA;
+  cursor: pointer; margin-right: 10px; white-space: nowrap;
+}
+.h-date-arr { color: var(--orange); font-size: 10px; }
+
+.h-periods { display: flex; gap: 2px; margin-right: 16px; }
+
+.h-pb {
+  padding: 3px 9px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  color: #444; background: none;
+  border: 1px solid transparent; border-radius: 2px;
+  cursor: pointer;
+}
+.h-pb.active { color: var(--orange); border-color: var(--orange); }
+
+.h-spacer { flex: 1; }
+
+.h-nav { display: flex; align-items: stretch; height: 100%; border-left: 1px solid #1E1E1E; }
+
+.h-tab {
+  display: flex; align-items: center;
+  padding: 0 16px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #444; background: none; border: none;
+  border-left: 1px solid #1E1E1E; cursor: pointer;
+  white-space: nowrap;
+}
+.h-tab:first-child { border-left: none; }
+.h-tab.active { color: var(--orange); background: rgba(255,57,0,0.05); }
+
+/* ── D-1 KPI STRIP ── */
+.d1-strip {
+  display: flex; align-items: center;
+  height: 28px; border-bottom: 1px solid #1E1E1E;
+  background: #060606; overflow: hidden;
+}
+
+.d1-tag {
+  background: var(--orange); color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 0 10px; height: 100%;
+  display: flex; align-items: center; flex-shrink: 0;
+}
+
+.d1-metrics { display: flex; align-items: center; flex: 1; padding: 0 6px; }
+.d1-sep { width: 1px; height: 14px; background: #222; margin: 0 12px; flex-shrink: 0; }
+
+.d1-metric { display: flex; align-items: baseline; gap: 5px; white-space: nowrap; }
+.d1-lbl { font-family: 'Roboto Mono', monospace; font-size: 8px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #3A3A3A; }
+.d1-val { font-family: 'Roboto Mono', monospace; font-size: 11px; font-weight: 700; color: #CCC; }
+.d1-delta { font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 600; }
+
+/* ── TICKER ── */
+.ticker {
+  display: flex; align-items: center;
+  height: 24px; background: #050505;
+  border-bottom: 1px solid #1A1A1A; overflow: hidden;
+}
+
+.t-tag {
+  background: #1A1A1A; border-right: 1px solid #222;
+  color: var(--orange);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.12em;
+  padding: 0 9px; height: 100%;
+  display: flex; align-items: center; flex-shrink: 0;
+}
+
+.t-scroll { overflow: hidden; flex: 1; }
+.t-track {
+  display: flex;
+  animation: scroll-left 38s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ti {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 0 14px; height: 24px;
+  border-right: 1px solid #1A1A1A;
+  font-family: 'Roboto Mono', monospace; font-size: 9px; white-space: nowrap;
+}
+.ti-ch { color: #444; font-weight: 600; }
+.ti-v  { color: #777; }
+.ok    { color: var(--green); font-weight: 700; }
+.warn  { color: var(--amber); font-weight: 700; }
+.bad   { color: var(--red);   font-weight: 700; }
+
+/* ── MAIN ── */
+#main {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 14px;
+  padding: 14px 18px 24px;
+  margin: 0;
+}
+
+.sh {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--orange);
+  border-left: 2px solid var(--orange);
+  padding-left: 7px;
+  margin-bottom: 11px;
+}
+
+/* ── SECTION GRID — cards + pacing no mesmo grid para alinhamento perfeito ── */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 10px;
+  row-gap: 0;
+  margin-bottom: 12px;
+}
+.section-grid > .card { margin-bottom: 10px; }
+.pacing-hdr {
+  grid-column: 1 / -1;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--orange);
+  border-left: 2px solid var(--orange);
+  padding-left: 7px;
+  margin-bottom: 10px;
+}
+
+/* ── METRIC CARDS ── */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid;
+  border-radius: 6px; padding: 12px 13px;
+}
+.card.c-amb { border-top-color: var(--amber); }
+.card.c-red { border-top-color: var(--red); }
+.card.c-grn { border-top-color: var(--green); }
+
+.c-lbl {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 5px;
+}
+.c-val { font-size: 21px; font-weight: 900; line-height: 1; margin-bottom: 3px; }
+.c-sub { font-size: 9px; color: var(--muted); margin-bottom: 4px; }
+.c-sub em { color: rgba(255,255,255,0.28); font-style: normal; }
+.c-delta { font-size: 9px; font-weight: 700; }
+.c-bar { margin-top: 8px; height: 2px; background: #222; border-radius: 1px; overflow: hidden; }
+.c-bar-fill { height: 100%; border-radius: 1px; }
+
+/* ── PACING BLOCKS — filhos diretos do section-grid ── */
+.p-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 13px 13px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Zona visual uniforme — 88px para ring e gauge ficarem no mesmo eixo */
+.p-visual {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Small ring (Budget & FTD) */
+.p-ring-section {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center;
+}
+
+.p-ring-wrap {
+  position: relative;
+  width: 80px; height: 80px;
+}
+
+.p-ring-svg { transform: rotate(-90deg); }
+
+.p-ring-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1px;
+}
+
+.p-ring-pct { font-size: 16px; font-weight: 900; line-height: 1; }
+.p-ring-sub { font-size: 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.p-ring-stats { text-align: center; margin-top: auto; }
+.p-rs-title { font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+.p-rs-main { font-size: 15px; font-weight: 700; }
+.p-rs-sub { font-size: 11px; font-weight: 700; color: var(--muted); margin-top: 3px; }
+.p-rs-exp { font-size: 10px; color: rgba(255,255,255,0.28); margin-top: 3px; }
+
+/* CPA gauge */
+.cpa-section {
+  flex: 1;
+  display: flex; flex-direction: column;
+  padding: 2px 0;
+}
+
+.cpa-stats { margin-top: auto; text-align: center; }
+
+.cpa-header {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 5px;
+}
+
+.cpa-big {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 14px;
+}
+
+.cpa-actual { font-size: 26px; font-weight: 900; color: var(--red); }
+.cpa-teto-txt { font-size: 10px; color: var(--muted); }
+.cpa-teto-val { color: var(--green); font-weight: 700; }
+
+/* The gauge bar */
+.gauge-wrap { margin-bottom: 8px; }
+
+.gauge-labels {
+  position: relative;
+  height: 16px; margin-bottom: 2px;
+}
+
+.g-lbl {
+  position: absolute;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9px; font-weight: 700;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.gauge-track {
+  position: relative;
+  height: 16px;
+  background: #222;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.gauge-green {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--green);
+  opacity: 0.5;
+  border-radius: 5px 0 0 5px;
+}
+
+.gauge-red {
+  position: absolute; top: 0; bottom: 0;
+  background: var(--red);
+  opacity: 0.7;
+}
+
+.gauge-target-line {
+  position: absolute; top: -4px; bottom: -4px;
+  width: 2px; background: rgba(255,255,255,0.5);
+  border-radius: 1px;
+  box-shadow: 0 0 4px rgba(255,255,255,0.3);
+}
+
+.gauge-dot {
+  position: absolute;
+  width: 20px; height: 20px;
+  top: 50%; transform: translate(-50%, -50%);
+  background: var(--red);
+  border-radius: 50%;
+  border: 2px solid #1A1A1A;
+  box-shadow: 0 0 10px rgba(239,68,68,0.7);
+}
+
+.gauge-axis {
+  display: flex; justify-content: space-between;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; color: #333;
+  margin-top: 4px;
+}
+
+.cpa-delta-row {
+  font-size: 11px; font-weight: 700;
+  color: var(--red);
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.5;
+}
+
+/* Meta inline (inside pacing) */
+.meta-inline {
+  padding: 0;
+}
+
+.meta-i-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 9px;
+}
+
+.meta-i-ring-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+
+.meta-i-ring-wrap {
+  position: relative; width: 56px; height: 56px; flex-shrink: 0;
+}
+
+.meta-i-stats {}
+.mi-stat { margin-bottom: 4px; }
+.mi-lbl { font-family: 'Roboto Mono', monospace; font-size: 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.mi-val { font-size: 13px; font-weight: 900; line-height: 1.1; }
+
+.meta-i-days {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 4px; padding: 6px 8px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.mid-val { font-size: 14px; font-weight: 900; color: var(--orange); }
+.mid-sub { font-family: 'Roboto Mono', monospace; font-size: 8px; color: var(--muted); }
+
+/* Projection */
+.proj-card {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 5px; padding: 11px;
+}
+
+.proj-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 3px;
+}
+.proj-val { font-size: 24px; font-weight: 900; color: var(--amber); line-height: 1; }
+.proj-gap { font-size: 9px; font-weight: 700; color: var(--red); margin-top: 2px; }
+.proj-meta { font-size: 8px; color: var(--muted); margin-top: 1px; }
+.proj-div { height: 1px; background: var(--border); margin: 8px 0; }
+.proj-rhythm { font-size: 12px; font-weight: 900; color: var(--orange); }
+.proj-rhythm-sub { font-size: 8px; color: var(--muted); margin-top: 1px; }
+
+/* ── EFFICIENCY WRAP ── */
+.eff-wrap {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.eff-wrap .table-box { flex: 2; margin-bottom: 0; min-width: 0; }
+
+/* Diagnostic strip */
+.diag-strip {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.18);
+  border-radius: 4px; padding: 7px 12px;
+  margin-bottom: 10px;
+  font-family: 'Roboto Mono', monospace; font-size: 11px;
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+}
+.diag-item { color: #AAAAAA; padding: 0 12px; border-right: 1px solid #2A2A2A; line-height: 1.6; }
+.diag-item:first-child { padding-left: 0; }
+.diag-item:last-child { border-right: none; }
+.diag-item strong { font-weight: 700; }
+
+/* Budget × FTD Distribution panel */
+.eff-side {
+  flex: 2; min-width: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 13px;
+}
+/* Qualidade por Canal — 3ª coluna do eff-wrap */
+.eff-qual {
+  flex: 2; min-width: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 13px;
+}
+.bfd-legend {
+  display: flex; gap: 12px; margin-bottom: 10px;
+  font-family: 'Roboto Mono', monospace; font-size: 7px; color: var(--muted);
+}
+.bfd-dot { display: inline-block; width: 7px; height: 7px; border-radius: 1px; margin-right: 4px; vertical-align: middle; }
+.bfd-row {
+  padding: 5px 0; border-bottom: 1px solid #1C1C1C;
+}
+.bfd-row:last-child { border-bottom: none; }
+.bfd-ch { font-size: 10px; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+.bfd-bar-row { display: flex; align-items: center; gap: 5px; margin-bottom: 2px; }
+.bfd-lbl { font-size: 7px; color: #444; width: 34px; flex-shrink: 0; font-family: 'Roboto Mono', monospace; }
+.bfd-track { flex: 1; height: 4px; background: #1E1E1E; border-radius: 2px; overflow: hidden; }
+.bfd-fill { height: 100%; border-radius: 2px; }
+.bfd-pct { font-size: 8px; font-weight: 700; width: 28px; text-align: right; font-family: 'Roboto Mono', monospace; flex-shrink: 0; }
+.bfd-gap { font-size: 7px; font-weight: 700; font-family: 'Roboto Mono', monospace; text-align: right; margin-top: 1px; }
+.bfd-footer { font-size: 8px; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-family: 'Roboto Mono', monospace; }
+
+/* ── TABLE ── */
+.table-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 13px; margin-bottom: 12px; overflow: hidden;
+}
+
+table { width: 100%; border-collapse: collapse; table-layout: auto; }
+thead tr { background: var(--orange); }
+thead th {
+  padding: 5px 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #fff; text-align: left; white-space: nowrap;
+}
+thead th:not(:first-child) { text-align: right; }
+tbody tr:nth-child(odd)  { background: #0F0F0F; }
+tbody tr:nth-child(even) { background: var(--surface); }
+tbody tr:hover { background: #1E1E1E; }
+tbody td { padding: 4px 10px; font-size: 10px; white-space: nowrap; }
+tbody td:not(:first-child) { text-align: right; }
+.t-name { font-weight: 700; font-size: 11px; }
+
+.s { display: inline-block; width: 8px; height: 8px; border-radius: 50%; vertical-align: middle; }
+.s-g { background: var(--green); box-shadow: 0 0 4px rgba(34,197,94,0.6); }
+.s-a { background: var(--amber); box-shadow: 0 0 4px rgba(245,158,11,0.6); }
+.s-r { background: var(--red);   box-shadow: 0 0 4px rgba(239,68,68,0.6); }
+
+.fg { color: var(--green); font-weight: 700; }
+.fa { color: var(--amber); font-weight: 700; }
+.fr { color: var(--red);   font-weight: 700; }
+
+.t-legend {
+  font-size: 9px; color: var(--muted);
+  margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 14px; align-items: center;
+}
+
+/* Chart pair — pizza + CR% table inside table-box */
+.chart-pair {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  align-items: flex-start;
+}
+.cp-pizza {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 108px;
+}
+.cp-section-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px; align-self: flex-start;
+}
+.cp-cr { flex: 1; min-width: 0; }
+.cr-tbl { width: 100%; border-collapse: collapse; }
+.cr-tbl td {
+  padding: 2px 3px;
+  font-size: 9px;
+  font-family: 'Roboto Mono', monospace;
+  background: none;
+  white-space: nowrap;
+}
+.cr-tbl td:first-child { color: #888; }
+.cr-tbl td:last-child { text-align: right; font-weight: 700; }
+.cr-tbl tr.bench td { color: #333; border-top: 1px solid var(--border); font-size: 8px; padding-top: 4px; }
+.ch-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin-right: 4px; vertical-align: middle; flex-shrink: 0; }
+
+/* ── CHART ── */
+.chart-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 13px;
+}
+.chart-wrap { position: relative; height: 180px; }
+
+/* ── RIGHT COLUMN ── */
+.right-col { display: flex; flex-direction: column; gap: 12px; }
+
+.rp-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 13px;
+}
+
+/* QUALIDADE */
+.qual-head {
+  display: grid; grid-template-columns: 60px 1fr 84px;
+  gap: 4px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 5px; border-bottom: 1px solid var(--border); margin-bottom: 1px;
+}
+
+.qual-row {
+  display: grid; grid-template-columns: 60px 1fr 84px;
+  gap: 4px; padding: 6px 0;
+  border-bottom: 1px solid #1C1C1C;
+  font-size: 10px; align-items: center;
+}
+.qual-row:last-child { border-bottom: none; }
+.q-ch { color: var(--muted); font-weight: 600; font-size: 10px; }
+
+/* CR% mini-bar */
+.q-vals { display: flex; flex-direction: column; gap: 2px; }
+.q-cr-row { display: flex; align-items: center; gap: 5px; }
+.q-cr  { font-size: 10px; font-weight: 700; white-space: nowrap; }
+.q-cr-track {
+  flex: 1; height: 4px; background: #222;
+  border-radius: 2px; position: relative; overflow: visible;
+}
+.q-cr-fill { height: 100%; border-radius: 2px; }
+.q-cr-bench {
+  position: absolute; top: -3px; bottom: -3px; width: 1px;
+  background: rgba(255,255,255,0.25); left: 92%;
+}
+.q-dep { font-size: 8px; color: var(--muted); }
+
+/* Dep. médio cell no painel de qualidade reestruturado */
+.q-dep-cell { display: flex; flex-direction: column; justify-content: center; gap: 1px; }
+.q-dep-val { font-size: 13px; font-weight: 700; line-height: 1; }
+.q-dep-lbl { font-size: 7px; color: var(--muted); letter-spacing: 0.04em; }
+
+/* ROAS + delta */
+.q-roas-cell { text-align: right; }
+.q-roas { font-weight: 700; font-size: 11px; display: block; }
+.q-delta { font-size: 8px; font-weight: 600; display: block; margin-top: 1px; }
+
+/* M-1 comparação */
+.ref-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.ref-item { text-align: center; }
+.ref-lbl { font-family: 'Roboto Mono', monospace; font-size: 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.ref-atual { font-size: 16px; font-weight: 700; line-height: 1; }
+.ref-m1 { font-size: 8px; color: var(--muted); margin-top: 4px; }
+.ref-delta { font-size: 10px; font-weight: 700; margin-top: 2px; }
+
+.mock-badge {
+  position: fixed; bottom: 12px; right: 16px;
+  background: #1A1A1A; border: 1px solid #2A2A2A;
+  border-radius: 3px; padding: 3px 8px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8px; color: #333;
+  letter-spacing: 0.1em; text-transform: uppercase; z-index: 100;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div id="header">
+
+  <div class="h-row">
+    <div class="logo">
+      <div class="logo-icon">
+        <div class="logo-bar" style="height:8px;background:var(--orange)"></div>
+        <div class="logo-bar" style="height:14px;background:var(--orange)"></div>
+        <div class="logo-bar" style="height:18px;background:#fff"></div>
+        <div class="logo-bar" style="height:14px;background:#fff"></div>
+        <div class="logo-bar" style="height:8px;background:#fff"></div>
+      </div>
+      <div class="logo-wordmark">
+        <strong>THE DASHBOARD</strong>
+        <span class="sep">|</span>
+        <span class="mi">MARKETING INTELLIGENCE <span class="br-tag">BR</span></span>
+      </div>
+    </div>
+
+    <div class="h-date">
+      19 Mai 2026 &rarr; 25 Mai 2026
+      <span class="h-date-arr">&#9660;</span>
+    </div>
+
+    <div class="h-periods">
+      <button class="h-pb">D-1</button>
+      <button class="h-pb active">7D</button>
+      <button class="h-pb">MTD</button>
+      <button class="h-pb">YTD</button>
+    </div>
+
+    <div class="h-spacer"></div>
+
+    <div class="h-nav">
+      <button class="h-tab">Overview</button>
+      <button class="h-tab">M&iacute;dia</button>
+      <button class="h-tab active">Pacing</button>
+      <button class="h-tab">Influenciadores</button>
+      <button class="h-tab">Afiliados</button>
+      <button class="h-tab">CRM</button>
+    </div>
+  </div>
+
+  <div class="d1-strip">
+    <div class="d1-tag">D-1</div>
+    <div class="d1-metrics">
+      <div class="d1-metric">
+        <span class="d1-lbl">Budget</span>
+        <span class="d1-val">$7,2K</span>
+      </div>
+      <div class="d1-sep"></div>
+      <div class="d1-metric">
+        <span class="d1-lbl">FTDs</span>
+        <span class="d1-val bad">27</span>
+        <span class="d1-delta bad">&#9660; -31%</span>
+      </div>
+      <div class="d1-sep"></div>
+      <div class="d1-metric">
+        <span class="d1-lbl">CPA</span>
+        <span class="d1-val bad">$267</span>
+        <span class="d1-delta" style="color:#3A3A3A">vs $174</span>
+      </div>
+      <div class="d1-sep"></div>
+      <div class="d1-metric">
+        <span class="d1-lbl">Dep. M&eacute;dio</span>
+        <span class="d1-val">R$142</span>
+      </div>
+      <div class="d1-sep"></div>
+      <div class="d1-metric">
+        <span class="d1-lbl">CR%</span>
+        <span class="d1-val">14,3%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="t-tag">PERFO D-1</div>
+    <div class="t-scroll">
+      <div class="t-track">
+        <div class="ti"><span class="ti-ch">Google</span><span class="ti-v">$5,1K</span><span class="ti-v">8 FTDs</span><span class="bad">CPA $638</span></div>
+        <div class="ti"><span class="ti-ch">YouTube</span><span class="ti-v">$1,1K</span><span class="ti-v">3 FTDs</span><span class="bad">CPA $367</span></div>
+        <div class="ti"><span class="ti-ch">Meta</span><span class="ti-v">$1,6K</span><span class="ti-v">6 FTDs</span><span class="bad">CPA $267</span></div>
+        <div class="ti"><span class="ti-ch">X (Twitter)</span><span class="ti-v">$0,4K</span><span class="ti-v">1 FTD</span><span class="bad">CPA $400</span></div>
+        <div class="ti"><span class="ti-ch">TikTok</span><span class="ti-v">$0,7K</span><span class="ti-v">3 FTDs</span><span class="warn">CPA $233</span></div>
+        <div class="ti"><span class="ti-ch">Kwai</span><span class="ti-v">$0,2K</span><span class="ti-v">2 FTDs</span><span class="warn">CPA $100</span></div>
+        <div class="ti"><span class="ti-ch">Verve</span><span class="ti-v">$0,1K</span><span class="ti-v">4 FTDs</span><span class="ok">CPA $25</span></div>
+        <!-- duplicate -->
+        <div class="ti"><span class="ti-ch">Google</span><span class="ti-v">$5,1K</span><span class="ti-v">8 FTDs</span><span class="bad">CPA $638</span></div>
+        <div class="ti"><span class="ti-ch">YouTube</span><span class="ti-v">$1,1K</span><span class="ti-v">3 FTDs</span><span class="bad">CPA $367</span></div>
+        <div class="ti"><span class="ti-ch">Meta</span><span class="ti-v">$1,6K</span><span class="ti-v">6 FTDs</span><span class="bad">CPA $267</span></div>
+        <div class="ti"><span class="ti-ch">X (Twitter)</span><span class="ti-v">$0,4K</span><span class="ti-v">1 FTD</span><span class="bad">CPA $400</span></div>
+        <div class="ti"><span class="ti-ch">TikTok</span><span class="ti-v">$0,7K</span><span class="ti-v">3 FTDs</span><span class="warn">CPA $233</span></div>
+        <div class="ti"><span class="ti-ch">Kwai</span><span class="ti-v">$0,2K</span><span class="ti-v">2 FTDs</span><span class="warn">CPA $100</span></div>
+        <div class="ti"><span class="ti-ch">Verve</span><span class="ti-v">$0,1K</span><span class="ti-v">4 FTDs</span><span class="ok">CPA $25</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ========== MAIN ========== -->
+<div id="main">
+
+  <!-- LEFT COLUMN -->
+  <div>
+
+    <!-- SECTION GRID: Cards + Pacing no mesmo grid de 5 colunas -->
+    <div class="section-grid">
+      <div class="card c-amb">
+        <div class="c-lbl">Budget — 7D</div>
+        <div class="c-val">$38K</div>
+        <div class="c-sub">esperado no per&iacute;odo: <em>$50,6K</em></div>
+        <div class="c-delta fa">&#9660; -25% vs esperado</div>
+        <div class="c-bar"><div class="c-bar-fill" style="width:75%;background:var(--amber)"></div></div>
+      </div>
+
+      <div class="card c-red">
+        <div class="c-lbl">FTDs — 7D</div>
+        <div class="c-val fr">142</div>
+        <div class="c-sub">esperado no per&iacute;odo: <em>291</em></div>
+        <div class="c-delta fr">&#9660; -51% vs esperado</div>
+        <div class="c-bar"><div class="c-bar-fill" style="width:49%;background:var(--red)"></div></div>
+      </div>
+
+      <div class="card c-red">
+        <div class="c-lbl">CR% — 7D</div>
+        <div class="c-val fr">20%</div>
+        <div class="c-sub">benchmark: <em>37%</em></div>
+        <div class="c-delta fr">&#9660; -34% vs M-1</div>
+        <div class="c-bar"><div class="c-bar-fill" style="width:54%;background:var(--red)"></div></div>
+      </div>
+
+      <div class="card c-red">
+        <div class="c-lbl">CPA — 7D</div>
+        <div class="c-val fr">$268</div>
+        <div class="c-sub">alvo (teto): <em>$174</em></div>
+        <div class="c-delta fr">&#9650; +54% acima do teto</div>
+        <div class="c-bar"><div class="c-bar-fill" style="width:100%;background:var(--red)"></div></div>
+      </div>
+
+      <div class="card c-grn">
+        <div class="c-lbl">ROAS — 7D</div>
+        <div class="c-val" style="color:var(--amber)">0,51x</div>
+        <div class="c-sub">M-1 mesmo per&iacute;odo: <em>0,43x</em></div>
+        <div class="c-delta fg">&#9650; +19% vs M-1</div>
+        <div class="c-bar"><div class="c-bar-fill" style="width:51%;background:var(--amber)"></div></div>
+      </div>
+    <!-- Pacing header: full-width row 2 do section-grid -->
+    <div class="pacing-hdr">Pacing do M&ecirc;s (MTD — mai/2026)</div>
+
+    <!-- Pacing blocks: row 3 do section-grid (filhos diretos) -->
+
+        <!-- 1. Budget ring -->
+        <div class="p-block">
+          <div class="p-ring-section">
+            <div class="p-visual">
+              <div class="p-ring-wrap">
+                <svg class="p-ring-svg" width="86" height="86" viewBox="0 0 86 86">
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#222" stroke-width="7"/>
+                  <!-- 2π×36 = 226.2 · 73% = 165.1 · offset = 61.1 -->
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#F59E0B" stroke-width="7"
+                    stroke-dasharray="226.2" stroke-dashoffset="61.1" stroke-linecap="round"/>
+                </svg>
+                <div class="p-ring-center">
+                  <div class="p-ring-pct fa" style="font-size:20px">73%</div>
+                  <div class="p-ring-sub">do plano</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-ring-stats">
+              <div class="p-rs-title">Budget MTD</div>
+              <div class="p-rs-main">$164K <span style="font-size:10px;color:var(--muted)">/$224K</span></div>
+              <div class="p-rs-sub fa">$180,7K esperados hoje</div>
+              <div class="p-rs-exp">80,6% do m&ecirc;s passou</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. FTD ring -->
+        <div class="p-block">
+          <div class="p-ring-section">
+            <div class="p-visual">
+              <div class="p-ring-wrap">
+                <svg class="p-ring-svg" width="86" height="86" viewBox="0 0 86 86">
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#222" stroke-width="7"/>
+                  <!-- 44% = 226.2×0.44 = 99.5 · offset = 126.7 -->
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#EF4444" stroke-width="7"
+                    stroke-dasharray="226.2" stroke-dashoffset="126.7" stroke-linecap="round"/>
+                </svg>
+                <div class="p-ring-center">
+                  <div class="p-ring-pct fr" style="font-size:20px">44%</div>
+                  <div class="p-ring-sub">da meta</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-ring-stats">
+              <div class="p-rs-title">FTDs MTD</div>
+              <div class="p-rs-main">568 <span style="font-size:10px;color:var(--muted)">/1.286</span></div>
+              <div class="p-rs-sub fr">996 esperados hoje</div>
+              <div class="p-rs-exp">80,6% do m&ecirc;s passou</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. CR% MTD -->
+        <div class="p-block">
+          <div class="p-ring-section">
+            <div class="p-visual">
+              <div class="p-ring-wrap">
+                <svg class="p-ring-svg" width="86" height="86" viewBox="0 0 86 86">
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#222" stroke-width="7"/>
+                  <!-- CR% 20% / bench 37% = 54.1% → offset 226.2×0.459=103.8 -->
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#EF4444" stroke-width="7"
+                    stroke-dasharray="226.2" stroke-dashoffset="103.8" stroke-linecap="round"/>
+                </svg>
+                <div class="p-ring-center">
+                  <div class="p-ring-pct fr" style="font-size:18px">20%</div>
+                  <div class="p-ring-sub">reg→ftd</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-ring-stats">
+              <div class="p-rs-title">CR% MTD</div>
+              <div class="p-rs-main fr">20% <span style="font-size:10px;color:var(--muted)">/ 37% bench</span></div>
+              <div class="p-rs-sub fr">&#9660; -34% vs M-1</div>
+              <div class="p-rs-exp">M-1: 30,1% &nbsp;&middot;&nbsp; bench: 37%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. CPA gauge -->
+        <div class="p-block">
+          <div class="cpa-section">
+            <div class="p-visual" style="height:88px">
+            <div class="gauge-wrap" style="width:100%">
+              <div class="gauge-labels">
+                <span class="g-lbl fg" style="left:49.7%">$174 teto</span>
+                <span class="g-lbl fr" style="left:82.6%">$289 atual</span>
+              </div>
+              <div class="gauge-track">
+                <div class="gauge-green" style="width:49.7%"></div>
+                <div class="gauge-red" style="left:49.7%;width:32.9%"></div>
+                <div class="gauge-target-line" style="left:49.7%"></div>
+                <div class="gauge-dot" style="left:82.6%"></div>
+              </div>
+              <div class="gauge-axis">
+                <span>$0</span>
+                <span style="color:var(--green)">teto $174</span>
+                <span>$350+</span>
+              </div>
+            </div>
+            </div><!-- /p-visual -->
+            <div class="cpa-stats">
+              <div class="cpa-header">CPA — Custo por FTD (teto)</div>
+              <div class="p-rs-main fr">$289 <span style="font-size:10px;color:var(--muted)">atual</span></div>
+              <div class="cpa-delta-row">&#9650; +66% acima do teto</div>
+              <div class="p-rs-exp">$115 excedente &nbsp;&middot;&nbsp; M-1: $213</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. ROAS MTD -->
+        <div class="p-block">
+          <div class="p-ring-section">
+            <div class="p-visual">
+              <div class="p-ring-wrap">
+                <svg class="p-ring-svg" width="86" height="86" viewBox="0 0 86 86">
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#222" stroke-width="7"/>
+                  <!-- 2π×36 = 226.2 · 58% → offset = 226.2×0.42 = 95.0 -->
+                  <circle cx="43" cy="43" r="36" fill="none" stroke="#F59E0B" stroke-width="7"
+                    stroke-dasharray="226.2" stroke-dashoffset="95.0" stroke-linecap="round"/>
+                  <circle cx="43" cy="7" r="3" fill="rgba(255,255,255,0.25)"/>
+                </svg>
+                <div class="p-ring-center">
+                  <div class="p-ring-pct fa" style="font-size:18px">0,58x</div>
+                  <div class="p-ring-sub">ROAS MTD</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-ring-stats">
+              <div class="p-rs-title">ROAS MTD</div>
+              <div class="p-rs-main">0,58x <span style="font-size:10px;color:var(--muted)">/ R$95K dep.</span></div>
+              <div class="p-rs-sub fg">M-1: 0,43x &nbsp;&#9650; +35%</div>
+              <div class="p-rs-exp">breakeven: 1,0x</div>
+            </div>
+          </div>
+        </div>
+
+    </div><!-- /section-grid -->
+
+    <!-- DIAGNÓSTICO -->
+    <div class="diag-strip">
+      <div class="diag-item"><strong class="fr">5 de 7 canais</strong> acima do teto CPA</div>
+      <div class="diag-item"><strong class="fg">Verve</strong> único canal dentro do CPA ($23)</div>
+      <div class="diag-item"><strong class="fa">Google</strong> concentra <strong>49% do budget</strong> e entrega só <strong>35% dos FTDs</strong></div>
+      <div class="diag-item" style="color:#EF4444">Realocar budget do Google para Verve?</div>
+    </div>
+
+    <!-- EFICIÊNCIA POR CANAL + BUDGET × FTD -->
+    <div class="eff-wrap">
+
+      <!-- Tabela compacta (sem coluna Teto CPA) -->
+      <div class="table-box">
+        <div class="sh">Efici&ecirc;ncia por Canal — Perfo &nbsp;<span style="color:#2A2A2A;font-size:7px">7D · 19–25 Mai</span></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Canal</th><th>FTDs</th>
+              <th>CPA Real.</th><th>&Delta; Teto</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="t-name">Google</td><td>49</td>
+              <td class="fr">$378</td><td class="fr">+117%</td>
+              <td><span class="s s-r"></span></td>
+            </tr>
+            <tr>
+              <td class="t-name">YouTube</td><td>14</td>
+              <td class="fr">$386</td><td class="fr">+122%</td>
+              <td><span class="s s-r"></span></td>
+            </tr>
+            <tr>
+              <td class="t-name">Meta</td><td>23</td>
+              <td class="fr">$313</td><td class="fr">+80%</td>
+              <td><span class="s s-r"></span></td>
+            </tr>
+            <tr>
+              <td class="t-name">X (Twitter)</td><td>5</td>
+              <td class="fr">$380</td><td class="fr">+118%</td>
+              <td><span class="s s-r"></span></td>
+            </tr>
+            <tr>
+              <td class="t-name">TikTok</td><td>9</td>
+              <td class="fr">$311</td><td class="fr">+79%</td>
+              <td><span class="s s-r"></span></td>
+            </tr>
+            <tr>
+              <td class="t-name">Kwai</td><td>7</td>
+              <td class="fa">$200</td><td class="fa">+15%</td>
+              <td><span class="s s-a"></span></td>
+            </tr>
+            <tr>
+              <td class="t-name">Verve</td><td>35</td>
+              <td class="fg">$23</td><td class="fg">-87%</td>
+              <td><span class="s s-g"></span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="t-legend">
+          <span><span class="s s-g" style="margin-right:4px"></span>CPA abaixo do teto</span>
+          <span><span class="s s-a" style="margin-right:4px"></span>CPA at&eacute; 1,15&times; teto</span>
+          <span><span class="s s-r" style="margin-right:4px"></span>CPA acima de 1,15&times; teto</span>
+        </div>
+
+        <div class="chart-pair">
+          <div class="cp-pizza">
+            <div class="cp-section-title">Budget %</div>
+            <canvas id="budgetPizza" width="100" height="100"></canvas>
+          </div>
+          <div class="cp-cr">
+            <div class="cp-section-title">CR% por canal</div>
+            <table class="cr-tbl">
+              <tbody>
+                <tr><td><span class="ch-dot" style="background:#FF3900"></span>Google</td><td class="fa">17,8%</td></tr>
+                <tr><td><span class="ch-dot" style="background:#3B82F6"></span>Meta</td><td class="fr">14,8%</td></tr>
+                <tr><td><span class="ch-dot" style="background:#EF4444"></span>YouTube</td><td class="fr">14,2%</td></tr>
+                <tr><td><span class="ch-dot" style="background:#A855F7"></span>TikTok</td><td class="fr">12,1%</td></tr>
+                <tr><td><span class="ch-dot" style="background:#64748B"></span>X</td><td class="fr">11,3%</td></tr>
+                <tr><td><span class="ch-dot" style="background:#F59E0B"></span>Kwai</td><td class="fr">9,8%</td></tr>
+                <tr><td><span class="ch-dot" style="background:#22C55E"></span>Verve</td><td class="fa">17,4%</td></tr>
+                <tr class="bench"><td>bench</td><td style="color:#444">23,0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget × FTD Distribution — narrativa de eficiência por canal -->
+      <div class="eff-side">
+        <div class="sh">Budget &times; FTD — Distribui&ccedil;&atilde;o 7D</div>
+        <div class="bfd-legend">
+          <span><span class="bfd-dot" style="background:#FF3900;opacity:.7"></span>Budget%</span>
+          <span><span class="bfd-dot" style="background:#FFFFFF;opacity:.35"></span>FTDs%</span>
+          <span style="margin-left:auto">gap = efici&ecirc;ncia</span>
+        </div>
+
+        <!-- Google: budget 48.7% / FTDs 34.5% → gap -14.2pp → ineficiente -->
+        <div class="bfd-row">
+          <div class="bfd-ch">Google <span class="fr" style="font-size:8px">▼ -14pp</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:48.7%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">49%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:34.5%;background:rgba(255,255,255,.3)"></div></div><span class="bfd-pct fr">35%</span></div>
+        </div>
+
+        <!-- Verve: budget 2.1% / FTDs 24.6% → gap +22.5pp → muito eficiente -->
+        <div class="bfd-row">
+          <div class="bfd-ch">Verve <span class="fg" style="font-size:8px">▲ +22pp</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:2.1%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">2%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:24.6%;background:var(--green);opacity:.8"></div></div><span class="bfd-pct fg">25%</span></div>
+        </div>
+
+        <!-- Meta: budget 18.9% / FTDs 16.2% → gap -2.7pp -->
+        <div class="bfd-row">
+          <div class="bfd-ch">Meta <span class="fr" style="font-size:8px">▼ -3pp</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:18.9%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">19%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:16.2%;background:rgba(255,255,255,.3)"></div></div><span class="bfd-pct fr">16%</span></div>
+        </div>
+
+        <!-- YouTube: budget 14.2% / FTDs 9.9% → gap -4.3pp -->
+        <div class="bfd-row">
+          <div class="bfd-ch">YouTube <span class="fr" style="font-size:8px">▼ -4pp</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:14.2%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">14%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:9.9%;background:rgba(255,255,255,.3)"></div></div><span class="bfd-pct fr">10%</span></div>
+        </div>
+
+        <!-- TikTok: budget 7.4% / FTDs 6.3% → gap -1.1pp ≈ neutro -->
+        <div class="bfd-row">
+          <div class="bfd-ch">TikTok <span style="font-size:8px;color:#555">≈ neutro</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:7.4%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">7%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:6.3%;background:rgba(255,255,255,.3)"></div></div><span class="bfd-pct" style="color:var(--muted)">6%</span></div>
+        </div>
+
+        <!-- Kwai: budget 3.7% / FTDs 4.9% → gap +1.2pp → levemente eficiente -->
+        <div class="bfd-row">
+          <div class="bfd-ch">Kwai <span class="fa" style="font-size:8px">▲ +1pp</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:3.7%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">4%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:4.9%;background:rgba(255,255,255,.3)"></div></div><span class="bfd-pct fa">5%</span></div>
+        </div>
+
+        <!-- X: budget 5.0% / FTDs 3.5% → gap -1.5pp -->
+        <div class="bfd-row">
+          <div class="bfd-ch">X <span class="fr" style="font-size:8px">▼ -2pp</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">budget</span><div class="bfd-track"><div class="bfd-fill" style="width:5.0%;background:var(--orange);opacity:.7"></div></div><span class="bfd-pct" style="color:var(--muted)">5%</span></div>
+          <div class="bfd-bar-row"><span class="bfd-lbl">FTDs</span><div class="bfd-track"><div class="bfd-fill" style="width:3.5%;background:rgba(255,255,255,.3)"></div></div><span class="bfd-pct fr">4%</span></div>
+        </div>
+
+        <div class="bfd-footer">Total: $38K &middot; 142 FTDs &middot; 7D</div>
+      </div>
+
+      <!-- QUALIDADE POR CANAL -->
+      <div class="eff-qual">
+        <div class="sh">Qualidade por Canal &nbsp;<span style="color:#2A2A2A;font-size:7px">7D vs M-1</span></div>
+        <div class="qual-head">
+          <span>Canal</span>
+          <span>Dep. M&eacute;dio</span>
+          <span style="text-align:right">ROAS / M-1</span>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">Google</span>
+          <div class="q-dep-cell"><span class="q-dep-val fg">R$156</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fr">0,35x</span><span class="q-delta fr">-0,06x vs M-1</span></div>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">YouTube</span>
+          <div class="q-dep-cell"><span class="q-dep-val fa">R$141</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fr">0,38x</span><span class="q-delta fr">-0,07x vs M-1</span></div>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">Meta</span>
+          <div class="q-dep-cell"><span class="q-dep-val fa">R$128</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fr">0,41x</span><span class="q-delta fr">-0,11x vs M-1</span></div>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">X</span>
+          <div class="q-dep-cell"><span class="q-dep-val fr">R$109</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fr">0,29x</span><span class="q-delta fr">-0,09x vs M-1</span></div>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">TikTok</span>
+          <div class="q-dep-cell"><span class="q-dep-val fr">R$118</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fr">0,38x</span><span class="q-delta fr">-0,06x vs M-1</span></div>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">Kwai</span>
+          <div class="q-dep-cell"><span class="q-dep-val fr">R$97</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fa">1,02x</span><span class="q-delta fr">-0,13x vs M-1</span></div>
+        </div>
+        <div class="qual-row">
+          <span class="q-ch">Verve</span>
+          <div class="q-dep-cell"><span class="q-dep-val fg">R$180</span><span class="q-dep-lbl">dep. m&eacute;dio</span></div>
+          <div class="q-roas-cell"><span class="q-roas fg">1,89x</span><span class="q-delta fr">-0,21x vs M-1</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EVOLUÇÃO SEMANAL -->
+    <div class="chart-box">
+      <div class="sh">Evolu&ccedil;&atilde;o Semanal — FTDs Perfo</div>
+      <div class="chart-wrap">
+        <canvas id="weekChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right-col">
+
+    <!-- ATUAL vs M-1 -->
+    <div class="rp-card">
+      <div class="sh">Atual vs M-1 — Abril</div>
+      <div class="ref-row">
+        <div class="ref-item">
+          <div class="ref-lbl">FTDs</div>
+          <div class="ref-atual">568</div>
+          <div class="ref-m1">vs 780 abr</div>
+          <div class="ref-delta fr">&#9660; -27%</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-lbl">CPA</div>
+          <div class="ref-atual">$289</div>
+          <div class="ref-m1">vs $213 abr</div>
+          <div class="ref-delta fr">&#9650; +36%</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-lbl">ROAS</div>
+          <div class="ref-atual">0,58x</div>
+          <div class="ref-m1">vs 0,43x abr</div>
+          <div class="ref-delta fg">&#9650; +35%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATUAL vs META -->
+    <div class="rp-card">
+      <div class="sh">Atual vs Meta — Maio</div>
+      <div class="ref-row">
+        <div class="ref-item">
+          <div class="ref-lbl">FTDs</div>
+          <div class="ref-atual">568</div>
+          <div class="ref-m1">meta 1.286 mai</div>
+          <div class="ref-delta fr">&#9660; -56%</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-lbl">CPA</div>
+          <div class="ref-atual">$289</div>
+          <div class="ref-m1">teto $174 mai</div>
+          <div class="ref-delta fr">&#9650; +66%</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-lbl">ROAS</div>
+          <div class="ref-atual">0,58x</div>
+          <div class="ref-m1">breakeven 1,0x</div>
+          <div class="ref-delta fr">&#9660; -42%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RITMO & PROJEÇÃO -->
+    <div class="rp-card">
+      <div class="sh">Ritmo &amp; Proje&ccedil;&atilde;o — Maio</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+        <div>
+          <div class="ref-lbl">Proje&ccedil;&atilde;o</div>
+          <div class="ref-atual fa">704 <span style="font-size:10px;color:var(--muted)">FTDs</span></div>
+          <div class="ref-m1">gap: -582 vs meta 1.286</div>
+        </div>
+        <div>
+          <div class="ref-lbl">Budget restante</div>
+          <div class="ref-atual" style="font-size:14px">$60K</div>
+          <div class="ref-m1">7 dias &middot; $8,6K/dia</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:10px">
+        <div class="ref-lbl" style="margin-bottom:6px">Ritmo di&aacute;rio de FTDs</div>
+        <div style="display:flex;align-items:baseline;gap:16px">
+          <div>
+            <div style="font-size:20px;font-weight:900;color:var(--red);line-height:1">24</div>
+            <div style="font-size:8px;color:var(--muted);margin-top:2px">atual/dia</div>
+          </div>
+          <div style="font-size:11px;color:#333;font-weight:700">vs</div>
+          <div>
+            <div style="font-size:20px;font-weight:900;color:var(--orange);line-height:1">83</div>
+            <div style="font-size:8px;color:var(--muted);margin-top:2px">necess&aacute;rio/dia</div>
+          </div>
+          <div style="flex:1;height:4px;background:#222;border-radius:2px;align-self:center;position:relative">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:29%;background:var(--red);border-radius:2px"></div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--red)">29%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJEÇÃO vs META -->
+    <div class="rp-card">
+      <div class="sh">Proje&ccedil;&atilde;o vs Meta — Maio</div>
+      <div class="ref-row">
+        <div class="ref-item">
+          <div class="ref-lbl">FTDs</div>
+          <div class="ref-atual fa">704</div>
+          <div class="ref-m1">meta 1.286 mai</div>
+          <div class="ref-delta fr">&#9660; -45%</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-lbl">CPA</div>
+          <div class="ref-atual fr">$318</div>
+          <div class="ref-m1">teto $174 mai</div>
+          <div class="ref-delta fr">&#9650; +83%</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-lbl">ROAS</div>
+          <div class="ref-atual fr">0,60x</div>
+          <div class="ref-m1">breakeven 1,0x</div>
+          <div class="ref-delta fr">&#9660; -40%</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="mock-badge">dados mockados</div>
+
+<script>
+(function() {
+  var hdr  = document.getElementById('header');
+  var main = document.getElementById('main');
+  function adjust() { main.style.paddingTop = (hdr.offsetHeight + 14) + 'px'; }
+  adjust();
+  window.addEventListener('resize', adjust);
+})();
+
+var ctx = document.getElementById('weekChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['W19', 'W20', 'W21', 'W22*'],
+    datasets: [
+      {
+        label: 'FTDs Realizados',
+        data: [210, 189, 142, 27],
+        borderColor: '#FF3900',
+        backgroundColor: 'rgba(255,57,0,0.06)',
+        borderWidth: 2, tension: 0.3, fill: true,
+        pointBackgroundColor: '#FF3900',
+        pointBorderColor: '#1A1A1A', pointBorderWidth: 2,
+        pointRadius: 4, pointHoverRadius: 6,
+      },
+      {
+        label: 'Meta semanal',
+        data: [291, 291, 291, 291],
+        borderColor: '#333', borderWidth: 1.5, borderDash: [5, 4],
+        tension: 0, fill: false, pointRadius: 0,
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { labels: { color: '#555', font: { family: 'Roboto Mono', size: 9 }, boxWidth: 10, padding: 14 } },
+      tooltip: {
+        backgroundColor: '#1A1A1A', borderColor: '#2A2A2A', borderWidth: 1,
+        titleColor: '#FFF', bodyColor: '#AAA',
+        titleFont: { family: 'Roboto Mono', weight: '700', size: 10 },
+        bodyFont: { family: 'Roboto Mono', size: 9 },
+        padding: 10,
+        callbacks: { label: function(c) { return ' ' + c.dataset.label + ': ' + c.parsed.y + ' FTDs'; } }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#555', font: { family: 'Roboto Mono', size: 9 } }, grid: { color: '#1A1A1A' }, border: { color: '#222' } },
+      y: { ticks: { color: '#555', font: { family: 'Roboto Mono', size: 9 }, stepSize: 100 }, grid: { color: '#1A1A1A' }, border: { color: '#222' }, min: 0, suggestedMax: 340 }
+    }
+  }
+});
+
+var ctxPie = document.getElementById('budgetPizza').getContext('2d');
+new Chart(ctxPie, {
+  type: 'doughnut',
+  data: {
+    labels: ['Google','Meta','YouTube','TikTok','X','Kwai','Verve'],
+    datasets: [{
+      data: [48.7, 18.9, 14.2, 7.4, 5.0, 3.7, 2.1],
+      backgroundColor: ['#FF3900','#3B82F6','#EF4444','#A855F7','#64748B','#F59E0B','#22C55E'],
+      borderColor: '#1A1A1A',
+      borderWidth: 2,
+      hoverOffset: 4,
+    }]
+  },
+  options: {
+    responsive: false,
+    cutout: '58%',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1A1A1A', borderColor: '#2A2A2A', borderWidth: 1,
+        titleColor: '#FFF', bodyColor: '#AAA',
+        titleFont: { family: 'Roboto Mono', weight: '700', size: 10 },
+        bodyFont: { family: 'Roboto Mono', size: 9 },
+        padding: 8,
+        callbacks: { label: function(c) { return ' ' + c.label + ': ' + c.parsed + '%'; } }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
