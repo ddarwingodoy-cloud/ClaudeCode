@@ -636,7 +636,7 @@
     <div class="section-title">Why We Need a <span class="accent">New Framework</span></div>
 
     <div class="body-text">
-      BetWarrior Brazil operates with six budget channels Performance, Affiliates, Influencers, Brand &amp; M&iacute;dia, Organic, and Direct each with distinct investment levels, CPA targets, and optimization logic. Our current UTM structure was inherited from the Argentine operation and does not map to these channels, making it impossible to attribute GA4 sessions and conversions to the right budget line.
+      BetWarrior Brazil operates with six budget channels: Performance, Affiliates, Influencers, Brand &amp; M&iacute;dia, Organic, and Direct. Each has distinct investment levels, CPA targets, and optimization logic. The current UTM structure was not designed with this channel breakdown in mind, making it impossible to attribute GA4 sessions and conversions to the right budget line.
     </div>
 
     <div class="kpi-row">
@@ -668,9 +668,9 @@
 
     <div class="problem-grid">
       <div class="problem-item">
-        <div class="p-title">1 Argentine taxonomy applied to Brazil</div>
-        <div class="p-body">Campaigns tagged for the AR market appear in BR reports without differentiation. No country dimension exists in the current UTM structure.</div>
-        <code class="p-code">utm_source=google &middot; utm_medium=cpc (both countries)</code>
+        <div class="p-title">1 Configuration not aligned with budget structure</div>
+        <div class="p-body">The current setup does not allow reading acquisition data in GA4 according to the 6 budget channels. Spend and FTDs cannot be compared on the same axis without manual reconciliation.</div>
+        <code class="p-code">google appears under Perfo, Brand and Organic with no separation</code>
       </div>
       <div class="problem-item">
         <div class="p-title">2 Influencers and affiliates unmapped</div>
@@ -720,7 +720,7 @@
     <div class="section-title">Parameter <span class="accent">Structure</span></div>
 
     <div class="body-text">
-      The framework uses four mandatory parameters and one optional. Every paid source must be tagged before going live. The <strong>utm_source</strong> is the primary mapping point it determines which budget channel the session belongs to in GA4 and in the pacing dashboard.
+      The framework uses four mandatory parameters and one optional. Every paid source must be tagged before going live. The <strong>utm_source</strong> identifies the budget channel directly. The <strong>utm_medium</strong> identifies the specific platform or partner within that channel, enabling drill-down without losing the channel grouping.
     </div>
 
     <table class="data-table compact">
@@ -735,33 +735,33 @@
       <tbody>
         <tr>
           <td><span class="mono">utm_source</span></td>
-          <td>Maps to budget channel identifies origin</td>
+          <td>Identifies the budget channel — the source of the spend</td>
           <td><span class="tag tag-orange">Mandatory</span></td>
-          <td>google, meta, nfa, betano, gil_br</td>
+          <td>perfo, afil, influ, brand</td>
         </tr>
         <tr>
           <td><span class="mono">utm_medium</span></td>
-          <td>Identifies buying model or content format</td>
+          <td>Identifies the specific platform or partner within the channel</td>
           <td><span class="tag tag-orange">Mandatory</span></td>
-          <td>cpc, cpm, cpa, referral, influencer</td>
+          <td>google, meta, player7777, danilo_lavieri, uol</td>
         </tr>
         <tr>
           <td><span class="mono">utm_campaign</span></td>
-          <td>Identifies campaign with structured naming</td>
+          <td>Identifies the campaign with structured naming convention</td>
           <td><span class="tag tag-orange">Mandatory</span></td>
-          <td>br_perfo_ftd_google_may26</td>
+          <td>perfo_ftd_google_may26</td>
         </tr>
         <tr>
           <td><span class="mono">utm_content</span></td>
-          <td>Identifies creative or ad variant</td>
+          <td>Identifies the creative or ad variant</td>
           <td><span class="tag tag-dark">Recommended</span></td>
-          <td>video_30s_v1, banner_300x250</td>
+          <td>banner_300x250, video_30s_v1</td>
         </tr>
         <tr>
           <td><span class="mono">utm_term</span></td>
-          <td>Keyword (search) or audience segment</td>
+          <td>A/B test label or keyword</td>
           <td><span class="tag tag-light">Optional</span></td>
-          <td>betwarrior, apostas_esportivas</td>
+          <td>teste_A, apostas_esportivas</td>
         </tr>
       </tbody>
     </table>
@@ -769,8 +769,8 @@
     <div class="callout">
       <div class="callout-title">Campaign Naming Convention</div>
       <div class="callout-body">
-        All paid campaigns follow the pattern: <strong>[country]_[channel]_[objective]_[source]_[period]</strong><br>
-        &bull; <span class="mono">br_perfo_ftd_google_may26</span> &nbsp;&bull;&nbsp; <span class="mono">br_influ_awareness_gil_may26</span> &nbsp;&bull;&nbsp; <span class="mono">br_afil_ftd_nfa_may26</span>
+        All paid campaigns follow the pattern: <strong>[channel]_[objective]_[medium]_[period]</strong><br>
+        &bull; <span class="mono">perfo_ftd_google_may26</span> &nbsp;&bull;&nbsp; <span class="mono">influ_awareness_lavieri_may26</span> &nbsp;&bull;&nbsp; <span class="mono">afil_ftd_player7777_may26</span>
       </div>
     </div>
 
@@ -782,47 +782,47 @@
       <thead>
         <tr>
           <th>Budget Channel</th>
-          <th>utm_source Values</th>
-          <th>utm_medium</th>
+          <th>utm_source</th>
+          <th>utm_medium (platforms / partners)</th>
           <th>Owner</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><strong>Performance</strong></td>
+          <td><span class="mono">perfo</span></td>
           <td>google, meta, tiktok, apple, taboola, verve</td>
-          <td>cpc, cpm, cpv</td>
           <td>Juanca</td>
         </tr>
         <tr>
           <td><strong>Affiliates</strong></td>
-          <td>nfa, betano, sportingbet, <em>[affiliate_id]</em></td>
-          <td>cpa, referral</td>
+          <td><span class="mono">afil</span></td>
+          <td>player7777, northstarbr, affiliagamblingbr, apuestafree</td>
           <td>Darwin</td>
         </tr>
         <tr>
           <td><strong>Influencers</strong></td>
-          <td><em>[influencer_handle]</em> (e.g. gil_br, braga)</td>
-          <td>influencer</td>
+          <td><span class="mono">influ</span></td>
+          <td>danilo_lavieri, fbi_tricolor, domitila</td>
           <td>Darwin</td>
         </tr>
         <tr>
           <td><strong>Brand &amp; M&iacute;dia</strong></td>
-          <td>tv_globo, band, espn, ooh, <em>[sponsor]</em></td>
-          <td>brand, sponsorship, display</td>
+          <td><span class="mono">brand</span></td>
+          <td>uol, sofascore, siprocal, 365score</td>
           <td>Darwin</td>
         </tr>
         <tr>
           <td><strong>Organic</strong></td>
-          <td>google (via Search Console)</td>
+          <td><em>auto (google / organic)</em></td>
           <td>organic</td>
-          <td>SEO / auto-tagged</td>
+          <td>Auto-tagged</td>
         </tr>
         <tr>
           <td><strong>Direct</strong></td>
-          <td>(direct)</td>
+          <td><em>auto (direct)</em></td>
           <td>(none)</td>
-          <td>Auto-detected GA4</td>
+          <td>Auto-detected</td>
         </tr>
       </tbody>
     </table>
@@ -858,34 +858,34 @@
 
     <div class="ba-grid">
       <div class="ba-col before">
-        <div class="ba-header before">Current Performance (broken)</div>
+        <div class="ba-header before">Current: Performance (broken)</div>
         <div class="ba-item">utm_source=Google_Ads<br>utm_medium=CPC<br>utm_campaign=BRmayFTD</div>
       </div>
       <div class="ba-col after">
-        <div class="ba-header after">Proposed Performance (standardized)</div>
-        <div class="ba-item">utm_source=google<br>utm_medium=cpc<br>utm_campaign=br_perfo_ftd_google_may26</div>
+        <div class="ba-header after">Proposed: Performance (standardized)</div>
+        <div class="ba-item">utm_source=perfo<br>utm_medium=google<br>utm_campaign=perfo_ftd_google_may26</div>
       </div>
     </div>
 
     <div class="ba-grid">
       <div class="ba-col before">
-        <div class="ba-header before">Current Influencer (missing source)</div>
+        <div class="ba-header before">Current: Influencer (untracked)</div>
         <div class="ba-item">utm_source=link<br>utm_medium=(not set)<br>utm_campaign=(not set)</div>
       </div>
       <div class="ba-col after">
-        <div class="ba-header after">Proposed Influencer (tagged)</div>
-        <div class="ba-item">utm_source=gil_br<br>utm_medium=influencer<br>utm_campaign=br_influ_awareness_gil_may26</div>
+        <div class="ba-header after">Proposed: Influencer (tagged)</div>
+        <div class="ba-item">utm_source=influ<br>utm_medium=danilo_lavieri<br>utm_campaign=influ_awareness_lavieri_may26</div>
       </div>
     </div>
 
     <div class="ba-grid">
       <div class="ba-col before">
-        <div class="ba-header before">Current Affiliate (untracked)</div>
+        <div class="ba-header before">Current: Affiliate (untracked)</div>
         <div class="ba-item">utm_source=(direct)<br>utm_medium=(none)<br>utm_campaign=(not set)</div>
       </div>
       <div class="ba-col after">
-        <div class="ba-header after">Proposed Affiliate (mapped)</div>
-        <div class="ba-item">utm_source=nfa<br>utm_medium=cpa<br>utm_campaign=br_afil_ftd_nfa_may26</div>
+        <div class="ba-header after">Proposed: Affiliate (mapped)</div>
+        <div class="ba-item">utm_source=afil<br>utm_medium=player7777<br>utm_campaign=afil_ftd_player7777_may26</div>
       </div>
     </div>
 
@@ -915,7 +915,7 @@
         <tr>
           <td><strong>Pacing Dashboard</strong></td>
           <td>Shows spend but not FTD results by channel</td>
-          <td>Spend &times; FTD &times; CPA per channel in real time</td>
+          <td>Spend &times; FTD &times; CPA per channel, updated daily (D-1)</td>
         </tr>
         <tr>
           <td><strong>Weekly Reporting</strong></td>
@@ -964,7 +964,7 @@
       <div class="step-body">
         <div class="step-title">Align taxonomy with Juanca</div>
         <div class="step-desc">Review this document together. Confirm utm_source values for each channel, particularly affiliate IDs and influencer handles. Agree on campaign naming convention and enforcement by owner (Juanca for Performance, Darwin for Affiliates, Influencers and Brand).</div>
-        <div class="step-date">Week of May 27 meeting with Juanca (BR visit)</div>
+        <div class="step-date">May 28, 2026 &ndash; Juanca in S&atilde;o Paulo</div>
       </div>
     </div>
 
@@ -980,9 +980,9 @@
     <div class="step-item">
       <div class="step-num">3</div>
       <div class="step-body">
-        <div class="step-title">Configure GA4 Channel Groups</div>
-        <div class="step-desc">Create a custom channel grouping in GA4 that maps standardized utm_source values to the 6 budget channels. This enables the Pacing Dashboard to pull channel-level FTDs from GA4 without manual reconciliation.</div>
-        <div class="step-date">Week of June 2 Darwin + data team</div>
+        <div class="step-title">Configure GA4 Channel Groups + Google Ads override</div>
+        <div class="step-desc">Create a custom channel grouping in GA4 mapping standardized utm_source values to the 6 budget channels. <strong>Critical:</strong> enable "Allow manual tagging (UTM values) to override auto-tagging" in GA4 Admin &rarr; Google Ads Links. Without this, Google Ads injects a <span style="font-family:monospace;font-size:10px;">gclid</span> parameter that overwrites utm_campaign in GA4, making campaign-level data unreliable.</div>
+        <div class="step-date">Week of June 2 &ndash; data team</div>
       </div>
     </div>
 

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Budget Distribution 2026 — BetWarrior BR</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #FFFFFF; }
+}
+
+@media screen {
+  body { background: #CCCCCC; padding: 24px; }
+  .cover, .page { margin: 0 auto 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
+}
+
+/* COVER */
+.cover {
+  width: 210mm; height: 297mm;
+  background: #111111;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+.cover-top-stripe {
+  position: absolute; top: 0; right: 0;
+  width: 55%; height: 5px; background: #FF3900;
+}
+.cover-body {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 0 58px;
+  position: relative; z-index: 1;
+}
+.cover-eyebrow {
+  font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.22em; color: #FF3900; text-transform: uppercase; margin-bottom: 28px;
+}
+.cover-title {
+  font-family: 'Archivo', sans-serif; font-size: 54px; font-weight: 900;
+  line-height: 1.02; color: #FFFFFF; text-transform: uppercase;
+}
+.cover-title .accent { color: #FF3900; }
+.cover-divider { width: 44px; height: 3px; background: #FF3900; margin: 28px 0; }
+.cover-subtitle {
+  font-family: 'Archivo', sans-serif; font-size: 13.5px; font-weight: 400;
+  color: #888888; line-height: 1.6; max-width: 460px;
+}
+.cover-meta { display: flex; gap: 52px; margin-top: 52px; }
+.cover-meta-item label {
+  display: block; font-family: 'Archivo', sans-serif; font-size: 8.5px;
+  font-weight: 700; letter-spacing: 0.18em; color: #FF3900;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.cover-meta-item span {
+  font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 600; color: #FFFFFF;
+}
+.cover-watermark {
+  position: absolute; bottom: 56px; right: -16px;
+  font-family: 'Archivo', sans-serif; font-size: 200px; font-weight: 900;
+  color: rgba(255,255,255,0.028); text-transform: uppercase;
+  line-height: 1; user-select: none; z-index: 0; letter-spacing: -4px;
+}
+.cover-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 58px; border-top: 1px solid #222222; z-index: 1;
+}
+.cover-footer .bw-logo {
+  font-family: 'Archivo', sans-serif; font-size: 15px; font-weight: 900;
+  color: #FF3900; letter-spacing: 0.06em;
+}
+.cover-footer .confidential {
+  font-family: 'Archivo', sans-serif; font-size: 9px; font-weight: 600;
+  letter-spacing: 0.2em; color: #444444; text-transform: uppercase;
+}
+
+/* INTERIOR PAGES */
+.page {
+  width: 210mm; height: 297mm; background: #FFFFFF;
+  display: flex; flex-direction: column;
+  page-break-after: always; overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+.page-header {
+  background: #1C1C1E; display: flex; justify-content: space-between;
+  align-items: center; padding: 12px 32px; flex-shrink: 0;
+}
+.page-header .bw-logo {
+  font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 900;
+  color: #FF3900; letter-spacing: 0.06em;
+}
+.page-header .doc-label {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px; font-weight: 600;
+  color: #888888; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.page-header .doc-date {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px; color: #555555;
+}
+.page-content { flex: 1; padding: 24px 36px 14px; overflow: hidden; }
+.page-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 36px; border-top: 1px solid #EEEEEE; flex-shrink: 0;
+}
+.page-footer .footer-brand {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px; font-weight: 600;
+  letter-spacing: 0.15em; color: #AAAAAA; text-transform: uppercase;
+}
+.page-footer .footer-page {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px; color: #BBBBBB;
+}
+
+/* SECTION */
+.section-badge { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.badge-num {
+  background: #FF3900; color: #FFFFFF; font-family: 'Archivo', sans-serif;
+  font-size: 11px; font-weight: 700; width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.badge-label {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.2em; color: #FF3900; text-transform: uppercase;
+}
+.section-title {
+  font-family: 'Archivo', sans-serif; font-size: 20px; font-weight: 900;
+  color: #111111; text-transform: uppercase; line-height: 1.08; margin-bottom: 14px;
+}
+.section-title.sm { font-size: 15px; margin-bottom: 10px; }
+.section-title .accent { color: #FF3900; }
+.body-text {
+  font-family: 'Archivo', sans-serif; font-size: 11px; color: #444444;
+  line-height: 1.65; margin-bottom: 14px;
+}
+.rule { border: none; border-top: 1px solid #EEEEEE; margin: 14px 0; }
+
+/* KPI CARDS */
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+.kpi-card { background: #1C1C1E; padding: 14px 16px; }
+.kpi-card .kc-label {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.14em; color: #FF3900; text-transform: uppercase; margin-bottom: 8px;
+}
+.kpi-card .kc-value {
+  font-family: 'Archivo', sans-serif; font-size: 26px; font-weight: 900;
+  color: #FFFFFF; line-height: 1; margin-bottom: 4px;
+}
+.kpi-card .kc-sub { font-family: 'Archivo', sans-serif; font-size: 9.5px; color: #666666; }
+
+/* TABLE */
+.data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-family: 'Archivo', sans-serif; font-size: 11px; }
+.data-table thead tr { background: #FF3900; }
+.data-table thead th {
+  padding: 9px 11px; color: #FFFFFF; font-weight: 700;
+  text-align: left; font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.data-table thead th.right { text-align: right; }
+.data-table tbody tr:nth-child(even) { background: #F7F7F7; }
+.data-table tbody tr:nth-child(odd)  { background: #FFFFFF; }
+.data-table tbody tr.total-row { background: #1C1C1E !important; }
+.data-table tbody tr.total-row td {
+  color: #FFFFFF; font-weight: 700; padding: 10px 11px; font-size: 11px;
+}
+.data-table tbody td {
+  padding: 8px 11px; color: #333333;
+  border-bottom: 1px solid #EEEEEE; vertical-align: middle;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody td.right { text-align: right; }
+.data-table tbody td.mono {
+  font-family: 'Roboto Mono', 'Courier New', monospace; font-size: 10.5px;
+}
+.data-table tbody td.right.mono { text-align: right; }
+
+/* CPA COLOR TAGS */
+.cpa-high { color: #EF4444; font-weight: 700; }
+.cpa-mid  { color: #F59E0B; font-weight: 700; }
+.cpa-low  { color: #22C55E; font-weight: 700; }
+
+/* CPA BAR CHART */
+.cpa-chart { margin: 12px 0; }
+.cpa-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 7px;
+}
+.cpa-month {
+  font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 700;
+  color: #111111; width: 28px; flex-shrink: 0;
+}
+.cpa-bar-wrap { flex: 1; background: #F0F0F0; height: 20px; position: relative; }
+.cpa-bar-fill { height: 100%; background: #FF3900; transition: width 0.3s; }
+.cpa-bar-fill.low { background: #22C55E; }
+.cpa-bar-fill.mid { background: #F59E0B; }
+.cpa-label {
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  font-size: 10px; font-weight: 700; color: #333333;
+  width: 60px; text-align: right; flex-shrink: 0;
+}
+.cpa-ftd {
+  font-family: 'Archivo', sans-serif; font-size: 10px;
+  color: #888888; width: 72px; text-align: right; flex-shrink: 0;
+}
+
+/* CALLOUT */
+.callout {
+  border-left: 4px solid #FF3900; padding: 12px 16px;
+  background: #FFF7F5; margin: 12px 0;
+}
+.callout-title {
+  font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 700;
+  color: #FF3900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;
+}
+.callout-body {
+  font-family: 'Archivo', sans-serif; font-size: 11px;
+  color: #333333; line-height: 1.6;
+}
+
+/* TWO COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 14px; }
+.col-title {
+  font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 700;
+  color: #111111; text-transform: uppercase; letter-spacing: 0.1em;
+  padding-bottom: 6px; border-bottom: 2px solid #FF3900; margin-bottom: 10px;
+}
+.col-body {
+  font-family: 'Archivo', sans-serif; font-size: 10.5px; color: #555555; line-height: 1.7;
+}
+
+.note {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px; color: #999999;
+  margin-top: 8px; font-style: italic;
+}
+
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top-stripe"></div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Channel Budget &middot; May &ndash; Dec 2026</div>
+    <div class="cover-title">
+      Performance<br>
+      <span class="accent">Distribution</span>
+    </div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">
+      Budget allocation, FTD targets and CPA reduction plan for the Performance channel across the second half of 2026.
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Prepared by</label>
+        <span>Darwin Godoy</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Period</label>
+        <span>May &ndash; Dec 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>May 27, 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-watermark">PERFO</div>
+  <div class="cover-footer">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="confidential">Confidential Document</div>
+  </div>
+</div>
+
+<!-- PAGE 2: Distribution -->
+<div class="page">
+  <div class="page-header">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="doc-label">Performance Distribution 2026</div>
+    <div class="doc-date">May 2026</div>
+  </div>
+  <div class="page-content">
+
+    <div class="section-badge">
+      <div class="badge-num">1</div>
+      <div class="badge-label">Overview</div>
+    </div>
+    <div class="section-title">Budget &amp; FTD <span class="accent">Summary</span></div>
+
+    <div class="body-text">
+      Performance is the largest paid channel, representing 28% of total media budget for the period. The allocation is concentrated in the second half due to Copa do Mundo seasonality (Jun/Jul peak) and ramps down from August as the Copa effect fades. FTD targets increase throughout the period as the CPA efficiency improves.
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kc-label">Total Investment (USD)</div>
+        <div class="kc-value">$1.75M</div>
+        <div class="kc-sub">R$9.75M &middot; at R$5.56/USD</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kc-label">Total FTD Target</div>
+        <div class="kc-value">19,729</div>
+        <div class="kc-sub">May through December 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kc-label">CPA Range</div>
+        <div class="kc-value">$155&rarr;$48</div>
+        <div class="kc-sub">Sports calendar-adjusted &middot; JP Forecast FTDs</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="section-title sm">Monthly <span class="accent">Breakdown</span></div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th class="right">Inv. USD</th>
+          <th class="right">Inv. BRL</th>
+          <th class="right">FTD Target</th>
+          <th class="right">CPA (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>May</strong></td>
+          <td class="right mono">$200,000</td>
+          <td class="right mono">R$1,112,000</td>
+          <td class="right mono">1,286</td>
+          <td class="right"><span class="cpa-high">$155.52</span></td>
+        </tr>
+        <tr>
+          <td><strong>Jun</strong></td>
+          <td class="right mono">$330,000</td>
+          <td class="right mono">R$1,834,800</td>
+          <td class="right mono">2,537</td>
+          <td class="right"><span class="cpa-mid">$130.07</span></td>
+        </tr>
+        <tr>
+          <td><strong>Jul</strong></td>
+          <td class="right mono">$310,000</td>
+          <td class="right mono">R$1,723,600</td>
+          <td class="right mono">2,750</td>
+          <td class="right"><span class="cpa-mid">$112.73</span></td>
+        </tr>
+        <tr>
+          <td><strong>Aug</strong></td>
+          <td class="right mono">$160,000</td>
+          <td class="right mono">R$889,600</td>
+          <td class="right mono">2,118</td>
+          <td class="right"><span class="cpa-low">$75.54</span></td>
+        </tr>
+        <tr>
+          <td><strong>Sep</strong></td>
+          <td class="right mono">$185,000</td>
+          <td class="right mono">R$1,028,600</td>
+          <td class="right mono">2,302</td>
+          <td class="right"><span class="cpa-low">$80.36</span></td>
+        </tr>
+        <tr>
+          <td><strong>Oct</strong></td>
+          <td class="right mono">$200,000</td>
+          <td class="right mono">R$1,112,000</td>
+          <td class="right mono">2,583</td>
+          <td class="right"><span class="cpa-low">$77.43</span></td>
+        </tr>
+        <tr>
+          <td><strong>Nov</strong></td>
+          <td class="right mono">$210,000</td>
+          <td class="right mono">R$1,167,600</td>
+          <td class="right mono">2,864</td>
+          <td class="right"><span class="cpa-low">$73.32</span></td>
+        </tr>
+        <tr>
+          <td><strong>Dec</strong></td>
+          <td class="right mono">$159,199</td>
+          <td class="right mono">R$885,147</td>
+          <td class="right mono">3,289</td>
+          <td class="right"><span class="cpa-low">$48.40</span></td>
+        </tr>
+        <tr class="total-row">
+          <td>TOTAL</td>
+          <td class="right mono">$1,754,199</td>
+          <td class="right mono">R$9,753,347</td>
+          <td class="right mono">19,729</td>
+          <td class="right" style="color:#AAAAAA; font-size:9px;">blended avg $88.91</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">Exchange rate: R$5.56/USD (reference May 2026). Jun/Jul concentrated to capture Copa do Mundo 2026 (Jun 11&ndash;Jul 19). Aug lower as post-Copa normalization. FTD targets from JP Forecast (Simulator - New).</div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">BetWarrior Brasil &middot; Confidential</div>
+    <div class="footer-page">2</div>
+  </div>
+</div>
+
+<!-- PAGE 3: CPA Progression + Methodology -->
+<div class="page">
+  <div class="page-header">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="doc-label">Performance Distribution 2026</div>
+    <div class="doc-date">May 2026</div>
+  </div>
+  <div class="page-content">
+
+    <div class="section-badge">
+      <div class="badge-num">2</div>
+      <div class="badge-label">CPA Progression</div>
+    </div>
+    <div class="section-title">CPA Reduction <span class="accent">Curve</span></div>
+
+    <div class="body-text">
+      CPA is sports calendar-adjusted: investment concentrates in Jun/Jul (Copa do Mundo, Jun 11&ndash;Jul 19) driving higher volume at lower CPA. Aug drops to $160K as budget normalizes post-Copa while FTD momentum persists, producing the sharpest CPA drop of the period. From Sep onward the channel stabilizes efficiently.
+    </div>
+
+    <!-- CPA Bar Chart -->
+    <div class="cpa-chart">
+      <div class="cpa-row">
+        <div class="cpa-month">May</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill" style="width:100%"></div></div>
+        <div class="cpa-label">$155.52</div>
+        <div class="cpa-ftd">1,286 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Jun</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill mid" style="width:83.6%"></div></div>
+        <div class="cpa-label">$130.07</div>
+        <div class="cpa-ftd">2,537 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Jul</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill mid" style="width:72.5%"></div></div>
+        <div class="cpa-label">$112.73</div>
+        <div class="cpa-ftd">2,750 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Aug</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill low" style="width:48.6%"></div></div>
+        <div class="cpa-label">$75.54</div>
+        <div class="cpa-ftd">2,118 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Sep</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill low" style="width:51.7%"></div></div>
+        <div class="cpa-label">$80.36</div>
+        <div class="cpa-ftd">2,302 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Oct</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill low" style="width:49.8%"></div></div>
+        <div class="cpa-label">$77.43</div>
+        <div class="cpa-ftd">2,583 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Nov</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill low" style="width:47.1%"></div></div>
+        <div class="cpa-label">$73.32</div>
+        <div class="cpa-ftd">2,864 FTDs</div>
+      </div>
+      <div class="cpa-row">
+        <div class="cpa-month">Dec</div>
+        <div class="cpa-bar-wrap"><div class="cpa-bar-fill low" style="width:31.1%"></div></div>
+        <div class="cpa-label">$48.40</div>
+        <div class="cpa-ftd">3,289 FTDs</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-bottom:14px;">Bar length proportional to CPA. Red = above $150 &middot; Amber = $100&ndash;$150 &middot; Green = below $100.</div>
+
+    <div class="rule"></div>
+
+    <div class="section-title sm">Methodology &amp; <span class="accent">Assumptions</span></div>
+
+    <div class="two-col">
+      <div>
+        <div class="col-title">CPA Curve Logic</div>
+        <div class="col-body">
+          Budget follows the sports calendar: Jun ($330K) and Jul ($310K) peak for Copa do Mundo (Jun 11&ndash;Jul 19), then drops sharply in Aug ($160K) as the event ends. FTD momentum from the Copa period keeps Aug CPA at $75.54 despite the budget cut. Sep&ndash;Dec stabilize at $73&ndash;$80 range.
+        </div>
+      </div>
+      <div>
+        <div class="col-title">FTD Distribution Source</div>
+        <div class="col-body">
+          Monthly FTD targets derived from JP Forecast (Simulator - New). Performance uses the ex-affiliates seasonality index (row 8) applied to the annual total of 19,729 FTDs. August dip reflects post-Copa normalization; Dec peak reflects end-of-year acquisition push.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:16px;">
+      <div class="callout-title">Open Items</div>
+      <div class="callout-body">
+        CPA targets are projections pending confirmation of Jan&ndash;Apr actuals by Diego (current estimate: $2,302,468 consumed). Targets should be revised if the actual consumed differs materially. CR improvement post-Copa (Aug onward) will be quantified when data is available.
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">BetWarrior Brasil &middot; Confidential</div>
+    <div class="footer-page">3</div>
+  </div>
+</div>
+
+</body>
+</html>
