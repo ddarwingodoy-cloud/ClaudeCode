@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTM Taxonomy — BetWarrior BR Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1C1C1E;
+    --surface: #111111;
+    --surface2: #1A1A1A;
+    --border: #2A2A2A;
+    --accent: #FF3900;
+    --text: #FFFFFF;
+    --muted: #AAAAAA;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --error: #EF4444;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 40px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .doc-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  .doc-eyebrow {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .doc-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .doc-meta {
+    margin-top: 10px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    display: flex;
+    gap: 24px;
+  }
+  .doc-meta span { color: var(--text); }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .section-intro {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 16px;
+    max-width: 780px;
+    line-height: 1.7;
+  }
+  .section-intro strong { color: var(--text); }
+
+  /* CARDS ROW */
+  .cards-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+  }
+  .card-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .card-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .card-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  thead th {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  tbody tr:nth-child(odd)  { background: var(--surface); }
+  tbody tr:nth-child(even) { background: var(--surface2); }
+  tbody td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .mono { font-family: 'Roboto Mono', monospace; font-size: 11px; }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+    white-space: nowrap;
+  }
+  .pill-accent  { background: rgba(255,57,0,.15); color: var(--accent); border: 1px solid rgba(255,57,0,.3); }
+  .pill-success { background: rgba(34,197,94,.12); color: var(--success); border: 1px solid rgba(34,197,94,.25); }
+  .pill-warn    { background: rgba(245,158,11,.12); color: var(--warning); border: 1px solid rgba(245,158,11,.25); }
+  .pill-error   { background: rgba(239,68,68,.12); color: var(--error); border: 1px solid rgba(239,68,68,.25); }
+  .pill-muted   { background: rgba(170,170,170,.1); color: var(--muted); border: 1px solid rgba(170,170,170,.2); }
+
+  /* PROBLEM LIST */
+  .problem-list { display: flex; flex-direction: column; gap: 10px; }
+  .problem-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--error);
+    border-radius: 4px;
+    padding: 12px 14px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .problem-num {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--error);
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .problem-body strong { display: block; font-size: 12px; margin-bottom: 3px; }
+  .problem-body p { font-size: 11px; color: var(--muted); }
+  .code { font-family: 'Roboto Mono', monospace; font-size: 10px; background: #222; padding: 1px 5px; border-radius: 2px; color: var(--warning); }
+
+  /* TAXONOMY DIAGRAM */
+  .taxonomy-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    align-items: stretch;
+  }
+  .tax-field {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    position: relative;
+  }
+  .tax-field-name {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .tax-field-role {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .tax-field-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .tax-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--border);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* EXAMPLES */
+  .example-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .example-header {
+    background: var(--surface2);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .example-canal {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .example-body { padding: 0; }
+
+  /* BEFORE/AFTER */
+  .ba-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .ba-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .ba-header {
+    padding: 8px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Roboto Mono', monospace;
+  }
+  .ba-header.before { background: rgba(239,68,68,.12); color: var(--error); border-bottom: 1px solid rgba(239,68,68,.2); }
+  .ba-header.after  { background: rgba(34,197,94,.08); color: var(--success); border-bottom: 1px solid rgba(34,197,94,.15); }
+  .ba-content { padding: 12px 14px; }
+  .ba-content p { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .ba-content p:last-child { margin-bottom: 0; }
+  .ba-content strong { color: var(--text); }
+
+  /* IMPACT TABLE */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 12px;
+  }
+  .ig-header {
+    background: var(--accent);
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .ig-cell {
+    background: var(--surface);
+    padding: 9px 12px;
+    vertical-align: top;
+  }
+  .ig-cell:nth-child(4n+3) { background: var(--surface2); }
+  .ig-cell:nth-child(4n+4) { background: var(--surface2); }
+
+  /* NEXT STEPS */
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+  .step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .step-num {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 900;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body strong { display: block; font-size: 13px; margin-bottom: 3px; }
+  .step-body p { font-size: 11px; color: var(--muted); }
+  .step-owner {
+    margin-left: auto;
+    flex-shrink: 0;
+    padding-left: 16px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  .note {
+    background: rgba(245,158,11,.07);
+    border: 1px solid rgba(245,158,11,.2);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: var(--warning);
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="doc-eyebrow">BetWarrior · Performance · Brazil</div>
+  <div class="doc-title">UTM Taxonomy — BR Proposal</div>
+  <div class="doc-meta">
+    <div>Date <span>May 28, 2026</span></div>
+    <div>Author <span>Darwin Godoy</span></div>
+    <div>Status <span>Proposal — for alignment</span></div>
+    <div>GA4 Property <span>512299072 · New Brazil All Prod</span></div>
+  </div>
+</div>
+
+<!-- CONTEXT -->
+<div class="section">
+  <div class="section-title">01 · Context</div>
+  <div class="section-intro">
+    BetWarrior BR's budget is structured around <strong>6 acquisition channels</strong>: Performance, Affiliates, Influencers, Brand &amp; Media, Organic, and Direct. The current UTM taxonomy — built for Argentina's media mix — does not expose this structure in GA4. As a result, channel-level reporting requires manual source mapping outside the analytics tool, creating inconsistency and blind spots.
+    <br><br>
+    This document proposes a taxonomy adjustment that preserves Juanca's campaign naming conventions while adding a <strong>channel layer</strong> that aligns GA4 data directly with the BR budget distribution.
+  </div>
+  <div class="cards-row">
+    <div class="card">
+      <div class="card-label">GA4 Sessions Analyzed</div>
+      <div class="card-value" style="color:var(--text)">484</div>
+      <div class="card-sub">source/medium/campaign combinations · May 2026</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Unique Sources Identified</div>
+      <div class="card-value" style="color:var(--warning)">14+</div>
+      <div class="card-sub">google, meta, x, tiktok, kwai, taboola, sofascore, deportes, casino, publisher…</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Budget Channels Not Isolable</div>
+      <div class="card-value" style="color:var(--error)">4 / 6</div>
+      <div class="card-sub">Affiliates, Influencers, Brand &amp; Media, Organic not filterable as a group</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Medium Values in Use</div>
+      <div class="card-value" style="color:var(--error)">7+</div>
+      <div class="card-sub">paid_media, cpc, affiliate, branding, referral, social_paid, organic…</div>
+    </div>
+  </div>
+</div>
+
+<!-- CURRENT STATE -->
+<div class="section">
+  <div class="section-title">02 · Current State</div>
+  <div class="section-intro">What the team tagged for May 2026 — extracted from GA4 Property 512299072:</div>
+
+  <table style="margin-bottom:16px">
+    <thead>
+      <tr>
+        <th>utm_source</th>
+        <th>utm_medium</th>
+        <th>utm_campaign (pattern)</th>
+        <th>utm_content (pattern)</th>
+        <th>Maps to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mono">google</td>
+        <td class="mono">cpc <span style="color:var(--error)">*</span></td>
+        <td class="mono">BR_search_aon_conv_brand_exacta</td>
+        <td class="mono">Institucional_int_search_text_ads_v2_BR</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">search <span style="color:var(--error)">*</span></td>
+        <td class="mono">paid_media</td>
+        <td class="mono">BR_search_aon_conv_brand</td>
+        <td class="mono">int_search_textads</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">pmax <span style="color:var(--error)">*</span></td>
+        <td class="mono">paid_media</td>
+        <td class="mono">BR_pmax_aon_conv_apuestas</td>
+        <td class="mono">—</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">meta</td>
+        <td class="mono">paid_media</td>
+        <td class="mono">BR_meta_aon_conv_casino <span style="color:var(--error)">**</span></td>
+        <td class="mono">int_imagen_aviator_0904</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">x</td>
+        <td class="mono">paid_media</td>
+        <td class="mono">BR_x_aon_conv_casino</td>
+        <td class="mono">int_Imagen_genio_carrusel_1004</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">tiktok</td>
+        <td class="mono">paid_media</td>
+        <td class="mono">BR_tiktok_aon_conv_casino</td>
+        <td class="mono">Casino_int_Video_hero6s_BR</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">kwai</td>
+        <td class="mono">paid_media</td>
+        <td class="mono">BR_kwai_aon_conv_adquisicion_generica</td>
+        <td class="mono">Apuestas_int_search_generico_BR</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">taboola</td>
+        <td class="mono">paid_media / referral <span style="color:var(--error)">*</span></td>
+        <td class="mono">BR_taboola_aon_conv_casino_native_mob</td>
+        <td class="mono">generic_native_aviator1</td>
+        <td><span class="pill pill-accent">Perfo</span></td>
+      </tr>
+      <tr>
+        <td class="mono">deportes / casino</td>
+        <td class="mono">affiliate</td>
+        <td class="mono">conv_direct</td>
+        <td class="mono">reg_deportes / reg_casino</td>
+        <td><span class="pill pill-warn">Affiliates</span></td>
+      </tr>
+      <tr>
+        <td class="mono">(not set)</td>
+        <td class="mono">affiliate</td>
+        <td class="mono">Site</td>
+        <td class="mono">casino</td>
+        <td><span class="pill pill-warn">Affiliates</span></td>
+      </tr>
+      <tr>
+        <td class="mono">publisher</td>
+        <td class="mono">social_paid</td>
+        <td class="mono">esports</td>
+        <td class="mono">nfa</td>
+        <td><span class="pill pill-muted">Influencers?</span></td>
+      </tr>
+      <tr>
+        <td class="mono">sofascore</td>
+        <td class="mono">branding</td>
+        <td class="mono">branding_aon_nacional_sofascore_conv_apuestas</td>
+        <td class="mono">branding_aon_3rd-party_ban_320x50_…</td>
+        <td><span class="pill pill-muted">Brand?</span></td>
+      </tr>
+      <tr>
+        <td class="mono">google</td>
+        <td class="mono">organic</td>
+        <td class="mono">(organic)</td>
+        <td class="mono">—</td>
+        <td><span class="pill pill-success">Organic</span></td>
+      </tr>
+      <tr>
+        <td class="mono">(direct)</td>
+        <td class="mono">(none)</td>
+        <td class="mono">(direct)</td>
+        <td class="mono">—</td>
+        <td><span class="pill pill-muted">Direct</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note" style="color:var(--muted); background:rgba(170,170,170,.05); border-color:var(--border); margin-bottom:16px; font-size:10px; font-family:'Roboto Mono',monospace;">
+    * Same channel, different values — splits data across rows in GA4 &nbsp;·&nbsp; ** Inconsistent casing observed: BR_meta vs br_meta
+  </div>
+
+  <div class="problem-list">
+    <div class="problem-item">
+      <div class="problem-num">P1</div>
+      <div class="problem-body">
+        <strong>Medium is not a reliable channel signal</strong>
+        <p>Google campaigns appear under both <span class="code">cpc</span> (auto-tagged) and <span class="code">paid_media</span> (manual), splitting the same channel into two rows. Taboola appears as <span class="code">paid_media</span> and <span class="code">referral</span>. No single filter isolates "all paid media."</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">P2</div>
+      <div class="problem-body">
+        <strong>Affiliates carry no partner identity</strong>
+        <p>Source values are product categories (<span class="code">deportes</span>, <span class="code">casino</span>) instead of affiliate names. It is impossible to break down affiliate performance by partner in GA4 without cross-referencing MyAffiliates separately.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">P3</div>
+      <div class="problem-body">
+        <strong>Influencers are invisible or misclassified</strong>
+        <p><span class="code">publisher / social_paid</span> identifies some influencer traffic but hides the influencer name. Influencer creatives (e.g., <span class="code">int_imagen_tourinho</span>) appear inside Meta paid campaigns, indistinguishable from performance ads.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">P4</div>
+      <div class="problem-body">
+        <strong>Brand &amp; Media has no unified tag</strong>
+        <p>Sofascore uses <span class="code">branding</span> as medium. No standard exists for other sponsorships, display awareness, or third-party publishers. Each partner invents their own pattern.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">P5</div>
+      <div class="problem-body">
+        <strong>Channel-level reporting requires manual assembly</strong>
+        <p>There is no GA4 dimension that maps directly to the BR budget channels. Every report requires a lookup table to group sources into channels — error-prone and not scalable as the channel mix grows.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROPOSAL -->
+<div class="section">
+  <div class="section-title">03 · Proposed Taxonomy</div>
+  <div class="section-intro">
+    The core change: <strong>utm_medium becomes the channel identifier</strong>, matching BR's budget distribution categories. Each medium value maps 1:1 to a budget line. utm_source retains its role as the platform or partner name. Campaign and content naming conventions remain largely unchanged.
+  </div>
+
+  <div class="taxonomy-row">
+    <div class="tax-field">
+      <div class="tax-field-name">utm_medium</div>
+      <div class="tax-field-role">Channel (budget line)</div>
+      <div class="tax-field-values">
+        <span class="pill pill-accent">perfo</span>
+        <span class="pill pill-warn">affiliates</span>
+        <span class="pill pill-success">influencer</span>
+        <span class="pill pill-muted">brand</span>
+        <span class="pill pill-muted">organic</span>
+        <span class="pill pill-muted">direct</span>
+        <span class="pill pill-muted">crm</span>
+      </div>
+    </div>
+    <div class="tax-arrow">›</div>
+    <div class="tax-field">
+      <div class="tax-field-name">utm_source</div>
+      <div class="tax-field-role">Platform / Partner</div>
+      <div class="tax-field-values">
+        <span class="pill pill-muted">google</span>
+        <span class="pill pill-muted">meta</span>
+        <span class="pill pill-muted">x</span>
+        <span class="pill pill-muted">tiktok</span>
+        <span class="pill pill-muted">kwai</span>
+        <span class="pill pill-muted">taboola</span>
+        <span class="pill pill-muted">{affiliate_name}</span>
+        <span class="pill pill-muted">{influencer_name}</span>
+        <span class="pill pill-muted">sofascore</span>
+      </div>
+    </div>
+    <div class="tax-arrow">›</div>
+    <div class="tax-field">
+      <div class="tax-field-name">utm_campaign</div>
+      <div class="tax-field-role">Campaign group</div>
+      <div class="tax-field-values">
+        <span class="pill pill-muted" style="font-size:9px">{CHANNEL}_{GEO}_{source}_{mode}_{goal}_{product}</span>
+      </div>
+    </div>
+    <div class="tax-arrow">›</div>
+    <div class="tax-field">
+      <div class="tax-field-name">utm_content</div>
+      <div class="tax-field-role">Creative</div>
+      <div class="tax-field-values">
+        <span class="pill pill-muted" style="font-size:9px">{format}_{theme}_{version}_{date}</span>
+      </div>
+    </div>
+    <div class="tax-arrow">›</div>
+    <div class="tax-field">
+      <div class="tax-field-name">utm_term</div>
+      <div class="tax-field-role">Audience / Terms</div>
+      <div class="tax-field-values">
+        <span class="pill pill-muted">prosp</span>
+        <span class="pill pill-muted">retarg</span>
+        <span class="pill pill-muted">cpa</span>
+        <span class="pill pill-muted">revshare</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAMPLES -->
+  <div class="example-block">
+    <div class="example-header">
+      <span class="pill pill-accent">Perfo</span>
+      <span class="example-canal">Performance — Paid Media</span>
+    </div>
+    <div class="example-body">
+      <table>
+        <thead>
+          <tr><th>source</th><th>medium</th><th>campaign</th><th>content</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">google</td>
+            <td class="mono">perfo</td>
+            <td class="mono">PERFO_BR_google_aon_conv_casino</td>
+            <td class="mono">img_aviator_v1_0905</td>
+          </tr>
+          <tr>
+            <td class="mono">meta</td>
+            <td class="mono">perfo</td>
+            <td class="mono">PERFO_BR_meta_aon_conv_apuestas</td>
+            <td class="mono">vid_copa_v2_1505</td>
+          </tr>
+          <tr>
+            <td class="mono">x</td>
+            <td class="mono">perfo</td>
+            <td class="mono">PERFO_BR_x_aon_conv_casino</td>
+            <td class="mono">img_genio_carrusel_v1_1004</td>
+          </tr>
+          <tr>
+            <td class="mono">tiktok</td>
+            <td class="mono">perfo</td>
+            <td class="mono">PERFO_BR_tiktok_aon_conv_casino</td>
+            <td class="mono">vid_hero6s_v1_0905</td>
+          </tr>
+          <tr>
+            <td class="mono">taboola</td>
+            <td class="mono">perfo</td>
+            <td class="mono">PERFO_BR_taboola_aon_conv_casino_native_mob</td>
+            <td class="mono">img_aviator_native_v1_1205</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="example-block" style="margin-top:8px">
+    <div class="example-header">
+      <span class="pill pill-warn">Affiliates</span>
+      <span class="example-canal">Affiliates — Partner-level visibility</span>
+    </div>
+    <div class="example-body">
+      <table>
+        <thead>
+          <tr><th>source</th><th>medium</th><th>campaign</th><th>content</th><th>term</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">nfa</td>
+            <td class="mono">affiliates</td>
+            <td class="mono">AFIL_BR_nfa_cpa_reg_casino</td>
+            <td class="mono">lp_casino_v1</td>
+            <td class="mono">cpa</td>
+          </tr>
+          <tr>
+            <td class="mono">bet365</td>
+            <td class="mono">affiliates</td>
+            <td class="mono">AFIL_BR_bet365_cpa_reg_apuestas</td>
+            <td class="mono">lp_apuestas_v2</td>
+            <td class="mono">cpa</td>
+          </tr>
+          <tr>
+            <td class="mono">sportingbet_br</td>
+            <td class="mono">affiliates</td>
+            <td class="mono">AFIL_BR_sportingbet_rev_reg</td>
+            <td class="mono">lp_generic_v1</td>
+            <td class="mono">revshare</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="example-block" style="margin-top:8px">
+    <div class="example-header">
+      <span class="pill pill-success">Influencer</span>
+      <span class="example-canal">Influencers — Individual tracking</span>
+    </div>
+    <div class="example-body">
+      <table>
+        <thead>
+          <tr><th>source</th><th>medium</th><th>campaign</th><th>content</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">tourinho</td>
+            <td class="mono">influencer</td>
+            <td class="mono">INFLU_BR_tourinho_post_casino</td>
+            <td class="mono">reel_aviator_v1_1505</td>
+          </tr>
+          <tr>
+            <td class="mono">hulk</td>
+            <td class="mono">influencer</td>
+            <td class="mono">INFLU_BR_hulk_stories_apuestas</td>
+            <td class="mono">stories_copa_v1_0505</td>
+          </tr>
+          <tr>
+            <td class="mono">braga</td>
+            <td class="mono">influencer</td>
+            <td class="mono">INFLU_BR_braga_live_casino</td>
+            <td class="mono">live_cassino_v1_1205</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="example-block" style="margin-top:8px">
+    <div class="example-header">
+      <span class="pill pill-muted">Brand</span>
+      <span class="example-canal">Brand &amp; Media — Sponsorships &amp; Display</span>
+    </div>
+    <div class="example-body">
+      <table>
+        <thead>
+          <tr><th>source</th><th>medium</th><th>campaign</th><th>content</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">sofascore</td>
+            <td class="mono">brand</td>
+            <td class="mono">BRAND_BR_sofascore_aon_awareness_apuestas</td>
+            <td class="mono">ban_320x50_brasileirao_v1_0405</td>
+          </tr>
+          <tr>
+            <td class="mono">espn</td>
+            <td class="mono">brand</td>
+            <td class="mono">BRAND_BR_espn_patrocinio_awareness_apuestas</td>
+            <td class="mono">display_banner_v1_0505</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- BEFORE / AFTER -->
+<div class="section">
+  <div class="section-title">04 · What Changes</div>
+  <div class="ba-wrap">
+    <div class="ba-box">
+      <div class="ba-header before">Before</div>
+      <div class="ba-content">
+        <p><strong>GA4 filter for "Affiliates"</strong><br>Must manually include: <span class="code">deportes</span>, <span class="code">casino</span>, <span class="code">retargeting</span>, <span class="code">(not set)</span> where medium = affiliate</p>
+        <p><strong>Google traffic</strong><br>Appears as <span class="code">google/cpc</span> AND <span class="code">search/paid_media</span> AND <span class="code">pmax/paid_media</span> — 3 rows for the same channel</p>
+        <p><strong>Influencer identity</strong><br>Hidden inside creative name (<span class="code">int_imagen_tourinho</span>) or lumped as <span class="code">publisher/social_paid</span></p>
+        <p><strong>Channel report</strong><br>Requires manual source-to-channel mapping table, rebuilt every time a new partner is added</p>
+      </div>
+    </div>
+    <div class="ba-box">
+      <div class="ba-header after">After</div>
+      <div class="ba-content">
+        <p><strong>GA4 filter for "Affiliates"</strong><br>Single filter: <span class="code" style="color:var(--success)">medium = affiliates</span> — all partners included automatically</p>
+        <p><strong>Google traffic</strong><br>Single row: <span class="code" style="color:var(--success)">source = google, medium = perfo</span> — auto-tag conflict resolved via GA4 data import or manual override</p>
+        <p><strong>Influencer identity</strong><br>Visible at source level: <span class="code" style="color:var(--success)">source = tourinho, medium = influencer</span></p>
+        <p><strong>Channel report</strong><br>Native GA4 segment by medium — no mapping table needed, new partners automatically classified</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-intro" style="margin-bottom:12px">Operational impact by team:</div>
+  <div class="impact-grid">
+    <div class="ig-header">Action</div>
+    <div class="ig-header">Owner</div>
+    <div class="ig-header">Scope</div>
+    <div class="ig-header">Timing</div>
+
+    <div class="ig-cell">Redefine utm_medium values in campaign templates</div>
+    <div class="ig-cell"><span class="pill pill-accent">Perfo ARG</span></div>
+    <div class="ig-cell">All active BR campaigns on Google, Meta, X, TikTok, Kwai, Taboola</div>
+    <div class="ig-cell"><span class="pill pill-warn">New campaigns</span></div>
+
+    <div class="ig-cell">Update affiliate tracking links in MyAffiliates — source = partner name</div>
+    <div class="ig-cell"><span class="pill pill-warn">Darwin + Afil.</span></div>
+    <div class="ig-cell">All active affiliate partners</div>
+    <div class="ig-cell"><span class="pill pill-warn">Phased</span></div>
+
+    <div class="ig-cell">Create UTM link generator for influencer campaigns</div>
+    <div class="ig-cell"><span class="pill pill-warn">Darwin</span></div>
+    <div class="ig-cell">All active influencers (Tourinho, Hulk, Braga…)</div>
+    <div class="ig-cell"><span class="pill pill-success">Immediate</span></div>
+
+    <div class="ig-cell">Resolve Google auto-tagging conflict (gclid overrides utm_medium)</div>
+    <div class="ig-cell"><span class="pill pill-accent">Perfo ARG</span></div>
+    <div class="ig-cell">Google Ads — configure data import or enable manual tagging priority</div>
+    <div class="ig-cell"><span class="pill pill-warn">New campaigns</span></div>
+
+    <div class="ig-cell">Update GA4 channel grouping rules to match new medium values</div>
+    <div class="ig-cell"><span class="pill pill-accent">Perfo ARG</span></div>
+    <div class="ig-cell">GA4 Admin → Data Streams → Channel Groups</div>
+    <div class="ig-cell"><span class="pill pill-warn">New campaigns</span></div>
+
+    <div class="ig-cell">Archive historical data note — old sessions retain old medium values</div>
+    <div class="ig-cell"><span class="pill pill-muted">Darwin</span></div>
+    <div class="ig-cell">Document cutover date; do not backfill</div>
+    <div class="ig-cell"><span class="pill pill-success">On cutover</span></div>
+  </div>
+
+  <div class="note">
+    Historical continuity: Sessions before the cutover date will retain current medium values. GA4 comparisons across the boundary must account for the taxonomy change. Recommended: define a clean cutover date (e.g., June 1) and document it.
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- NEXT STEPS -->
+<div class="section">
+  <div class="section-title">05 · Next Steps</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Align on medium vocabulary</strong>
+        <p>Confirm the 6 medium values (perfo, affiliates, influencer, brand, organic, direct) cover all BR acquisition channels. Juanca to flag any ARG-side conflicts.</p>
+      </div>
+      <div class="step-owner"><span class="pill pill-accent">Meeting</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Define cutover date</strong>
+        <p>All new campaigns launched after the cutover date use the new taxonomy. Recommend June 1 to align with a clean monthly boundary.</p>
+      </div>
+      <div class="step-owner"><span class="pill pill-accent">Meeting</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Juanca updates campaign templates for BR</strong>
+        <p>Update utm_medium in all active BR campaign templates across Google, Meta, X, TikTok, Kwai, and Taboola. Apply only to new campaigns going forward.</p>
+      </div>
+      <div class="step-owner"><span class="pill pill-accent">Perfo ARG</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Darwin creates influencer link kit</strong>
+        <p>Build a simple UTM link generator (spreadsheet or tool) for influencer campaigns. One tagged URL per influencer per activation. Distribute before next influencer goes live.</p>
+      </div>
+      <div class="step-owner"><span class="pill pill-warn">Darwin</span></div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:40px; padding-top:16px; border-top:1px solid var(--border); font-family:'Roboto Mono',monospace; font-size:9px; color:#444; display:flex; justify-content:space-between;">
+  <span>BetWarrior BR · Performance · Confidential</span>
+  <span>GA4 Property 512299072 · Data: May 1–26, 2026</span>
+</div>
+
+</body>
+</html>
