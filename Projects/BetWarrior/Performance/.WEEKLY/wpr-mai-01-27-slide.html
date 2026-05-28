@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPR Brasil — P1 Métricas de Negócio — Mai 01–27/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+body {
+  min-width: 1100px;
+  height: 100vh;
+  overflow: hidden;
+  background: #F2F2F2;
+  color: #111111;
+  font-family: 'Archivo', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.hdr {
+  background: #FFFFFF;
+  border-bottom: 2px solid #FF3900;
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 28px; height: 80px; flex-shrink: 0;
+}
+.logo-block { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-bar   { width: 4px; height: 36px; background: #FF3900; }
+.logo-text .brand { font-family: 'Archivo Black', sans-serif; font-size: 17px; letter-spacing: 1px; color: #111; }
+.logo-text .sub   { font-size: 9px; color: #999; letter-spacing: 3px; text-transform: uppercase; }
+.hdr-sep  { width: 1px; height: 44px; background: #E0E0E0; flex-shrink: 0; }
+.hdr-body { flex: 1; }
+.hdr-title { font-family: 'Archivo Black', sans-serif; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #111; line-height: 1; margin-bottom: 6px; }
+.hdr-sub { font-size: 12px; color: #777; line-height: 1.4; }
+.hdr-sub strong { color: #FF3900; }
+.hdr-meta { font-size: 11px; color: #999; text-align: right; line-height: 1.8; flex-shrink: 0; letter-spacing: 0.5px; }
+.body {
+  flex: 1;
+  padding: 14px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  min-height: 0;
+}
+.row { display: flex; gap: 12px; }
+.row-top { flex: 1; min-height: 0; }
+.row-bot { flex: 1; min-height: 0; }
+.panel {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column; overflow: hidden;
+  min-height: 0;
+}
+.p-half { flex: 1; }
+.p-wide { flex: 5; }
+.p-hi   { flex: 3; }
+.ph {
+  display: flex; align-items: center; gap: 10px;
+  background: #FFFFFF; padding: 10px 18px;
+  border-bottom: 2px solid #FF3900; flex-shrink: 0;
+}
+.ph svg { flex-shrink: 0; }
+.ph-title { font-family: 'Archivo Black', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #111; }
+.ph-note  { margin-left: auto; font-size: 9px; color: #AAAAAA; font-style: italic; }
+.p-body   { flex: 1; padding: 14px 18px 12px; display: flex; flex-direction: column; min-height: 0; }
+/* FTD bars */
+.bars-wrap {
+  flex: 1; display: flex; align-items: flex-end;
+  gap: 8px; padding: 0 8px; min-height: 0; max-height: 270px;
+}
+.bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.bar-total { font-family: 'Archivo Black', sans-serif; font-size: 16px; color: #BBBBBB; margin-bottom: 5px; line-height: 1; }
+.bar-total.cur { color: #FF3900; }
+.bar { width: 88%; display: flex; flex-direction: column; overflow: hidden; border-radius: 2px 2px 0 0; }
+.seg { width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.s-aff  { background: #FF3900; }
+.s-ps   { background: #F59E0B; }
+.s-rest { background: #C8C8C8; }
+.bar-mth { font-family: 'Archivo Black', sans-serif; font-size: 11px; color: #AAAAAA; margin-top: 5px; }
+.bar-mth.cur { color: #FF3900; }
+.bar-per { font-size: 9px; color: #CCCCCC; margin-top: 2px; }
+.chart-legend {
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: center;
+  padding-top: 8px; border-top: 1px solid #F0F0F0; margin-top: 7px;
+  flex-shrink: 0; min-height: 34px;
+}
+.cl { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #999; }
+.cl-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+/* Dep bars */
+.dep-bars-wrap {
+  flex: 1; display: flex; align-items: flex-end;
+  gap: 8px; padding: 0 8px; min-height: 0; max-height: 270px;
+}
+.dep-col { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.dep-val { font-family: 'Archivo Black', sans-serif; font-size: 16px; color: #BBBBBB; margin-bottom: 5px; line-height: 1; }
+.dep-val.cur { color: #FF3900; }
+.dep-bar { width: 88%; border-radius: 2px 2px 0 0; background: #CCCCCC; }
+.dep-bar.cur { background: #FF3900; }
+.dep-mth { font-family: 'Archivo Black', sans-serif; font-size: 11px; color: #AAAAAA; margin-top: 5px; }
+.dep-mth.cur { color: #FF3900; }
+.dep-per { font-size: 9px; color: #CCCCCC; margin-top: 2px; }
+.dep-note { padding-top: 8px; border-top: 1px solid #F0F0F0; margin-top: 7px; font-size: 10px; color: #AAAAAA; flex-shrink: 0; line-height: 1.55; min-height: 34px; }
+/* Table */
+table { width: 100%; border-collapse: collapse; flex-shrink: 0; }
+thead tr { background: #FF3900; }
+thead th { padding: 5px 3px; text-align: center; white-space: nowrap; color: #FFF; font-family: 'Archivo Black', sans-serif; font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
+thead th:first-child { text-align: left; }
+thead th.th-hi { background: #CC2E00; }
+tbody tr:nth-child(odd)  { background: #FFFFFF; }
+tbody tr:nth-child(even) { background: #F8F8F8; }
+tbody tr.cw { background: #FFF5F2; border-left: 3px solid #FF3900; }
+tbody tr.dr { background: #F5F5F5; }
+tbody td { padding: 4px 7px; text-align: center; white-space: nowrap; font-size: 11px; color: #777; }
+tbody td:first-child { text-align: left; color: #333; font-family: 'Archivo Black', sans-serif; font-size: 10px; }
+.n    { color: #EF4444 !important; font-weight: 700; }
+.mu   { color: #CCCCCC !important; }
+.hi   { color: #111111 !important; font-size: 12px !important; font-weight: 700; }
+.hi-g { color: #22C55E !important; font-size: 12px !important; font-weight: 700; }
+.tnote { margin-top: 4px; font-size: 9px; color: #BBBBBB; line-height: 1.5; flex-shrink: 0; }
+.row-bot .p-body { padding: 8px 14px 6px; }
+/* Funil */
+.fn-wrap   { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.fn-names  { display: flex; margin-bottom: 6px; }
+.fn-name   { flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.fn-stage  { font-family: 'Archivo Black', sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #333; }
+.fn-src    { font-size: 8px; color: #AAAAAA; }
+.fn-alert  { font-size: 8px; color: #EF4444; font-weight: 700; }
+.fn-svg    { display: block; width: 100%; height: 114px; }
+.fn-convs  { position: relative; height: 46px; margin-top: 6px; }
+.fn-conv   { position: absolute; transform: translateX(-50%); text-align: center; }
+.fn-c-pct  { font-family: 'Archivo Black', sans-serif; font-size: 12px; line-height: 1.2; color: #111; }
+.fn-c-wow  { font-size: 8px; font-weight: 700; line-height: 1.4; }
+.fn-note   { font-size: 8px; color: #CCCCCC; letter-spacing: 0.3px; margin-top: 6px; padding-top: 5px; border-top: 1px solid #F0F0F0; }
+/* Footer */
+.ftr {
+  height: 30px; background: #FFFFFF; border-top: 1px solid #E8E8E8;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; font-size: 10px; color: #BBBBBB; letter-spacing: 1px;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo-block">
+    <div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div>
+  </div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body">
+    <div class="hdr-title">WEEKLY PERFORMANCE REPORT</div>
+    <div class="hdr-sub">
+      <strong>FTDs recuam −31% mas resultado financeiro avança: GGR +11,6%, NGR +12,6%, margem 3,9% — máximo do ano.</strong>
+      Funil perde força no KYC (−9,9pp) e na conversão depósito (−3,8pp) · GB/apostador +14,9% · dep. médio R$129 mínimo da série.
+    </div>
+  </div>
+  <div class="hdr-meta">01–27 / Mai 2026<br>SB + Casino · BRL<br>Gerado 28/05</div>
+</div>
+
+<div class="body">
+
+  <div class="row row-top">
+
+    <!-- FTDs MTD 27D -->
+    <div class="panel p-half">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="6" width="3" height="7" rx="1" fill="#FF3900"/><rect x="5" y="3" width="3" height="10" rx="1" fill="#FF3900"/><rect x="10" y="0" width="3" height="13" rx="1" fill="#FF3900"/></svg>
+        <span class="ph-title">FTDs MTD 27D Normalizado — Canal</span>
+        <span class="ph-note">FactFirstDeposit · PowerBI · âncora = 1ª Sex · Jan 02–28 → Mai 01–27</span>
+      </div>
+      <div class="p-body">
+        <div class="bars-wrap">
+
+          <div class="bar-col">
+            <div class="bar-total">1.760</div>
+            <div class="bar" style="height:45px;">
+              <div class="seg s-rest" style="height:82%;"></div>
+              <div class="seg s-ps"   style="height:5%;"></div>
+              <div class="seg s-aff"  style="height:13%;"></div>
+            </div>
+            <div class="bar-mth">JAN</div>
+            <div class="bar-per">02–28/01</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total">1.172</div>
+            <div class="bar" style="height:30px;">
+              <div class="seg s-rest" style="height:80%;"></div>
+              <div class="seg s-ps"   style="height:5%;"></div>
+              <div class="seg s-aff"  style="height:15%;"></div>
+            </div>
+            <div class="bar-mth">FEV</div>
+            <div class="bar-per">06/02–04/03</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total">1.682</div>
+            <div class="bar" style="height:43px;">
+              <div class="seg s-rest" style="height:79%;"></div>
+              <div class="seg s-ps"   style="height:2%;"></div>
+              <div class="seg s-aff"  style="height:19%;"><span style="font-family:'Archivo Black',sans-serif;font-size:9px;color:rgba(255,255,255,.7);">19%</span></div>
+            </div>
+            <div class="bar-mth">MAR</div>
+            <div class="bar-per">06/03–01/04</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total cur">3.889</div>
+            <div class="bar" style="height:100px;">
+              <div class="seg s-rest" style="height:60%;"><span style="font-family:'Archivo Black',sans-serif;font-size:11px;color:rgba(255,255,255,.5);">60%</span></div>
+              <div class="seg s-ps"   style="height:5%;"></div>
+              <div class="seg s-aff"  style="height:35%;"><span style="font-family:'Archivo Black',sans-serif;font-size:14px;color:#FFF;">35%</span></div>
+            </div>
+            <div class="bar-mth cur">ABR ★</div>
+            <div class="bar-per">03–29/04</div>
+          </div>
+
+          <div class="bar-col">
+            <div class="bar-total cur">2.679</div>
+            <div class="bar" style="height:69px;">
+              <div class="seg s-rest" style="height:75.3%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:rgba(255,255,255,.6);">75%</span></div>
+              <div class="seg s-ps"   style="height:2.6%;"></div>
+              <div class="seg s-aff"  style="height:22.1%;"><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:#FFF;">22%</span></div>
+            </div>
+            <div class="bar-mth cur">MAI ▶</div>
+            <div class="bar-per">01–27/05</div>
+          </div>
+
+        </div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900;"></div>Affiliates</div>
+          <div class="cl"><div class="cl-dot" style="background:#F59E0B;"></div>Paid Social</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8;"></div>Demais canais</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dep/FTD -->
+    <div class="panel p-half">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="5.5" stroke="#FF3900" stroke-width="1.5" fill="none"/><line x1="6.5" y1="3.5" x2="6.5" y2="6.5" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/><circle cx="6.5" cy="9" r="1" fill="#FF3900"/></svg>
+        <span class="ph-title">Depósito Médio por FTD — MTD 27D Normalizado</span>
+        <span class="ph-note">1º dep. + redepositos no período de entrada · PowerBI · âncora 1ª Sex</span>
+      </div>
+      <div class="p-body">
+        <div class="dep-bars-wrap">
+          <div class="dep-col">
+            <div class="dep-val">R$795</div>
+            <div class="dep-bar" style="height:100px;"></div>
+            <div class="dep-mth">JAN</div>
+            <div class="dep-per">02–28/01</div>
+          </div>
+          <div class="dep-col">
+            <div class="dep-val">R$400</div>
+            <div class="dep-bar" style="height:50px;"></div>
+            <div class="dep-mth">FEV</div>
+            <div class="dep-per">06/02–04/03</div>
+          </div>
+          <div class="dep-col">
+            <div class="dep-val">R$247</div>
+            <div class="dep-bar" style="height:31px;"></div>
+            <div class="dep-mth">MAR</div>
+            <div class="dep-per">06/03–01/04</div>
+          </div>
+          <div class="dep-col">
+            <div class="dep-val">R$147</div>
+            <div class="dep-bar" style="height:18px;"></div>
+            <div class="dep-mth">ABR ★</div>
+            <div class="dep-per">03–29/04</div>
+          </div>
+          <div class="dep-col">
+            <div class="dep-val cur">R$129</div>
+            <div class="dep-bar cur" style="height:16px;"></div>
+            <div class="dep-mth cur">MAI ▶</div>
+            <div class="dep-per">01–27/05</div>
+          </div>
+        </div>
+        <div class="dep-note">
+          Mai R$129 = mínimo da série · Org./Direct R$297 · Paid Social R$119 · Paid Media R$105 · Affiliates R$59
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row row-bot">
+
+    <!-- Funil -->
+    <div class="panel p-hi">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><polygon points="1,1 12,1 9,5.5 9,12 4,12 4,5.5" fill="#FF3900"/></svg>
+        <span class="ph-title">Funil de Ativação</span>
+        <span class="ph-note">GA4 + PowerBI · Mai 01–27 · âncora normalizada</span>
+      </div>
+      <div class="p-body" style="padding-top:10px;padding-bottom:8px;">
+        <div class="fn-wrap">
+          <div class="fn-names">
+            <div class="fn-name">
+              <span class="fn-stage">SESSÕES</span>
+              <span class="fn-src">GA4</span>
+            </div>
+            <div class="fn-name">
+              <span class="fn-stage">NO LOCK</span>
+              <span class="fn-src">PowerBI</span>
+            </div>
+            <div class="fn-name">
+              <span class="fn-stage">PRONTO P/ DEP</span>
+              <span class="fn-src">KYC PASS</span>
+              <span class="fn-alert">−9,9pp vs Abr</span>
+            </div>
+            <div class="fn-name">
+              <span class="fn-stage">FTD</span>
+              <span class="fn-src">PowerBI</span>
+            </div>
+          </div>
+          <!-- x=0:h=120 | x=108:h=70(25→95) | x=216:h=36(42→78) 51,8% | x=324:h=20(50→70) 56,0% | x=432:h=10(55→65) -->
+          <svg class="fn-svg" viewBox="0 0 432 120">
+            <polygon points="0,0   108,25  108,95  0,120"  fill="#FF7A50"/>
+            <polygon points="108,25 216,42  216,78  108,95" fill="#FF3900"/>
+            <polygon points="216,42 324,50  324,70  216,78" fill="#CC2E00"/>
+            <polygon points="324,50 432,55  432,65  324,70" fill="#8B1500"/>
+            <line x1="108" y1="25" x2="108" y2="95" stroke="white" stroke-width="1.5" opacity="0.35"/>
+            <line x1="216" y1="42" x2="216" y2="78" stroke="white" stroke-width="1.5" opacity="0.35"/>
+            <line x1="324" y1="50" x2="324" y2="70" stroke="white" stroke-width="1.5" opacity="0.35"/>
+            <text x="54"  y="64" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">493.860</text>
+            <text x="162" y="64" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">9.233</text>
+            <text x="270" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">4.783</text>
+            <text x="378" y="63" text-anchor="middle" fill="white" font-family="'Archivo Black',sans-serif" font-size="11">2.679</text>
+          </svg>
+          <div class="fn-convs">
+            <div class="fn-conv" style="left:25%">
+              <div class="fn-c-pct">1,87%</div>
+              <div class="fn-c-wow" style="color:#EF4444;">−0,51pp vs Abr</div>
+            </div>
+            <div class="fn-conv" style="left:50%">
+              <div class="fn-c-pct">51,8%</div>
+              <div class="fn-c-wow" style="color:#EF4444;">−9,9pp vs Abr</div>
+            </div>
+            <div class="fn-conv" style="left:75%">
+              <div class="fn-c-pct">56,0%</div>
+              <div class="fn-c-wow" style="color:#EF4444;">−3,8pp vs Abr</div>
+            </div>
+          </div>
+          <div class="fn-note">Sessões: GA4 · No Lock: FullReg NOT_LOCKED · Pronto p/Dep: KYC PASS (READY_FOR_DEPOSIT) · FTD: PowerBI BWBRA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="panel p-wide">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="0" y="0" width="13" height="3" rx="1" fill="#FF3900"/><rect x="0" y="5" width="13" height="3" rx="1" fill="#FF3900" opacity=".5"/><rect x="0" y="10" width="13" height="3" rx="1" fill="#FF3900" opacity=".25"/></svg>
+        <span class="ph-title">Métricas de Negócio — MTD 27D Normalizado</span>
+        <span class="ph-note">SB + Casino · BRL · âncora 1ª Sex · 27 dias normalizados</span>
+      </div>
+      <div class="p-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Mês</th><th>FullReg</th><th>FTDs</th><th>CR%</th>
+              <th class="th-hi">GGR (R$)</th><th class="th-hi">NGR (R$)</th><th class="th-hi">Marg.</th>
+              <th>SB</th><th>CS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jan</td><td>7.159</td><td>1.760</td><td>24,6%</td>
+              <td class="n hi">−78k</td><td class="n hi">−134k</td><td class="n hi">−1,2%</td>
+              <td class="n">−3,6%</td><td>4,9%</td>
+            </tr>
+            <tr>
+              <td>Fev</td><td>7.817</td><td>1.172</td><td>15,0%</td>
+              <td>87k</td><td>33k</td><td>2,7%</td><td class="mu">0,3%</td><td>7,0%</td>
+            </tr>
+            <tr>
+              <td>Mar</td><td>9.300</td><td>1.682</td><td>18,1%</td>
+              <td>106k</td><td>63k</td><td>3,2%</td><td>0,9%</td><td>5,7%</td>
+            </tr>
+            <tr>
+              <td>Abr ★</td>
+              <td class="hi">14.429</td><td class="hi">3.889</td><td class="hi">27,0%</td>
+              <td class="hi">202k</td><td class="hi">180k</td><td class="hi">3,1%</td>
+              <td>3,2%</td><td>3,0%</td>
+            </tr>
+            <tr class="cw">
+              <td>Mai ▶</td>
+              <td class="hi-g">12.313</td><td style="color:#111;font-weight:700;">2.679</td><td>21,8%</td>
+              <td class="hi-g">226k</td><td class="hi-g">203k</td><td class="hi">3,9%</td>
+              <td>3,1%</td><td>4,7%</td>
+            </tr>
+            <tr class="dr">
+              <td class="mu">Δ vs Abr</td>
+              <td class="n">−14,7%</td><td class="n">−31,1%</td><td class="n">−5,2pp</td>
+              <td class="hi-g">+11,6%</td><td class="hi-g">+12,6%</td><td class="hi">+0,8pp</td>
+              <td class="mu">−0,1pp</td><td class="hi-g">+1,7pp</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tnote">★ Pico NFA + Affiliates Abr · ▶ Período atual · CR% = FTDs / FullReg NOT_LOCKED · Marg. SB/CS sobre GB do produto · GGR/NGR em R$k</div>
+
+        <div style="margin-top:10px;padding-top:8px;border-top:1px solid #F0F0F0;flex-shrink:0;">
+          <div style="font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#AAAAAA;margin-bottom:8px;">Base Ativa — Menos apostadores, mais resultado por apostador</div>
+          <div style="display:flex;gap:10px;">
+            <div style="flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:8px 10px;text-align:center;">
+              <div style="font-size:7.5px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;">Apostadores Ativos</div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:20px;color:#111;">4.218</div>
+              <div style="font-size:9.5px;font-weight:600;color:#EF4444;margin-top:2px;">−23,4% vs 5.507 Abr</div>
+            </div>
+            <div style="flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:8px 10px;text-align:center;">
+              <div style="font-size:7.5px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;">Gross Bets / Apostador</div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:20px;color:#22C55E;">R$1.370</div>
+              <div style="font-size:9.5px;font-weight:600;color:#22C55E;margin-top:2px;">+14,9% vs R$1.192 Abr</div>
+            </div>
+            <div style="flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:8px 10px;text-align:center;">
+              <div style="font-size:7.5px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;">Gross Bets Total</div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:20px;color:#111;">R$5,78M</div>
+              <div style="font-size:9.5px;font-weight:600;color:#EF4444;margin-top:2px;">−12,0% vs R$6,57M Abr</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="ftr">
+  <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+  <span>WPR · PÁG. 1 · MÉTRICAS DE NEGÓCIO · MAI 01–27/2026</span>
+  <span>28/05/2026</span>
+</div>
+
+</body>
+</html>
