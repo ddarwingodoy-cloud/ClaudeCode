@@ -187,12 +187,7 @@ body {
             <div style="width:18px;height:1.8px;background:#1C1C1E;border-radius:1px;flex-shrink:0;"></div>R$/apostador
           </div>
         </div>
-        <!-- viewBox 0 0 600 320 | chart area x=46..554 y=16..225 h=209 | 1%=2.09px -->
-        <!-- % Apostadores max=46.0% (PM) | % GB max=55.7% (PM) → use 1%=2.09 scale -->
-        <!-- Apost bars (gray x=68): PM 46%h=96y=129 | ORG 30.4%h=64y=161 | AFF 18.7%h=39y=186 | PS 2.3%h=5y=220 | OTH 2.5%h=5y=220 -->
-        <!-- GB bars (red x=96): PM 55.7%h=116y=109 | ORG 29.5%h=62y=163 | AFF 8.4%h=18y=207 | PS 5.2%h=11y=214 | OTH 1.2%h=3y=222 -->
-        <!-- R$/apost line (scale 209/3200=0.0653): PM R$1654→y=117 | ORG R$1327→y=138 | AFF R$619→y=185 | PS R$3124→y=21 | OTH R$640→y=183 -->
-        <!-- avg R$1370 → y=135 -->
+        <!-- 4 canais: centro em 110,237,364,491 | gray=centro-26, red=centro+2, dot=centro+14 -->
         <svg viewBox="0 0 600 320" style="width:100%;height:100%;display:block;min-height:0;"
              preserveAspectRatio="xMidYMid meet">
 
@@ -202,66 +197,57 @@ body {
           <line x1="46" y1="135" x2="554" y2="135" stroke="#CCC" stroke-width="0.7" stroke-dasharray="4,3"/>
           <text x="550" y="131" text-anchor="end" font-family="Archivo" font-size="8.5" fill="#BBB">avg R$1.370</text>
 
-          <!-- PAID MEDIA -->
-          <rect x="68"  y="129" width="24" height="96"  fill="#CCC" rx="2"/>
-          <text x="80"  y="124" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">46%</text>
-          <rect x="96"  y="109" width="24" height="116" fill="#FF3900" rx="2"/>
-          <text x="108" y="170" text-anchor="middle" font-family="Archivo Black" font-size="11" fill="#FFF">56%</text>
+          <!-- PAID MEDIA (centro=110) -->
+          <rect x="84"  y="129" width="24" height="96"  fill="#CCC" rx="2"/>
+          <text x="96"  y="124" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">46%</text>
+          <rect x="112" y="109" width="24" height="116" fill="#FF3900" rx="2"/>
+          <text x="124" y="170" text-anchor="middle" font-family="Archivo Black" font-size="11" fill="#FFF">56%</text>
 
-          <!-- ORG/DIRECT -->
-          <rect x="168" y="161" width="24" height="64"  fill="#CCC" rx="2"/>
-          <text x="180" y="156" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">30%</text>
-          <rect x="196" y="163" width="24" height="62"  fill="#FF3900" rx="2"/>
-          <text x="208" y="196" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFF">30%</text>
+          <!-- ORG/DIRECT (centro=237) -->
+          <rect x="211" y="161" width="24" height="64"  fill="#CCC" rx="2"/>
+          <text x="223" y="156" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">30%</text>
+          <rect x="239" y="163" width="24" height="62"  fill="#FF3900" rx="2"/>
+          <text x="251" y="196" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#FFF">30%</text>
 
-          <!-- AFFILIATES -->
-          <rect x="268" y="186" width="24" height="39"  fill="#CCC" rx="2"/>
-          <text x="280" y="181" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">19%</text>
-          <rect x="296" y="207" width="24" height="18"  fill="#FF3900" rx="2"/>
-          <text x="308" y="202" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">8%</text>
+          <!-- AFFILIATES (centro=364) -->
+          <rect x="338" y="186" width="24" height="39"  fill="#CCC" rx="2"/>
+          <text x="350" y="181" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#999">19%</text>
+          <rect x="366" y="207" width="24" height="18"  fill="#FF3900" rx="2"/>
+          <text x="378" y="202" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">8%</text>
 
-          <!-- PAID SOCIAL -->
-          <rect x="368" y="220" width="24" height="5"   fill="#CCC" rx="2"/>
-          <rect x="396" y="214" width="24" height="11"  fill="#FF3900" rx="2"/>
-          <text x="410" y="209" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">5%</text>
-
-          <!-- OTHERS -->
-          <rect x="468" y="220" width="24" height="5"   fill="#CCC" rx="2"/>
-          <rect x="496" y="222" width="24" height="3"   fill="#FF3900" rx="2"/>
+          <!-- OTHERS (centro=491) -->
+          <rect x="465" y="215" width="24" height="10"  fill="#CCC" rx="2"/>
+          <rect x="493" y="212" width="24" height="13"  fill="#FF3900" rx="2"/>
+          <text x="505" y="207" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">6%</text>
 
           <!-- R$/apostador line -->
-          <polyline points="108,117 208,138 308,185 408,21 508,183"
+          <polyline points="124,117 251,138 378,185 505,104"
             fill="none" stroke="#1C1C1E" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="108" cy="117" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
-          <circle cx="208" cy="138" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
-          <circle cx="308" cy="185" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
-          <circle cx="408" cy="21"  r="4.5" fill="#FFF" stroke="#FF3900" stroke-width="2"/>
-          <circle cx="508" cy="183" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+          <circle cx="124" cy="117" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+          <circle cx="251" cy="138" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+          <circle cx="378" cy="185" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
+          <circle cx="505" cy="104" r="4.5" fill="#FFF" stroke="#1C1C1E" stroke-width="2"/>
 
-          <text x="108" y="109" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$1.654</text>
-          <text x="208" y="130" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$1.327</text>
-          <text x="308" y="177" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$619</text>
-          <text x="408" y="13"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#FF3900">R$3.124</text>
-          <text x="508" y="175" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$640</text>
+          <text x="124" y="109" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$1.654</text>
+          <text x="251" y="130" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$1.327</text>
+          <text x="378" y="177" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$619</text>
+          <text x="505" y="96"  text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#111">R$1.846</text>
 
           <!-- x-axis labels -->
           <line x1="46" y1="226" x2="554" y2="226" stroke="#E0E0E0" stroke-width="0.8"/>
-          <text x="96"  y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">PAID MEDIA</text>
-          <text x="96"  y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$3,2M</text>
-          <text x="96"  y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">1.945 apostadores</text>
-          <text x="196" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">ORG./DIRECT</text>
-          <text x="196" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$1,7M</text>
-          <text x="196" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">1.283 apostadores</text>
-          <text x="296" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">AFFILIATES</text>
-          <text x="296" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$488k</text>
-          <text x="296" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">789 apostadores</text>
-          <text x="396" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">PAID SOCIAL</text>
-          <text x="396" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#FF3900">R$303k</text>
-          <text x="396" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">97 apostadores</text>
-          <text x="496" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#AAA">OTHERS</text>
-          <text x="496" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#CCC">R$68k</text>
-          <text x="496" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#CCC">104 apostadores</text>
+          <text x="110" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">PAID MEDIA</text>
+          <text x="110" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$3,2M</text>
+          <text x="110" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">1.945 apostadores</text>
+          <text x="237" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">ORG./DIRECT</text>
+          <text x="237" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$1,7M</text>
+          <text x="237" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">1.283 apostadores</text>
+          <text x="364" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#555">AFFILIATES</text>
+          <text x="364" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#111">R$488k</text>
+          <text x="364" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">789 apostadores</text>
+          <text x="491" y="239" text-anchor="middle" font-family="Archivo Black" font-size="8.5" letter-spacing="1" fill="#AAA">OTHERS</text>
+          <text x="491" y="259" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#AAA">R$371k</text>
+          <text x="491" y="274" text-anchor="middle" font-family="Archivo" font-size="9" fill="#AAA">201 apostadores</text>
 
         </svg>
       </div>

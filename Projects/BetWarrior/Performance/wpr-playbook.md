@@ -1,338 +1,334 @@
 # WPR Playbook — BetWarrior Brasil
 
 > Guia operacional para construção do Weekly Performance Report.
-> Atualizado após sessão de revisão em 22/05/2026.
-> Objetivo: reproduzir o relatório sem pontos de discussão recorrentes.
-> Última atualização: 22/05/2026 — adicionadas P4, capa e HTML unificado.
+> Consolidado em 28/05/2026 — incorpora aprendizados das entregas Mai 01-21 e Mai 01-27.
+> Modelo de referência: arquivos em `Performance/.WEEKLY/` prefixo `wpr-mai-01-27-*`.
 
 ---
 
 ## 1. Periodicidade e Entrega
 
-- Entrega: toda **terça-feira**
-- Período coberto: MTD normalizado até o domingo anterior
-- Arquivos individuais: `weekly-report-slide.html` (P1), `weekly-report-slide-p2.html` (P2), `weekly-report-slide-p3.html` (P3), `weekly-report-slide-p4.html` (P4)
-- Arquivo unificado para apresentação: `WPR_Brasil_[Período].html` — capa + P1 + P2 + P3 + P4 empilhados, escalagem automática via JS
-- Fonte de mídia paga (P3): solicitar PACING-PERFO.xlsx ao Diego na segunda-feira
+- Entrega: toda **quarta-feira** (reunião WPR)
+- Período: **definido por Darwin na solicitação** — sempre comparar períodos com os mesmos dias da semana (normalização por dia, não por contagem fixa de dias)
+- Arquivos individuais em `.WEEKLY/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1–P4)
+- Arquivo unificado: `WPR_Brasil_[Mês][DD-DD]_[YYYY].html` — capa + P1 + P2 + P3 + P4 empilhados, escalagem automática via JS
+- Fonte de mídia paga (P3): solicitar PACING-PERFO ao Diego com antecedência
 
 ---
 
-## 2. Períodos MTD Normalizados
+## 2. Normalização de Períodos
 
-**Regra:** janela de 21 dias com âncora na 1ª sexta-feira do mês.
+**Regra**: âncora na 1ª sexta-feira do mês. Janela de dias definida por Darwin na solicitação.
 
-| Mês | De | Até | dim_date_key |
-|-----|----|-----|--------------|
-| JAN | 02/01/2026 | 22/01/2026 | 20260102–20260122 |
-| FEV | 06/02/2026 | 26/02/2026 | 20260206–20260226 |
-| MAR | 06/03/2026 | 26/03/2026 | 20260306–20260326 |
-| ABR | 03/04/2026 | 23/04/2026 | 20260403–20260423 |
-| MAI | 01/05/2026 | 21/05/2026 | 20260501–20260521 |
-| JUN | 05/06/2026 | 25/06/2026 | 20260605–20260625 |
-| JUL | 03/07/2026 | 23/07/2026 | 20260703–20260723 |
-| AGO | 07/08/2026 | 27/08/2026 | 20260807–20260827 |
-| SET | 04/09/2026 | 24/09/2026 | 20260904–20260924 |
-| OUT | 02/10/2026 | 22/10/2026 | 20261002–20261022 |
-| NOV | 06/11/2026 | 26/11/2026 | 20261106–20261126 |
-| DEZ | 04/12/2026 | 24/12/2026 | 20261204–20261224 |
+**Princípio de comparação**: sempre comparar meses usando janelas com os mesmos dias da semana — não compara Jan 01-31 vs Fev 01-28. Compara Jan 02-28 (sex a dom) vs Fev 06-04/mar (sex a dom), mantendo a distribuição de dias úteis equivalente.
+
+| Mês | Âncora (1ª Sex) |
+|-----|-----------------|
+| JAN | 02/01 |
+| FEV | 06/02 |
+| MAR | 06/03 |
+| ABR | 03/04 |
+| MAI | 01/05 |
+| JUN | 05/06 |
+| JUL | 03/07 |
+| AGO | 07/08 |
+| SET | 04/09 |
+| OUT | 02/10 |
+| NOV | 06/11 |
+| DEZ | 04/12 |
+
+**Referência de pacing**: dias transcorridos / dias totais do mês (ex: 27/31 = 87,1%).
 
 ---
 
 ## 3. Fontes de Dados
 
-| Dado | Fonte | Observação |
-|------|-------|------------|
-| Sessões | GA4 | Filtro: país=BR, brand=BWBRA, externo |
-| FullReg | PowerBI — FactFullRegistration | Sem filtro locked_status |
-| FTDs | PowerBI — FactFirstDeposit | Sem filtro locked_status |
-| GGR / NGR / Gross Bets | PowerBI — FactAGGAccountTransaction | Ver fórmulas em pbi-overview-bira.md |
-| No Lock (funil) | PowerBI — DimPlayer[locked_status]="NOT_LOCKED" | Snapshot — aproximação |
-| Pronto p/Dep (funil) | PowerBI — NOT_LOCKED + KYC_PASS | Snapshot — aproximação |
-| Canais | PowerBI — DimPlayer[utm_medium] | Nunca usar utm_source ou ta_affiliate |
-| Apostadores / R$/ap | PowerBI — FactAGGAccountTransaction | Por utm_medium |
-| Invest / Budget / CPA | PACING-PERFO.xlsx (Diego) | **Valores em USD** → converter |
-| Câmbio | Verificar na semana da entrega | Usar câmbio do dia da entrega |
+| Dado | Fonte | Campo / Observação |
+|------|-------|--------------------|
+| Sessões | GA4 | Filtro: país=BR |
+| FullReg | PowerBI — FactFullRegistration | Ver regra locked_status abaixo |
+| FTDs | PowerBI — FactFirstDeposit | Ver regra locked_status abaixo |
+| GGR / NGR / GB | PowerBI — FactAGGAccountTransaction | Fórmulas na seção 10 |
+| Funil No Lock | PowerBI — DimPlayer[locked_status]="NOT_LOCKED" | Não expor o filtro nas legendas |
+| Funil Pronto p/Dep | PowerBI — DimPlayer[locked_status]="READY_FOR_DEPOSIT" | |
+| Canais | PowerBI — DimPlayer[utm_medium_signup] | Campo correto — não usar utm_medium |
+| Apostadores / R$/ap | PowerBI — FactAGGAccountTransaction por utm_medium_signup | |
+| GB new vs base | PowerBI — FactAGGAccountTransaction[customer_new_or_returning] | New Customer = FTDs do período |
+| Invest / Budget / CPA | PACING-PERFO (Diego) | **Valores em USD** → converter para BRL |
+| Câmbio | Verificar no dia da entrega | Usar câmbio do dia; registrar no ph-note |
 
 ### Filtros obrigatórios em todas as queries PowerBI
 
 ```
 DimPlayer[internal_external_player] = "External"
-DimPlayer[player_country] = "BR"
-DimPlayer[brand_name] = "BWBRA"
 ```
 
-**NUNCA adicionar** `DimPlayer[locked_status] = "NOT_LOCKED"` — exclui players que depositaram mas foram bloqueados depois, causando subcontagem de ~10–15% em FTDs e FullReg.
+### Regra locked_status
+
+Usar `DimPlayer[locked_status] = "NOT_LOCKED"` **somente no funil** (No Lock e Pronto p/Dep) e em P2 (FullReg por canal). **Nunca expor** o filtro nas legendas, títulos ou tooltips — exibir apenas "FullReg" ou "Full Registration". Não usar NOT_LOCKED para FTDs ou para a tabela principal de P1.
 
 ---
 
-## 4. P1 — Visão Geral
+## 4. Arquitetura de Arquivos (HTML)
 
-### 4.1 Funil de Ativação
+```
+WPR_Brasil_[Mês][DD-DD]_[YYYY].html   ← master (capa dark + iframes escalados)
+wpr-[mes]-[dd]-[dd]-slide.html        ← P1 Métricas de Negócio
+wpr-[mes]-[dd]-[dd]-slide-p2.html     ← P2 Aquisição por Canal
+wpr-[mes]-[dd]-[dd]-slide-p3.html     ← P3 Performance de Mídia
+wpr-[mes]-[dd]-[dd]-slide-p4.html     ← P4 Próximos Passos
+```
 
-**Sempre 4 steps — nunca menos:**
+**Regra de escala (master HTML)**:
+```js
+function scaleSlides() {
+  document.querySelectorAll('.slide-wrap').forEach(wrap => {
+    const scale = wrap.clientWidth / 1920;
+    wrap.style.height = Math.round(1080 * scale) + 'px';
+    const iframe = wrap.querySelector('iframe');
+    if (iframe) iframe.style.transform = 'scale(' + scale + ')';
+  });
+}
+scaleSlides();
+window.addEventListener('resize', scaleSlides);
+```
 
+Cada iframe: `width: 1920px; height: 1080px; transform-origin: top left`.  
+**Cache busting obrigatório**: incrementar `?v=N` nos srcs dos iframes a cada atualização.
+
+**Capa**: fundo `#111`, painel direito `#FF3900` com ghost text "WPR". Header sem labels de texto adicionais (`.cv-hdr-label` e `.cv-hdr-meta` removidos em 28/05/2026 — não restaurar).
+
+---
+
+## 5. P1 — Métricas de Negócio
+
+### 5.1 Funil de Ativação (SVG trapézio)
+
+**4 steps obrigatórios:**
 ```
 Sessões → No Lock → Pronto p/ Dep → FTD
 ```
 
-**O que cada step representa:**
-- **Sessões**: usuários únicos (GA4)
-- **No Lock**: FullReg com DimPlayer[locked_status]="NOT_LOCKED" (snapshot)
-- **Pronto p/Dep**: NOT_LOCKED + DimPlayer[player_kyc_status]="PASS" (snapshot)
-- **FTD**: FactFirstDeposit (sem filtro locked_status)
+| Step | Fonte | Legenda |
+|------|-------|---------|
+| Sessões | GA4 | "GA4" |
+| No Lock | PowerBI DimPlayer[locked_status]="NOT_LOCKED" | "PowerBI" |
+| Pronto p/ Dep | PowerBI DimPlayer[locked_status]="READY_FOR_DEPOSIT" | "KYC PASS" |
+| FTD | PowerBI FactFirstDeposit | "PowerBI" |
 
-**Taxas de conversão** — obrigatório em cada interseção:
-- Step 1→2: No Lock / Sessões
-- Step 2→3: Pronto p/Dep / No Lock
-- Step 3→4: FTD / Pronto p/Dep
+**Taxas de conversão em cada interseção** — formato `±X,Xpp vs [Mês anterior]`.
 
-**Δ vs mês anterior MTD** — obrigatório em cada taxa:
-- Formato: `Δ ±X,Xpp` (pontos percentuais)
-- Comparar com mesmo período normalizado do mês anterior
+**SVG — especificações obrigatórias**:
+- viewBox: `0 0 432 120`
+- Números: `y=60`, `dominant-baseline="middle"`, `font-size="13"`, `text-anchor="middle"`
+- Centros X: 54 (Sessões), 162 (No Lock), 270 (Pronto p/Dep), 378 (FTD)
+- Cores trapézios: `#FF7A50` → `#FF3900` → `#CC2E00` → `#8B1500`
 
-**Implementação técnica:** todos os elementos do funil (labels, polígonos, volumes, taxas, nota) devem estar em um único `<svg>`. Nunca separar em múltiplos elementos HTML — causa desalinhamento inevitável.
+### 5.2 Tabela Métricas de Negócio
 
-### 4.2 Tabela Métricas de Negócio
+**Colunas fixas**: Mês | FullReg | FTDs | CR% | GGR (R$) | NGR (R$) | Marg. | SB | CS
 
-**Colunas fixas — nunca alterar sem aprovação explícita:**
+- **CR%** = FTDs / FullReg (sem NOT_LOCKED — isonomia com tabela geral)
+- **Marg.** = NGR / Gross Bets
+- **GGR/NGR**: em R$k
+- Linha mês atual: `class="cw"` (fundo #FFF5F2, borda-left laranja)
+- Linha delta Δ vs mês anterior: `class="dr"` (fundo #F5F5F5)
+- Mês de pico histórico = `★`; mês atual = `▶`
 
-| Mês | FullReg | FTDs | CR% | GGR | NGR | Marg. | SB | CS |
-|-----|---------|------|-----|-----|-----|-------|----|----|
+**CSS fontes (não alterar)**:
+- `thead th`: 12px | `tbody td`: 13px | `tbody td:first-child`: 12px | `.hi`/`.hi-g`: 14px | `.tnote`: 11px
 
-- **CR%** = FTDs / FullReg (sem NOT_LOCKED — isonomia com P2)
-- **Marg.** = NGR / Gross Bets (margem geral)
-- **SB** = margem NGR do produto Sports Betting
-- **CS** = margem NGR do produto Casino
-- **GGR** = ABS(GAME_BET) – (GAME_WIN + CASH_OUT + CORRECTION)
-- **NGR** = GGR – (CRE_BONUS + PRODUC_BON + MAN_BONUS)
+### 5.3 Cards Base Ativa (4 cards)
 
-Valores de GGR/NGR negativos aparecem em vermelho `#EF4444`, positivos em verde `#22C55E`.
+| Card | Métrica | Cor delta |
+|------|---------|-----------|
+| Apostadores Ativos | Únicos com ≥1 GAME_BET no período | vermelho se ↓ |
+| Gross Bets / Apostador | GB total / apostadores | verde se ↑ |
+| GB — Novos FTDs | GB de players com FTD no período (`customer_new_or_returning = "New Customer"`) | contexto |
+| GB — Base Existente | GB de players com FTD antes do período (`customer_new_or_returning = "Returning Customer"`) | verde se ↑ |
 
-### 4.3 CRM Block — Base Ativa
+**Fonte cards 3 e 4**: `KEEPFILTERS(FILTER(FactAGGAccountTransaction, [account_transaction_type] = "GAME_BET"))` + `KEEPFILTERS(FILTER(DimPlayer, [internal_external_player] = "External"))` agrupado por `[customer_new_or_returning]`.
 
-Posição: espaço abaixo da tabela Métricas de Negócio.
-Propósito: explicar por que GGR/NGR podem subir mesmo com queda em FTDs.
-
-**3 cards obrigatórios, comparativo mai MTD vs abr MTD:**
-
-1. **Apostadores Ativos** — apostadores únicos com GAME_BET no período
-2. **Gross Bets / Apostador** — R$/apostador médio (verde se ↑)
-3. **% GB Base Existente** — share do GB gerado por jogadores adquiridos ANTES do período atual (verde se ↑)
-
-Fonte: PowerBI — FactAGGAccountTransaction + TREATAS para filtrar base existente.
+**CSS cards**: label 10px #AAAAAA; número 26px Archivo Black; delta 12px bold.
 
 ---
 
-## 5. P2 — Aquisição por Canal
+## 6. P2 — Aquisição por Canal
 
-### 5.1 Ordenação — Regra Universal
+### Mapeamento de Canais (DimPlayer[utm_medium_signup])
 
-**Todos os gráficos de P2 devem estar ordenados do maior para o menor valor**, sem exceção. Gráficos com ordenações diferentes entre si causam confusão na leitura cruzada linha a linha.
+| Canal exibido | Valores utm_medium_signup |
+|---------------|--------------------------|
+| Paid Media | `paid_media` |
+| Org. / Direct | `(none)`, `organic`, `(direct)`, vazio |
+| Affiliates | `affiliate` |
+| Others | `social_paid`, `email`, demais não mapeados |
 
-### 5.2 Gráfico: Full Registration por Canal
+**`social_paid` = publisher/comparador (ex: betdasorte) — problema de atribuição confirmado. Manter em Others.**
 
-- Fonte: PowerBI — FactFullRegistration por DimPlayer[utm_medium]
-- **Sem filtro locked_status**
-- Título: "Full Registration por Canal" (não "Not Locked")
-- Ordenação: maior → menor (por volume de FullReg)
+### 6.1 Full Registration por Canal
+- Fonte: PowerBI FactFullRegistration + DimPlayer[utm_medium_signup] + NOT_LOCKED
+- Exibir como "Full Registration" — não mencionar NOT_LOCKED
 
-### 5.3 Gráfico: FTDs por Canal
+### 6.2 FTDs por Canal
+- Fonte: PowerBI FactFirstDeposit + DimPlayer[utm_medium_signup]
 
-- Fonte: PowerBI — FactFirstDeposit por DimPlayer[utm_medium]
-- **Sem filtro locked_status**
-- Ordenação: maior → menor
+### 6.3 CR% por Canal
+- CR% = FTDs canal / FullReg canal
+- Ordenação: decrescente
+- Canal líder: barra laranja; abaixo da média: cinza
 
-### 5.4 Gráfico: CR% por Canal
+### 6.4 Gross Bets Evolução (3 meses)
+- 3 períodos normalizados: Mar, Abr, Mai
+- Mar = cinza claro `#DDDDDD`; Abr = cinza médio `#999999`; Mai = laranja `#FF3900`
+- Referência 100%: maior valor individual entre todos os canais/meses
+- Others = social_paid + demais somados
 
-**CR% = FTDs / FullReg do mesmo canal — calculado da própria página.**
-
-Antes de publicar: conferir se cada valor do gráfico CR% bate com FTD/FullReg das outras duas tabelas da mesma página. Se não bater, há erro de fonte ou filtro.
-
-- Ordenação: maior → menor (por CR%)
-- **Isonomia com P1**: usar mesma definição de CR% (FTD/FullReg sem NOT_LOCKED)
-
-### 5.5 Gráfico: Gross Bets Evolução por Canal
-
-- Evolução de 3 meses: Mar, Abr, Mai (períodos normalizados)
-- Mapeamento de canais (DimPlayer[utm_medium]):
-  - `paid_media` → Paid Media
-  - `affiliate` → Affiliates
-  - `social_paid` → Paid Social
-  - `(none)` / `direct` / vazio → Org./Direct
-  - demais → Others
+**Regra de ordenação universal em P2**: todos os gráficos do maior para o menor — mesma ordem em todos os painéis.
 
 ---
 
-## 6. P3 — Performance de Mídia
+## 7. P3 — Performance de Mídia
 
-### 6.1 Moeda — Regra Crítica
+### 7.1 Câmbio — Regra Crítica
 
-**Todo dado proveniente do PACING-PERFO.xlsx (Diego) está em USD:**
-- Invest por plataforma
-- Budget total e por plataforma
-- CPA por plataforma
+Todo dado do PACING-PERFO (Diego) está em USD. Converter para BRL antes de incluir. Registrar câmbio no `ph-note`: ex. `"câmbio R$5,56"`. Usar câmbio do dia da entrega.
 
-**Conversão obrigatória para BRL antes de incluir no relatório.**
-Usar câmbio do dia da entrega (obter de qualquer fonte pública confiável).
-Registrar o câmbio usado no `ph-note` do painel: ex. "CPA pond. R$912 (câmbio R$5,56)".
+### 7.2 G1 — Budget vs FTDs · CPA por Plataforma
 
-### 6.2 G1 — Budget vs FTDs · CPA por Plataforma
+**Fonte**: PACING-PERFO (Diego)  
+**Dados por plataforma**: % budget executado (cinza), % FTDs realizados (laranja), CPA R$ (linha preta), investimento US$.  
+**Plataformas sem atribuição** (X, Taboola): barra FTD tracejada, FTDs marcados com †.
 
-- Barras: % Budget (cinza) e % FTDs (laranja) por plataforma
-- Linha: CPA em BRL (após conversão)
-- Linha tracejada: CPA médio ponderado
-- Plataformas sem atribuição de FTDs (X, Taboola): barra de FTDs tracejada/cinza claro
-- Fonte: PACING-PERFO.xlsx — acumulado até o período disponível (geralmente 2 semanas)
+**Posições SVG** (viewBox 0 0 600 320, chart y=16..225, escala 1%=2,09px):
+| Plataforma | Budget x | FTD x | Dot x |
+|------------|----------|-------|-------|
+| Google | 68 | 96 | 108 |
+| Meta | 168 | 196 | 208 |
+| TikTok | 268 | 296 | 308 |
+| X | 368 | 396 | — |
+| Taboola | 468 | 496 | — |
 
-### 6.3 G2 — Gross Bets por Canal · R$/Apostador
+Escala CPA: `y = 225 − (CPA_BRL × 209/1500)`. Máximo do eixo = R$1.500 → y=16.
 
-- Barras: % Apostadores (cinza) e % Gross Bets (laranja) por canal utm_medium
-- Linha: R$/apostador por canal
-- **Legenda obrigatória** abaixo do gráfico explicando que os valores em destaque no eixo = Gross Bets acumulados no período
-- **Nunca duplicar** R$/ap no rótulo do eixo se já aparece na linha do gráfico
+### 7.3 G2 — Gross Bets · R$/Apostador por Canal
 
-### 6.4 Pacing
+**Fonte**: PowerBI — utm_medium_signup, 27 dias normalizados  
+**4 canais distribuídos uniformemente** (centros x = 110, 237, 364, 491):
 
-- Referência do período: X dias de 31 = X% do mês
-- Por plataforma: % orçamento realizado, % FTDs realizados, Δ vs referência
-- CPA convertido para BRL no rodapé de cada coluna
+| Canal | Centro X | Gray rect x | Red rect x | Dot x |
+|-------|----------|-------------|------------|-------|
+| Paid Media | 110 | 84 | 112 | 124 |
+| Org/Direct | 237 | 211 | 239 | 251 |
+| Affiliates | 364 | 338 | 366 | 378 |
+| Others | 491 | 465 | 493 | 505 |
 
----
+Polyline conecta os dots. Linha avg R$/apostador tracejada horizontal.
 
-## 7. Regras Transversais
+### 7.4 Painel Pacing
 
-### Isonomia entre páginas
-
-| Métrica | Definição única |
-|---------|----------------|
-| CR% | FTDs / FullReg — **sem** filtro locked_status em todas as páginas |
-| FullReg | Sem filtro locked_status em todas as páginas |
-| FTDs | Sem filtro locked_status em todas as páginas |
-| Períodos | MTD normalizado — mesma janela de 21 dias em P1, P2 e P3 |
-
-### Design e Layout
-
-- **Fontes**: ajustes máximos de ±1px. Nunca alterar sem necessidade clara de legibilidade
-- **Cores**: seguir design system CLAUDE.md — laranja `#FF3900`, sucesso `#22C55E`, erro `#EF4444`
-- **Tabelas**: linhas zebra `#111111`/`#1A1A1A`, header laranja
-- **Ordenação**: sempre do maior para o menor — em todos os gráficos de barras
-- **Legendas**: obrigatórias para qualquer valor que não seja auto-explicativo pelo título do painel
-
-### Moeda
-
-- Padrão do relatório: **BRL**
-- Dados de plataformas de mídia (Diego): USD → converter antes de incluir
-- Dados do PowerBI: BRL (Gross Bets, GGR, NGR já estão em BRL)
-- Dados de GA4: sem moeda (sessões, usuários)
+**Referência**: dias transcorridos / dias do mês (ex: 27/31 = 87,1%)  
+**Por plataforma**: % orçamento, % FTDs, Δ vs referência em pp  
+**Coloração dos deltas**:
+- Δ > −5pp: `#F59E0B` (âmbar)
+- Δ ≤ −5pp: `#EF4444` (vermelho)
+- Δ ≥ +5pp: `#22C55E` (verde)
 
 ---
 
 ## 8. P4 — Próximos Passos
 
-Slide de encerramento da reunião WPR. Criado em 22/05/2026.
+- **Ordenação**: cronológica — mais próximo primeiro
+- **Date pill dark** (`date-dark`, fundo #111): prazo definido
+- **Date pill gray** (`date-gray`, fundo #F0F0F0): TBD / longo prazo
+- Máximo 8 ações; se mais, priorizar
 
-### Estrutura
-- **Arquivo**: `weekly-report-slide-p4.html`
-- **Conteúdo**: lista de ações e responsabilidades priorizadas para as próximas semanas
-- **Layout**: lista numerada com barra colorida lateral indicando urgência + date pill + owner tag
-
-### Sistema de cores por urgência
-| Cor | Classe | Significado |
-|-----|--------|-------------|
-| Laranja `#FF3900` | `bar-now` / `date-now` | Esta semana |
-| Âmbar `#F59E0B` | `bar-near` / `date-near` | Próximas 2 semanas |
-| Cinza `#DDDDDD` | `bar-later` / `date-later` | Estrutural / prazo mais longo |
-
-### Regras editoriais
-- Máximo de 8 ações por slide — se houver mais, priorizar
-- Título: Archivo Black uppercase, 13px
-- Descrição: 12px, cor #888, máximo 2 linhas
-- Date pill alinhado ao topo do row (não ao centro) — facilita leitura durante apresentação
+**CSS fontes (ajuste de 28/05, não reverter)**:
+- `.action-num`: 25px | `.action-title`: 15px | `.action-desc`: 13.5px | `.action-date`: 13px | `.action-owner`: 12.5px
 
 ---
 
-## 9. Capa e HTML Unificado
+## 9. Design System — Tokens (nunca alterar)
 
-### Capa (`WPR_Brasil_[Período].html` — seção inicial)
-- Design em CSS puro, sem imagem externa
-- Fundo escuro `#111`, bloco laranja sólido à direita
-- Header e footer idênticos aos outros slides
-- Conteúdo: tag WPR, título grande, barra laranja, período e metadata
+| Elemento | Valor |
+|----------|-------|
+| Fundo páginas | `#F2F2F2` |
+| Fundo painéis | `#FFFFFF` |
+| Borda painéis | `#E0E0E0` |
+| Accent / Header | `#FF3900` |
+| Texto principal | `#111111` |
+| Texto muted | `#AAAAAA` |
+| Sucesso | `#22C55E` |
+| Alerta | `#F59E0B` |
+| Erro / negativo | `#EF4444` |
+| Fonte título | Archivo Black |
+| Fonte corpo | Archivo Regular |
+| Header height | 80px |
+| Footer height | 28–30px |
+| Body padding | 14px 20px |
+| Gap painéis | 12px |
 
-### HTML Unificado — Arquivo de Apresentação
-- **Nomenclatura**: `WPR_Brasil_[MêsDe]-[MêsAté]_[Ano].html`
-  - Exemplo: `WPR_Brasil_Mai01-21_2026.html`
-- **Estrutura**: Capa → Sep → P1 → Sep → P2 → Sep → P3 → Sep → P4
-- **Separador**: 32px escuro com 3 pontos — transição visual entre páginas
-- **Escalagem**: JS recalcula `transform: scale(clientWidth/1920)` em cada iframe
-  - Cada iframe tem `width: 1920px; height: 1080px; transform-origin: top left`
-  - O wrapper recebe `height: 1080 * scale` px
-- **Uso**: abrir no browser e apresentar diretamente — qualidade nativa, sem blur
+---
 
-### PDF de alta qualidade (quando necessário)
-```python
-# Geração via Python + Chrome headless
-# @page CSS: size: 1920px 1080px; margin: 0
-# Flag: --no-pdf-header-footer --window-size=1920,1080
-# Ou: screenshot 3840x2160 → Pillow → PDF @ 192dpi
+## 10. Fórmulas PowerBI
+
 ```
-- Pillow PNG→PDF produz arquivo sem gaps e sem margens indesejadas
-- Resolução equivalente: 3840×2160 @ 192dpi = 20×11.25 in (16:9 exato)
+GGR = ABS(GAME_BET) − (GAME_WIN + CASH_OUT + CORRECTION)
+NGR = GGR − (CRE_BONUS + PRODUC_BON + MAN_BONUS)
+Gross Bets = ABS(SUM(FactAGGAccountTransaction[account_transaction_amount]))
+             WHERE account_transaction_type = "GAME_BET"
+Gross Wins = SUM WHERE type IN {"GAME_WIN", "CASH_OUT", "CORRECTION"}
+Margem = NGR / Gross Bets
+```
+
+**Armadilhas críticas**:
+- `GAME_BET` é negativo — sempre usar `ABS()`
+- Gross Wins = 3 tipos, nunca só GAME_WIN
+- Withdrawals: usar `FactPayment` com `payment_type="WITHDRAWAL"` e `payment_status="COMPLETED"` — nunca FactAGGAccountTransaction
+- Datas: sempre `FILTER(DimDate, DimDate[Date] = ...)` — não filtrar campos de data nas tabelas de fato
 
 ---
 
-## 10. Checklist Pré-Entrega
+## 11. Checklist Pré-Entrega
 
 ### P1
-
-- [ ] Funil tem exatamente 4 steps: Sessões → No Lock → Pronto p/Dep → FTD
-- [ ] Taxas de conversão em cada interseção do funil
-- [ ] Δ vs mês anterior MTD em cada taxa de conversão
-- [ ] Labels do funil alinhados com os steps (em SVG único)
-- [ ] Tabela tem colunas: Mês | FullReg | FTDs | CR% | GGR | NGR | Marg. | SB | CS
-- [ ] CR% = FTDs/FullReg (conferir manualmente: CR_total = total_FTDs/total_FullReg)
-- [ ] CRM Block com 3 indicadores: Apostadores Ativos, GB/Apostador, % GB Base Existente
-- [ ] Comparativos CRM: mai MTD vs abr MTD
+- [ ] Funil: 4 steps, taxas em cada interseção, Δ vs mês anterior
+- [ ] Números do funil centralizados (y=60, dominant-baseline=middle, font-size=13)
+- [ ] Tabela: colunas Mês | FullReg | FTDs | CR% | GGR | NGR | Marg. | SB | CS
+- [ ] Cards Base Ativa: 4 cards (Apostadores, GB/apost, GB Novos FTDs, GB Base Existente)
 
 ### P2
-
-- [ ] FullReg sem NOT_LOCKED — título "Full Registration por Canal"
-- [ ] FTDs sem NOT_LOCKED
+- [ ] FullReg exibido sem menção a NOT_LOCKED
 - [ ] CR% bate com FTD/FullReg da mesma página (conferir canal por canal)
-- [ ] Todos os gráficos ordenados do maior para o menor
-- [ ] Todos na mesma ordem (mesmos canais, mesma sequência)
+- [ ] Todos os gráficos ordenados do maior para o menor, na mesma ordem
+- [ ] Others = social_paid + demais fundidos (não exibir "Paid Social" separado)
 
 ### P3
-
-- [ ] Invest/Budget/CPA do Diego convertidos de USD para BRL com câmbio do dia
-- [ ] Câmbio registrado no ph-note do painel G1
-- [ ] G2 tem legenda/nota explicando que valores em destaque = Gross Bets
-- [ ] R$/apostador não duplicado: só na linha, não no rótulo do eixo
+- [ ] Invest/Budget/CPA do Diego convertidos de USD para BRL
+- [ ] Câmbio registrado no ph-note
+- [ ] G2: 4 canais distribuídos uniformemente no eixo X
+- [ ] Others inclui social_paid
 
 ### P4
+- [ ] Ações em ordem cronológica (mais próximo primeiro)
+- [ ] Date pills e owners preenchidos
 
-- [ ] Ações revisadas e atualizadas para o período corrente
-- [ ] Date pills e urgência (cores) conferidos
-- [ ] Owner tags preenchidos
-
-### HTML Unificado
-
-- [ ] Capa com período correto (tag + cv-period)
-- [ ] Data da reunião atualizada no cv-hdr-meta e cv-ftr
-- [ ] Todos os 4 iframes apontando para os arquivos corretos
+### Master HTML
+- [ ] Capa com período correto (cv-tag + cv-period)
+- [ ] Cache busting `?v=N` incrementado nos 4 iframes
 - [ ] Testar abertura no browser antes da reunião
 
 ### Geral
-
-- [ ] Todas as métricas usam período MTD normalizado consistente
-- [ ] Valores conferidos contra fonte (PowerBI / GA4 / Diego)
-- [ ] Commit + push antes da entrega
+- [ ] Períodos normalizados com mesmos dias da semana entre meses
+- [ ] Câmbio do dia registrado
+- [ ] Commit antes da entrega
 
 ---
 
-## 11. Referências
+## 12. Referências
 
-- **Queries PowerBI completas**: `Projects/BetWarrior/BI/pbi-overview-bira.md`
+- **Queries PowerBI detalhadas**: `Projects/BetWarrior/BI/pbi-overview-bira.md`
+- **Conexão PowerBI** (tokens, IDs, fluxo auth): memória `project_powerbi_connection.md`
 - **Design System**: tokens no `CLAUDE.md` (raiz do projeto)
-- **Valores de referência Mai 2026**: seção final do `pbi-overview-bira.md`
-- **Agentes e automações**: `Projects/BetWarrior/Agentes/agents-registry.md`
+- **Agentes**: `Projects/BetWarrior/Agentes/agents-registry.md`
+- **Modelo HTML aprovado**: `.WEEKLY/wpr-mai-01-27-slide*.html` + `WPR_Brasil_Mai01-27_2026.html`
