@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squad de Influencers — BetWarrior BR</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #FFFFFF; }
+}
+
+@media screen {
+  body { background: #CCCCCC; padding: 24px; }
+  .cover, .page { margin: 0 auto 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
+}
+
+/* COVER */
+.cover {
+  width: 210mm; height: 297mm;
+  background: #111111;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+.cover-top-stripe {
+  position: absolute; top: 0; right: 0;
+  width: 55%; height: 5px; background: #FF3900;
+}
+.cover-body {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 0 58px;
+  position: relative; z-index: 1;
+}
+.cover-eyebrow {
+  font-family: 'Archivo', sans-serif; font-size: 10px;
+  font-weight: 700; letter-spacing: 0.22em;
+  color: #FF3900; text-transform: uppercase; margin-bottom: 28px;
+}
+.cover-title {
+  font-family: 'Archivo', sans-serif; font-size: 52px;
+  font-weight: 900; line-height: 1.02;
+  color: #FFFFFF; text-transform: uppercase;
+}
+.cover-title .accent { color: #FF3900; }
+.cover-divider { width: 44px; height: 3px; background: #FF3900; margin: 28px 0; }
+.cover-subtitle {
+  font-family: 'Archivo', sans-serif; font-size: 13px;
+  font-weight: 400; color: #888888; line-height: 1.6; max-width: 440px;
+}
+.cover-meta { display: flex; gap: 48px; margin-top: 52px; }
+.cover-meta-item label {
+  display: block; font-family: 'Archivo', sans-serif; font-size: 8.5px;
+  font-weight: 700; letter-spacing: 0.18em; color: #FF3900;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.cover-meta-item span {
+  font-family: 'Archivo', sans-serif; font-size: 13px;
+  font-weight: 600; color: #FFFFFF;
+}
+.cover-watermark {
+  position: absolute; bottom: 56px; right: -16px;
+  font-family: 'Archivo', sans-serif; font-size: 180px;
+  font-weight: 900; color: rgba(255,255,255,0.028);
+  text-transform: uppercase; line-height: 1;
+  user-select: none; z-index: 0; letter-spacing: -4px;
+}
+.cover-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 58px; border-top: 1px solid #222222; z-index: 1;
+}
+.cover-footer .bw-logo {
+  font-family: 'Archivo', sans-serif; font-size: 15px;
+  font-weight: 900; color: #FF3900; letter-spacing: 0.06em;
+}
+.cover-footer .confidential {
+  font-family: 'Archivo', sans-serif; font-size: 9px;
+  font-weight: 600; letter-spacing: 0.2em; color: #444444; text-transform: uppercase;
+}
+
+/* PAGES */
+.page {
+  width: 210mm; height: 297mm; background: #FFFFFF;
+  display: flex; flex-direction: column;
+  page-break-after: always; overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+.page-header {
+  background: #1C1C1E; display: flex;
+  justify-content: space-between; align-items: center;
+  padding: 12px 32px; flex-shrink: 0;
+}
+.page-header .bw-logo {
+  font-family: 'Archivo', sans-serif; font-size: 12px;
+  font-weight: 900; color: #FF3900; letter-spacing: 0.06em;
+}
+.page-header .doc-label {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px;
+  font-weight: 600; color: #888888; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.page-header .doc-date {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px; color: #555555;
+}
+.page-content { flex: 1; padding: 24px 36px 14px; overflow: hidden; }
+.page-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 36px; border-top: 1px solid #EEEEEE; flex-shrink: 0;
+}
+.page-footer .footer-brand {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px;
+  font-weight: 600; letter-spacing: 0.15em; color: #AAAAAA; text-transform: uppercase;
+}
+.page-footer .footer-page {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px; color: #BBBBBB;
+}
+
+/* SECTION ELEMENTS */
+.section-badge { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.badge-num {
+  background: #FF3900; color: #FFFFFF; font-family: 'Archivo', sans-serif;
+  font-size: 11px; font-weight: 700; width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.badge-label {
+  font-family: 'Archivo', sans-serif; font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.2em; color: #FF3900; text-transform: uppercase;
+}
+.section-title {
+  font-family: 'Archivo', sans-serif; font-size: 18px; font-weight: 900;
+  color: #111111; text-transform: uppercase; line-height: 1.08; margin-bottom: 14px;
+}
+.section-title .accent { color: #FF3900; }
+.rule { border: none; border-top: 1px solid #EEEEEE; margin: 14px 0; }
+.body-text {
+  font-family: 'Archivo', sans-serif; font-size: 10.5px;
+  color: #555555; line-height: 1.65; margin-bottom: 12px;
+}
+
+/* KPI CARDS */
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+.kpi-card { background: #1C1C1E; padding: 14px 16px; }
+.kpi-card .kc-label {
+  font-family: 'Archivo', sans-serif; font-size: 8px; font-weight: 700;
+  letter-spacing: 0.14em; color: #FF3900; text-transform: uppercase; margin-bottom: 8px;
+}
+.kpi-card .kc-value {
+  font-family: 'Archivo', sans-serif; font-size: 26px; font-weight: 900;
+  color: #FFFFFF; line-height: 1; margin-bottom: 4px;
+}
+.kpi-card .kc-sub { font-family: 'Archivo', sans-serif; font-size: 9px; color: #666666; }
+
+/* INFLU CARDS */
+.influ-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.influ-card {
+  border-left: 3px solid #FF3900;
+  background: #FAFAFA; padding: 14px 16px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0; align-items: start;
+}
+.influ-name {
+  font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 900;
+  color: #111111; text-transform: uppercase; margin-bottom: 4px;
+}
+.influ-vigencia {
+  font-family: 'Archivo', sans-serif; font-size: 9px; color: #AAAAAA;
+}
+.influ-col-label {
+  font-family: 'Archivo', sans-serif; font-size: 8px; font-weight: 700;
+  letter-spacing: 0.14em; color: #FF3900; text-transform: uppercase;
+  margin-bottom: 5px; margin-top: 2px;
+}
+.influ-col-value {
+  font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 600;
+  color: #222222; line-height: 1.5;
+}
+.influ-col-value.big {
+  font-size: 20px; font-weight: 900; color: #111111; line-height: 1;
+}
+.influ-col-value span {
+  font-size: 9px; font-weight: 400; color: #888888;
+  display: block; margin-top: 3px;
+}
+
+/* TABLES */
+.data-table {
+  width: 100%; border-collapse: collapse;
+  margin: 10px 0; font-family: 'Archivo', sans-serif; font-size: 10.5px;
+}
+.data-table thead tr { background: #FF3900; }
+.data-table thead th {
+  padding: 9px 11px; color: #FFFFFF; font-weight: 700;
+  text-align: left; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.data-table thead th.right { text-align: right; }
+.data-table tbody tr:nth-child(even) { background: #F7F7F7; }
+.data-table tbody tr:nth-child(odd) { background: #FFFFFF; }
+.data-table tbody td {
+  padding: 8px 11px; color: #333333;
+  border-bottom: 1px solid #EEEEEE; vertical-align: middle;
+}
+.data-table tbody td.right { text-align: right; }
+.data-table tbody td.bold { font-weight: 700; color: #111111; }
+.data-table tbody tr.total-row td {
+  background: #1C1C1E; color: #FFFFFF; font-weight: 700; border-bottom: none;
+}
+.data-table tbody tr.total-row td.accent { color: #FF3900; }
+.data-table tbody tr:last-child td { border-bottom: none; }
+
+/* NOTE BOX */
+.note-box {
+  background: #FFF8F6; border-left: 3px solid #FF3900;
+  padding: 12px 14px; margin-top: 14px;
+}
+.note-box .note-label {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.16em; color: #FF3900; text-transform: uppercase; margin-bottom: 6px;
+}
+.note-box .note-text {
+  font-family: 'Archivo', sans-serif; font-size: 10.5px; color: #444444; line-height: 1.6;
+}
+
+/* OPPORTUNITY BOX */
+.opp-box {
+  background: #1C1C1E; padding: 18px 20px; margin-top: 14px;
+}
+.opp-box .opp-label {
+  font-family: 'Archivo', sans-serif; font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.16em; color: #FF3900; text-transform: uppercase; margin-bottom: 10px;
+}
+.opp-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.opp-item .opp-num {
+  font-family: 'Archivo', sans-serif; font-size: 28px; font-weight: 900; color: #FFFFFF; line-height: 1;
+}
+.opp-item .opp-sub {
+  font-family: 'Archivo', sans-serif; font-size: 9px; color: #888888; margin-top: 4px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top-stripe"></div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Influencer Marketing | BetWarrior BR</div>
+    <div class="cover-title">INFLUENCER<br><span class="accent">SQUAD</span></div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">Panorama do squad atual, estrutura de custos, metas de FTD e orçamento disponível para expansão. Jun a Dez/2026.</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Preparado por</label>
+        <span>Darwin Godoy</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Data</label>
+        <span>Jun 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Destinatário</label>
+        <span>Gi, Influ Specialist</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-watermark">INFLUS</div>
+  <div class="cover-footer">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="confidential">Interno | Confidencial</div>
+  </div>
+</div>
+
+<!-- PAGE 1 — SQUAD ATUAL -->
+<div class="page">
+  <div class="page-header">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="doc-label">Squad de Influenciadores</div>
+    <div class="doc-date">Jun 2026</div>
+  </div>
+  <div class="page-content">
+
+    <div class="section-badge">
+      <div class="badge-num">1</div>
+      <div class="badge-label">Contratos ativos</div>
+    </div>
+    <div class="section-title">SQUAD <span class="accent">ATUAL</span></div>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kc-label">Influs contratados</div>
+        <div class="kc-value">3</div>
+        <div class="kc-sub">Danilo Lavieri, FBI Tricolor, Domitila</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kc-label">Custo total/mês</div>
+        <div class="kc-value">R$59k</div>
+        <div class="kc-sub">Fee fixo combinado (Jun–Dez)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kc-label">Meta FTDs/mês</div>
+        <div class="kc-value">1.182</div>
+        <div class="kc-sub">Racional: fee ÷ R$50 por FTD</div>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="influ-grid">
+
+      <!-- Danilo Lavieri -->
+      <div class="influ-card">
+        <div>
+          <div class="influ-name">Danilo Lavieri</div>
+          <div class="influ-vigencia">Mar/26 a Mar/27 (12 meses)</div>
+        </div>
+        <div>
+          <div class="influ-col-label">Plataformas</div>
+          <div class="influ-col-value">YouTube + Instagram<span>8 lives/mês (4 quartas + 4 quintas) · 8 Reels/mês · Link bio</span></div>
+        </div>
+        <div>
+          <div class="influ-col-label">Fee mensal</div>
+          <div class="influ-col-value big">R$26.800<span>+ R$50 por FTD gerado</span></div>
+        </div>
+        <div>
+          <div class="influ-col-label">Meta FTDs/mês</div>
+          <div class="influ-col-value big" style="color:#FF3900;">536</div>
+        </div>
+      </div>
+
+      <!-- FBI Tricolor -->
+      <div class="influ-card">
+        <div>
+          <div class="influ-name">FBI Tricolor</div>
+          <div class="influ-vigencia">Abr/26 a Mar/27 (12 meses)</div>
+        </div>
+        <div>
+          <div class="influ-col-label">Plataformas</div>
+          <div class="influ-col-value">YouTube + Instagram + TikTok<span>Menção em todos os vídeos · 2 feed posts/mês · 8 posts TikTok/mês</span></div>
+        </div>
+        <div>
+          <div class="influ-col-label">Fee mensal</div>
+          <div class="influ-col-value big">R$16.300<span>+ R$50 por FTD acima de 320/mês</span></div>
+        </div>
+        <div>
+          <div class="influ-col-label">Meta FTDs/mês</div>
+          <div class="influ-col-value big" style="color:#FF3900;">326</div>
+        </div>
+      </div>
+
+      <!-- Domitila -->
+      <div class="influ-card">
+        <div>
+          <div class="influ-name">Domitila</div>
+          <div class="influ-vigencia">Jun/26 a Dez/26</div>
+        </div>
+        <div>
+          <div class="influ-col-label">Plataformas</div>
+          <div class="influ-col-value">A confirmar<span>Detalhes do contrato a ser compartilhado</span></div>
+        </div>
+        <div>
+          <div class="influ-col-label">Fee mensal</div>
+          <div class="influ-col-value big">R$16.000<span>Estrutura de bonus a confirmar</span></div>
+        </div>
+        <div>
+          <div class="influ-col-label">Meta FTDs/mês</div>
+          <div class="influ-col-value big" style="color:#FF3900;">320</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note-box">
+      <div class="note-label">Racional de meta</div>
+      <div class="note-text">O fee fixo mensal de cada influenciador dividido por R$50 (valor de referência pago por FTD) define a meta mínima de conversao que justifica o investimento. O bonus por FTD adicional funciona como incentivo de performance acima dessa linha base.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">BetWarrior BR | Influs</div>
+    <div class="footer-page">1 / 2</div>
+  </div>
+</div>
+
+<!-- PAGE 2 — ORÇAMENTO -->
+<div class="page">
+  <div class="page-header">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="doc-label">Squad de Influenciadores</div>
+    <div class="doc-date">Jun 2026</div>
+  </div>
+  <div class="page-content">
+
+    <div class="section-badge">
+      <div class="badge-num">2</div>
+      <div class="badge-label">Orçamento e metas</div>
+    </div>
+    <div class="section-title">BUDGET JUN–<span class="accent">DEZ/26</span></div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Mês</th>
+          <th class="right">Squad Atual</th>
+          <th class="right">Meta FTDs (squad)</th>
+          <th class="right">Novas Contratações</th>
+          <th class="right">Meta FTDs (novas)</th>
+          <th class="right">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bold">Mai/26</td>
+          <td class="right">R$43.100</td>
+          <td class="right">862</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td class="right bold">R$43.100</td>
+        </tr>
+        <tr>
+          <td class="bold">Jun/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr>
+          <td class="bold">Jul/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr>
+          <td class="bold">Ago/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr>
+          <td class="bold">Set/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr>
+          <td class="bold">Out/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr>
+          <td class="bold">Nov/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr>
+          <td class="bold">Dez/26</td>
+          <td class="right">R$59.100</td>
+          <td class="right">1.182</td>
+          <td class="right">R$482.925</td>
+          <td class="right">9.658</td>
+          <td class="right bold">R$542.025</td>
+        </tr>
+        <tr class="total-row">
+          <td class="bold">TOTAL Jun–Dez</td>
+          <td class="right accent">R$413.700</td>
+          <td class="right">—</td>
+          <td class="right accent">R$3.380.480</td>
+          <td class="right">—</td>
+          <td class="right accent">R$3.794.180</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="opp-box">
+      <div class="opp-label">Envelope para novas contratações (Jun–Dez)</div>
+      <div class="opp-row">
+        <div class="opp-item">
+          <div class="opp-num">R$482k</div>
+          <div class="opp-sub">Por mês disponível para novos influs</div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">R$3,4M</div>
+          <div class="opp-sub">Total Jun–Dez para expansão do squad</div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">9.658</div>
+          <div class="opp-sub">FTDs/mês necessários dos novos influs (@ R$50/FTD)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:12px;">
+      <div class="note-label">Contexto adicional</div>
+      <div class="note-text">Casa Mundialista (Futbol Sites): Beto Oliver, Marilia Galvao, Raquel Freestyle e Amaral estao ativados para a Copa do Mundo (Jun–Jul/26). Esses contratos estao na linha Brand &amp; Midia, nao nesta linha de Influencers, e tem gestao separada. O budget acima reflete exclusivamente a linha Influenciador do Controle Plano.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">BetWarrior BR | Influs</div>
+    <div class="footer-page">2 / 2</div>
+  </div>
+</div>
+
+</body>
+</html>
