@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise de Compliance — Criativos Copa 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A3 landscape;
+      margin: 14mm 16mm;
+    }
+
+    @media print {
+      body { padding: 0; }
+      tbody tr { page-break-inside: avoid; }
+      .table-wrapper { overflow: visible; border: none; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #1C1C1E;
+      color: #FFFFFF;
+      font-family: 'Archivo', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 48px 40px;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .header-left {}
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .brand-name {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+    }
+
+    .doc-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .doc-title span {
+      color: #FF3900;
+    }
+
+    .title-accent {
+      display: block;
+      width: 48px;
+      height: 3px;
+      background-color: #FF3900;
+      margin-top: 12px;
+    }
+
+    .doc-meta {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #AAAAAA;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 12px;
+      color: #AAAAAA;
+      line-height: 1.8;
+    }
+
+    .header-right strong {
+      color: #FFFFFF;
+    }
+
+    /* LEGEND */
+    .legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #AAAAAA;
+    }
+
+    .legend-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 2px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* TABLE WRAPPER */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid #2A2A2A;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    /* HEADER ROW */
+    thead tr {
+      background-color: #FF3900;
+    }
+
+    thead th {
+      padding: 14px 16px;
+      text-align: left;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      white-space: nowrap;
+    }
+
+    /* COLUMN WIDTHS */
+    col.col-prio    { width: 110px; }
+    col.col-pagina  { width: 150px; }
+    col.col-item    { width: 180px; }
+    col.col-regra   { width: auto; }
+    col.col-acao    { width: 220px; }
+
+    /* BODY ROWS */
+    tbody tr:nth-child(odd)  { background-color: #111111; }
+    tbody tr:nth-child(even) { background-color: #1A1A1A; }
+
+    tbody tr:hover { background-color: #222222; transition: background 0.15s; }
+
+    tbody td {
+      padding: 16px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid #2A2A2A;
+      color: #FFFFFF;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* PRIORITY BADGE */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge-bloqueante {
+      background-color: rgba(239, 68, 68, 0.15);
+      color: #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .badge-alta {
+      background-color: rgba(245, 158, 11, 0.15);
+      color: #F59E0B;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-media {
+      background-color: rgba(170, 170, 170, 0.1);
+      color: #AAAAAA;
+      border: 1px solid rgba(170, 170, 170, 0.2);
+    }
+
+    /* PAGE TAG */
+    .page-tag {
+      display: inline-block;
+      background-color: #2A2A2A;
+      color: #AAAAAA;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .canal {
+      font-size: 12px;
+      color: #AAAAAA;
+    }
+
+    /* RULE CITATION */
+    .rule-cite {
+      display: block;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-left: 2px solid #FF3900;
+      background-color: rgba(255, 57, 0, 0.05);
+      font-size: 11px;
+      color: #AAAAAA;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .rule-cite strong {
+      color: #FF3900;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* ACTION CELL */
+    .action-text {
+      font-size: 13px;
+      color: #FFFFFF;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #AAAAAA;
+      border-top: 1px solid #2A2A2A;
+      padding-top: 16px;
+    }
+
+    .footer a {
+      color: #FF3900;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" fill="#FF3900" rx="2"/>
+          <path d="M6 8L11 24L16 13L21 24L26 8" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name">BETWARRIOR</span>
+      </div>
+      <h1 class="doc-title">ANÁLISE DE <span>COMPLIANCE</span><br>CRIATIVOS COPA 2026</h1>
+      <span class="title-accent"></span>
+      <p class="doc-meta">PI FIFA 2026 · Guia de Comunicação · Uso Interno</p>
+    </div>
+    <div class="header-right">
+      <strong>Documento</strong><br>
+      Revisão de Propriedade Intelectual<br>
+      Campanha World Cup 2026<br>
+      <br>
+      <strong>Referência</strong><br>
+      FIFA IP Guidelines v2.0
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <span class="badge badge-bloqueante">Bloqueante</span>
+      <span>Não publicar sem correção</span>
+    </div>
+    <div class="legend-item">
+      <span class="badge badge-alta">Alta</span>
+      <span>Ajustar antes da publicação</span>
+    </div>
+    <div class="legend-item">
+      <span class="badge badge-media">Média</span>
+      <span>Recomendado ajustar</span>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <colgroup>
+        <col class="col-prio">
+        <col class="col-pagina">
+        <col class="col-item">
+        <col class="col-regra">
+        <col class="col-acao">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Página / Canal</th>
+          <th>Item</th>
+          <th>Explicação + Regra</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ROW 1 -->
+        <tr>
+          <td><span class="badge badge-bloqueante">Bloqueante</span></td>
+          <td>
+            <span class="page-tag">Pág. 19</span><br>
+            <span class="canal">Taboola Estática</span>
+          </td>
+          <td>Camisa com listras azul-claro e branco vertical (Argentina)</td>
+          <td>
+            As listras tornam a camisa idêntica à da seleção argentina, sem margem de interpretação. Qualquer consumidor reconhece o padrão.
+            <span class="rule-cite">
+              <strong>Regra Prática n. 2:</strong> "Evite números, padrões e combinações de cores que tornem a camisa idêntica à de um país."<br>
+              <strong>Tabela de referência rápida:</strong> "Reprodução de uniforme oficial de seleção = NÃO PODE USAR."
+            </span>
+          </td>
+          <td class="action-text">Substituir por camisa genérica sem padrão identificável de seleção</td>
+        </tr>
+
+        <!-- ROW 2 -->
+        <tr>
+          <td><span class="badge badge-bloqueante">Bloqueante</span></td>
+          <td>
+            <span class="page-tag">Pág. 27</span><br>
+            <span class="canal">Post</span>
+          </td>
+          <td>Mosaico de camisas de seleções (Brasil, Argentina, Portugal, Inglaterra)</td>
+          <td>
+            O criativo reproduz visualmente quatro uniformes oficiais de seleções reconhecíveis em material comercial com CTA da BetWarrior. Não é alusão genérica: é reprodução direta.
+            <span class="rule-cite">
+              <strong>Tabela de referência rápida:</strong> "Reprodução de uniforme oficial de seleção = NÃO PODE USAR."<br>
+              <strong>Regra Prática n. 3:</strong> "Não use escudos, mascotes, troféus ou logos da Copa."<br>
+              <strong>Regra de Ouro:</strong> "Se a comunicação der a entender vínculo oficial com a Copa do Mundo ou com a FIFA, é um risco legal."
+            </span>
+          </td>
+          <td class="action-text">Remover o criativo ou substituir camisas por modelos fictícios sem cores identificáveis de seleção</td>
+        </tr>
+
+        <!-- ROW 3 -->
+        <tr>
+          <td><span class="badge badge-alta">Alta</span></td>
+          <td>
+            <span class="page-tag">Págs. 24, 25, 26, 27</span><br>
+            <span class="canal">Posts</span>
+          </td>
+          <td>"DO MUNDIAL" / "PRO MUNDIAL" em headlines e CTAs comerciais</td>
+          <td>
+            "MUNDIAL™" está listado explicitamente como marca nominativa protegida da FIFA. Seu uso em headlines de publicidade comercial configura uso não autorizado de PI Oficial.
+            <span class="rule-cite">
+              <strong>Seção "O que é protegido pela FIFA":</strong> "FIFA® / COPA MUNDIAL™ / COUPE DU MONDE™ / MUNDIAL™ — não podem ser utilizadas comercialmente sem autorização."<br>
+              <strong>Seção "O que não pode ser feito":</strong> "Usar o emblema ou o nome do torneio em hashtags vinculadas a marcas ou serviços."
+            </span>
+          </td>
+          <td class="action-text">Substituir "MUNDIAL" por "torneio", "edição" ou "competição"</td>
+        </tr>
+
+        <!-- ROW 4 -->
+        <tr>
+          <td><span class="badge badge-alta">Alta</span></td>
+          <td>
+            <span class="page-tag">Págs. 19, 20</span><br>
+            <span class="canal">Taboola Estática e Animado</span>
+          </td>
+          <td>"JÁ FEZ SEU CORRE DA COPA?" / "TÁ PRONTO PRO CORRE DA COPA?"</td>
+          <td>
+            "Copa" em headline de anúncio pago com CTA direto da marca cria associação comercial com o torneio. O contexto publicitário transforma o termo genérico em referência ao torneio oficial.
+            <span class="rule-cite">
+              <strong>Regra de Ouro:</strong> "Se a comunicação der a entender que seu produto ou serviço tem vínculo oficial com a Copa do Mundo ou com a FIFA, é um risco legal. Em caso de dúvida, opte sempre pela abordagem genérica."<br>
+              <strong>Seção B — Anúncios Comerciais:</strong> "O uso de qualquer Propriedade Intelectual Oficial em anúncios comerciais provavelmente criará uma associação não autorizada."
+            </span>
+          </td>
+          <td class="action-text">Substituir por "DA TEMPORADA" ou "DO TORNEIO"</td>
+        </tr>
+
+        <!-- ROW 5 -->
+        <tr>
+          <td><span class="badge badge-media">Média</span></td>
+          <td>
+            <span class="page-tag">Págs. 4, 6, 12, 13, 16, 20, 22, 24</span><br>
+            <span class="canal">Meta, PMAX, EMKT, Posts</span>
+          </td>
+          <td>Camisas com paletas de seleções (amarelo/verde Brasil, verde Camarões, vermelho Portugal)</td>
+          <td>
+            As combinações de cor remetem diretamente a seleções específicas, ainda que não sejam reproduções exatas. O conjunto de peças usando padrões similares ao longo da campanha intensifica o risco de associação.
+            <span class="rule-cite">
+              <strong>Regra Prática n. 2:</strong> "Evite números, padrões e combinações de cores que tornem a camisa idêntica à de um país."<br>
+              <strong>Regra Prática n. 5:</strong> "Se a arte parecer camisa de seleção, ajuste antes de publicar."<br>
+              <strong>Tabela de referência rápida:</strong> "Cores inspiradas em países sem escudo = PODE USAR" — mas somente quando a combinação não remete a um uniforme específico.
+            </span>
+          </td>
+          <td class="action-text">Trocar por cores neutras ou de marca: preto, cinza, laranja BetWarrior</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span>BetWarrior 2026 — Uso Interno. Fonte: FIFA Intellectual Property Guidelines v2.0</span>
+    <span>Dúvidas: <a href="mailto:compliance@betwarrior.com">compliance@betwarrior.com</a> · <a href="mailto:legal@betwarrior.com">legal@betwarrior.com</a></span>
+  </div>
+
+</body>
+</html>
