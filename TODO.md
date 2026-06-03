@@ -13,22 +13,27 @@
 | Quinta | WPR | Trigger: `WPR DD-DD/mes/YYYY` |
 | Sexta | Semanal Pedro | Trigger: a definir |
 
+> **Semana 03–06/06:** quinta e sexta são feriado + ponte no BR. Sem weekly de Perfo com o Juanca. WPR de sexta feito com calma, sem necessidade de apresentar.
+
 ---
 
 ## Em aberto
 
-- [ ] **Luiz (Financeiro) — confirmar consumo e saldo** — planilha Controle Plano enviada em 01/06 · aguardar confirmação de R$16M consumidos e R$11,7M de saldo · *01/06/2026*
-- [ ] **Pacing vs Meta no Push Semanal** — inclusão do indicador de pacing orçamentário e de FTDs em relação à meta mensal no relatório semanal de performance · atualização diego-pacing semanal · prazo 05/06 · *28/05/2026*
-- [ ] **Weekly de Resultados com Perfo Argentina** — reunião semanal de acompanhamento entre Brasil e time de Performance Argentina · Juanca irá se preparar para iniciar ASAP · owner: Juanca · *28/05/2026*
-- [ ] **Miami — aguardar JP enviar informações da Gi** — decisão: Gi 20 dias, Ana vai depois, fica 3 dias com Gi, Gi volta, Ana fica até o final. Problema: Ana sem visto americano; tem aprovação de passaporte alemão mas não solicitou emissão · *26/05/2026*
-- [ ] **Sofascore IO — abrir ticket Service Desk** — regularizar IO da campanha mai/jun (€6.000). Portal: https://betwarrior.atlassian.net/servicedesk/customer/portal/175 · *27/05/2026*
+- [ ] **Pacing — distribuição de metas por canal** — montar a distribuição de metas por canal para alimentar o pacing do Juanca e o WPR · base do indicador de pacing orçamentário + FTDs vs meta · *03/06/2026*
+- [ ] **Lu Roman — aguardar análise da taxonomia da Casa Mundialista** — Lu confirmou que revisa a sugestão de padrão UTM até o fim do dia de hoje (03/06) · projeto entrega na Copa · *03/06/2026*
+- [ ] **Investimento 2S 2026 — aguardar desdobramento da reunião** — tema escalou: Pedro e JP em reunião com Leandro (Dir. Comercial), Zeno (CEO), Luiz (Financeiro BR) e Grossi (Dir. Financeiro) discutindo o investimento do 2º semestre · substitui a cobrança de consumo/saldo com o Luiz · *03/06/2026*
+- [ ] **Affiliate Manager — checar Bamboo + falar com a Brenda** — verificar andamento da vaga na plataforma Bamboo e mandar mensagem para a Brenda · *03/06/2026*
+- [ ] **Apresentação para o Leandro — semana que vem** — Leandro em SP de ter a qui (semana de 09/06) · preparar apresentação do trabalho: o que já foi entregue, prioridades atuais e próximos passos · formato e horários a confirmar com o Pedro · *03/06/2026*
+- [ ] **Jose de Miguel — cobrar resposta sobre o feed de odds** — e-mail enviado com a demanda técnica da BC (Casa Mundialista) · aguardar retorno sobre feed/credenciais/deep-linking/dono técnico e cobrar se não responder · *03/06/2026*
 - [ ] **RDC / Fernando Leomil — aguardar resposta** — proposta enviada: Pacote M por R$50K para amplificação da Casa Mundialista · *27/05/2026*
-- [ ] **Affiliate Manager — atualizar descritivo da vaga** — enviar JD atualizado para Sofia (People Attraction) · *27/05/2026*
 
 ---
 
 ## Concluído (últimos 7 dias)
 
+- [x] **E-mail Jose de Miguel — feed de odds da BC** — demanda técnica direcionada (doc do feed, credenciais, whitelist IPs, rate limiting, contato técnico) para o projeto Casa Mundialista · cc JP · *03/06/2026*
+- [x] **Miami — infos da Gi** — JP enviou as informações para a Gi, tudo certo · *03/06/2026*
+- [x] **Sofascore IO — descontinuado** — não daremos sequência ao veículo por baixa performance · *03/06/2026*
 - [x] **Revisão do Budget de Marketing 2026** — distribuição orçamentária Mai-Dez finalizada: Perfo ($1.75M/19.729 FTDs), Afiliados ($1.07M/17.759 FTDs @$60 CPA), Influencers, Brand & Mídia e Agências reconciliados com Controle Plano. Contingência: $2.1M · *01/06/2026*
 - [x] **Redistribuição de Metas por Canal** — FTDs e CPAs distribuídos mensalmente com sazonalidade JP. Planilha de distribuição e Controle Plano alinhadas · *01/06/2026*
 - [x] **Revisar distribuição por canal — FTDs e CPA** — planilha `11X5KEcvUgsMRMFcc4vAkiv7WB-cNaAZQpeXSA2VRwvY` atualizada com sazonalidade, CPAs corrigidos pelo PDF Juanca, Afiliados recalibrado para $60 CPA · *01/06/2026*

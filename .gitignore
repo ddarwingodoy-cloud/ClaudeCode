@@ -11,3 +11,6 @@ Projects/BetWarrior/Pessoas/
 
 # Dados operacionais semanais — arquivos binários atualizados toda semana
 Projects/BetWarrior/Performance/.WEEKLY/
+
+# Arquivos grandes (acima do limite do GitHub)
+*.pptx
