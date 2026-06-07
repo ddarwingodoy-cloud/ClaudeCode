@@ -45,6 +45,11 @@ Metas Jun/2026: FTDs **6.343** · CPA **$159,05** · GGR **R$438.137** · GGR/FT
 
 `FactFullRegistration` e `FactFirstDeposit` recebem dados **retroativos** dias após a data. Rodar no próprio fim de semana **subestima**. Ex.: W22 lançado 3.160 FullReg / 631 FTDs; a mesma query 4–7 dias depois deu 3.659 / 769 (+16% / +22%). **Rodar o número final na segunda de manhã.** O último dia da janela, se for "hoje", vem incompleto.
 
+## Tom do Status / Trend (Dashboard)
+
+- **Status** = expectativa estratégica do mês, não o Δ literal de uma semana parcial vs meta mensal (artefato — sempre muito negativo no início do mês). Não pintar cenário ruim no 1º report do mês; pesar ramp/sazonalidade (Copa, Casa Mundialista, afiliados, investimento maior).
+- **Trend** pode ser discursiva: comunicar a convicção (direção + por quê), não só uma seta — mantendo um ponto de atenção honesto (ex.: qualidade do FTD).
+
 ## Atenção a incidentes
 
 Picos atípicos de registros/FTDs num dia podem ser incidentes (ex.: promo/bônus vazado ao público fora do target). Verificar RCA na própria pasta `.SEMANAL PEDRO/` e sinalizar no comentário que o pico é aquisição oportunista, não saudável.
