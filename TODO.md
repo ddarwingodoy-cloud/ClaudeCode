@@ -11,7 +11,7 @@
 | Segunda | Santi | Trigger: `SANTI` |
 | Terca | Perfo Juanca | A criar |
 | Quinta | WPR | Trigger: `WPR DD-DD/mes/YYYY` |
-| Sexta | Semanal Pedro | Aba 📈 Marketing do Weekly KPI Tracker (col W## antes de Comments) |
+| Segunda (até 10h) | Semanal Pedro | Aba 📈 Marketing do KPI Tracker — Pedro cria **arquivo novo a cada mês**; preencher coluna da semana + Status/Trend no Dashboard. Jun/26: `1TduQ6Il...` |
 
 > **Semana 03–06/06:** quinta e sexta são feriado + ponte no BR. Sem weekly de Perfo com o Juanca. WPR de sexta feito com calma, sem necessidade de apresentar.
 
@@ -19,7 +19,6 @@
 
 ## Em aberto
 
-- [ ] **Semanal Pedro W23 — fechar segunda 08/06 de manhã** — coluna W23 (01–07/Jun) já montada na aba 📈 Marketing com valores **preliminares** (FullReg 5.563, FTDs 820, CPA ~$372, GGR R$51.345, GGR/FTD R$63). Re-rodar o Power BI segunda cedo para travar o número final: 07/jun veio incompleto e os fatos recebem backfill retroativo (subestimam no domingo). Atenção ao pico de 01/jun (incidente de promo — RCA salvo em `Performance/.SEMANAL PEDRO/`). · *07/06/2026*
 - [ ] **Pacing — distribuição de metas por canal** — montar a distribuição de metas por canal para alimentar o pacing do Juanca e o WPR · base do indicador de pacing orçamentário + FTDs vs meta · *03/06/2026*
 - [ ] **Lu Roman — aguardar análise da taxonomia da Casa Mundialista** — Lu confirmou que revisa a sugestão de padrão UTM até o fim do dia de hoje (03/06) · projeto entrega na Copa · *03/06/2026*
 - [ ] **Investimento 2S 2026 — aguardar desdobramento da reunião** — tema escalou: Pedro e JP em reunião com Leandro (Dir. Comercial), Zeno (CEO), Luiz (Financeiro BR) e Grossi (Dir. Financeiro) discutindo o investimento do 2º semestre · substitui a cobrança de consumo/saldo com o Luiz · *03/06/2026*
@@ -32,6 +31,7 @@
 
 ## Concluído (últimos 7 dias)
 
+- [x] **Semanal Pedro W23 — fechado (08/06)** — arquivo de junho do Pedro (`1TduQ6Il...`): FullReg 5.966, FTDs 956, CPA ~$319, GGR R$62.893, GGR/FTD R$66 (período 01–07 completo). Dashboard: Current 956, Status 🔴 Below target (fórmula de atingimento, padrão Yasmin), Trend curta. · *08/06/2026*
 - [x] **E-mail Jose de Miguel — feed de odds da BC** — demanda técnica direcionada (doc do feed, credenciais, whitelist IPs, rate limiting, contato técnico) para o projeto Casa Mundialista · cc JP · *03/06/2026*
 - [x] **Miami — infos da Gi** — JP enviou as informações para a Gi, tudo certo · *03/06/2026*
 - [x] **Sofascore IO — descontinuado** — não daremos sequência ao veículo por baixa performance · *03/06/2026*

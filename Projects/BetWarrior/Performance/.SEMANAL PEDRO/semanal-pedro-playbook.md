@@ -3,12 +3,18 @@
 > Report recorrente (sexta / antes da reunião de liderança de segunda). É preencher a aba **📈 Marketing** do *Weekly KPI Tracker — BetWarrior Brazil*.
 > Tracker multi-departamento: cada owner preenche sua aba. Regra do tracker: **update every Monday before 9am**.
 
-## Planilha de destino
+## Planilha de destino — arquivo NOVO a cada mês
 
-- **Weekly KPI Tracker — BetWarrior Brazil**: `1QjKMEtJ2X8_7bRFFOvc4RDZ2F_ErTz8D2Hp1yBJtosk`
-- Aba de produção: **📈 Marketing** (gid 1392125286)
-- **Editar SOMENTE linhas 4–11** (Acquisition / Efficiency / Business Performance). Linhas 12+ são de Giuliano (Content & Brand) e Ana (Social Media) — **nunca tocar**.
-- Aba **🏠 Dashboard**: atualizar a semana corrente (B4) e a data (F4); Current Value de Marketing em E6.
+O Pedro (Country Manager BR) replica o tracker **mensalmente** ("same structure, clean slate"). Usar sempre o arquivo do mês corrente:
+- **Junho/2026:** `1TduQ6IlTYYWN3knpGXYMch9Pgl0_C4FrcLiSIanvSDc`
+- Maio/2026 (antigo): `1QjKMEtJ2X8_7bRFFOvc4RDZ2F_ErTz8D2Hp1yBJtosk`
+- Aba de produção: **📈 Marketing**.
+
+**Layout mensal:** A=KPI · B=Target · **C–G = semanas do mês (W23…W27)** · H=Comments. Colunas e Targets já vêm prontos — **só preencher a coluna da semana + Comments. Não inserir coluna.**
+
+- **Editar SOMENTE linhas 4–11** (Acquisition / Efficiency / Business Performance). Linhas 12+ são de Giuliano e Ana — **nunca tocar**.
+- Aba **🏠 Dashboard**: B4/F4 (semana e datas) já vêm prontos. Linha Marketing (row 6) é **manual** (as outras áreas usam fórmula): E6=FTDs da semana, F6=`=E6/D6-1`, **G6=Status, H6=Trend** (Status+Trend são pedido explícito do Pedro, toda semana).
+- **Frequência:** atualizar antes das **10h** de segunda (mudou de 9h em jun/2026).
 
 ## Os 5 KPIs (linhas)
 
@@ -36,10 +42,9 @@ Metas Jun/2026: FTDs **6.343** · CPA **$159,05** · GGR **R$438.137** · GGR/FT
 1. **Renovar token Power BI** (refresh; se expirado, device code flow — exige o Darwin autenticar no browser).
 2. Rodar DAX por dia da semana (External): Full Reg, FTDs, GB, GW. GGR = GB − GW.
 3. Calcular CPA (investimento proporcional ÷ FTDs) e GGR/FTD.
-4. **Inserir coluna da semana antes de Comments**: `resize_sheet_dimensions(insert_columns=1, insert_columns_at=<col Comments>)`. Header `W## (DD–DD/Mês)`.
-5. Escrever Target (meta do mês) e valores em **texto** (RAW), no estilo `5,563` / `$372.00` / `R$51,345` / `R$63`.
-6. Atualizar a coluna Comments (deslocada) com a narrativa da semana.
-7. Atualizar a aba 🏠 Dashboard (semana corrente + Current Value).
+4. **Preencher a coluna da semana corrente** (já existe; não inserir) + Comments (col H), em **texto** (RAW): `5,966` / `$319.00` / `R$51,345` / `R$63`.
+5. Conferir os Targets do mês (já vêm preenchidos; ajustar se a realidade do mês mudou).
+6. Atualizar a aba 🏠 Dashboard, linha Marketing: Current (E6), Δ (F6), **Status (G6) e Trend (H6)**.
 
 ## ACHADO CRÍTICO — backfill retroativo (07/06/2026)
 
