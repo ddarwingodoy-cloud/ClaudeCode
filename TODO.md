@@ -24,6 +24,7 @@
 - [ ] **Investimento 2S 2026 — aguardar desdobramento da reunião** — tema escalou: Pedro e JP em reunião com Leandro (Dir. Comercial), Zeno (CEO), Luiz (Financeiro BR) e Grossi (Dir. Financeiro) discutindo o investimento do 2º semestre · substitui a cobrança de consumo/saldo com o Luiz · *03/06/2026*
 - [ ] **Affiliate Manager — checar Bamboo + falar com a Brenda** — verificar andamento da vaga na plataforma Bamboo e mandar mensagem para a Brenda · *03/06/2026*
 - [ ] **Apresentação para o Leandro — aguardar revisão do JP** — deck Growth Review (8 slides) pronto e no Drive (`1P_ff3rJH...`), JP com acesso de comentário e mensagem de contexto preparada. Aguardar feedback do JP, ajustar o HTML e regenerar o PDF; definir formato/horário com o Pedro (Leandro em SP semana de 09/06). · *08/06/2026*
+- [ ] **Super Afiliados — proposta enviada, aguardar contraproposta** — dois deals híbridos enviados ao Dan via WhatsApp com ajustes do JP (Premium CPA R$180+25%, Plataforma R$120+20%, com carryover, baseline depósito+aposta R$150/R$100). Conversa marcada p/ 10/06. Trazer mecânica de evolução + piloto. Doc: `Afiliados/Superafiliados.md` · *09/06/2026*
 - [ ] **Jose de Miguel — cobrar resposta sobre o feed de odds** — e-mail enviado com a demanda técnica da BC (Casa Mundialista) · aguardar retorno sobre feed/credenciais/deep-linking/dono técnico e cobrar se não responder · *03/06/2026*
 - [ ] **RDC / Fernando Leomil — aguardar resposta** — proposta enviada: Pacote M por R$50K para amplificação da Casa Mundialista · *27/05/2026*
 
