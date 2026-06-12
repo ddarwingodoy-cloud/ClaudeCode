@@ -23,7 +23,6 @@
 - [ ] **Lu Roman — aguardar análise da taxonomia da Casa Mundialista** — Lu confirmou que revisa a sugestão de padrão UTM até o fim do dia de hoje (03/06) · projeto entrega na Copa · *03/06/2026*
 - [ ] **Investimento 2S 2026 — aguardar desdobramento da reunião** — tema escalou: Pedro e JP em reunião com Leandro (Dir. Comercial), Zeno (CEO), Luiz (Financeiro BR) e Grossi (Dir. Financeiro) discutindo o investimento do 2º semestre · substitui a cobrança de consumo/saldo com o Luiz · *03/06/2026*
 - [ ] **Affiliate Manager — checar Bamboo + falar com a Brenda** — verificar andamento da vaga na plataforma Bamboo e mandar mensagem para a Brenda · *03/06/2026*
-- [ ] **Apresentação para o Leandro — aguardar revisão do JP** — deck Growth Review (8 slides) pronto e no Drive (`1P_ff3rJH...`), JP com acesso de comentário e mensagem de contexto preparada. Aguardar feedback do JP, ajustar o HTML e regenerar o PDF; definir formato/horário com o Pedro (Leandro em SP semana de 09/06). · *08/06/2026*
 - [ ] **Super Afiliados — proposta enviada, aguardar contraproposta** — dois deals híbridos enviados ao Dan via WhatsApp com ajustes do JP (Premium CPA R$180+25%, Plataforma R$120+20%, com carryover, baseline depósito+aposta R$150/R$100). Conversa marcada p/ 10/06. Trazer mecânica de evolução + piloto. Doc: `Afiliados/Superafiliados.md` · *09/06/2026*
 - [ ] **Jose de Miguel — cobrar resposta sobre o feed de odds** — e-mail enviado com a demanda técnica da BC (Casa Mundialista) · aguardar retorno sobre feed/credenciais/deep-linking/dono técnico e cobrar se não responder · *03/06/2026*
 - [ ] **RDC / Fernando Leomil — aguardar resposta** — proposta enviada: Pacote M por R$50K para amplificação da Casa Mundialista · *27/05/2026*
@@ -32,6 +31,7 @@
 
 ## Concluído (últimos 7 dias)
 
+- [x] **Apresentação para o Leandro (11/06)** — deck Growth Review apresentado e **muito bem recebido**. Leandro elogiou a concisão ("lo bueno, si breve, dos veces bueno"). Ciclo fechado. · *11/06/2026*
 - [x] **Deck Growth Review para o Leandro (08/06)** — apresentação de 8 slides em HTML (padrão BetWarrior) construída e iterada slide a slide. PDF landscape gerado e subido no Drive, compartilhado com o JP (comentador, sem e-mail automático). Roteiro + storytelling versionados. Aguarda revisão do JP (ver Em aberto). · *08/06/2026*
 - [x] **Semanal Pedro W23 — fechado (08/06)** — arquivo de junho do Pedro (`1TduQ6Il...`): FullReg 5.966, FTDs 956, CPA ~$319, GGR R$62.893, GGR/FTD R$66 (período 01–07 completo). Dashboard: Current 956, Status 🔴 Below target (fórmula de atingimento, padrão Yasmin), Trend curta. · *08/06/2026*
 - [x] **E-mail Jose de Miguel — feed de odds da BC** — demanda técnica direcionada (doc do feed, credenciais, whitelist IPs, rate limiting, contato técnico) para o projeto Casa Mundialista · cc JP · *03/06/2026*
