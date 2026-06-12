@@ -273,13 +273,17 @@ Polyline conecta os dots. Linha avg R$/apostador tracejada horizontal.
 ## 10. Fórmulas PowerBI
 
 ```
-GGR = ABS(GAME_BET) − (GAME_WIN + CASH_OUT + CORRECTION)
-NGR = GGR − (CRE_BONUS + PRODUC_BON + MAN_BONUS)
+GGR = ABS(GAME_BET) − (GAME_WIN + CASH_OUT + CORRECTION)        [todas as sub-contas]
+NGR = RealGGR − Released Bonus                                  [METODO CORRETO — bate com o dashboard do Bira]
+   RealGGR       = ABS(GAME_BET) − (GAME_WIN+CASH_OUT+CORRECTION)  filtrado por dim_sub_account_key = "AMOUNT_REAL"
+   Released Bonus = SUM(BONUS_REL) filtrado por dim_sub_account_key = "AMOUNT_RELEASED_BONUS"
 Gross Bets = ABS(SUM(FactAGGAccountTransaction[account_transaction_amount]))
              WHERE account_transaction_type = "GAME_BET"
 Gross Wins = SUM WHERE type IN {"GAME_WIN", "CASH_OUT", "CORRECTION"}
-Margem = NGR / Gross Bets
+Margem = GGR / Gross Bets    (SB/CS = GGR do produto / GB do produto, via DimGame[game_platform_name])
 ```
+
+> **NGR — NUNCA usar a fórmula simplificada `GGR − (CRE_BONUS+PRODUC_BON+MAN_BONUS)`.** Ela diverge do dashboard do Bira (deu 29k vs 35k em Jun/2026). O método correto é por `dim_sub_account_key` acima. O script `.WEEKLY/wpr_pull.py` já faz isso.
 
 **Armadilhas críticas**:
 - `GAME_BET` é negativo — sempre usar `ABS()`
@@ -331,4 +335,49 @@ Margem = NGR / Gross Bets
 - **Conexão PowerBI** (tokens, IDs, fluxo auth): memória `project_powerbi_connection.md`
 - **Design System**: tokens no `CLAUDE.md` (raiz do projeto)
 - **Agentes**: `Projects/BetWarrior/Agentes/agents-registry.md`
-- **Modelo HTML aprovado**: `.WEEKLY/wpr-mai-01-27-slide*.html` + `WPR_Brasil_Mai01-27_2026.html`
+- **Modelo HTML aprovado (atual)**: `.WEEKLY/wpr-jun-01-10-slide*.html` + `WPR_Brasil_Jun01-10_2026.html`
+
+---
+
+## 13. Kit de produção travado (a partir de Jun/2026)
+
+> Reescrito após uma entrega desgastante (Darwin perdeu ~3h ajustando layout). **Regra de ouro: copiar o deck aprovado, trocar só o dado, nunca redesenhar.** Alinhar a estrutura ANTES de construir. Dado faltando = levantar a mão, não improvisar. (memória `feedback_wpr_process`)
+
+### 13.1 Estrutura travada do P1 (4 painéis, não inventar)
+1. **FTD vs Meta** (topo esq.) — barras Realizado (laranja) vs Meta (cinza) por mês a partir de Abr, % de atingimento em cima, meta cheia do mês (número só) abaixo do nome. Janela 01–10, meta proporcional.
+2. **Depósito Médio por FTD** (topo dir.) — valor do 1º depósito (`AVERAGE(FactFirstDeposit[payment_amount])`), Abr em diante.
+3. **Funil de Ativação** — Sessões(GA4) → No Lock(FRNL NOT_LOCKED) → Pronto p/Dep(KYC READY_FOR_DEPOSIT) → FTD, com Δ vs mês anterior em ≥12px.
+4. **Tabela Métricas de Negócio + Base Ativa** — meses (Jan→atual) + 3 linhas de análise: **Δ vs Mai** (MoM), **Meta** (valores, fonte normal), **vs Meta** (atingimento). Base Ativa colada no rodapé (`margin-top:auto`).
+
+Gráficos de topo = **SVGs gêmeos** (mesmo viewBox `0 0 900 360`, fonte 17px) para fonte/escala consistentes.
+
+### 13.2 Regra de cor (única)
+Cor **só nas linhas comparativas** (Δ vs Mai, vs Meta): verde = acima, vermelho = abaixo. Meses = dado neutro; o mês atual se distingue só pelo fundo (`.cw`). Nunca negrito/cor "decorativo" nos meses.
+
+### 13.3 Linhas de análise
+- **Δ vs Mai** = variação % MoM (taxas em p.p.).
+- **vs Meta** = atingimento: **absolutos em % (realizado/meta)**, **taxas em p.p. (realizado − meta)**.
+- Atingimento = realizado ÷ (meta_mês × dias_decorridos / dias_do_mês). FullReg meta = FTD meta ÷ CR alvo. Fecha o funil: ating.FTD = ating.FullReg × ating.CR.
+
+### 13.4 Fontes de META
+| Métrica | Fonte | Onde |
+|---|---|---|
+| FTD (total, c/ contingência) | planilha Distribuição por Canal | `1Rc_ckovbxUUj3M0XBXFx6JHXqGF1q06VQYG0Dur7PHg` aba `Distribuição`, **linha 14 TOTAL** (col Abr=F, Mai=I, Jun=L...) |
+| GGR / NGR / Margens | forecast de receita interno | `1UtdEyu8MhpfADMF7TOUDj2SeSaJcf6gR_yXxThTUnno`, linhas **44 (GGR R$)**, **47 (NGR R$)**, **42 (Margem Sports)**, **43 (Margem Casino)**; col B=Abr, C=Mai, D=Jun |
+| Registros (FullReg) | derivada | FTD meta ÷ **CR alvo** |
+| CR alvo | benchmark iGaming BR 20–30% | **25%** (default) |
+
+> O forecast de receita separa `FTDs` (sem afiliados) de `FTDs Afiliados` — somar as duas para o total (≈ linha 14 da distribuição). **Nunca citar a fonte do forecast no report entregue.**
+
+### 13.5 Passo a passo (semana que vem)
+1. `python3 .WEEKLY/wpr_pull.py <mes> 1 10` → todos os números do P1 (tabela, funil, cards, depósito médio) com NGR já correto.
+2. GA4 sessões (No Lock do funil): MCP `google-analytics run_report` metric=`sessions` dim=`country`, filtrar Brazil, mês atual e anterior.
+3. Meta: ler as duas planilhas (13.4) e calcular atingimento.
+4. Copiar `wpr-jun-01-10-slide*.html`, renomear para o período, **trocar só os números** (SVGs: regenerar com o mesmo gerador; tabela: trocar células).
+5. Master: trocar período da capa + `?v=N` dos iframes.
+6. PDF: Chrome headless `--screenshot` por slide + PIL.
+7. **Travessão**: `grep -c "—"` em cada arquivo = 0 (memória `feedback_sem_travessao`).
+8. Token PowerBI expira ~1h: o script renova sozinho; se o refresh falhar, refazer Device Code Flow (memória `feedback_powerbi_token_renewal`).
+
+### 13.6 Chrome de apresentação (master)
+Scroll-snap tela cheia, dots à direita (chip escuro), lock de 800ms anti double-scroll, teclado (setas/PageUp-Down/espaço), iframes 1920×1080 escalados por `min(vw/1920, vh/1080)`. Páginas claras dentro (não escurecer o conteúdo, prejudica leitura).
