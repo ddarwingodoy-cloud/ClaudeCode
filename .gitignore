@@ -16,3 +16,6 @@ Projects/BetWarrior/Performance/Semanais/WPR/*
 
 # Arquivos grandes (acima do limite do GitHub)
 *.pptx
+
+# Arquivos temporarios/lock do Office
+~$*
