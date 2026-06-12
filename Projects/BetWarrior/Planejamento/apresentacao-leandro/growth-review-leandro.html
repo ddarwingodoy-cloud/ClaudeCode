@@ -150,6 +150,25 @@ ul.bul li b{color:#fff}
 .flag.green{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.35)}
 .flag.green .t{color:var(--green)}.flag.green p{color:#d8efe0}
 
+/* roadmap gantt */
+.rm{margin-top:2rem}
+.rm-head{display:grid;grid-template-columns:226px 1fr;align-items:end;margin-bottom:1.4rem}
+.rm-mh{display:grid;grid-template-columns:repeat(7,1fr)}
+.rm-mh span{text-align:center;font-family:'Archivo Black',sans-serif;font-size:.72rem;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+.rm-body{position:relative}
+.rm-group{position:relative;padding-left:58px;margin-bottom:.35rem}
+.rm-vlabel{position:absolute;left:0;top:0;bottom:0;width:32px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.rm-vlabel span{transform:rotate(-90deg);white-space:nowrap;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:.4rem;letter-spacing:.04em;color:var(--orange)}
+.rm-rows{display:flex;flex-direction:column;gap:.5rem}
+.rm-row{display:grid;grid-template-columns:168px 1fr;align-items:center}
+.rm-lbl{font-size:.82rem;color:#e8e8e8;text-align:right;font-weight:600;line-height:1.12;padding-right:.3rem}
+.rm-sub{display:block;font-size:.6rem;color:#888;font-weight:500;margin-top:.12rem;text-transform:none;letter-spacing:0}
+.rm-track{position:relative;height:28px;border-radius:6px;background-color:transparent;background-image:repeating-linear-gradient(to right,transparent 0,transparent calc(100%/7 - 1px),var(--border) calc(100%/7 - 1px),var(--border) calc(100%/7))}
+.rm-bar{position:absolute;top:4px;bottom:4px;border-radius:5px;display:flex;align-items:center;padding:0 .7rem;font-size:.73rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;background:var(--orange)}
+.rm-bar.ao{background:var(--surface2);border:1.5px dashed var(--orange);color:#ffb39c}
+.rm-now{position:absolute;top:-4px;bottom:-4px;width:2px;background:rgba(255,255,255,.4)}
+.rm-now span{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-size:.58rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;background:#000;border:1px solid var(--border);padding:1px 6px;border-radius:20px;z-index:7}
+
 /* progress dots */
 .nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:50}
 .nav a{width:9px;height:9px;border-radius:50%;background:#3a3a3d;display:block;transition:.2s}
@@ -246,7 +265,7 @@ ul.bul li b{color:#fff}
     <div class="cover-chips"><span class="chip-lead">Growth</span><span class="chip">Perfo</span><span class="chip">Influencers</span><span class="chip">Affiliates</span><span class="chip">Brand &amp; Mídia</span></div>
   </div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">01 / 08</div>
+  <div class="snum">01 / 09</div>
 </section>
 
 <!-- 2 ATO 1a -->
@@ -275,7 +294,7 @@ ul.bul li b{color:#fff}
   </div>
   <div class="quote">A meta precisa morar onde o resultado pode nascer.</div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">02 / 08</div>
+  <div class="snum">02 / 09</div>
 </section>
 
 <!-- 3 ATO 2a · REDISTRIBUIÇÃO -->
@@ -308,6 +327,7 @@ ul.bul li b{color:#fff}
           </div>
         </div>
       </div>
+      <p class="minilabel" style="margin-top:.9rem;line-height:1.45">Orgânico e Direto sustentados por ações de marca: <b style="color:#FF3900">Cazé TV</b> (Libertadores e Sulamericana), <b style="color:#FF3900">Casa Mundialista</b> (durante a Copa), <b style="color:#FF3900">Futbol Sites</b> (pós-Copa) e <b style="color:#FF3900">display e streaming</b> pontuais.</p>
     </div>
     <div>
       <p class="concept">Com cada canal carregando a meta que tem <b>capacidade real de entregar</b>, fica mais fácil acompanhar e responsabilizar corretamente. A leitura da performance vira objetiva.</p>
@@ -319,7 +339,7 @@ ul.bul li b{color:#fff}
   </div>
   <div class="quote">Paramos de cobrar FTD de quem não traz e demos meta a quem traz.</div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">03 / 08</div>
+  <div class="snum">03 / 09</div>
 </section>
 
 <!-- 4 ATO 2b · EFICIÊNCIA DO PERFORMANCE -->
@@ -356,7 +376,7 @@ ul.bul li b{color:#fff}
   </div>
   <div class="quote">Cada real no canal certo devolve o melhor apostador.</div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">04 / 08</div>
+  <div class="snum">04 / 09</div>
 </section>
 
 <!-- 5 ATO 2c · PACING -->
@@ -390,7 +410,7 @@ ul.bul li b{color:#fff}
   </div>
   <div class="quote">Prestação de contas virou rotina, não evento.</div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">05 / 08</div>
+  <div class="snum">05 / 09</div>
 </section>
 
 <!-- 6 ATO 3 · PLANO POR CANAL -->
@@ -416,7 +436,7 @@ ul.bul li b{color:#fff}
   </div>
   <div class="quote">Cada motor com meta clara e um plano em execução.</div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">06 / 08</div>
+  <div class="snum">06 / 09</div>
 </section>
 
 <!-- 7 ATO 4 · EVOLUÇÃO / ALVO -->
@@ -449,7 +469,45 @@ ul.bul li b{color:#fff}
   </div>
   <div class="quote">O alvo está desenhado, canal a canal.</div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">07 / 08</div>
+  <div class="snum">07 / 09</div>
+</section>
+
+<!-- 8 ROADMAP DE MARCA -->
+<section class="slide" id="s8b">
+  <svg class="brandlogo" viewBox="0 0 720.1 135.2"><use href="#bwlogo"/></svg>
+  <div class="eyebrow">Ato 4 · Reforço de Orgânico e Direto</div>
+  <h1 class="title">O roadmap de marca</h1>
+  <p class="minilabel" style="margin-top:.6rem">Ações que alimentam Orgânico e Direto ao longo do ano · Jun a Dez 2026</p>
+  <div class="rm">
+    <div class="rm-head"><div></div><div class="rm-mh"><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span><span>Nov</span><span>Dez</span></div></div>
+    <div class="rm-body">
+      <div class="rm-now" style="left:calc(226px + (100% - 226px) * 0.05)"><span>agora</span></div>
+      <div class="rm-group">
+        <div class="rm-vlabel"><span>Broadcast &amp; Eventos</span></div>
+        <div class="rm-rows">
+          <div class="rm-row"><div class="rm-lbl">Casa Mundialista</div><div class="rm-track"><div class="rm-bar" style="left:4%;width:19%">Copa do Mundo</div></div></div>
+          <div class="rm-row"><div class="rm-lbl">Cazé · Libertadores</div><div class="rm-track"><div class="rm-bar" style="left:34%;width:50.8%">Até a final · 28/11</div></div></div>
+          <div class="rm-row"><div class="rm-lbl">Cazé · Sulamericana</div><div class="rm-track"><div class="rm-bar" style="left:24%;width:57.4%">Até a final · 21/11</div></div></div>
+        </div>
+      </div>
+      <div class="rm-group">
+        <div class="rm-vlabel"><span>Mídia</span></div>
+        <div class="rm-rows">
+          <div class="rm-row"><div class="rm-lbl">Futbol Sites</div><div class="rm-track"><div class="rm-bar" style="left:28.571%;width:71.428%">Bolavip · Somos Fanáticos · Antenados</div></div></div>
+          <div class="rm-row"><div class="rm-lbl">Display e streaming</div><div class="rm-track"><div class="rm-bar" style="left:0;width:100%">Always-on · pontual</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:2.2rem;align-items:center;margin-top:1.2rem">
+    <div class="quote" style="margin-top:0;flex:1">Um calendário desenhado para transformar audiência em tráfego orgânico.</div>
+    <div class="flag green" style="margin-top:0;flex:none;width:36%;max-width:46ch;margin-left:auto">
+      <div class="t">Cobertura o ano inteiro</div>
+      <p>A <b>Copa do Mundo</b> segura junho e julho. Quando os campeonatos voltam, o <b>Cazé</b> (Libertadores e Sulamericana) e o <b>Futbol Sites</b> assumem, sustentando o tráfego até dezembro com <b>display e streaming</b> sempre ligados, somando <b>mais de 150 milhões de impressões</b> previstas no período.</p>
+    </div>
+  </div>
+  <div class="confid">Conteúdo confidencial · Uso interno</div>
+  <div class="snum">08 / 09</div>
 </section>
 
 <!-- 9 FECHO -->
@@ -468,7 +526,7 @@ ul.bul li b{color:#fff}
     </div>
   </div>
   <div class="confid">Conteúdo confidencial · Uso interno</div>
-  <div class="snum">08 / 08</div>
+  <div class="snum">09 / 09</div>
 </section>
 
 <script>
