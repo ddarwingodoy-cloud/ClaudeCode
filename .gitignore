@@ -9,8 +9,10 @@ Projects/Ceramicando/Produto/*.csv
 # Documentos pessoais de terceiros
 Projects/BetWarrior/Pessoas/
 
-# Dados operacionais semanais — arquivos binários atualizados toda semana
-Projects/BetWarrior/Performance/WEEKLY/
+# Dados operacionais semanais (working files do WPR) — atualizados toda semana
+Projects/BetWarrior/Performance/Semanais/WPR/*
+# ...exceto as entregas finais, que ficam versionadas
+!Projects/BetWarrior/Performance/Semanais/WPR/Entregas
 
 # Arquivos grandes (acima do limite do GitHub)
 *.pptx

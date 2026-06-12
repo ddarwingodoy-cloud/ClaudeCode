@@ -37,7 +37,7 @@ Atualizado em: 14/05/2026
 | Campo | Valor |
 |---|---|
 | Propósito | Ler dados de spend, FTDs e pacing das planilhas da equipe de Perfo |
-| Input | `data_inicio`, `data_fim`, pasta `WEEKLY/` |
+| Input | `data_inicio`, `data_fim`, pasta `Semanais/WPR/` |
 | Output | JSON com três chaves: `spend_por_plataforma`, `ftd_por_plataforma`, `pacing` |
 | Ferramenta | Bash (Python `openpyxl`) |
 | Arquivo 1 | `BW BR - CPL x Mes l Interno Perfo 2026.xlsx` · aba `Daily ACQ` (fornecido: Equipe Perfo Argentina) |
@@ -145,8 +145,8 @@ WPR 08-14/mai/2026
 
 | # | Arquivo | Onde | Quem fornece |
 |---|---|---|---|
-| 1 | `BW BR - CPL x Mes l Interno Perfo 2026.xlsx` | `WEEKLY/` | Equipe Perfo (Argentina) |
-| 2 | `PACING - PERFO.xlsx` | `WEEKLY/` | Diego |
+| 1 | `BW BR - CPL x Mes l Interno Perfo 2026.xlsx` | `Semanais/WPR/` | Equipe Perfo (Argentina) |
+| 2 | `PACING - PERFO.xlsx` | `Semanais/WPR/` | Diego |
 | 3 | `2026_SB_CS.xlsx` (ou SB + CS separados) | `Performance/` | Darwin (export PowerBI) |
 
 Se algum arquivo estiver ausente, o orquestrador solicita antes de prosseguir.

@@ -2,7 +2,7 @@
 
 > Guia operacional para construção do Weekly Performance Report.
 > Consolidado em 28/05/2026 — incorpora aprendizados das entregas Mai 01-21 e Mai 01-27.
-> Modelo de referência: arquivos em `Performance/WEEKLY/` prefixo `wpr-mai-01-27-*`.
+> Modelo de referência: arquivos em `Performance/Semanais/WPR/` prefixo `wpr-mai-01-27-*`.
 
 ---
 
@@ -10,7 +10,7 @@
 
 - Entrega: toda **quarta-feira** (reunião WPR)
 - Período: **definido por Darwin na solicitação** — sempre comparar períodos com os mesmos dias da semana (normalização por dia, não por contagem fixa de dias)
-- Arquivos individuais em `WEEKLY/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1–P4)
+- Arquivos individuais em `Semanais/WPR/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1–P4)
 - Arquivo unificado: `WPR_Brasil_[Mês][DD-DD]_[YYYY].html` — capa + P1 + P2 + P3 + P4 empilhados, escalagem automática via JS
 - Fonte de mídia paga (P3): solicitar PACING-PERFO ao Diego com antecedência
 
@@ -283,7 +283,7 @@ Gross Wins = SUM WHERE type IN {"GAME_WIN", "CASH_OUT", "CORRECTION"}
 Margem = GGR / Gross Bets    (SB/CS = GGR do produto / GB do produto, via DimGame[game_platform_name])
 ```
 
-> **NGR — NUNCA usar a fórmula simplificada `GGR − (CRE_BONUS+PRODUC_BON+MAN_BONUS)`.** Ela diverge do dashboard do Bira (deu 29k vs 35k em Jun/2026). O método correto é por `dim_sub_account_key` acima. O script `WEEKLY/wpr_pull.py` já faz isso.
+> **NGR — NUNCA usar a fórmula simplificada `GGR − (CRE_BONUS+PRODUC_BON+MAN_BONUS)`.** Ela diverge do dashboard do Bira (deu 29k vs 35k em Jun/2026). O método correto é por `dim_sub_account_key` acima. O script `Semanais/WPR/wpr_pull.py` já faz isso.
 
 **Armadilhas críticas**:
 - `GAME_BET` é negativo — sempre usar `ABS()`
@@ -335,7 +335,7 @@ Margem = GGR / Gross Bets    (SB/CS = GGR do produto / GB do produto, via DimGam
 - **Conexão PowerBI** (tokens, IDs, fluxo auth): memória `project_powerbi_connection.md`
 - **Design System**: tokens no `CLAUDE.md` (raiz do projeto)
 - **Agentes**: `Projects/BetWarrior/Agentes/agents-registry.md`
-- **Modelo HTML aprovado (atual)**: `WEEKLY/wpr-jun-01-10-slide*.html` + `WPR_Brasil_Jun01-10_2026.html`
+- **Modelo HTML aprovado (atual)**: `Semanais/WPR/wpr-jun-01-10-slide*.html` + `WPR_Brasil_Jun01-10_2026.html`
 
 ---
 
@@ -370,7 +370,7 @@ Cor **só nas linhas comparativas** (Δ vs Mai, vs Meta): verde = acima, vermelh
 > O forecast de receita separa `FTDs` (sem afiliados) de `FTDs Afiliados` — somar as duas para o total (≈ linha 14 da distribuição). **Nunca citar a fonte do forecast no report entregue.**
 
 ### 13.5 Passo a passo (semana que vem)
-1. `python3 WEEKLY/wpr_pull.py <mes> 1 10` → todos os números do P1 (tabela, funil, cards, depósito médio) com NGR já correto.
+1. `python3 Semanais/WPR/wpr_pull.py <mes> 1 10` → todos os números do P1 (tabela, funil, cards, depósito médio) com NGR já correto.
 2. GA4 sessões (No Lock do funil): MCP `google-analytics run_report` metric=`sessions` dim=`country`, filtrar Brazil, mês atual e anterior.
 3. Meta: ler as duas planilhas (13.4) e calcular atingimento.
 4. Copiar `wpr-jun-01-10-slide*.html`, renomear para o período, **trocar só os números** (SVGs: regenerar com o mesmo gerador; tabela: trocar células).

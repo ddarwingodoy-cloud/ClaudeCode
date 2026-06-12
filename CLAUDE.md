@@ -78,9 +78,9 @@ Ao receber o trigger `SANTI`:
 Ao receber um trigger de workflow estruturado (ex: `WPR DD-DD/mês/YYYY`):
 1. **Ler obrigatoriamente** `Projects/BetWarrior/Performance/wpr-playbook.md` antes de qualquer outra ação — fontes de dados, normalização, mapeamento de canais, posições SVG e checklist estão lá
 2. Carregar o registro e identificar o workflow correspondente
-3. Verificar pré-condições (arquivos necessários em `WEEKLY/` e `Performance/`)
+3. Verificar pré-condições (arquivos necessários em `Semanais/WPR/` e `Performance/`)
 4. Disparar coleta de dados em paralelo (agent-ga4 · agent-powerbi · agent-xlsx)
-5. Gerar HTML com os dados coletados (agent-html) — usar como modelo os arquivos `wpr-mai-01-27-slide*.html` em `WEEKLY/`
+5. Gerar HTML com os dados coletados (agent-html) — usar como modelo os arquivos `wpr-mai-01-27-slide*.html` em `Semanais/WPR/`
 6. Rodar agent-auditor no HTML gerado — verificar lastro de fontes e consistência interna
    - Se aprovado: apresentar HTML + sugestão de headline e destaques para revisão editorial
    - Se reprovado: reportar discrepância com localização exata e bloquear entrega até correção
