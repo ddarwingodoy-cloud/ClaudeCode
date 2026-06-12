@@ -10,7 +10,7 @@ Projects/Ceramicando/Produto/*.csv
 Projects/BetWarrior/Pessoas/
 
 # Dados operacionais semanais — arquivos binários atualizados toda semana
-Projects/BetWarrior/Performance/.WEEKLY/
+Projects/BetWarrior/Performance/WEEKLY/
 
 # Arquivos grandes (acima do limite do GitHub)
 *.pptx

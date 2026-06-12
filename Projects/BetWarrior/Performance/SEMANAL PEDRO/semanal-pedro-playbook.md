@@ -57,4 +57,4 @@ Metas Jun/2026: FTDs **6.343** · CPA **$159,05** · GGR **R$438.137** · GGR/FT
 
 ## Atenção a incidentes
 
-Picos atípicos de registros/FTDs num dia podem ser incidentes (ex.: promo/bônus vazado ao público fora do target). Verificar RCA na própria pasta `.SEMANAL PEDRO/` e sinalizar no comentário que o pico é aquisição oportunista, não saudável.
+Picos atípicos de registros/FTDs num dia podem ser incidentes (ex.: promo/bônus vazado ao público fora do target). Verificar RCA na própria pasta `SEMANAL PEDRO/` e sinalizar no comentário que o pico é aquisição oportunista, não saudável.
