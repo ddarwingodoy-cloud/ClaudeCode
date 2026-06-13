@@ -19,3 +19,6 @@ Projects/BetWarrior/Performance/Semanais/WPR/*
 
 # Arquivos temporarios/lock do Office
 ~$*
+
+# Agenda telefonica (dados pessoais de terceiros) — nunca versionar
+Projects/Pessoal/Contatos/
