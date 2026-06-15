@@ -58,3 +58,36 @@ Metas Jun/2026: FTDs **6.343** · CPA **$159,05** · GGR **R$438.137** · GGR/FT
 ## Atenção a incidentes
 
 Picos atípicos de registros/FTDs num dia podem ser incidentes (ex.: promo/bônus vazado ao público fora do target). Verificar RCA na própria pasta `Semanais/Semanal Pedro/` e sinalizar no comentário que o pico é aquisição oportunista, não saudável.
+
+## Curva de sazonalidade: META SEMANAL (FONTE ÚNICA, usar em TODOS os trackers)
+
+> Decidido com Darwin (14/06/2026). **Não comparar real semanal com meta mensal cru** (artefato). A meta mensal é distribuída por uma curva de sazonalidade da Copa. Usar a MESMA curva no tracker do Pedro, na Tracking Semanal (Linha 5) e no WPR.
+
+**Modelo (junho/2026, Copa):** peso diário **1,0 pré-Copa (1-10/jun)** e **1,8 nos dias de Copa (a partir de 11/jun, lift L=+80%)**. Soma por semana, normaliza pra 100%. O lift L e a data de início da Copa são os únicos parâmetros, re-derivar por mês.
+
+| Semana | Peso | % do mês |
+|---|---|---|
+| W23 (1-7) | 7,0 | 15,22% |
+| W24 (8-14) | 10,2 | 22,17% |
+| W25 (15-21) | 12,6 | 27,39% |
+| W26 (22-28) | 12,6 | 27,39% |
+| W27 (29-30) | 3,6 | 7,83% |
+
+**Metas mensais junho (corrigidas):**
+- **FTD = 7.343** (6.343 base linha 8 do Forecast **+ 1.000 afiliados** linha 9, o real External inclui afiliados, então a meta também)
+- **NGR = R$385.561** (Forecast linha 47)
+- **GGR = R$438.137** (Forecast linha 44)
+- **Full Reg = 31.926** (= FTD ÷ CR 23%)
+- **GGR/FTD = R$60** (= GGR ÷ FTD; razão, não distribui na curva, é flat)
+- **CPA = $159,05** (taxa de eficiência, não distribui na curva, é flat semanal)
+
+**Metas semanais resultantes (aplicar curva a FTD/NGR/GGR/FullReg):**
+| Semana | FullReg | FTD | GGR | NGR |
+|---|---|---|---|---|
+| W23 | 4.857 | 1.117 | 66.673 | 58.672 |
+| W24 | 7.079 | 1.628 | 97.152 | 85.494 |
+| W25 | 8.745 | 2.011 | 120.011 | 105.610 |
+| W26 | 8.745 | 2.011 | 120.011 | 105.610 |
+| W27 | 2.500 | 575 | 34.289 | 30.174 |
+
+**Onde isto vive:** Pedro tracker → col B "Target Semanal (W24)" = a semana corrente, meta mensal vai no comentário. Tracking Semanal (Linha 5) → coluna Target de cada semana. WPR → meta dos painéis.
