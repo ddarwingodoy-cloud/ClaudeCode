@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Mídia CPA · Parceiros de Afiliação · Ampfy · BetWarrior BR</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@media print { @page { size: A4 portrait; margin: 0; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } body { background:#FFFFFF; } }
+@media screen { body { background:#CCCCCC; padding:24px; } .cover,.page { margin:0 auto 24px; box-shadow:0 4px 24px rgba(0,0,0,0.35); } }
+
+.cover { width:210mm; height:297mm; background:#111111; display:flex; flex-direction:column; position:relative; overflow:hidden; page-break-after:always; }
+.cover-top-stripe { position:absolute; top:0; right:0; width:55%; height:5px; background:#FF3900; }
+.cover-body { flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 58px; position:relative; z-index:1; }
+.cover-eyebrow { font-family:'Archivo',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.22em; color:#FF3900; text-transform:uppercase; margin-bottom:28px; }
+.cover-title { font-family:'Archivo',sans-serif; font-size:52px; font-weight:900; line-height:1.02; color:#FFFFFF; text-transform:uppercase; }
+.cover-title .accent { color:#FF3900; }
+.cover-divider { width:44px; height:3px; background:#FF3900; margin:28px 0; }
+.cover-subtitle { font-family:'Archivo',sans-serif; font-size:13.5px; font-weight:400; color:#888888; line-height:1.6; max-width:480px; }
+.cover-meta { display:flex; gap:40px; margin-top:52px; }
+.cover-meta-item label { display:block; font-family:'Archivo',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:0.18em; color:#FF3900; text-transform:uppercase; margin-bottom:5px; }
+.cover-meta-item span { font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#FFFFFF; }
+.cover-watermark { position:absolute; bottom:46px; right:-16px; font-family:'Archivo',sans-serif; font-size:175px; font-weight:900; color:rgba(255,255,255,0.028); text-transform:uppercase; line-height:1; user-select:none; z-index:0; letter-spacing:-4px; }
+.cover-footer { display:flex; justify-content:space-between; align-items:center; padding:18px 58px; border-top:1px solid #222222; z-index:1; }
+.cover-footer .bw-logo { font-family:'Archivo',sans-serif; font-size:15px; font-weight:900; color:#FF3900; letter-spacing:0.06em; }
+.cover-footer .confidential { font-family:'Archivo',sans-serif; font-size:9px; font-weight:600; letter-spacing:0.2em; color:#444444; text-transform:uppercase; }
+
+.page { width:210mm; height:297mm; background:#FFFFFF; display:flex; flex-direction:column; overflow:hidden; }
+.page-header { background:#1C1C1E; display:flex; justify-content:space-between; align-items:center; padding:13px 32px; flex-shrink:0; }
+.page-header .bw-logo { font-family:'Archivo',sans-serif; font-size:12px; font-weight:900; color:#FF3900; letter-spacing:0.06em; }
+.page-header .doc-label { font-family:'Archivo',sans-serif; font-size:9.5px; font-weight:600; color:#888888; letter-spacing:0.1em; text-transform:uppercase; }
+.page-content { flex:1; padding:30px 34px 16px; }
+.page-footer { display:flex; justify-content:space-between; align-items:center; padding:11px 34px; border-top:1px solid #EEEEEE; flex-shrink:0; }
+.page-footer .footer-brand { font-family:'Archivo',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:0.15em; color:#AAAAAA; text-transform:uppercase; }
+.page-footer .footer-page { font-family:'Archivo',sans-serif; font-size:8.5px; color:#BBBBBB; }
+
+.bignum-head { margin-bottom:13px; }
+.bignum-eyebrow { font-family:'Archivo',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.18em; color:#FF3900; text-transform:uppercase; margin-bottom:7px; }
+.bignum-title { font-family:'Archivo',sans-serif; font-size:25px; font-weight:900; color:#111111; text-transform:uppercase; line-height:1.04; }
+.bignum-title .accent { color:#FF3900; }
+
+.kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px; }
+.kpi-card { background:#1C1C1E; padding:16px 15px; }
+.kpi-card .kc-label { font-family:'Archivo',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:0.1em; color:#FF3900; text-transform:uppercase; margin-bottom:9px; }
+.kpi-card .kc-value { font-family:'Archivo',sans-serif; font-size:26px; font-weight:900; color:#FFFFFF; line-height:1; margin-bottom:6px; }
+.kpi-card .kc-sub { font-family:'Archivo',sans-serif; font-size:9px; color:#888888; }
+
+.sec-title { font-family:'Archivo',sans-serif; font-size:12px; font-weight:700; color:#111111; text-transform:uppercase; letter-spacing:0.08em; margin:0 0 9px; }
+.sec-title .bar { display:inline-block; width:18px; height:3px; background:#FF3900; vertical-align:middle; margin-right:9px; }
+.body-text { font-family:'Archivo',sans-serif; font-size:11px; color:#444444; line-height:1.6; margin-bottom:11px; }
+.body-text strong { color:#111111; }
+
+.callout { border-left:4px solid #FF3900; padding:13px 18px; background:#FFF7F5; margin-bottom:13px; }
+.callout-title { font-family:'Archivo',sans-serif; font-size:10px; font-weight:700; color:#FF3900; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:7px; }
+.callout-body { font-family:'Archivo',sans-serif; font-size:11px; color:#333333; line-height:1.6; }
+.callout-body strong { color:#111111; }
+.callout.dark { background:#1C1C1E; border-left-color:#FF3900; }
+.callout.dark .callout-title { color:#FF3900; }
+.callout.dark .callout-body { color:#DDDDDD; }
+.callout.dark .callout-body strong { color:#FFFFFF; }
+
+.data-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; margin-bottom:9px; }
+.data-table thead tr { background:#FF3900; }
+.data-table thead th { padding:9px 10px; color:#FFFFFF; font-weight:700; text-align:left; font-size:9.5px; letter-spacing:0.03em; text-transform:uppercase; }
+.data-table thead th.num { text-align:right; }
+.data-table tbody td { padding:8px 10px; color:#333333; border-bottom:1px solid #EEEEEE; font-size:10px; }
+.data-table tbody td.num { text-align:right; font-variant-numeric:tabular-nums; }
+.data-table tbody td:first-child { font-weight:700; color:#111111; }
+.data-table tbody tr:nth-child(even) { background:#F7F7F7; }
+.data-table tbody tr.total { background:#1C1C1E; }
+.data-table tbody tr.total td { color:#FFFFFF; font-weight:700; border-bottom:none; }
+.data-table tbody tr.total td:first-child { color:#FF3900; }
+.legend { font-family:'Archivo',sans-serif; font-size:9px; color:#999999; line-height:1.5; margin-bottom:13px; }
+.legend b { color:#555555; }
+
+.plist { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px; }
+.plist-col { border:1px solid #E8E8E8; border-top:3px solid #FF3900; padding:13px 16px; }
+.plist-col h4 { font-family:'Archivo',sans-serif; font-size:9.5px; font-weight:700; color:#FF3900; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:9px; }
+.plist-col p { font-family:'Archivo',sans-serif; font-size:11px; color:#333333; line-height:1.7; }
+.plist-col p strong { color:#111111; }
+
+.steps { list-style:none; counter-reset:s; }
+.steps li { font-family:'Archivo',sans-serif; font-size:11px; color:#333333; line-height:1.5; padding:9px 0 9px 36px; border-bottom:1px solid #F2F2F2; position:relative; counter-increment:s; }
+.steps li:last-child { border-bottom:none; }
+.steps li::before { content:counter(s); position:absolute; left:0; top:7px; width:23px; height:23px; background:#FF3900; color:#FFFFFF; font-weight:900; font-size:11px; display:flex; align-items:center; justify-content:center; }
+.steps li strong { color:#111111; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top-stripe"></div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Mídia CPA · Parceiros de Afiliação · BR</div>
+    <h1 class="cover-title">Plano de<br>Mídia <span class="accent">CPA</span></h1>
+    <div class="cover-divider"></div>
+    <p class="cover-subtitle">Operação de mídia com parceiros de afiliação em CPA fixo, foco em FTD, para a verba BR que não é operada pela Argentina. Operacionalização Ampfy, pagamento pelo Brasil.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>Verba</label><span>R$1,4MM</span></div>
+      <div class="cover-meta-item"><label>Período</label><span>Jul a Dez 2026</span></div>
+      <div class="cover-meta-item"><label>Para</label><span>Felipe · Ampfy</span></div>
+    </div>
+  </div>
+  <div class="cover-watermark">CPA</div>
+  <div class="cover-footer">
+    <span class="bw-logo">BETWARRIOR</span>
+    <span class="confidential">Confidencial · Proposta de Operação</span>
+  </div>
+</div>
+
+<!-- PÁGINA 1 · A PROPOSTA -->
+<div class="page">
+  <div class="page-header"><span class="bw-logo">BETWARRIOR</span><span class="doc-label">Plano de Mídia CPA · Ampfy · Jul a Dez 2026</span></div>
+  <div class="page-content">
+
+    <div class="bignum-head">
+      <div class="bignum-eyebrow">Resumo da Proposta</div>
+      <h2 class="bignum-title">A Operação em <span class="accent">Números</span></h2>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-card"><div class="kc-label">Verba (6 meses)</div><div class="kc-value">R$1,4MM</div><div class="kc-sub">~R$233k por mês</div></div>
+      <div class="kpi-card"><div class="kc-label">CPA mídia ref.</div><div class="kc-value">R$170</div><div class="kc-sub">Alfa, a confirmar BR</div></div>
+      <div class="kpi-card"><div class="kc-label">FTD alvo</div><div class="kc-value">5,6&ndash;7k</div><div class="kc-sub">conforme estrutura</div></div>
+      <div class="kpi-card"><div class="kc-label">Foco</div><div class="kc-value">FTD</div><div class="kc-sub">CPA fixo, afiliação</div></div>
+    </div>
+
+    <div class="callout dark">
+      <div class="callout-title">Modelo · a definir com transparência</div>
+      <div class="callout-body">Queremos comparar duas estruturas antes de fechar: <strong>(a) CPA all-in</strong>, um valor único por FTD com a Ampfy embutida; ou <strong>(b) mídia + fee transparente</strong> (percentual sobre a mídia). Nos dois casos pedimos explícita a <strong>premissa de CPA de mídia</strong> e a <strong>remuneração da Ampfy</strong>. Remuneração atrelada a FTD entregue, teto de R$1,4MM.</div>
+    </div>
+
+    <div class="sec-title"><span class="bar"></span>Escopo</div>
+    <p class="body-text">Mídia de afiliação e display em <strong>CPA fixo, foco em FTD</strong>, com a verba que hoje não é operada pela Argentina (o que o time BR rodava: UOL, 365 Scores, Sofascore, Exiber). A Ampfy operacionaliza a compra e a relação com os parceiros, o pagamento corre pelo Brasil.</p>
+
+    <div class="callout">
+      <div class="callout-title">Fora do escopo</div>
+      <div class="callout-body">Conduzidos pela Argentina, não entram nesta operação: <strong>Google, Meta, TikTok, Taboola, Kwai, X e Apple.</strong></div>
+    </div>
+
+    <div class="sec-title"><span class="bar"></span>Referência de CPA · Ampfy na Alfa</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Parceiro</th><th class="num">FTD (mês)</th><th class="num">CPA mídia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>PicPay</td><td class="num">3.694</td><td class="num">R$180</td></tr>
+        <tr><td>JNTO</td><td class="num">1.098</td><td class="num">R$150</td></tr>
+        <tr><td>TIM</td><td class="num">382</td><td class="num">R$188</td></tr>
+        <tr><td>OPL</td><td class="num">368</td><td class="num">R$110</td></tr>
+        <tr class="total"><td>Blended</td><td class="num">5.542</td><td class="num">~R$170</td></tr>
+      </tbody>
+    </table>
+    <div class="legend">Parceiros operados pela Ampfy na Alfa (mês de referência). <b>CPA de mídia</b>, sem fee de agência. Base para a Ampfy cotar, já com a premissa de CPA de mídia do BetWarrior (marca nova) explícita.</div>
+
+    <div class="sec-title"><span class="bar"></span>Próximos passos · da Ampfy</div>
+    <ol class="steps">
+      <li><strong>Validar e ajustar</strong> a lista de parceiros (manter, trocar ou somar).</li>
+      <li><strong>Cotar nas duas estruturas</strong> (all-in e mídia + fee), explicitando a premissa de CPA de mídia e a remuneração da Ampfy.</li>
+      <li><strong>Propor o split</strong> de budget e o ramp de Jul a Dez (escala mês a mês).</li>
+      <li><strong>Confirmar a contabilização</strong> da verba pelo Brasil.</li>
+    </ol>
+
+  </div>
+  <div class="page-footer"><span class="footer-brand">BetWarrior BR · Growth &amp; Performance</span><span class="footer-page">01 / 01</span></div>
+</div>
+
+</body>
+</html>
