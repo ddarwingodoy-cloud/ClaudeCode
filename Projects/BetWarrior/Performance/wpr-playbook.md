@@ -12,32 +12,21 @@
 - Período: **definido por Darwin na solicitação** — sempre comparar períodos com os mesmos dias da semana (normalização por dia, não por contagem fixa de dias)
 - Arquivos individuais em `Semanais/WPR/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1–P4)
 - Arquivo unificado: `WPR_Brasil_[Mês][DD-DD]_[YYYY].html` — capa + P1 + P2 + P3 + P4 empilhados, escalagem automática via JS
-- Fonte de mídia paga (P3): solicitar PACING-PERFO ao Diego com antecedência
+- Fonte de mídia paga (P3): **PACING - PERFO** (Google Sheet vivo do Diego, ID `1LnnVk3mtjmx6ibXXtyA7_JqIxu0gf8DyeCK9MGve53w`). **Checar `modifiedTime` antes de usar** — o xlsx local em `Semanais/WPR/PACING - PERFO (1).xlsx` fica desatualizado (era de maio em 18/06). Não perguntar ao Darwin: verificar a versão do Drive direto.
 
 ---
 
 ## 2. Normalização de Períodos
 
-**Regra**: âncora na 1ª sexta-feira do mês. Janela de dias definida por Darwin na solicitação.
+> **NÃO perguntar período/normalização ao Darwin. Calcular pela regra abaixo.** (gerou atrito 18/06)
 
-**Princípio de comparação**: sempre comparar meses usando janelas com os mesmos dias da semana — não compara Jan 01-31 vs Fev 01-28. Compara Jan 02-28 (sex a dom) vs Fev 06-04/mar (sex a dom), mantendo a distribuição de dias úteis equivalente.
+**Janela (MTD):** do dia 1 até o último dia de referência fechado, a quarta-feira anterior à quarta de entrega. Ex.: entrega 24/06 → janela Jun **01–17**; entrega 12/06 → Jun **01–10**.
 
-| Mês | Âncora (1ª Sex) |
-|-----|-----------------|
-| JAN | 02/01 |
-| FEV | 06/02 |
-| MAR | 06/03 |
-| ABR | 03/04 |
-| MAI | 01/05 |
-| JUN | 05/06 |
-| JUL | 03/07 |
-| AGO | 07/08 |
-| SET | 04/09 |
-| OUT | 02/10 |
-| NOV | 06/11 |
-| DEZ | 04/12 |
+**Normalização por dia da semana:** a âncora é o **dia da semana do dia 1 do mês atual** (varia por mês, NÃO é fixa em sexta). Cada mês comparado começa na 1ª ocorrência desse mesmo dia da semana e usa o **mesmo número de dias**. Jun/2026: dia 1 = **segunda**, janela 01–17 (seg→qua, 17 dias) → Mai equivalente = **04–20** (seg→qua, 1ª segunda de maio + 16 dias); Abr = 1ª segunda + 16 dias; etc. Comparar por dia de calendário (Jun 01-17 vs Mai 01-17) está ERRADO.
 
-**Referência de pacing**: dias transcorridos / dias totais do mês (ex: 27/31 = 87,1%).
+**A tabela do P1 carrega a série inteira de 2026, Jan → mês atual** (não é MoM de 2 meses). Ex. `wpr-jun-01-10`: linhas Jan, Fev, Mar, Abr★, Mai, Jun▶. A quantidade de meses **cresce a cada ciclo**. Marcações: ▶ mês atual, ★ pico histórico. Linhas de análise: Δ vs mês anterior, Meta, vs Meta (ver §13.3).
+
+**Referência de pacing**: dias transcorridos / dias totais do mês (ex: 17/30 = 56,7% em jun).
 
 ---
 
@@ -49,8 +38,10 @@
 | FullReg | PowerBI — FactFullRegistration | Ver regra locked_status abaixo |
 | FTDs | PowerBI — FactFirstDeposit | Ver regra locked_status abaixo |
 | GGR / NGR / GB | PowerBI — FactAGGAccountTransaction | Fórmulas na seção 10 |
-| Funil No Lock | PowerBI — DimPlayer[locked_status]="NOT_LOCKED" | Não expor o filtro nas legendas |
-| Funil Pronto p/Dep | PowerBI — DimPlayer[locked_status]="READY_FOR_DEPOSIT" | |
+| Funil Registros (1º step) | PowerBI — DISTINCTCOUNT(kyc_onboardings_logs[username]) @ status_onboarding="PENDING_CONFIRMATION" | Bate com The Dashboard (Betinho). NÃO usar COUNTROWS (reenvio VERIFICATION_CODE_RESENT infla); party_id nulo no 1º step |
+| Funil Pronto p/Dep | PowerBI — kyc_onboardings_logs status_onboarding="READY_FOR_DEPOSIT" | KYC PASS |
+| Meta FTD | Forecast Dada `1UtdEyu8...` aba "Simulator - New" linha **8+9** (FTD + Afiliados), col B=Abr/C=Mai/D=Jun | distribuir pela curva Copa |
+| Meta GGR/NGR/Margens | Forecast Dada linhas **44/47/42/43** + Mix Sports linha **41** | GGR/NGR pela curva; margens flat |
 | Canais | PowerBI — DimPlayer[utm_medium_signup] | Campo correto — não usar utm_medium |
 | Apostadores / R$/ap | PowerBI — FactAGGAccountTransaction por utm_medium_signup | |
 | GB new vs base | PowerBI — FactAGGAccountTransaction[customer_new_or_returning] | New Customer = FTDs do período |
@@ -106,15 +97,17 @@ Cada iframe: `width: 1920px; height: 1080px; transform-origin: top left`.
 
 **4 steps obrigatórios:**
 ```
-Sessões → No Lock → Pronto p/ Dep → FTD
+Sessões → Registros → Pronto p/ Dep → FTD
 ```
 
 | Step | Fonte | Legenda |
 |------|-------|---------|
-| Sessões | GA4 | "GA4" |
-| No Lock | PowerBI DimPlayer[locked_status]="NOT_LOCKED" | "PowerBI" |
-| Pronto p/ Dep | PowerBI DimPlayer[locked_status]="READY_FOR_DEPOSIT" | "KYC PASS" |
+| Sessões | GA4 BR | "GA4" |
+| Registros (1º step) | PowerBI DISTINCTCOUNT(kyc_onboardings_logs[username]) @ status_onboarding="PENDING_CONFIRMATION" | "onboarding" |
+| Pronto p/ Dep | PowerBI kyc_onboardings_logs status_onboarding="READY_FOR_DEPOSIT" | "KYC PASS" |
 | FTD | PowerBI FactFirstDeposit | "PowerBI" |
+
+> **Registros = 1º step do onboarding** (decidido 18/06, alinha com a visão do Betinho/The Dashboard). Substituiu o antigo "No Lock" (FRNL NOT_LOCKED), que era o fim do onboarding e subestimava o topo. A **tabela** segue com FullReg = FactFullRegistration (isonomia histórica, não muda).
 
 **Taxas de conversão em cada interseção** — formato `±X,Xpp vs [Mês anterior]`.
 
@@ -126,9 +119,10 @@ Sessões → No Lock → Pronto p/ Dep → FTD
 
 ### 5.2 Tabela Métricas de Negócio
 
-**Colunas fixas**: Mês | FullReg | FTDs | CR% | GGR (R$) | NGR (R$) | Marg. | SB | CS
+**Colunas fixas**: Mês | Registros | FTDs | CR% | GGR (R$) | NGR (R$) | Marg. | SB | CS
 
-- **CR%** = FTDs / FullReg (sem NOT_LOCKED — isonomia com tabela geral)
+- **Registros** = 1º step (PENDING_CONFIRMATION, `DISTINCTCOUNT(username)`), mesma fonte do funil. Substituiu FullReg/FactFullRegistration a partir de 18/06 (decisão: 1º step é o padrão de "registros" em todos os reports).
+- **CR%** = FTDs / Registros (1º step). Meta = CR alvo YTD (ver §13.4).
 - **Marg.** = NGR / Gross Bets
 - **GGR/NGR**: em R$k
 - Linha mês atual: `class="cw"` (fundo #FFF5F2, borda-left laranja)
@@ -346,7 +340,7 @@ Margem = GGR / Gross Bets    (SB/CS = GGR do produto / GB do produto, via DimGam
 ### 13.1 Estrutura travada do P1 (4 painéis, não inventar)
 1. **FTD vs Meta** (topo esq.) — barras Realizado (laranja) vs Meta (cinza) por mês a partir de Abr, % de atingimento em cima, meta cheia do mês (número só) abaixo do nome. Janela 01–10, meta proporcional.
 2. **Depósito Médio por FTD** (topo dir.) — valor do 1º depósito (`AVERAGE(FactFirstDeposit[payment_amount])`), Abr em diante.
-3. **Funil de Ativação** — Sessões(GA4) → No Lock(FRNL NOT_LOCKED) → Pronto p/Dep(KYC READY_FOR_DEPOSIT) → FTD, com Δ vs mês anterior em ≥12px.
+3. **Funil de Ativação** — Sessões(GA4 BR) → Registros(1º step: PENDING_CONFIRMATION, `DISTINCTCOUNT(username)`) → Pronto p/Dep(KYC READY_FOR_DEPOSIT) → FTD, com Δ vs mês anterior em ≥12px.
 4. **Tabela Métricas de Negócio + Base Ativa** — meses (Jan→atual) + 3 linhas de análise: **Δ vs Mai** (MoM), **Meta** (valores, fonte normal), **vs Meta** (atingimento). Base Ativa colada no rodapé (`margin-top:auto`).
 
 Gráficos de topo = **SVGs gêmeos** (mesmo viewBox `0 0 900 360`, fonte 17px) para fonte/escala consistentes.
@@ -360,12 +354,17 @@ Cor **só nas linhas comparativas** (Δ vs Mai, vs Meta): verde = acima, vermelh
 - Atingimento = realizado ÷ (meta_mês × dias_decorridos / dias_do_mês). FullReg meta = FTD meta ÷ CR alvo. Fecha o funil: ating.FTD = ating.FullReg × ating.CR.
 
 ### 13.4 Fontes de META
-| Métrica | Fonte | Onde |
+> **Fonte única de meta (travado 18/06): Forecast Dada** `1UtdEyu8MhpfADMF7TOUDj2SeSaJcf6gR_yXxThTUnno`, aba **"Simulator - New (Cambio Margenes)"**. Col B=Abr, C=Mai, D=Jun, E=Jul. (A planilha Distribuição por Canal **não** é mais a fonte de meta de FTD.)
+
+| Métrica | Linha (Forecast Dada) | Observação |
 |---|---|---|
-| FTD (total, c/ contingência) | planilha Distribuição por Canal | `1Rc_ckovbxUUj3M0XBXFx6JHXqGF1q06VQYG0Dur7PHg` aba `Distribuição`, **linha 14 TOTAL** (col Abr=F, Mai=I, Jun=L...) |
-| GGR / NGR / Margens | forecast de receita interno | `1UtdEyu8MhpfADMF7TOUDj2SeSaJcf6gR_yXxThTUnno`, linhas **44 (GGR R$)**, **47 (NGR R$)**, **42 (Margem Sports)**, **43 (Margem Casino)**; col B=Abr, C=Mai, D=Jun |
-| Registros (FullReg) | derivada | FTD meta ÷ **CR alvo** |
-| CR alvo | benchmark iGaming BR 20–30% | **25%** (default) |
+| FTD (total) | **linha 8 + linha 9** (FTDs + FTDs Afiliados) | Jun = D8+D9 = 6.343+1.000 = 7.343 |
+| GGR R$ | linha **44** | distribuir pela curva |
+| NGR R$ | linha **47** | distribuir pela curva |
+| Margem Sports / Casino | linha **42 / 43** | **flat**, não distribui |
+| Mix Sports % | linha **41** | p/ margem blended = mix·SB + (1−mix)·CS |
+| Registros (1º step) meta | derivada | FTD meta ÷ **CR alvo** |
+| CR alvo | **CR realizado YTD 2026** (registros 1º step → FTD) | **14,27%** (14.447 FTD / 101.226 registros, 01/01–17/06). Recalibrar a cada ciclo com o acumulado do ano. O 23% antigo era de registro completo, morreu. |
 
 > O forecast de receita separa `FTDs` (sem afiliados) de `FTDs Afiliados` — somar as duas para o total (≈ linha 14 da distribuição). **Nunca citar a fonte do forecast no report entregue.**
 
