@@ -17,16 +17,18 @@ GROUP="00ecb2bb-6c61-4d09-badb-a4df0c948b02"; DATASET="c489d219-ef18-4f9e-9c5c-4
 MES=6
 D1=int(sys.argv[1]) if len(sys.argv)>1 else 8
 D2=int(sys.argv[2]) if len(sys.argv)>2 else 14
-SEM_LABEL="W24"
-# semana anterior (para WoW). W23 = 1-7/jun
-PREV={"FTD":956,"NGR":27226,"GGR":62893,"FullReg":5966,"GGRFTD":66}  # reais W23 travados
-PREV_RANGE=(6,1,7)
-# targets da curva +80% (playbook) para a semana corrente
-TGT={"FullReg":7079,"FTD":1628,"GGR":97152,"NGR":85494,"CPA":159.05,"GGRFTD":60}
+SEM_LABEL="W25 (15-21 FINAL)"
+SEM_COL="E"          # coluna da semana na aba Marketing (C=W23 D=W24 E=W25 F=W26 G=W27)
+SEM_DATES="Jun 15 - 21, 2026"   # F4 do Dashboard
+# semana anterior (para WoW). W24 = 8-14/jun (reais do tracker; NGR aprox, nao usado p/ Marketing)
+PREV={"WK":"W24","FTD":740,"NGR":17309,"GGR":21844,"FullReg":2836,"GGRFTD":30,"CPA":316.96}
+PREV_RANGE=(6,8,14)
+# targets da curva +80% (playbook) para W25 (semana inteira 15-21)
+TGT={"FullReg":8745,"FTD":2011,"GGR":120011,"NGR":105610,"CPA":159.05,"GGRFTD":60}
 # CPA: gasto real da semana em USD (Midia/PACING). Se None, usa proporcional do budget.
 SPEND_USD=None
-MONTHLY_BUDGET_USD=None   # confirmar com Darwin (forecast=849727; mas W23 implica ~1.3M). curva share W24=0.2217
-WEEK_SHARE=0.2217
+MONTHLY_BUDGET_USD=343670   # budget total junho (PACING). W25 inteira (15-21): share da curva = 12.6/46
+WEEK_SHARE=0.2739
 
 def refresh():
     r=subprocess.run(["curl","-s","-X","POST","https://login.microsoftonline.com/organizations/oauth2/v2.0/token",
@@ -105,16 +107,36 @@ pr=PREV_RANGE
 show_bett("Seg-Sab (justo)", bettors(pr[0],pr[1],pr[2]-1), bettors(MES,D1,D2-1))
 show_bett("Semana inteira", bettors(*pr), bettors(MES,D1,D2))
 
-print(f"\n================ BLOCOS PRA COLAR ================")
-print("--- Pedro tracker, coluna D (W24 reais) ---")
-print(f"  D5 (FullReg): {k['FullReg']:,}")
-print(f"  D6 (FTD)    : {k['FTD']:,}")
-print(f"  D8 (CPA)    : {('$%.2f'%cpa) if cpa else '<gasto>'}")
-print(f"  D10 (GGR)   : R${k['GGR']:,.0f}")
-print(f"  D11 (GGR/FTD): R${k['GGRFTD']:.0f}")
-print(f"  Dashboard E6 (FTDs)={k['FTD']}  | G6 Status + H6 Trend = editorial (ver playbook)")
-print("--- Tracking Semanal, linha W24 col B (Real | Target) ---")
-print(f"  FTDs -> {k['FTD']:,} | 1,628")
-print(f"  CPA  -> {('$%.2f'%cpa) if cpa else '<gasto>'} | $159.05")
-print(f"  NGR  -> R${k['NGR']:,.0f} | 85,494")
-print(f"  WoW col C: FTD {wow(k['FTD'],PREV['FTD']):+.1f}% | NGR {wow(k['NGR'],PREV['NGR']):+.1f}% | CPA (conforme metodo)")
+WK=SEM_LABEL.split()[0]
+cpa_s=('$%.2f'%cpa) if cpa else '<gasto>'
+print(f"\n================ BLOCOS PRA COLAR (na ordem de colagem) ================")
+
+print(f"\n[1] PLANILHA MENSAL PEDRO -> aba MARKETING, coluna {SEM_COL} ({WK}):")
+print(f"  {SEM_COL}5  Full Reg : {k['FullReg']:,}")
+print(f"  {SEM_COL}6  FTD      : {k['FTD']:,}")
+print(f"  {SEM_COL}8  CPA      : {cpa_s}")
+print(f"  {SEM_COL}10 GGR      : R${k['GGR']:,.0f}")
+print(f"  {SEM_COL}11 GGR/FTD  : R${k['GGRFTD']:.0f}")
+print(f"  H   Comments  : <editorial>")
+
+print(f"\n[2] PLANILHA MENSAL PEDRO -> aba DASHBOARD:")
+print(f"  B4 (semana) = {WK}      F4 (datas) = {SEM_DATES}")
+print(f"  D6 Target FTD  = {TGT['FTD']:,}")
+print(f"  E6 Current FTD = {k['FTD']:,}")
+print(f"  F6 Delta       = =E6/D6-1")
+print(f"  G6 Status      = <Off track / At risk / On track>")
+print(f"  H6 Trend       = <editorial>")
+
+print(f"\n[3] PLANILHA DRIVE 'Tracking Semanal' (linha {WK}) -> FONTE do Confluence Row 5")
+print(f"    colar na MESMA ordem das colunas da Row 5:")
+print(f"  > Status Update      : Updated")
+print(f"  > MTD KPIs (REAL | TARGET):")
+print(f"      FTDs -> {k['FTD']:,} | {TGT['FTD']:,}")
+print(f"      CPA  -> {cpa_s} | ${TGT['CPA']}")
+print(f"      NGR  -> R${k['NGR']:,.0f} | R${TGT['NGR']:,}")
+print(f"  > WoW Diff% ({WK} vs {PREV.get('WK','ant')}):")
+print(f"      FTD -> {wow(k['FTD'],PREV['FTD']):+.1f}% (vs {PREV['FTD']:,})")
+cpawow=(f"{(cpa/PREV['CPA']-1)*100:+.1f}% (vs ${PREV['CPA']:.0f})") if (cpa and PREV.get('CPA')) else "(conforme metodo)"
+print(f"      CPA -> {cpawow}")
+print(f"      NGR -> {wow(k['NGR'],PREV['NGR']):+.1f}% (vs R${PREV['NGR']:,.0f})")
+print(f"  > Next Steps         : <editorial>")
