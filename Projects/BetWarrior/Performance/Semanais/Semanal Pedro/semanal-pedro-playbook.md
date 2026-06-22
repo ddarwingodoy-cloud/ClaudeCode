@@ -67,6 +67,8 @@ Metas Jun/2026: FTDs **6.343** · CPA **$159,05** · GGR **R$438.137** · GGR/FT
 
 `FactFullRegistration` e `FactFirstDeposit` recebem dados **retroativos** dias após a data. Rodar no próprio fim de semana **subestima**. Ex.: W22 lançado 3.160 FullReg / 631 FTDs; a mesma query 4–7 dias depois deu 3.659 / 769 (+16% / +22%). **Rodar o número final na segunda de manhã.** O último dia da janela, se for "hoje", vem incompleto.
 
+> **REGRA: todo número acompanha a DATA DE CORTE.** O **GGR/NGR liquida MAIS DEVAGAR que FTD** (settlement vs depósito) — mesmo segunda de manhã, o **domingo (último dia) pode vir incompleto** e mudar o GGR sem mexer no FTD. Caso real W25 (22/06): rodei e deu GGR −R$15,8k; o finance (Luiz) tinha **−R$25,2k** — a diferença era exatamente o GGR não-liquidado do dia 21. **Antes de travar: cruzar o GGR do último dia com o finance/Power BI.** Sempre rotular números com a janela + o cutoff. Ver [[feedback_data_de_corte]].
+
 ## Tom do Status / Trend (Dashboard)
 
 - **Status** = expectativa estratégica do mês, não o Δ literal de uma semana parcial vs meta mensal (artefato — sempre muito negativo no início do mês). Não pintar cenário ruim no 1º report do mês; pesar ramp/sazonalidade (Copa, Casa Mundialista, afiliados, investimento maior).
