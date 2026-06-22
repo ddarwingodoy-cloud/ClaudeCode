@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ativação RS · Copa 2026 — BetWarrior</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&family=Inter:wght@400;600&display=swap');
+  :root{
+    --bg:#1C1C1E; --surface:#111111; --surface2:#1A1A1A; --border:#2A2A2A;
+    --orange:#FF3900; --white:#FFFFFF; --muted:#AAAAAA;
+    --green:#22C55E; --amber:#F59E0B; --red:#EF4444;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);color:var(--white);
+    font-family:'Archivo','Inter',sans-serif;
+    scroll-snap-type:y mandatory;overflow-y:scroll;scroll-behavior:smooth;
+  }
+  .slide{
+    min-height:100vh;width:100%;scroll-snap-align:start;
+    padding:6vh 7vw;display:flex;flex-direction:column;justify-content:center;
+    position:relative;border-bottom:1px solid var(--border);
+  }
+  .kicker{color:var(--orange);font-weight:700;text-transform:uppercase;
+    letter-spacing:.18em;font-size:.85rem;margin-bottom:14px}
+  h1.title{font-family:'Archivo Black',sans-serif;text-transform:uppercase;
+    font-size:clamp(2rem,5vw,3.6rem);line-height:1.02;letter-spacing:-.01em}
+  h1.title .o{color:var(--orange)}
+  .accent{height:5px;width:88px;background:var(--orange);margin:20px 0 26px}
+  .lead{color:var(--muted);font-size:clamp(1rem,1.6vw,1.3rem);max-width:60ch;line-height:1.5}
+  .counter{position:fixed;bottom:18px;right:24px;color:var(--muted);font-size:.8rem;
+    background:var(--surface);border:1px solid var(--border);padding:6px 12px;border-radius:20px;z-index:20}
+  .brand{position:fixed;top:18px;right:24px;color:var(--orange);font-family:'Archivo Black';
+    font-size:.9rem;letter-spacing:.05em;z-index:20}
+
+  /* cover */
+  .cover{justify-content:center}
+  .cover h1{font-size:clamp(2.6rem,8vw,6rem)}
+  .cover .sub{color:var(--muted);font-size:clamp(1rem,2vw,1.5rem);margin-top:18px}
+
+  /* metrics */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:30px}
+  .metric{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 20px}
+  .metric .num{font-family:'Archivo Black';color:var(--orange);font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1}
+  .metric .lbl{color:var(--muted);font-size:.85rem;margin-top:10px;text-transform:uppercase;letter-spacing:.05em}
+  .metric.alt .num{color:var(--white)}
+
+  /* two column media */
+  .row{display:flex;gap:48px;align-items:center;margin-top:26px;flex-wrap:wrap}
+  .row .txt{flex:1;min-width:280px}
+  .media{display:flex;gap:18px;align-items:flex-start}
+  .media video,.media img{height:62vh;max-height:560px;width:auto;border-radius:18px;
+    border:1px solid var(--border);background:#000;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+  .placeholder{height:62vh;max-height:560px;width:300px;border:2px dashed var(--orange);
+    border-radius:18px;display:flex;align-items:center;justify-content:center;text-align:center;
+    color:var(--orange);font-weight:700;padding:20px;background:var(--surface)}
+
+  ul.points{margin-top:18px;list-style:none}
+  ul.points li{padding:12px 0 12px 30px;position:relative;font-size:1.1rem;line-height:1.45;border-bottom:1px solid var(--border)}
+  ul.points li::before{content:"";position:absolute;left:0;top:20px;width:12px;height:12px;background:var(--orange);border-radius:3px}
+  .note{margin-top:18px;color:var(--muted);font-size:1rem;line-height:1.5;border-left:3px solid var(--orange);padding-left:16px}
+  .tag{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:4px 12px;border-radius:6px;font-size:.85rem;letter-spacing:.03em}
+  .reg{color:var(--muted);font-weight:600}
+
+  table{width:100%;border-collapse:collapse;margin-top:24px;font-size:1.05rem}
+  thead th{background:var(--orange);color:#fff;text-align:left;padding:12px 16px;font-weight:700}
+  tbody td{padding:11px 16px;border-bottom:1px solid var(--border)}
+  tbody tr:nth-child(odd){background:var(--surface)}
+  tbody tr:nth-child(even){background:var(--surface2)}
+  td.q{font-family:'Archivo Black';color:var(--orange);text-align:right;width:90px}
+  .hl{color:var(--orange);font-weight:700}
+  .big{font-family:'Archivo Black';font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15;margin-top:10px}
+  .src{position:absolute;bottom:24px;left:7vw;color:#666;font-size:.72rem}
+  .reco{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:24px}
+  .reco div{padding:14px 0 14px 30px;position:relative;font-size:1.05rem;border-bottom:1px solid var(--border)}
+  .reco div::before{content:counter(r);counter-increment:r;position:absolute;left:0;top:12px;
+    color:var(--orange);font-family:'Archivo Black';font-size:1rem}
+  .reco{counter-reset:r}
+</style>
+</head>
+<body>
+<div class="brand">BET<span style="color:#fff">WARRIOR</span></div>
+<div class="counter" id="counter">1 / 13</div>
+
+<!-- 1 COVER -->
+<section class="slide cover">
+  <div class="kicker">Performance · Growth Brasil · Copa do Mundo 2026</div>
+  <h1 class="title">ATIVAÇÃO <span class="o">RS</span></h1>
+  <div class="accent"></div>
+  <div class="sub">Dois bares no Rio Grande do Sul · O que funcionou, e os gargalos de onboarding que precisamos destravar.</div>
+</section>
+
+<!-- 2 CONTEXTO -->
+<section class="slide">
+  <div class="kicker">A escolha certa</div>
+  <h1 class="title">Por que o <span class="o">RS</span></h1>
+  <div class="accent"></div>
+  <div class="lead">Ativamos dois bares no RS durante a Copa. A região foi escolhida estrategicamente pela <span class="hl">concentração de renda</span> e poder de compra.</div>
+  <div class="metrics">
+    <div class="metric"><div class="num">2ª</div><div class="lbl">Capital do país em renda per capita (POA, atrás só de Floripa)</div></div>
+    <div class="metric alt"><div class="num">R$50,7k</div><div class="lbl">PIB per capita RS · acima da média nacional (R$42,2k)</div></div>
+    <div class="metric alt"><div class="num">Top 100</div><div class="lbl">POA entre os maiores PIBs do Brasil</div></div>
+    <div class="metric"><div class="num">252k</div><div class="lbl">FBI Tricolor (torcida do Grêmio) · mora no RS e prestigiou a ativação</div></div>
+  </div>
+  <div class="src">Fontes: IBGE Cidades · FGV/CPS · Atlas Socioeconômico RS</div>
+</section>
+
+<!-- 3 RESULTADOS BIG NUMBERS -->
+<section class="slide">
+  <div class="kicker">Resultados · Aquisição</div>
+  <h1 class="title">A tese <span class="o">se confirmou</span></h1>
+  <div class="accent"></div>
+  <div class="metrics">
+    <div class="metric"><div class="num">208</div><div class="lbl">Cadastros</div></div>
+    <div class="metric"><div class="num">146</div><div class="lbl">Primeiros depósitos (FTD)</div></div>
+    <div class="metric"><div class="num">70,2%</div><div class="lbl">Conversão cadastro → FTD</div></div>
+    <div class="metric alt"><div class="num">97%</div><div class="lbl">Público de Porto Alegre / RS</div></div>
+    <div class="metric alt"><div class="num">R$1.710</div><div class="lbl">Depositados · ticket médio R$11,63</div></div>
+  </div>
+  <div class="note">Audiência premium, local e com forte conversão. O conceito da ativação funcionou.</div>
+</section>
+
+<!-- 4 RESULTADOS PRODUTO -->
+<section class="slide">
+  <div class="kicker">Resultados · Engajamento de produto</div>
+  <h1 class="title">Onde <span class="o">apostaram</span></h1>
+  <div class="accent"></div>
+  <div class="metrics">
+    <div class="metric"><div class="num">R$1.535</div><div class="lbl">Gross Bets · Sports 65% / Casino 35%</div></div>
+    <div class="metric alt"><div class="num">R$676</div><div class="lbl">GGR · margem 44,1%</div></div>
+    <div class="metric alt"><div class="num">55,6%</div><div class="lbl">Margem Sports (Casino 22,6%)</div></div>
+    <div class="metric"><div class="num">Brasil×Haiti</div><div class="lbl">Evento nº 1 em volume apostado</div></div>
+  </div>
+  <div class="note">Engajamento equilibrado entre esporte e cassino, puxado pelos jogos da Copa.</div>
+</section>
+
+<!-- 5 A VIRADA -->
+<section class="slide">
+  <div class="kicker">A virada · O dia do jogo</div>
+  <h1 class="title">E então veio <span class="o">o gargalo</span></h1>
+  <div class="accent"></div>
+  <div class="lead">No dia do jogo, uma onda de falhas de cadastro e depósito travou os participantes na hora de maior interesse. Abrimos o chamado:</div>
+  <div class="big"><span class="tag">BET-824</span></div>
+  <div class="note">Mesmo com <span class="hl">assistência presencial</span> das promotoras ao lado, e o onboarding levando <span class="hl">~10 minutos em média</span>, muita gente não conseguiu concluir a jornada. As páginas a seguir mostram, em vídeo, por quê.</div>
+</section>
+
+<!-- 6 INVESTIGAÇÃO RPF -->
+<section class="slide">
+  <div class="kicker">A investigação · Amostra analisada pela RPF</div>
+  <h1 class="title">Os <span class="o">motivos</span> da perda</h1>
+  <div class="accent"></div>
+  <table>
+    <thead><tr><th>Motivo do bloqueio</th><th style="text-align:right">Casos</th></tr></thead>
+    <tbody>
+      <tr><td>Pagou de conta bancária <b>diferente da cadastrada</b> (mesma pessoa, conta própria)</td><td class="q">10</td></tr>
+      <tr><td>Não inseriu conta bancária</td><td class="q">5</td></tr>
+      <tr><td>Auto-limite (R$0–1)</td><td class="q">2</td></tr>
+      <tr><td>Titularidade real (conta de terceiro)</td><td class="q">2</td></tr>
+      <tr><td>Programa Desenrola (status do CPF)</td><td class="q">1</td></tr>
+      <tr><td>Aprovado, sem erro</td><td class="q">2</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="hl">15 dos 22</span> problemas nascem na <span class="hl">etapa manual de cadastro de conta bancária</span>. O maior grupo era a mesma pessoa pagando da própria conta, bloqueada por uma regra que <span class="hl">nunca explicamos no onboarding</span>.</div>
+</section>
+
+<!-- 7 GARGALO: AMARRAÇÃO DE CONTA -->
+<section class="slide">
+  <div class="kicker">Gargalo 1 · Depósito</div>
+  <h1 class="title">Amarração de <span class="o">conta</span></h1>
+  <div class="accent"></div>
+  <div class="row">
+    <div class="media"><video src="Adicionar%20Conta.mp4" controls preload="metadata" muted></video></div>
+    <div class="txt">
+      <ul class="points">
+        <li>Para depositar, exigimos cadastrar <b>banco, agência e conta manualmente</b>.</li>
+        <li>O PIX fica <b>preso a essa conta</b>. Pagar de <b>outra conta própria</b> (mesma pessoa, titularidade ok) é <b>bloqueado</b>.</li>
+        <li><b>E não deixamos isso claro no onboarding</b> — o apostador não tem como saber.</li>
+      </ul>
+      <div class="note">Não é exigência regulatória: o PIX já valida a titularidade pelo CPF nativamente.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 GARGALO: LIMITE NO 1º LOGIN -->
+<section class="slide">
+  <div class="kicker">Gargalo 2 · Onboarding</div>
+  <h1 class="title">Limite no <span class="o">1º login</span></h1>
+  <div class="accent"></div>
+  <div class="row">
+    <div class="media"><video src="Limite%20no%20primeiro%20login.mp4" controls preload="metadata" muted></video></div>
+    <div class="txt">
+      <ul class="points">
+        <li>O limite de depósito <b>é exigência regulatória</b> — e deve existir.</li>
+        <li>Mas <b>obrigar o preenchimento já no primeiro login não é</b>.</li>
+        <li>Resultado: apostadores se <b>auto-travaram em R$0–1</b> sem entender.</li>
+      </ul>
+      <div class="note">Deveria viver em um <span class="hl">menu interno</span>, configurado <span class="hl">só se o apostador quiser</span>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 GARGALO: VIEWPORT -->
+<section class="slide">
+  <div class="kicker">Gargalo 3 · Navegação</div>
+  <h1 class="title">Tela mal <span class="o">centralizada</span></h1>
+  <div class="accent"></div>
+  <div class="row">
+    <div class="media">
+      <video src="Usabilidade%201.mp4" controls preload="metadata" muted></video>
+      <video src="Usabilidade%202.mp4" controls preload="metadata" muted></video>
+    </div>
+    <div class="txt">
+      <ul class="points">
+        <li>Os <b>botões primários</b> (Salvar, Continuar, Fechar) ficam <b>cortados nas bordas</b>.</li>
+        <li>Exigem <b>movimentação forçada da tela</b> para aparecerem e serem clicáveis.</li>
+        <li>Em campo, no susto, isso vira desistência.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10 GARGALO: ONBOARDING 10 MIN / KYC -->
+<section class="slide">
+  <div class="kicker">Gargalo 4 · Tempo</div>
+  <h1 class="title">Onboarding de <span class="o">~10 min</span></h1>
+  <div class="accent"></div>
+  <div class="row">
+    <div class="placeholder">VÍDEO DO KYC<br>(subir o corte aqui)</div>
+    <div class="txt">
+      <ul class="points">
+        <li>O fluxo completo leva, em média, <b>~10 minutos</b>.</li>
+        <li>O KYC promete "até 20s" e <b>demora muito mais</b>.</li>
+        <li>Sem <b>auto-login</b>: após "Conta criada com sucesso", o usuário precisa <b>fechar e logar de novo</b>.</li>
+      </ul>
+      <div class="note">Cada minuto a mais no auge do interesse é FTD que escorre.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 GARGALO: AUTOEXCLUSÃO -->
+<section class="slide">
+  <div class="kicker">Gargalo 5 · Posicionamento</div>
+  <h1 class="title">Fácil demais <span class="o">de sair</span></h1>
+  <div class="accent"></div>
+  <div class="row">
+    <div class="media"><img src="Encerramento%20e%20Autoexclus%C3%A3o.png" alt="Autoexclusão e encerramento"></div>
+    <div class="txt">
+      <ul class="points">
+        <li><b>Autoexclusão</b> e <b>encerramento de conta</b> ficam expostos no <b>menu do dia a dia</b>, ao lado de "Minhas apostas" e "Promoções".</li>
+        <li>São controles obrigatórios — mas de <b>posicionamento</b>, não de rotina.</li>
+      </ul>
+      <div class="note">Lugar certo: dentro de um menu de <span class="hl">"gerenciamento da conta"</span>, não no hambúrguer.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 GARGALO: DESCONEXÃO 12H -->
+<section class="slide">
+  <div class="kicker">Gargalo 6 · Posicionamento</div>
+  <h1 class="title">Desconexão de <span class="o">12 horas</span></h1>
+  <div class="accent"></div>
+  <div class="row">
+    <div class="media"><img src="Bot%C3%A3o%20de%20Desconex%C3%A3o.png" alt="Botão de desconexão"></div>
+    <div class="txt">
+      <ul class="points">
+        <li>Ícone de power no topo, a <b>um toque</b>.</li>
+        <li>A confirmação coloca o <b>botão primário laranja em "Sim, desconecte-me"</b>.</li>
+        <li>Risco real de o apostador <b>se trancar por 12h sem querer</b>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 13 RECOMENDAÇÕES -->
+<section class="slide">
+  <div class="kicker">O caminho</div>
+  <h1 class="title">O que <span class="o">destravar</span></h1>
+  <div class="accent"></div>
+  <div class="lead">A ativação foi um <span class="hl">teste controlado no mundo real</span> que expôs uma fricção sistêmica de onboarding/depósito — a mesma que provavelmente sufoca a conversão no funil inteiro.</div>
+  <div class="reco">
+    <div>Soltar a amarração de conta <span class="reg">(+ ancorar no projeto de PIX automático já previsto pós-Mundial)</span></div>
+    <div>Limite → menu interno, opt-in (fora do 1º login)</div>
+    <div>Autoexclusão e encerramento → menu de gestão de conta</div>
+    <div>Revisar a desconexão de 12h</div>
+    <div>Corrigir a centralização / viewport dos botões</div>
+    <div>Auto-login pós-cadastro + atacar o tempo de onboarding</div>
+  </div>
+  <div class="note"><span class="hl">Próximo passo:</span> deep-dive de funil/UX com Produto para quantificar e priorizar.</div>
+</section>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const counter=document.getElementById('counter');
+  function cur(){let i=0,min=1e9;slides.forEach((s,n)=>{const d=Math.abs(s.getBoundingClientRect().top);if(d<min){min=d;i=n}});return i}
+  function upd(){counter.textContent=(cur()+1)+' / '+slides.length}
+  addEventListener('scroll',upd,{passive:true});upd();
+  addEventListener('keydown',e=>{
+    const i=cur();
+    if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();slides[Math.min(i+1,slides.length-1)].scrollIntoView()}
+    if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();slides[Math.max(i-1,0)].scrollIntoView()}
+  });
+</script>
+</body>
+</html>
