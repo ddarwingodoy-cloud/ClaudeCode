@@ -380,3 +380,15 @@ Cor **só nas linhas comparativas** (Δ vs Mai, vs Meta): verde = acima, vermelh
 
 ### 13.6 Chrome de apresentação (master)
 Scroll-snap tela cheia, dots à direita (chip escuro), lock de 800ms anti double-scroll, teclado (setas/PageUp-Down/espaço), iframes 1920×1080 escalados por `min(vw/1920, vh/1080)`. Páginas claras dentro (não escurecer o conteúdo, prejudica leitura).
+
+## 14. Aprendizados Jun 01-24
+
+### 14.1 P2 , Atribuição: cruzar utm_source + medium (NUNCA só medium)
+Olhar só `utm_medium_signup` joga metade no "sem atribuição" (50%), está errado e é frágil na reunião. Correto: **single-assignment cruzando utm_source + utm_medium** (prioridade: influs/streamers no source, depois affiliate medium, depois paid, depois org, resto = Sem UTM). Real: só **19% Sem UTM**. Influs/Streamers (utm_source `streamers` + `influs_br`) é canal escondido e o de MAIOR CR (58%), invisível no medium. Afiliados/streamers/influs vivem todos no MyAffiliates (agrupados, ~564 FTD jun, bate com a Jocelyne).
+Query: `SUMMARIZECOLUMNS(DimPlayer[utm_medium_signup], DimPlayer[utm_source], FR, FTD)` + bucketize em Python por prioridade.
+
+### 14.2 P2 , Quadros: Registros · FTD · CR% · Ticket Médio (todos em ordem decrescente)
+CR alto não é boa fonte por si só. Trazer **ticket médio** (`SUM(FactFirstDeposit[payment_amount]) ÷ FTD`) revela qualidade: Influs maior CR (58%) mas menor ticket (R$22, volume não valor); Org/Direct R$279 e Afiliados R$182 são os de qualidade; média R$111. Usar ticket (número menor) em vez de valor total, lê melhor e ancora qualidade. O % cinza nos quadros = participação no total, NÃO MoM, sempre rotular.
+
+### 14.3 P1/P4 , Hold de Sports negativo é ESTRUTURAL, não Copa
+Nunca atribuir NGR negativo a "favoritos da Copa, evento que normaliza" (overclaim, `feedback_no_causal_overclaim`). Driver real (Trading/BI): Tennis ITF Men/Women + eFootball, ~R$65k GGR negativo/mês há ~30 dias, mais high-rollers idiossincráticos no Casino (bloqueio AML pós-aposta, threshold R$10k). Copa é secundária. O dataset não quebra Sports por liga (`DimGame` Sports = 1 linha "KAMBI_GAME_ID"); o detalhe por liga vive no Kambi/Omega, citar lastreado no Trading/BI.
