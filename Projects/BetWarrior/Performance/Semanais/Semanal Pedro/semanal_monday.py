@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Semanal Pedro + Tracking Semanal + Confluence — coletor de SEGUNDA (numero final, pos-backfill)
-# Uso:  python3 semanal_monday.py            (default W24 = 8-14/jun)
-#       python3 semanal_monday.py 15 21      (outra semana do mes: d1 d2)
+# Uso:  python3 semanal_monday.py            (default W26 = 22-28/jun)
+#       python3 semanal_monday.py 22 28      (outra semana do mes: d1 d2)
 # Metodos TRAVADOS (ver semanal-pedro-playbook.md, nao reinventar):
 #   - Filtro sempre External; GGR = GB(ABS GAME_BET) - GW(GAME_WIN+CASH_OUT+CORRECTION)
 #   - NGR = RealGGR(sub_account AMOUNT_REAL) - ReleasedBonus(BONUS_REL @ AMOUNT_RELEASED_BONUS)
@@ -15,19 +15,19 @@ GROUP="00ecb2bb-6c61-4d09-badb-a4df0c948b02"; DATASET="c489d219-ef18-4f9e-9c5c-4
 
 # --- parametros da semana ---
 MES=6
-D1=int(sys.argv[1]) if len(sys.argv)>1 else 8
-D2=int(sys.argv[2]) if len(sys.argv)>2 else 14
-SEM_LABEL="W25 (15-21 FINAL)"
-SEM_COL="E"          # coluna da semana na aba Marketing (C=W23 D=W24 E=W25 F=W26 G=W27)
-SEM_DATES="Jun 15 - 21, 2026"   # F4 do Dashboard
-# semana anterior (para WoW). W24 = 8-14/jun (reais do tracker; NGR aprox, nao usado p/ Marketing)
-PREV={"WK":"W24","FTD":740,"NGR":17309,"GGR":21844,"FullReg":2836,"GGRFTD":30,"CPA":316.96}
-PREV_RANGE=(6,8,14)
-# targets da curva +80% (playbook) para W25 (semana inteira 15-21)
+D1=int(sys.argv[1]) if len(sys.argv)>1 else 22
+D2=int(sys.argv[2]) if len(sys.argv)>2 else 28
+SEM_LABEL="W26 (22-28 FINAL)"
+SEM_COL="F"          # coluna da semana na aba Marketing (C=W23 D=W24 E=W25 F=W26 G=W27)
+SEM_DATES="Jun 22 - 28, 2026"   # F4 do Dashboard
+# semana anterior (para WoW). W25 = 15-21/jun (reais FINAIS pos-backfill, rodados 26/06)
+PREV={"WK":"W25","FTD":891,"NGR":-31330,"GGR":-25215,"FullReg":3069,"GGRFTD":-28,"CPA":105.65}
+PREV_RANGE=(6,15,21)
+# targets da curva +80% (playbook) para W26 (22-28) = MESMA share da W25 (27,39%)
 TGT={"FullReg":8745,"FTD":2011,"GGR":120011,"NGR":105610,"CPA":159.05,"GGRFTD":60}
 # CPA: gasto real da semana em USD (Midia/PACING). Se None, usa proporcional do budget.
 SPEND_USD=None
-MONTHLY_BUDGET_USD=343670   # budget total junho (PACING). W25 inteira (15-21): share da curva = 12.6/46
+MONTHLY_BUDGET_USD=343670   # budget total junho (PACING). W26 inteira (22-28): share da curva = 12.6/46
 WEEK_SHARE=0.2739
 
 def refresh():

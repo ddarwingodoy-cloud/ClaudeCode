@@ -160,3 +160,17 @@ Picos atípicos de registros/FTDs num dia podem ser incidentes (ex.: promo/bônu
 - **Receita negativa:** decompor hold casino×esporte; handle subiu + margem negativa = **variância, não volume**; usar "bias to revert". Ver [[feedback_decompose_aggregate]] e [[feedback_no_causal_overclaim]].
 - **Afiliados:** `continue the hiring pacing (area manager + partners)` — **nunca** "unlock ramp".
 - **Última ação:** abrir as 2 planilhas no navegador (passo 8).
+
+## Erros da W26 a NÃO repetir (registrado 29/06/2026)
+
+1. **Seguir o formato de WoW % já convencionado (col C), inclusive em sinal trocado.** Errei escrevendo `NGR → -R$24.804 vs -R$31.330 (less negative)` em vez do padrão `NGR → -20,8% (vs -R$31.330)`. A regra é a fórmula literal `(real/prev-1)*100`, mesmo quando lê estranho (ex.: W25 deu -281,0% num NGR que virou negativo). **O `semanal_monday.py` já cospe o % certo no bloco [3]: confiar nele, não editorializar o WoW.**
+
+2. **Preencher os 3 destinos , NÃO esquecer a Tracking Semanal.** Preenchi só o tracker mensal e pulei a Tracking Semanal. Checklist obrigatório da segunda: (1) Pedro mensal Marketing+Dashboard, (2) **Tracking Semanal** (`1r1BK…`, aba única "Tracking" = gid 1101930613, linha = row da Wxx; W26=row6, W27=row7), (3) Confluence Row 5 (manual).
+
+3. **"Sucesso" do write ≠ persistido , RELER sempre.** O write do C6 retornou "Successfully updated" mas não gravou (lag/edição simultânea do Darwin). Sempre **reler a célula** depois de escrever na planilha viva. Se o Darwin estiver com ela aberta editando, avisar pra não escrever por cima.
+
+4. **Backfill/atribuição imatura na segunda , NÃO narrar split por canal.** O funil por canal e o "surto de Null" na segunda de manhã são **artefato**: a UTM carimba retroativo, então os dias recentes (e o domingo em peso) vêm ~100% sem atribuição. A WoW de cabeçalho (FTD/FullReg total) é justa (mesma maturidade da semana anterior), mas **a decomposição por canal não é** , usar só internamente, nunca no report. Ver [[feedback_data_de_corte]].
+
+5. **Cross-check do GGR via The Dashboard (Betinho) + finance.** Na W26 o domingo 28 deu +R$9,3k no Dashboard do Betinho, batendo com o pull → GGR −R$15,7k sólido (diferente da W25, onde o Luiz pegou under-liquidação). Cruzar o último dia antes de travar.
+
+6. **Investigação que valeu:** decompor o paradoxo "+24% reg / −22% FTD" achou o step real (FullReg→FTD 29%→18%, problema de depósito, não topo de funil) e a virada de vertical (hold de Sports −5,6% vs Casino breakeven, ao contrário da W25 que era casino). Disciplina anti-overclaim + decompor antes de narrar.
