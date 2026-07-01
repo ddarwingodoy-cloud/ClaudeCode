@@ -77,7 +77,8 @@ Para período de comparação WoW: `data_inicio − 7d` e `data_fim − 7d`.
 Com os dados coletados, identificar:
 
 #### Realizações ("O que foi realizado")
-- Fontes: Gemini Notes + Calendar + contexto dos dados
+- Fontes: Gemini Notes + Calendar + **e-mails gerais (etapa 2b, ler de fato as threads relevantes)** + **iniciativas em andamento (cruzar com o TODO)** + contexto dos dados
+- **Cobrir as frentes estratégicas de Growth Brasil em andamento** (ativações, parcerias/integrações, frentes de mídia bloqueadas), mesmo que não tenham aparecido nas reuniões da semana. Trazer resultados fortes de ativações (ex: conversão, FTDs). Não montar o report só com Gemini Notes + métricas.
 - Mínimo 3 itens
 - Verbos no passado: Realizei, Executei, Implementei, Desenvolvi, Lancei, Alinhei, Estruturei
 - Nível de abstração para CMO global: contexto e impacto, não detalhe técnico operacional
@@ -88,6 +89,7 @@ Com os dados coletados, identificar:
 - Grupo opcional — deixar vazio se não houver
 - Sem personificar responsáveis: "a integração apresentou instabilidade", não "Fulano não entregou"
 - Incluir apenas o que for relevante para o CMO conhecer
+- **Constatações medidas** (ex: "não detectamos paid search capturando a Copa no site") entram como **FATO do nosso lado**. **Questionamentos/cobranças direcionados a outras áreas** (ex: Perfo/Juanca) ficam **FORA do SANTI**.
 
 #### Highlight ("Highlight da semana")
 - Prioridade: métrica com variação WoW expressiva (positiva ou negativa) + contexto que explica o "filme"

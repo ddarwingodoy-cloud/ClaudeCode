@@ -22,13 +22,21 @@
 
 ## Em aberto
 
+### ✉️ Drafts prontos pra enviar (Gmail) — *estado 01/07*
+- **July budget $10k** → Juanca, cc JP + Santi/Joaco (working number, foco Google, confirmar quinta)
+- **Contratos bares** → Gala (dados dos 2 bares + thread do Barba, encadeado no último e-mail dela)
+- **BET-824 PIX** → Pedro Burna (anexar os prints manualmente + enviar)
+- **Federico (InfoSec)** → resumo em espanhol das 2 ativações
+- **Raphael (afiliado grupodupla)** → resposta rápida ("chegou o convite?")
+- **Juanca / World Cup** → decidir: segurar p/ quinta (recomendado) ou mandar a resposta (b)
+
 ### 🔥 Budget H2 (foco da semana)
-- [ ] **Reunião budget Jul-Dez** — quinta **02/07 10:30** (Juanca + JP). Corte agressivo; **Perfo = $10k em julho** (já comunicado ao Juanca). Prep: Verve mapeado + Copa Search pacing + cenários. Postura: bisturi, não machado · *30/06*
-- [ ] **Verve/Match2One (Display)** — conectei Juanca + Luiz pra confirmar **status de pagamento**. Junho consumido/sunk (~$16k); **jul/ago (~$31k) = corte se não pagos/disparados**. Modelo pré vs pós-pago em aberto (Juanca×Luiz divergem). Alimenta o budget · *30/06*
+- [ ] **Reunião budget Jul-Dez** — quinta **02/07 10:30** (Juanca + JP). Corte agressivo; **Perfo = $10k em julho** (já comunicado ao Juanca; e-mail oficial em draft). Prep: (1) **Verve**: rescisão enviada 30/06, junho+julho pagáveis, **saving = só agosto** (não os ~$31k); (2) Copa Search pacing (estrangulamento Pipol, levar como realocação não denúncia); (3) cenários. Postura: bisturi, não machado · *30/06*
+- [ ] **Verve/Match2One (Display)** — **Juanca enviou o aviso formal de rescisão hoje (30/06)**, "Notice of Contract Termination". Cláusula 3.2: 30 dias → encerra **~30/07**. Junho consumido + **julho roda e é pagável** (services rendered); **agosto+ cortado**. Pendências: (a) confirmar com finance/Luiz o valor de junho (nenhuma fatura emitida ainda); (b) pedido de **pausar/capar a entrega de julho** (clawback) está com o Juanca. Saving real = agosto, não os ~$31k · *30/06*
 - [ ] **Copa Search — budget** — Pipol estrangulou ($500→$26 em 25/06; só $150 no jogo do Japão, ainda 77% capado). Peça executiva pronta (IS por jogo + Change History). **HOLD**: levar pra quinta como alocação, não enviar agora (conflita com o corte) · [[project_perfo_search_escalation]] · *30/06*
 
 ### Ativação RS / Produto
-- [ ] **Contratos dos bares (Canto/Espartano)** — draft pra **Gala** pronto (dados do Jorge); falta o Jorge mandar: **endereço + representante do Canto**, **CNPJ completo + horários do Espartano**. Draft de cobrança pro Jorge pronto · *30/06*
+- [ ] **Contratos dos bares (Canto/Espartano)** — **dados completos**. E-mail completo pra **Gala** (2 bares + thread do Barba, encadeado no último e-mail dela) em **draft**. **Bônus de performance:** R$65/FTD (USD 11) acima da meta **combinada de 400**, medido pelos tags `1211*`; JP manda o texto pra Gala pôr no **Activation Order**. Op: promotoras usaram o link genérico `1211` (136 dos 187 FTDs sem bar) → orientar link por bar. Depois Gala gera os contratos → assinatura · *01/07*
 - [ ] **BET-824 / PIX (fricção de depósito)** — draft de resposta pro **Pedro Burna (Product)** pronto; falta **anexar prints + enviar** (manual, sandbox não anexa). Msg pro **Federico (InfoSec)** pronta · *27/06*
 - [ ] **Pilot tracking Copa (btag páginas de Produto)** — rodou no jogo 29/06 (Canto/Espartano → especiais); acompanhar resultado com Matias/Haonan · *29/06*
 - [ ] **MyAffiliates — Mkt_Brasil (hierarquia)** — proposta (árvore + texto) enviada ao JP; aguardando decisão dos 3 agrupamentos (3º grupo Ativações, Streamers sub-grupo, Casa Mundialista) · *27/06*
@@ -38,7 +46,7 @@
 - [ ] **Ampfy** — mandato de mídia; **pago 26/06 (Luiz)**. Acompanhar a frente com a Gala · *16/06*
 - [ ] **RDC / Fernando Leomil** — proposta (Pacote M R$50K); analisar e devolver · *27/05*
 - [ ] **Streamers** — falar com o Ulisses (pedido do JP) · *22/06*
-- [ ] **NFA — encerramento** — Legal fechando (R$290k integral); Luiz quase fechando o arquivo · *16/06*
+- [ ] **NFA — encerramento** — acordo fechado: Distrato v2 com **quitação plena de R$230.000** (NFA pedia ~R$290k, Gala ofereceu R$150k). Indo pra **assinatura**; **pagamento dia 10/07**. Conduzido por Gala/Legal + JP; Darwin só CC, sem ação · *30/06*
 
 ### Casa Mundialista / Tracking
 - [ ] **Casa Mundialista / feed de odds** — BC × Kambi; só acompanhar · *16/06*
@@ -46,6 +54,8 @@
 - [ ] **Clever × Kambi (odds dinâmicas)** — abrir frente com o Jose de Miguel · *22/06*
 
 ### Outros
+- [ ] **Power BI — licença** — conta caiu pra **Free** (perdeu Pro/PPU); ticket **BMA-8843** aberto no IT (status "aguardando suporte"). API/token segue OK, só a UI web travada · *30/06*
+- [ ] **PERFO COPA — status 30/06** — pacing preenchido até 30/06. Copa Search **rank-ok (0,07%) mas 80,6% lost-to-budget** com $150/dia (gasta 100%); só budget limita. **Confirmar se a campanha está "Paused" hoje** (rodou dia 30, gastou $148; se pausada na virada = contradiz manter Google). "All ads limited by policy" a cobrar da Pipol · *01/07*
 - [ ] **Agendar consulta urologista** — mensagem enviada ao **Flavio Hering**; aguardando retorno. Comparativo em `Projects/Pessoal/urologistas-rede-comparativo.md` · *30/06*
 - [ ] **WPR — pacing por canal** — modelo indefinido; pensar formato · *03/06*
 - [ ] **NFL no Rio (No Huddle)** — jogo Maracanã 29/09; frente do Joaquin (AR), Darwin em cópia; retomar pós-Copa (ativação BR de carona) · *25/06*
