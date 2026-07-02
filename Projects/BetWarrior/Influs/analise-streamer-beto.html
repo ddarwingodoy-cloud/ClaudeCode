@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise Streamer (time Beto) · RevShare 20%</title>
+<style>
+  :root{
+    --bg:#1C1C1E; --surf:#111111; --surf2:#1A1A1A; --border:#2A2A2A;
+    --orange:#FF3900; --white:#FFFFFF; --muted:#AAAAAA;
+    --green:#22C55E; --amber:#F59E0B; --red:#EF4444;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--white);font-family:Inter,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5;padding:34px 30px 60px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  h1{font-family:"Archivo Black","Arial Black",Impact,sans-serif;text-transform:uppercase;font-size:26px;letter-spacing:.5px;line-height:1.1;}
+  h1 .accent{color:var(--orange);}
+  .accent-line{width:66px;height:5px;background:var(--orange);margin:12px 0 8px;}
+  .sub{color:var(--muted);font-size:13px;}
+  h2{font-family:"Archivo Black","Arial Black",Impact,sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.6px;margin:34px 0 14px;padding-left:11px;border-left:4px solid var(--orange);}
+  /* KPI cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+  .card{background:var(--surf);border:1px solid var(--border);border-radius:11px;padding:16px 17px;position:relative;overflow:hidden;}
+  .card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange);}
+  .card .lbl{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.7px;}
+  .card .val{font-family:"Archivo Black","Arial Black",Impact,sans-serif;font-size:30px;line-height:1.05;margin:7px 0 5px;}
+  .card .val.bad{color:var(--red);} .card .val.warn{color:var(--amber);} .card .val.ok{color:var(--green);}
+  .card .note{font-size:12px;color:var(--muted);}
+  .card .note b{color:var(--white);}
+  /* points */
+  .points{display:flex;flex-direction:column;gap:11px;}
+  .pt{background:var(--surf2);border:1px solid var(--border);border-radius:9px;padding:13px 15px;display:flex;gap:14px;align-items:flex-start;}
+  .pt .badge{flex:none;min-width:96px;text-align:center;background:#000;border:1px solid var(--border);border-radius:7px;padding:7px 8px;}
+  .pt .badge .n{font-family:"Archivo Black","Arial Black",sans-serif;font-size:18px;line-height:1;}
+  .pt .badge .n.bad{color:var(--red);} .pt .badge .n.warn{color:var(--amber);} .pt .badge .n.ok{color:var(--green);}
+  .pt .badge .u{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+  .pt .txt{font-size:13.5px;}
+  .pt .txt b{color:var(--orange);}
+  /* flags */
+  .flags{background:#170d0a;border:1px solid #3a1a12;border-radius:10px;padding:16px 18px;}
+  .flags .fh{color:var(--amber);font-weight:700;text-transform:uppercase;letter-spacing:.6px;font-size:12px;margin-bottom:9px;}
+  .flags ul{list-style:none;}
+  .flags li{padding-left:18px;position:relative;margin-bottom:8px;font-size:13.5px;}
+  .flags li::before{content:"?";position:absolute;left:0;color:var(--amber);font-weight:800;}
+  .flags li b{color:var(--white);}
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  th{background:var(--orange);color:#fff;font-weight:700;text-align:right;padding:7px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.3px;}
+  th:first-child{text-align:left;}
+  td{padding:5px 8px;text-align:right;border-bottom:1px solid var(--border);}
+  td:first-child{text-align:left;color:var(--muted);}
+  tbody tr:nth-child(odd){background:var(--surf);}
+  tbody tr:nth-child(even){background:var(--surf2);}
+  tr.dead td{color:#666;}
+  tr.total{background:#000 !important;font-weight:700;}
+  tr.total td{border-top:2px solid var(--orange);color:var(--white);}
+  .neg{color:var(--red);font-weight:700;} .pos{color:var(--green);font-weight:700;}
+  .tbl-cap{font-size:12px;color:var(--muted);margin:16px 0 4px;}
+  .two-tbl{display:grid;grid-template-columns:1fr;gap:22px;}
+  .foot{color:#666;font-size:11px;margin-top:26px;border-top:1px solid var(--border);padding-top:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Análise <span class="accent">Streamer</span> (time Beto)</h1>
+  <div class="accent-line"></div>
+  <div class="sub">Deal: RevShare 20% &middot; Período: 28/05 a 23/06/2026 &middot; Fonte: relatório de afiliado BetWarrior Brazil &middot; Câmbio de referência ~R$5,40/US$</div>
+
+  <h2>Indicadores-chave</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="lbl">Ticket médio de FTD</div>
+      <div class="val bad">~R$28</div>
+      <div class="note">$5,20 por FTD &middot; qFTD exige <b>R$50</b> → <b>~44% abaixo</b> da régua</div>
+    </div>
+    <div class="card">
+      <div class="lbl">NGR (BetWarrior)</div>
+      <div class="val bad">-$499</div>
+      <div class="note">Junho <b>-$700</b> &middot; audiência <b>net-negativa</b> pra casa</div>
+    </div>
+    <div class="card">
+      <div class="lbl">Income do streamer (RevShare 20%)</div>
+      <div class="val bad">-$100</div>
+      <div class="note">Junho <b>-$140</b> &middot; o deal deu <b>prejuízo</b></div>
+    </div>
+    <div class="card">
+      <div class="lbl">CR Signup → FTD</div>
+      <div class="val warn">~41%</div>
+      <div class="note">Volume converte, mas em <b>FTD de baixo valor</b></div>
+    </div>
+    <div class="card">
+      <div class="lbl">Concentração da entrega</div>
+      <div class="val warn">2 sem.</div>
+      <div class="note"><b>100%</b> dos FTDs em 28/05–12/06 &middot; de 13 a 23/06 = <b>0 FTD</b></div>
+    </div>
+    <div class="card">
+      <div class="lbl">Consumo de budget</div>
+      <div class="val warn">~57%</div>
+      <div class="note">1 ação (~$7k ≈ R$38k) = <b>quase 60%</b> do influs de julho (R$66,7k)</div>
+    </div>
+  </div>
+
+  <h2>Os pontos que importam</h2>
+  <div class="points">
+    <div class="pt">
+      <div class="badge"><div class="n bad">R$28</div><div class="u">vs R$50</div></div>
+      <div class="txt"><b>Qualidade do FTD está abaixo da régua.</b> O ticket médio do primeiro depósito ($5,20 / ~R$28) fica ~44% abaixo do qFTD de R$50. Na prática, a maioria dos 369 FTDs <b>não qualificaria</b> hoje. É exatamente por isso que eles pedem pra afrouxar o qFTD (somar R$30 + R$20).</div>
+    </div>
+    <div class="pt">
+      <div class="badge"><div class="n bad">-$499</div><div class="u">NGR total</div></div>
+      <div class="txt"><b>A audiência perde dinheiro pra gente.</b> NGR combinado de -$499 (junho -$700, maio +$201). No RevShare 20%, o income deles ficou em -$100 → o deal, do jeito que rodou, deu prejuízo pros dois lados.</div>
+    </div>
+    <div class="pt">
+      <div class="badge"><div class="n warn">100%</div><div class="u">em 2 sem.</div></div>
+      <div class="txt"><b>Foi uma rajada, não uma operação contínua.</b> Praticamente todos os FTDs saíram entre 28/05 e 12/06. De 13/06 a 23/06 são <b>11 dias com 0 FTD</b>. Bom pra um pico de volume, ruim como canal recorrente.</div>
+    </div>
+    <div class="pt">
+      <div class="badge"><div class="n warn">~11/06</div><div class="u">350 FTD</div></div>
+      <div class="txt"><b>"350 nos primeiros 10 dias" é arredondado.</b> No 10º dia estavam em ~326 (com maio) / 264 (só junho). Cruzaram 350 em ~11/06, ou seja ~15 dias do início. E são <b>FTD, não qFTD</b>.</div>
+    </div>
+    <div class="pt">
+      <div class="badge"><div class="n warn">~57%</div><div class="u">jul influs</div></div>
+      <div class="txt"><b>No orçamento novo, não cabe.</b> Uma ação do tamanho da que rodaram (~$7k ≈ R$38k) sozinha come quase 60% de toda a linha de influs de julho (R$66,7k) — pra um resultado que não fecha.</div>
+    </div>
+  </div>
+
+  <h2>Perguntas a fechar antes de qualquer renovação</h2>
+  <div class="flags">
+    <div class="fh">Não reconcilia / falta dado</div>
+    <ul>
+      <li><b>O "$17k de budget, usou $7k" não aparece no relatório.</b> O que você tem é RevShare 20% (income -$140 em junho), não um CPA de $7k. Esse $7k é mídia própria deles? Outra campanha? Uma moldura de proposta? Precisa esclarecer.</li>
+      <li><b>Quantos FTDs foram qFTD (≥R$50)?</b> Com ticket médio ~R$28, a maioria não qualifica. Sem o número real de qFTD, o "350" não diz nada sobre o que a gente pagaria.</li>
+      <li><b>Custo por qFTD, não por FTD.</b> $7k / 369 FTD = ~$19. Mas por qFTD (bem menos gente) o custo real dispara. Só dá pra modelar breakeven com o nº de qFTD.</li>
+    </ul>
+  </div>
+
+  <h2>Relatório reconstruído</h2>
+
+  <div class="tbl-cap">Período 28/05 a 31/05/2026 (RevShare 20%)</div>
+  <table>
+    <thead><tr><th>Data</th><th>Clicks</th><th>Signups</th><th>FTD</th><th>FTD Amt</th><th>Deposits</th><th>Withdrawals</th><th>NGR</th><th>Income</th></tr></thead>
+    <tbody>
+      <tr><td>28/05</td><td>0</td><td>0</td><td>0</td><td>$0,00</td><td>$0,00</td><td>$0,00</td><td>$0,00</td><td>$0,00</td></tr>
+      <tr><td>29/05</td><td>35</td><td>8</td><td>6</td><td>$142,92</td><td>$412,52</td><td>$457,99</td><td class="neg">-$104,44</td><td class="neg">-$20,89</td></tr>
+      <tr><td>30/05</td><td>71</td><td>26</td><td>19</td><td>$75,43</td><td>$785,15</td><td>$359,09</td><td class="pos">$285,14</td><td class="pos">$57,03</td></tr>
+      <tr><td>31/05</td><td>170</td><td>79</td><td>37</td><td>$354,39</td><td>$586,06</td><td>$472,45</td><td class="pos">$20,47</td><td class="pos">$4,09</td></tr>
+      <tr class="total"><td>Total</td><td>276</td><td>113</td><td>62</td><td>$572,74</td><td>$1.783,73</td><td>$1.289,53</td><td class="pos">$201,17</td><td class="pos">$40,23</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tbl-cap">Período 01/06 a 23/06/2026 (RevShare 20%) — note a rajada e o corte seco a partir de 13/06</div>
+  <table>
+    <thead><tr><th>Data</th><th>Clicks</th><th>Signups</th><th>FTD</th><th>FTD Amt</th><th>Deposits</th><th>Withdrawals</th><th>NGR</th><th>Income</th></tr></thead>
+    <tbody>
+      <tr><td>01/06</td><td>1185</td><td>301</td><td>43</td><td>$258,55</td><td>$1.200,18</td><td>$1.177,68</td><td class="neg">-$58,76</td><td class="neg">-$11,75</td></tr>
+      <tr><td>02/06</td><td>504</td><td>84</td><td>41</td><td>$663,71</td><td>$1.463,50</td><td>$595,90</td><td class="pos">$390,20</td><td class="pos">$78,04</td></tr>
+      <tr><td>03/06</td><td>190</td><td>46</td><td>16</td><td>$44,01</td><td>$1.150,12</td><td>$1.561,34</td><td class="neg">-$138,54</td><td class="neg">-$27,71</td></tr>
+      <tr><td>04/06</td><td>57</td><td>34</td><td>16</td><td>$48,56</td><td>$2.615,21</td><td>$2.740,88</td><td class="neg">-$167,68</td><td class="neg">-$33,54</td></tr>
+      <tr><td>05/06</td><td>191</td><td>25</td><td>14</td><td>$32,44</td><td>$1.689,39</td><td>$1.693,69</td><td class="neg">-$103,54</td><td class="neg">-$20,71</td></tr>
+      <tr><td>06/06</td><td>78</td><td>35</td><td>21</td><td>$71,24</td><td>$2.303,97</td><td>$2.890,83</td><td class="neg">-$681,30</td><td class="neg">-$136,26</td></tr>
+      <tr><td>07/06</td><td>220</td><td>53</td><td>40</td><td>$111,65</td><td>$1.053,99</td><td>$767,74</td><td class="pos">$194,04</td><td class="pos">$38,81</td></tr>
+      <tr><td>08/06</td><td>172</td><td>31</td><td>23</td><td>$60,43</td><td>$1.077,47</td><td>$1.308,75</td><td class="neg">-$250,41</td><td class="neg">-$50,08</td></tr>
+      <tr><td>09/06</td><td>174</td><td>30</td><td>21</td><td>$58,67</td><td>$74,07</td><td>$53,93</td><td class="pos">$8,38</td><td class="pos">$1,68</td></tr>
+      <tr><td>10/06</td><td>86</td><td>44</td><td>29</td><td>$112,52</td><td>$853,80</td><td>$989,22</td><td class="neg">-$179,96</td><td class="neg">-$35,99</td></tr>
+      <tr><td>11/06</td><td>259</td><td>55</td><td>37</td><td>$107,38</td><td>$482,91</td><td>$86,54</td><td class="pos">$262,59</td><td class="pos">$52,52</td></tr>
+      <tr><td>12/06</td><td>106</td><td>14</td><td>6</td><td>$27,82</td><td>$191,39</td><td>$128,41</td><td class="pos">$62,06</td><td class="pos">$12,41</td></tr>
+      <tr class="dead"><td>13/06</td><td>6</td><td>1</td><td>0</td><td>$0,00</td><td>$29,62</td><td>$3,95</td><td>$25,42</td><td>$5,08</td></tr>
+      <tr class="dead"><td>14/06</td><td>5</td><td>0</td><td>0</td><td>$0,00</td><td>$39,69</td><td>$98,76</td><td class="neg">-$66,45</td><td class="neg">-$13,29</td></tr>
+      <tr class="dead"><td>15/06</td><td>6</td><td>0</td><td>0</td><td>$0,00</td><td>$5,12</td><td>$0,00</td><td>$4,61</td><td>$0,92</td></tr>
+      <tr class="dead"><td>16/06</td><td>8</td><td>0</td><td>0</td><td>$0,00</td><td>$85,21</td><td>$146,94</td><td class="neg">-$75,32</td><td class="neg">-$15,06</td></tr>
+      <tr class="dead"><td>17/06</td><td>3</td><td>0</td><td>0</td><td>$0,00</td><td>$73,66</td><td>$52,43</td><td>$33,18</td><td>$6,64</td></tr>
+      <tr class="dead"><td>18/06</td><td>1</td><td>0</td><td>0</td><td>$0,00</td><td>$15,71</td><td>$0,00</td><td>$11,57</td><td>$2,31</td></tr>
+      <tr class="dead"><td>19/06</td><td>4</td><td>0</td><td>0</td><td>$0,00</td><td>$19,40</td><td>$0,00</td><td>$14,44</td><td>$2,89</td></tr>
+      <tr class="dead"><td>20/06</td><td>5</td><td>0</td><td>0</td><td>$0,00</td><td>$3,88</td><td>$0,00</td><td>$7,14</td><td>$1,43</td></tr>
+      <tr class="dead"><td>21/06</td><td>8</td><td>0</td><td>0</td><td>$0,00</td><td>$14,55</td><td>$3,88</td><td>$7,84</td><td>$1,57</td></tr>
+      <tr class="dead"><td>22/06</td><td>4</td><td>0</td><td>0</td><td>$0,00</td><td>$0,00</td><td>$0,00</td><td>$0,00</td><td>$0,00</td></tr>
+      <tr class="dead"><td>23/06</td><td>4</td><td>0</td><td>0</td><td>$0,00</td><td>$0,00</td><td>$0,00</td><td>$0,15</td><td>$0,03</td></tr>
+      <tr class="total"><td>Total</td><td>3276</td><td>753</td><td>307</td><td>$1.596,98</td><td>$14.442,84</td><td>$14.300,87</td><td class="neg">-$700,34</td><td class="neg">-$140,07</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tbl-cap">Combinado (28/05 a 23/06): <b style="color:#fff">369 FTD</b> &middot; ticket médio <b style="color:#fff">~$5,88 (~R$32)</b> &middot; NGR <span class="neg">-$499,17</span> &middot; income <span class="neg">-$99,84</span> &middot; CR signup→FTD <b style="color:#fff">42,6%</b></div>
+
+  <div class="foot">Tabelas reconstruídas fielmente a partir do relatório de afiliado (RevShare 20%) enviado pela Gi. Valores em US$ conforme a fonte; conversões em R$ com câmbio de referência ~5,40. FTD = qualquer 1º depósito; qFTD = 1º depósito ≥ R$50 em transação única.</div>
+
+</div>
+</body>
+</html>

@@ -22,3 +22,6 @@ Projects/BetWarrior/Performance/Semanais/WPR/*
 
 # Agenda telefonica (dados pessoais de terceiros) — nunca versionar
 Projects/Pessoal/Contatos/
+
+# Export bruto do LinkedIn (DMs e contatos) - nao versionar
+Projects/Pessoal/CV/Linkedin/Basic_LinkedInDataExport*
