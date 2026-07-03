@@ -42,6 +42,7 @@
 - [ ] **MyAffiliates — Mkt_Brasil (hierarquia)** — proposta (árvore + texto) enviada ao JP; aguardando decisão dos 3 agrupamentos (3º grupo Ativações, Streamers sub-grupo, Casa Mundialista) · *27/06*
 
 ### Afiliados / Parcerias
+- [ ] **Arena Afiliados (Mike Martins / Raphael Guedes)** — proposta declinada por ora (abaixo do mercado deles). **Benchmarks Arena:** RevShare ~35%, baseline (min dep **e** wager, rollover ~1x) de **15/30/50**, CPA abaixo das melhores casas. Nossa qFTD (150/100) é 3-10x o baseline deles → **o nó é o baseline** (= trava de exposição do JP); RevShare a gente ganha (40>35), CPA sobe até 200. **Sequência definida:** (1) aguardar o **painel da operação** (Raphael/Mike mandam no grupo); (2) painel na mão → escrever pro **JP** com o cenário + benchmarks; (3) resposta do JP → definir o que responder pro Mike. Mike parkou pro **pós-Copa**, sem risco de esfriar · *03/07*
 - [ ] **Super Afiliados** — deal fechado; aguardar a minuta de contrato deles · *18/06*
 - [ ] **Ampfy** — mandato de mídia; **pago 26/06 (Luiz)**. Acompanhar a frente com a Gala · *16/06*
 - [ ] **RDC / Fernando Leomil** — proposta (Pacote M R$50K); analisar e devolver · *27/05*

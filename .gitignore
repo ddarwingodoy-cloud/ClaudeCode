@@ -25,3 +25,6 @@ Projects/Pessoal/Contatos/
 
 # Export bruto do LinkedIn (DMs e contatos) - nao versionar
 Projects/Pessoal/CV/Linkedin/Basic_LinkedInDataExport*
+
+# LinkedIn raw data export (PII — nunca versionar)
+Projects/Pessoal/CV/Linkedin/
