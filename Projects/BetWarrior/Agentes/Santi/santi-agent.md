@@ -79,8 +79,8 @@ Com os dados coletados, identificar:
 #### Realizações ("O que foi realizado")
 - Fontes: Gemini Notes + Calendar + **e-mails gerais (etapa 2b, ler de fato as threads relevantes)** + **iniciativas em andamento (cruzar com o TODO)** + contexto dos dados
 - **Cobrir as frentes estratégicas de Growth Brasil em andamento** (ativações, parcerias/integrações, frentes de mídia bloqueadas), mesmo que não tenham aparecido nas reuniões da semana. Trazer resultados fortes de ativações (ex: conversão, FTDs). Não montar o report só com Gemini Notes + métricas.
-- Mínimo 3 itens
-- Verbos no passado: Realizei, Executei, Implementei, Desenvolvi, Lancei, Alinhei, Estruturei
+- Mínimo 3 itens (3 enxutos e de impacto > 4 diluídos; cortar o mais fraco)
+- **Voz sempre em "nós"** — verbos no passado plural: Estruturamos, Executamos, Avançamos, Fechamos, Implementamos, Desenvolvemos, Lançamos, Alinhamos. Nunca "Realizei/Executei" no singular
 - Nível de abstração para CMO global: contexto e impacto, não detalhe técnico operacional
 - Não repetir eventos de calendário sem contexto — inferir o propósito e resultado
 
