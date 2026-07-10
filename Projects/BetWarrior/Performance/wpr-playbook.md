@@ -267,17 +267,22 @@ Polyline conecta os dots. Linha avg R$/apostador tracejada horizontal.
 ## 10. Fórmulas PowerBI
 
 ```
-GGR = ABS(GAME_BET) − (GAME_WIN + CASH_OUT + CORRECTION)        [todas as sub-contas]
-NGR = RealGGR − Released Bonus                                  [METODO CORRETO — bate com o dashboard do Bira]
-   RealGGR       = ABS(GAME_BET) − (GAME_WIN+CASH_OUT+CORRECTION)  filtrado por dim_sub_account_key = "AMOUNT_REAL"
-   Released Bonus = SUM(BONUS_REL) filtrado por dim_sub_account_key = "AMOUNT_RELEASED_BONUS"
+ESCOPO OBRIGATORIO (corrigido 10/07/2026): Brazil + BWBRA + External
+   FILTER(DimPlayer, player_country_name="Brazil" && brand_name="BWBRA" && internal_external_player="External")
+   >>> Sem o filtro marca/pais, pega outras operacoes e o NGR inverte o sinal. FTD 01-08/jul = 385 (bate o Dashboard).
+GGR = ABS(GAME_BET) − (GAME_WIN + CASH_OUT + CORRECTION)        [TODAS as sub-contas, NAO filtrar AMOUNT_REAL]
+NGR = GGR − BonusCost                                          [METODO CORRETO — as colunas do report Power BI]
+   BonusCost = SUM WHERE account_transaction_type IN {"CRE_BONUS","PRODUC_BON","CANC_BONUS"}
 Gross Bets = ABS(SUM(FactAGGAccountTransaction[account_transaction_amount]))
              WHERE account_transaction_type = "GAME_BET"
 Gross Wins = SUM WHERE type IN {"GAME_WIN", "CASH_OUT", "CORRECTION"}
 Margem = GGR / Gross Bets    (SB/CS = GGR do produto / GB do produto, via DimGame[game_platform_name])
 ```
 
-> **NGR — NUNCA usar a fórmula simplificada `GGR − (CRE_BONUS+PRODUC_BON+MAN_BONUS)`.** Ela diverge do dashboard do Bira (deu 29k vs 35k em Jun/2026). O método correto é por `dim_sub_account_key` acima. O script `Semanais/WPR/wpr_pull.py` já faz isso.
+> **NGR (corrigido 10/07/2026) = GGR total − BonusCost.** Reconciliado peça a peça com o report Power BI (01-08/jul): GrossBets 557.389, GrossWins 550.924, GGR 6.464, todos exatos. NGR ≈ -R$4,7K (External) / dashboard -4,5K / report -4,0K.
+> **O método ANTIGO `RealGGR(AMOUNT_REAL) − ReleasedBonus` estava ERRADO** — dava +R$8,9k (sinal invertido) sem o escopo BR, e mesmo com escopo dá -5,5k (∼R$1,5k longe do report). NÃO usar. O `wpr_pull.py` já foi corrigido.
+> **⚠ Os WPRs anteriores (mai/jun) usaram o método antigo + escopo sem BWBRA** — o NGR deles pode estar com esse viés; re-checar se algum for reapresentado.
+> Resíduo ∼R$500 no BonusCost vs report (10.975 meu vs 10.465 dele) = measure fino de bônus do report; pinar com o Betinho se precisar byte-exact.
 
 **Armadilhas críticas**:
 - `GAME_BET` é negativo — sempre usar `ABS()`
