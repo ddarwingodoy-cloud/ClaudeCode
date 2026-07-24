@@ -103,8 +103,10 @@ Sessões → Registros → FTD
 | Step | Fonte | Legenda |
 |------|-------|---------|
 | Sessões | GA4 BR | "GA4" |
-| Registros (1º step) | PowerBI DISTINCTCOUNT(kyc_onboardings_logs[username]) @ status_onboarding="PENDING_CONFIRMATION" | "onboarding" |
+| Registros (New Registrations) | PowerBI SUM(FactRegistration[registration_count]) + escopo BR+BWBRA | "PowerBI" |
 | FTD | PowerBI FactFirstDeposit | "PowerBI" |
+
+> **Registros = New Registrations (`FactRegistration[registration_count]`), CORRIGIDO 24/07.** Bate EXATO com o report Weekly KPIs by Brand / The Dashboard do Betinho (Jul 01-22 = 3.499, CR 25,0% ≈ Betinho 25,1%). **Substituiu o antigo "1º step do kyc"** (`DISTINCTCOUNT(kyc_onboardings_logs[username])` @ PENDING_CONFIRMATION), que era **all-brand** (misturava brand_id 1002, ~+322 registros em jul) e **não batia o Dashboard** (dava 4.020 e inflava, derrubando o CR pra 21,8% em vez de 25,0%). Não voltar pro kyc.
 
 > **Pronto p/Dep (READY_FOR_DEPOSIT) foi retirado do funil em Jul 01-22.** O fix do PIX (BET-824) eliminou o passo bancário do caminho crítico: ninguém mais para no RFD, então FTD > RFD e a conversão "Pronto→FTD" dava >100% (sem sentido). Some o problema técnico extra: o RFD vem do kyc_onboardings_logs **sem filtro de marca** (all-brand), enquanto o FTD é BR+BWBRA — não são a mesma base. Funil virou 3 steps, com a CR (Registros→FTD) batendo EXATO com a CR% da tabela. Se o RFD voltar a fazer sentido (mudança de fluxo), reavaliar.
 > **Registros = 1º step do onboarding** (decidido 18/06, alinha com a visão do Betinho/The Dashboard). A **tabela** segue com FullReg = FactFullRegistration (isonomia histórica, não muda).
@@ -121,8 +123,8 @@ Sessões → Registros → FTD
 
 **Colunas fixas**: Mês | Registros | FTDs | CR% | GGR (R$) | NGR (R$) | Marg. | SB | CS
 
-- **Registros** = 1º step (PENDING_CONFIRMATION, `DISTINCTCOUNT(username)`), mesma fonte do funil. Substituiu FullReg/FactFullRegistration a partir de 18/06 (decisão: 1º step é o padrão de "registros" em todos os reports).
-- **CR%** = FTDs / Registros (1º step). Meta = CR alvo YTD (ver §13.4).
+- **Registros** = New Registrations (`SUM(FactRegistration[registration_count])`, escopo BR+BWBRA), mesma fonte do funil. **Corrigido 24/07** (era 1º step do kyc, all-brand, não batia o Dashboard). Bate com o report/Betinho.
+- **CR%** = FTDs / Registros (New Registrations). Meta = CR alvo 25% (Jul, ver §13.4). Jul 01-22 fechou 25,0% = na meta.
 - **Marg.** = NGR / Gross Bets
 - **GGR/NGR**: em R$k
 - Linha mês atual: `class="cw"` (fundo #FFF5F2, borda-left laranja)
