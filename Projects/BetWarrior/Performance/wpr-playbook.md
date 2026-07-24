@@ -93,21 +93,21 @@ Cada iframe: `width: 1920px; height: 1080px; transform-origin: top left`.
 
 ## 5. P1 — Métricas de Negócio
 
-### 5.1 Funil de Ativação (SVG trapézio)
+### 5.1 Funil de Ativação (evolução, linhas=meses)
 
-**4 steps obrigatórios:**
+**3 steps (a partir de Jul 01-22 — Pronto p/Dep APOSENTADO):**
 ```
-Sessões → Registros → Pronto p/ Dep → FTD
+Sessões → Registros → FTD
 ```
 
 | Step | Fonte | Legenda |
 |------|-------|---------|
 | Sessões | GA4 BR | "GA4" |
 | Registros (1º step) | PowerBI DISTINCTCOUNT(kyc_onboardings_logs[username]) @ status_onboarding="PENDING_CONFIRMATION" | "onboarding" |
-| Pronto p/ Dep | PowerBI kyc_onboardings_logs status_onboarding="READY_FOR_DEPOSIT" | "KYC PASS" |
 | FTD | PowerBI FactFirstDeposit | "PowerBI" |
 
-> **Registros = 1º step do onboarding** (decidido 18/06, alinha com a visão do Betinho/The Dashboard). Substituiu o antigo "No Lock" (FRNL NOT_LOCKED), que era o fim do onboarding e subestimava o topo. A **tabela** segue com FullReg = FactFullRegistration (isonomia histórica, não muda).
+> **Pronto p/Dep (READY_FOR_DEPOSIT) foi retirado do funil em Jul 01-22.** O fix do PIX (BET-824) eliminou o passo bancário do caminho crítico: ninguém mais para no RFD, então FTD > RFD e a conversão "Pronto→FTD" dava >100% (sem sentido). Some o problema técnico extra: o RFD vem do kyc_onboardings_logs **sem filtro de marca** (all-brand), enquanto o FTD é BR+BWBRA — não são a mesma base. Funil virou 3 steps, com a CR (Registros→FTD) batendo EXATO com a CR% da tabela. Se o RFD voltar a fazer sentido (mudança de fluxo), reavaliar.
+> **Registros = 1º step do onboarding** (decidido 18/06, alinha com a visão do Betinho/The Dashboard). A **tabela** segue com FullReg = FactFullRegistration (isonomia histórica, não muda).
 
 **Taxas de conversão em cada interseção** — formato `±X,Xpp vs [Mês anterior]`.
 
@@ -129,10 +129,12 @@ Sessões → Registros → Pronto p/ Dep → FTD
 - Linha delta Δ vs mês anterior: `class="dr"` (fundo #F5F5F5)
 - Mês de pico histórico = `★`; mês atual = `▶`
 
-**CSS fontes (não alterar)**:
-- `thead th`: 12px | `tbody td`: 13px | `tbody td:first-child`: 12px | `.hi`/`.hi-g`: 14px | `.tnote`: 11px
+**CSS fontes (padrão ampliado 24/07 — WPR Jul 01-22, para leitura em tela/projeção)**:
+- `thead th`: 14px (padding 11px 8px) | `tbody td`: 15px (padding 13px 8px) | `tbody td:first-child`: 14px | `.tnote`: 11,5px
+- Tabela agora vive em **painel próprio** (esquerda da linha de baixo), com `.p-tbl .p-body { justify-content:center }` para centralizar e matar o vazio. Substituiu o quadro "efeito PIX", aposentado em Jul 01-22.
+- **Nota do NGR** (embaixo da tabela, substitui a tnote de metodologia): explica por que o NGR está negativo (GGR positivo = livro não perde p/ apostador; vermelho = bônus > GGR fino por hold de SB + bônus/Gross Bets subindo). O caveat "Meta = Forecast não flexibilizada" e "Registros = 1º step" migraram para os ph-notes/rodapé do funil (não repetir na tabela).
 
-### 5.3 Cards Base Ativa (4 cards)
+### 5.3 Cards Base Ativa + Composição do Gross Bets (painel "Saúde da Base Ativa")
 
 | Card | Métrica | Cor delta |
 |------|---------|-----------|
@@ -143,7 +145,9 @@ Sessões → Registros → Pronto p/ Dep → FTD
 
 **Fonte cards 3 e 4**: `KEEPFILTERS(FILTER(FactAGGAccountTransaction, [account_transaction_type] = "GAME_BET"))` + `KEEPFILTERS(FILTER(DimPlayer, [internal_external_player] = "External"))` agrupado por `[customer_new_or_returning]`.
 
-**CSS cards**: label 10px #AAAAAA; número 26px Archivo Black; delta 12px bold.
+**CSS cards (ampliado 24/07)**: label 10px #AAAAAA (nowrap); número 27px Archivo Black; delta 14px bold; sub-delta `.dv` 10,5px #BBB (linha "vs [mês ant.]" separada, cabe em card estreito). 5 cards: GB Total · Apostadores · GB/Apostador · GB Novos FTDs · GB Base Existente.
+
+**Composição do Gross Bets · Novos vs Base Existente** (barra empilhada 3 meses, abaixo dos cards): Novos (`New Customer`, cinza #D8D8D8) vs Base Existente (`Returning Customer`, laranja #FF3900). Foco = **a virada de share** (ex. Jul 01-22: base 46%→42%→73% com o corte de mídia), não a foto do mês. Cards seguem vermelhos (absolutos caíram); a composição mostra que dentro do bolo menor a base virou maioria — leitura honesta, sem maquiar. Read enquadra como transição ("enquanto estruturamos Afiliados e VIP..."), não abandono de aquisição.
 
 ---
 
