@@ -35,3 +35,11 @@ Projects/Pessoal/pessoal-relacionamento.md
 # Pessoal e financeiro confidencial (nunca versionar)
 Projects/Pessoal/NEO_Manual_en.pdf
 Projects/BetWarrior/Financeiro/*.xlsx
+
+# Documento pessoal de saúde
+Projects/Pessoal/consulta-urologia-resumo.*
+Projects/Pessoal/historico-saude.*
+Projects/Pessoal/Exames/
+
+# LinkedIn export direto em Pessoal/ (PII/analytics pessoal — nunca versionar)
+Projects/Pessoal/Linkedin/

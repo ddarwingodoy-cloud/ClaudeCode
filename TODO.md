@@ -1,83 +1,83 @@
 # TODO — Darwin Godoy
 
-> Atualizado diariamente. Trigger de fim de dia: **"fecha o dia"**.
+> Atualizado diariamente. Trigger de fim de dia: **"fecha o dia"**. Reescrito 23/07/2026.
 
 ---
 
-## ☀️ Começar TODO dia por aqui
-- **`PERFO COPA`** — monitorar a campanha de Copa (captura no paid search + IS/rank/budget). Claude puxa GA4/PBI, Darwin traz os números do Google Ads, cruzam no scorecard. Playbook: `Performance/perfo-copa-playbook.md` · [[project_perfo_search_escalation]]
-- **`PIX TRACKING`** — puxar o funil do dia fechado anterior (Registros/Onb Finished/Ready for Deposit/RFD-rate/FTD/conv) e anexar no Sheet **PIX Onboarding pós-fix** (`17mQYC6nvje0cWGi_-DTrT52p-nQoHD1DaL9Bt8Gs_Vk`). Sinal limpo = **RFD-rate** (gargalo eliminado); conv same-day é ruidosa. Regra de parada: até ~14/07 (5-7 dias fechados) → dimensionar lift real via coorte. Fix ativado 07/07 · *08/07*
+## 🔥 Prioridade da semana (23/07)
+- **Dr. Bingo × MyAffiliates.** Call hoje (23/07). Destravar: **financeiro** (fórmula de NGR — mantém 26% admin fee? + moeda base **USD**, permanente) é o gargalo real, não o contrato. Ruan confirma **aditivo + custo** com o Milan. **E-mail dia-0 pro Milan pronto** — disparar após o go. Nomear dono do projeto (Ruan).
+- **Report FBI × Danilo pro Pedro (prazo 31/07).** Esqueleto pronto (`Pedro Nicolau/influenciadores-fbi-danilo.html`). Falta a **Gi**: o que cada um faz + plano de volume. Fonte = UTM (FBI 69/32, Danilo ~1/~1).
+- **Ampfy — aditivo.** Ticket **LI-59** aberto; Gala montando a minuta (escopo R$80.775,96/mês + prazo 31/12/2026 + liberação de compra de mídia mediante aprovação/verba). Conferir quando voltar.
+- **Cris 55 anos (25/07)** — presente + quadro "Your Song".
 
 ---
 
-## Recorrentes semanais
-
+## Recorrentes
 | Dia | Report | Trigger |
 |---|---|---|
-| Segunda | Santi | `SANTI` |
-| Terça | Perfo Juanca | a criar |
+| Segunda | Santi | `SANTI` (dom-sáb fechado) |
+| Segunda | Semanal Pedro | KPI Tracker **MTD** + **GTM Tracker** (ver [[project_pedro_mtd_standard]]) |
 | Quinta | WPR | `WPR DD-DD/mês/AAAA` |
-| Segunda (até 10h) | Semanal Pedro | aba 📈 Marketing do KPI Tracker do mês (`1TduQ6Il...`) |
+
+> **Perfo Juanca (terça): descontinuado** — praticamente sem investimento de mídia.
 
 ---
 
 ## Em aberto
 
-### ✉️ Drafts prontos pra enviar (Gmail) — *estado 01/07*
-- **July budget $10k** → Juanca, cc JP + Santi/Joaco (working number, foco Google, confirmar quinta)
-- **Contratos bares** → Gala (dados dos 2 bares + thread do Barba, encadeado no último e-mail dela)
-- **BET-824 PIX** → Pedro Burna (anexar os prints manualmente + enviar)
-- **Federico (InfoSec)** → resumo em espanhol das 2 ativações
-- **Raphael (afiliado grupodupla)** → resposta rápida ("chegou o convite?")
-- **Juanca / World Cup** → decidir: segurar p/ quinta (recomendado) ou mandar a resposta (b)
+### Afiliados / Parcerias (dono operacional = Ruan)
+- [ ] **Beto (influ)** — 🎯 trabalhar esta semana: contraproposta (CPA escalonado + piloto) + tirar exclusividade; 1º número limpo vem do piloto.
+- [ ] **Streamers / Ulisses** — 🎯 trabalhar esta semana: falar com Ulisses (pedido do JP).
+- [ ] **Piloto afiliado (live R$25k)** — **go dado ao Ruan (22/07)**. Desriscado: não pagar tudo antes + UTM próprio (sem bet slip); compliance de streamer obrigatório. Ruan traz nome/entregáveis/tracking. Cara é mais influ que afiliado → alinhar com a Gi.
+- [ ] **Super Afiliados** — DD avançou (Lucas mandou docs 17/07); contrato com o afiliado. Acompanhar assinatura. ⚠ CPA R$180 (exceção ao teto). Legal com template 24h.
+- [ ] **Arena / Grupo Dupla** — reunião 17/07 (CPA R$180 + RevShare 25–30%). Ruan negocia/formaliza; amarrar com Super Afiliados pra não conflitar.
+- [ ] **MyAffiliates → Power BI** — tracking hoje **unificado via UTM**. Ponto aberto: btag ainda se perde fora do 1º step do onboarding (bug conhecido) — corrigir persistência.
+- [ ] **RDC / Fernando Leomil** — ❌ **descartado** (matar, decisão 23/07).
 
-### 🔥 Budget H2 (foco da semana)
-- [ ] **Targets Q3 / novo padrão KPI Tracker (Pedro)** — Pedro topou ajustar os targets. **Reunião 08/07 (qua) 10h-12h** (Pedro + Darwin) pra rever todas as assumptions + expectativa de resolução de cada → visão do impacto nos números → propor os **targets Q3 atualizados**. Encaminhamentos já alinhados no Slack: adotar padrão **MTD acumulado + % Achieved**; direção por KPI (FullReg/FTD/GGR/GGR-FTD ↑, **CPA ↓**); **alinhar definição de "registro"** (OKR mostra 21.877 jun vs ~23k 1º step que reportávamos); guardrails de retenção (2nd Deposit D30 / Retention / ARPU D30) → **aba CRM**, não Marketing. GGR/GGR-FTD ficam na aba mas não são KRs. Pedro pediu reservar a sala · *07/07*
-- [ ] **Reunião budget Jul-Dez** — quinta **02/07 10:30** (Juanca + JP). Corte agressivo; **Perfo = $10k em julho** (já comunicado ao Juanca; e-mail oficial em draft). Prep: (1) **Verve**: rescisão enviada 30/06, junho+julho pagáveis, **saving = só agosto** (não os ~$31k); (2) Copa Search pacing (estrangulamento Pipol, levar como realocação não denúncia); (3) cenários. Postura: bisturi, não machado · *30/06*
-- [ ] **Verve/Match2One (Display)** — **Juanca enviou o aviso formal de rescisão hoje (30/06)**, "Notice of Contract Termination". Cláusula 3.2: 30 dias → encerra **~30/07**. Junho consumido + **julho roda e é pagável** (services rendered); **agosto+ cortado**. Pendências: (a) confirmar com finance/Luiz o valor de junho (nenhuma fatura emitida ainda); (b) pedido de **pausar/capar a entrega de julho** (clawback) está com o Juanca. Saving real = agosto, não os ~$31k · *30/06*
-- [ ] **Copa Search — budget** — Pipol estrangulou ($500→$26 em 25/06; só $150 no jogo do Japão, ainda 77% capado). Peça executiva pronta (IS por jogo + Change History). **HOLD**: levar pra quinta como alocação, não enviar agora (conflita com o corte) · [[project_perfo_search_escalation]] · *30/06*
+### MyAffiliates / Dr. Bingo
+- [ ] **Integração Dr. Bingo** — Legal (Gala) confirmou viável (Track Gaming dona das 2 marcas, ambientes separados, view-only Gamesmart). Cronograma de 14 dias (plano da Jocelyne). Ponto crítico: CSVs de amostra (Burelli, 24h) + NGR confirmado na semana 1, senão +2 semanas. Ver Prioridade.
+- [ ] **MyAffiliates Mkt_Brasil (hierarquia)** — proposta ao JP; aguardando decisão dos 3 agrupamentos.
 
-### Ativação RS / Produto
-- [ ] **Contratos dos bares (Canto/Espartano)** — Legal (Clara) mandou os 2 contratos; **revisados 07/07**. Resposta à Clara **enviada**: pagamento 26/06 confirmado; achados devolvidos → (1) **bônus FTD (R$65/FTD acima de 400 combinado, via links) precisa entrar na Ordem de Ativação** e a OA está como template (evento/local/endereço/datas a preencher); (2) **conta do Espartano é PF (Lorenzo)** → pedir PJ; (3) **indenização 5.4 ainda em USD** → padronizar BRL; (4) cross-refs 2.4 e 5.4 a confirmar. ✅ 1.3 (QR/registro voluntário), prazo indeterminado + OA, fee R$40k, dados societários OK. **Msg pro Barba enviada** pedindo a conta **PJ da SPTN Ltda** (trava a assinatura do Espartano). Próximo: Legal completa a OA + USD→BRL, chega a conta PJ → circular pra assinatura. Canto já redondo · *07/07*
-- [ ] **BET-824 / PIX (fricção de depósito)** — draft de resposta pro **Pedro Burna (Product)** pronto; falta **anexar prints + enviar** (manual, sandbox não anexa). Msg pro **Federico (InfoSec)** pronta · *27/06*
-- [ ] **BMA-8912 (TI) — falhas de PIX/depósito Espartano** — chamado aberto 07/07 com base no log do Barba (03-05/07): cluster de erros "conta/instituição de destino" (lado receptor BW, pico sáb 04/07, ~55% travados) + redefinição de senha travando retorno. **Pablo Fernandez já escalou** (status Escalated), cc Maria Paula Burtin. Reforço opcional: BI puxar transações reais pela tag `1211-espartano-bar` (03-05/07) pra anexar número duro · *07/07*
-- [ ] **Pilot tracking Copa (btag páginas de Produto)** — rodou no jogo 29/06 (Canto/Espartano → especiais); acompanhar resultado com Matias/Haonan · *29/06*
-- [ ] **MyAffiliates — Mkt_Brasil (hierarquia)** — proposta (árvore + texto) enviada ao JP; aguardando decisão dos 3 agrupamentos (3º grupo Ativações, Streamers sub-grupo, Casa Mundialista) · *27/06*
+### Ampfy
+- [ ] **Aditivo (extensão contrato)** — ticket LI-59; parecer do Giu OK; Gala monta a minuta. Ver Prioridade.
+- [ ] **Verba de Display liberada** — Ampfy pode operar (modelo CPA/afiliado tipo PicPay-Alfa) via aditivo, quando houver retorno; alinhar com Ruan pra não conflitar com afiliados.
 
-### Afiliados / Parcerias
-- [ ] **Arena Afiliados (Mike Martins / Raphael Guedes)** — proposta declinada por ora (abaixo do mercado deles). **Benchmarks Arena:** RevShare ~35%, baseline (min dep **e** wager, rollover ~1x) de **15/30/50**, CPA abaixo das melhores casas. Nossa qFTD (150/100) é 3-10x o baseline deles → **o nó é o baseline** (= trava de exposição do JP); RevShare a gente ganha (40>35), CPA sobe até 200. **Sequência definida:** (1) aguardar o **painel da operação** (Raphael/Mike mandam no grupo); (2) painel na mão → escrever pro **JP** com o cenário + benchmarks; (3) resposta do JP → definir o que responder pro Mike. Mike parkou pro **pós-Copa**, sem risco de esfriar · *03/07*
-- [ ] **Beto (streamer/influ) — proposta híbrida** — 2 cenários pra Gi (giovannanucci) mandar pra ele: **A (Híbrida)** R$6k/mês conteúdo (piloto 3m, revisão no meio; entra ago ou via realocação, linha influ de jul comprometida) + afiliado **RevShare 25%** NGR c/ carryover, qFTD dep≥R$50 **e** Gross Bets≥R$50; **B (Só Afiliado)** **CPA R$100/qFTD + RevShare 20%** c/ carryover, mesmo qFTD. **Sem dado validado do Beto** (o estudo −$499 NGR / ticket R$28 era de OUTRO afiliado, Gi confundiu) → o **qFTD do piloto gera o 1º número limpo** dele; acompanhar na revisão do meio pra calibrar renovação. Darwin envia o e-mail · *06/07*
-- [ ] **Super Afiliados** — deal fechado; aguardar a minuta de contrato deles · *18/06*
-- [ ] **Ampfy** — mandato de mídia; **pago 26/06 (Luiz)**. Acompanhar a frente com a Gala · *16/06*
-- [ ] **RDC / Fernando Leomil** — proposta (Pacote M R$50K); analisar e devolver · *27/05*
-- [ ] **Streamers** — falar com o Ulisses (pedido do JP) · *22/06*
-- [ ] **NFA — encerramento** — acordo fechado: Distrato v2 com **quitação plena de R$230.000** (NFA pedia ~R$290k, Gala ofereceu R$150k). Indo pra **assinatura**; **pagamento dia 10/07**. Conduzido por Gala/Legal + JP; Darwin só CC, sem ação · *30/06*
+### Produto / Tracking
+- [ ] **Contratos bares (Canto/Espartano)** — ativação **completa**, fee pago, **bônus R$130** (FTD 402 vs meta 400); decidido **assinar os dois**. Legal finalizar OA + USD→BRL + conta PJ SPTN → circular assinatura.
+- [ ] **BET-824 / PIX** — fix entregue; sinal limpo = **RFD-rate**. Acompanhar **BMA-8912** (falhas PIX Espartano).
+- [ ] **Clever × Kambi** — drafts enviados (contrato AR + feed Kambi). Acompanhar abertura do ticket Kambi + assinatura do contrato de Argentina.
 
-### Casa Mundialista / Tracking
-- [ ] **Casa Mundialista / feed de odds** — BC × Kambi; só acompanhar · *16/06*
-- [ ] **Tracking ações Casa Mundialista** — cobrar o Diego · *22/06*
-- [ ] **Clever × Kambi (odds dinâmicas)** — abrir frente com o Jose de Miguel · *22/06*
+### Regulatório (radar)
+- [ ] **Guia V2 aos afiliados** — Clara redige o corpo do e-mail (cláusula "parte integrante do contrato + breach"); Ruan dispara pra base com Legal em cópia.
+- [ ] **Decreto OOH Rio (58.274)** — Diego revisa/adéqua qualquer OOH/patrocínio/ativação no Rio.
+- [ ] **Google Ads policy (14/09)** — nosso lado OK; Juanca/Pipol confirmar o **MCC**.
 
-### Outros
-- [ ] **Power BI — licença** — conta caiu pra **Free** (perdeu Pro/PPU); ticket **BMA-8843** aberto no IT (status "aguardando suporte"). API/token segue OK, só a UI web travada · *30/06*
-- [ ] **PERFO COPA — status 30/06** — pacing preenchido até 30/06. Copa Search **rank-ok (0,07%) mas 80,6% lost-to-budget** com $150/dia (gasta 100%); só budget limita. **Confirmar se a campanha está "Paused" hoje** (rodou dia 30, gastou $148; se pausada na virada = contradiz manter Google). "All ads limited by policy" a cobrar da Pipol · *01/07*
-- [ ] **Agendar consulta urologista** — mensagem enviada ao **Flavio Hering**; aguardando retorno. Comparativo em `Projects/Pessoal/urologistas-rede-comparativo.md` · *30/06*
-- [ ] **WPR — pacing por canal** — modelo indefinido; pensar formato · *03/06*
-- [ ] **NFL no Rio (No Huddle)** — jogo Maracanã 29/09; frente do Joaquin (AR), Darwin em cópia; retomar pós-Copa (ativação BR de carona) · *25/06*
+### Mídia / Budget / Infra
+- [ ] **Verve/Match2One (Display)** — rescisão confirmada (fim 31/07); saving real = agosto. **Confirmar valor de junho com o Luiz.**
+- [ ] **Power BI — licença** — conta Free; ticket **BMA-8843** no IT (API/token OK, só UI travada).
+- [ ] **WPR — pacing por canal** — backlog, modelo indefinido.
+
+### Pessoal / Marca
+- [ ] **Vagas** — **aplicar Petlove** (form comportamental feito + `CV_Petlove`) e **Blip** (`CV_Blip`); C&A pendente. + indicação do **JV pro Demian** (WhatsApp pronto).
+- [ ] **LinkedIn** — post "Capital Allocation" agendado (22/07). Definir próximo tema (evitar operacional; territórios da estratégia: branding econômico, priorização por margem/LTV, CRM/retenção). Post "fricção≠conversão" teve baixa performance — repensar.
+- [ ] **Levi's PROCON** (protocolo 1643351/2026) — marcada "não resolvida"; avaliar **Juizado Especial Cível** (R$121,96 + diferença).
+- [ ] **Urologista** — follow-up (Dr. André Marani, 16/07).
+
+### Retomar pós-Copa
+- [ ] **NFL no Rio (No Huddle, 29/09)** — retomar já com a ressalva do decreto OOH do Rio.
+- [ ] **Casa Mundialista** — feed de odds (BC×Kambi) acompanhar; cobrar tracking das ações com o Diego.
 
 ---
 
-## Concluído (últimos 7 dias)
-
-- [x] **SANTI semana 21-27** — draft entregue (ativação RS, revisão de budget/pausa estratégica, tracking afiliados; highlight FTD −23% com aquisição +15%) · *30/06*
-- [x] **PERFO COPA — análise do budget Copa Search** — Change History (estrangulamento 25/06 $500→$26), pacing 25-29 completo, correlação jogos×budget, peça executiva pra liderança · *30/06*
-- [x] **Planilha do Luiz (Financeiro)** — revisada; JP encaminhou ao Grossi (CFO) a versão com os 2 cenários do 2º semestre · *30/06*
-- [x] **Affiliate Manager** — fechado com **Ruan** (começa 13/07) · *30/06*
-- [x] **Semanal Pedro W26 (22-28)** — número final pós-backfill; FTD/conversão de depósito caindo (BET-824) + hold de Sports negativo; 3 destinos preenchidos · *29/06*
-- [x] **Semanal Pedro W25 (15-21)** — número final pós-backfill; GGR/NGR negativos; 3 destinos; correção do GGR via finance (Luiz) · *22/06*
-- [x] **SANTI semana 14-20** — draft revisado e enviado · *23/06*
-- [x] **WPR Jun 02-17 (ex-incidente 01/06)** — reconstruído; deck 4 telas; incidente CRM 01/06 quantificado · *19/06*
-- [x] **Análise "antes x depois" pros acionistas** — funil BR Jan-Mar vs Abr-Jun · *17/06*
-- [x] **Ampfy display — modelo + brief Gala** — docs + aditivo enviado à Gala · *16/06*
-- [x] **Casa Mundialista — e-mail Kambi/BC** — reforço dos IPs + recap deep-linking · *16/06*
-</content>
+## ✅ Concluído recente
+- [x] **Competitive Benchmark BR** (Betsson + Rei do Pitaco) — Scorecard preenchido + vídeos subidos · *22/07*
+- [x] **Contratos bares** — resposta à Clara (ativação completa, bônus R$130, decisão de assinar os dois) · *23/07*
+- [x] **Report FBI/Danilo** — esqueleto montado (falta Gi) · *23/07*
+- [x] **CVs Petlove + Blip** + form comportamental Petlove · *23/07*
+- [x] **Ampfy** — parecer Giu + pedido de aditivo + ticket LI-59 · *22-23/07*
+- [x] **Plano 90d afiliados** enviado a Pedro/JP (Pedro respondeu, réplica enviada) · *22/07*
+- [x] **SANTI 12-18/jul** entregue (pbcopy) · *21/07*
+- [x] **Clever** — drafts enviados (contrato AR + Kambi) · *~21/07*
+- [x] **Post LinkedIn "Capital Allocation"** agendado · *22/07*
+- [x] **Regulatório MF (17/07)** — thread tratada; Guia V2 cascateado · *21/07*
+- [x] **Ruan** contratado, começou 13/07

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Efeito do Fix do PIX · Funil de Onboarding</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+:root{--bg:#1C1C1E;--surf:#111;--surf2:#1A1A1A;--bord:#2A2A2A;--or:#FF3900;--wh:#fff;--mut:#AAAAAA;--gr:#22C55E;--rd:#EF4444;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{size:1280px 760px;margin:0;}
+body{width:1280px;height:760px;background:var(--bg);color:var(--wh);font-family:'Archivo',sans-serif;padding:34px 40px;overflow:hidden;}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--or);padding-bottom:14px;margin-bottom:22px;}
+h1{font-family:'Archivo Black';text-transform:uppercase;font-size:27px;letter-spacing:.5px;line-height:1.05;}
+h1 .a{color:var(--or);}
+.sub{color:var(--mut);font-size:13px;margin-top:6px;}
+.hd .meta{text-align:right;color:var(--mut);font-size:11px;line-height:1.7;letter-spacing:.5px;}
+/* stat cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+.card{background:var(--surf);border:1px solid var(--bord);border-radius:11px;padding:18px 20px;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--or);}
+.card.hero::before{background:var(--gr);}
+.card .lbl{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.7px;}
+.card .big{font-family:'Archivo Black';font-size:33px;line-height:1.05;margin:9px 0 4px;}
+.card .big .arw{color:var(--mut);font-size:22px;margin:0 8px;}
+.card .big .to{color:var(--gr);}
+.card.flat .big .to{color:var(--wh);}
+.card .dl{font-size:13px;font-weight:700;}
+.card .dl.up{color:var(--gr);} .card .dl.elim{color:var(--or);}
+/* transitions */
+.tt{font-family:'Archivo Black';font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);margin-bottom:12px;}
+.rows{display:flex;flex-direction:column;gap:13px;}
+.row{display:flex;align-items:center;gap:16px;}
+.rname{width:290px;font-size:13.5px;color:#ddd;flex-shrink:0;}
+.rname b{color:var(--wh);}
+.track{flex:1;height:26px;background:var(--surf2);border-radius:4px;position:relative;display:flex;align-items:center;}
+.bar{position:absolute;left:0;top:0;height:100%;border-radius:4px;}
+.bar.pre{background:#3a3a3a;}
+.bar.pos{background:var(--or);opacity:.92;}
+.row.hero .bar.pos{background:var(--gr);}
+.vals{width:210px;flex-shrink:0;font-size:13px;display:flex;align-items:baseline;gap:8px;}
+.vals .pre{color:var(--mut);} .vals .pos{font-family:'Archivo Black';font-size:16px;}
+.row.hero .vals .pos{color:var(--gr);}
+.vals .d{font-size:11.5px;font-weight:700;}
+.vals .d.up{color:var(--gr);} .vals .d.dn{color:var(--or);} .vals .d.nt{color:var(--mut);}
+.lg{display:flex;gap:20px;margin-top:18px;font-size:11.5px;color:var(--mut);align-items:center;}
+.lg .k{display:inline-block;width:22px;height:10px;border-radius:2px;vertical-align:middle;margin-right:6px;}
+.ft{position:absolute;bottom:18px;left:40px;right:40px;display:flex;justify-content:space-between;font-size:10.5px;color:#666;letter-spacing:.5px;border-top:1px solid var(--bord);padding-top:10px;}
+</style></head><body>
+<div class="hd">
+  <div><h1>Efeito do <span class="a">Fix do PIX</span> · Funil de Onboarding</h1>
+    <div class="sub">Captura automática dos dados bancários (BET-824) · a fricção do depósito saiu do funil</div></div>
+  <div class="meta">Pré-fix: 20/jun a 05/jul<br>Pós-fix: 07 a 12/jul<br>Fonte: kyc_onboardings_logs · FactFirstDeposit</div>
+</div>
+
+<div class="cards">
+  <div class="card flat"><div class="lbl">Conversão total do funil (FTD ÷ Registros)</div>
+    <div class="big">14,1%<span class="arw">→</span><span class="to">20,5%</span></div>
+    <div class="dl up">+6,4 p.p.</div></div>
+  <div class="card hero"><div class="lbl">Onboarding Finished → FTD · o sinal limpo</div>
+    <div class="big">20,3%<span class="arw">→</span><span class="to">28,9%</span></div>
+    <div class="dl up">+8,6 p.p. · +43% relativo</div></div>
+  <div class="card"><div class="lbl">Ready for Deposit (gargalo dos dados bancários)</div>
+    <div class="big">34,6%<span class="arw">→</span><span class="to" style="color:var(--or)">1,3%</span></div>
+    <div class="dl elim">passo eliminado / bypassado</div></div>
+</div>
+
+<div class="tt">Conversão passo a passo · pré × pós</div>
+<div class="rows">
+  <div class="row"><div class="rname">Pending Confirmation → Facial</div>
+    <div class="track"><div class="bar pre" style="width:81.8%"></div><div class="bar pos" style="width:78.3%"></div></div>
+    <div class="vals"><span class="pre">81,8%</span><span class="pos">78,3%</span><span class="d nt">−3,5</span></div></div>
+  <div class="row"><div class="rname">Facial → Completion</div>
+    <div class="track"><div class="bar pre" style="width:88.9%"></div><div class="bar pos" style="width:91.5%"></div></div>
+    <div class="vals"><span class="pre">88,9%</span><span class="pos">91,5%</span><span class="d up">+2,6</span></div></div>
+  <div class="row"><div class="rname">Completion → Onboarding Finished</div>
+    <div class="track"><div class="bar pre" style="width:95.6%"></div><div class="bar pos" style="width:98.7%"></div></div>
+    <div class="vals"><span class="pre">95,6%</span><span class="pos">98,7%</span><span class="d up">+3,1</span></div></div>
+  <div class="row"><div class="rname">Finished → Ready for Deposit <b>(fricção)</b></div>
+    <div class="track"><div class="bar pre" style="width:34.6%"></div><div class="bar pos" style="width:1.3%"></div></div>
+    <div class="vals"><span class="pre">34,6%</span><span class="pos" style="color:var(--or)">1,3%</span><span class="d dn">eliminado</span></div></div>
+  <div class="row hero"><div class="rname"><b>Onboarding Finished → FTD</b></div>
+    <div class="track"><div class="bar pre" style="width:20.3%"></div><div class="bar pos" style="width:28.9%"></div></div>
+    <div class="vals"><span class="pre">20,3%</span><span class="pos">28,9%</span><span class="d up">+8,6</span></div></div>
+</div>
+
+<div class="lg"><span><span class="k" style="background:#3a3a3a"></span>Pré-fix</span><span><span class="k" style="background:var(--or)"></span>Pós-fix</span><span style="color:#777">O topo do funil quase não mexeu; a melhora está concentrada no passo do depósito, exatamente onde o fix agiu.</span></div>
+
+<div class="ft"><span>BETWARRIOR BRASIL · ONBOARDING · FIX PIX</span><span>Pós-fix conservador (coorte imatura) · volume caiu com o corte de budget, eficiência subiu</span><span>14/07/2026</span></div>
+</body></html>

@@ -3,7 +3,9 @@
 # Uso:  python3 semanal_monday.py            (default W26 = 22-28/jun)
 #       python3 semanal_monday.py 22 28      (outra semana do mes: d1 d2)
 # Metodos TRAVADOS (ver semanal-pedro-playbook.md, nao reinventar):
-#   - Filtro sempre External; GGR = GB(ABS GAME_BET) - GW(GAME_WIN+CASH_OUT+CORRECTION)
+#   - ESCOPO (corrigido 13/07): Brazil + BWBRA + int/ext TODOS = bate EXATO com o Main KPIs Report
+#     (reports/dc2acead-4b72-4c88-99c0-d150938b8ced). SEM Brazil+BWBRA o GGR (dif de numeros grandes) estoura.
+#     NAO filtrar internal_external (o report usa "Todos"). GGR = GB(ABS GAME_BET) - GW(GAME_WIN+CASH_OUT+CORRECTION)
 #   - NGR = RealGGR(sub_account AMOUNT_REAL) - ReleasedBonus(BONUS_REL @ AMOUNT_RELEASED_BONUS)
 #   - Backfill: rodar SEGUNDA de manha; dado fecha ate a manha seguinte ao fim da semana
 #   - Meta semanal: curva de sazonalidade Copa +80% (playbook). Targets ja gravados.
@@ -48,7 +50,7 @@ def q(query):
     if "results" not in d: sys.exit("ERRO DAX: "+r.stdout[:300])
     return d["results"][0]["tables"][0]["rows"][0]
 
-EXT='FILTER(DimPlayer,DimPlayer[internal_external_player]="External")'
+EXT='FILTER(DimPlayer,DimPlayer[player_country_name]="Brazil"&&DimPlayer[brand_name]="BWBRA")'
 A='SUM(FactAGGAccountTransaction[account_transaction_amount])'
 TY='FactAGGAccountTransaction[account_transaction_type]'
 SA='FactAGGAccountTransaction[dim_sub_account_key]'

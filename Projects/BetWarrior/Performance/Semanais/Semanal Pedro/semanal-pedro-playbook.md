@@ -2,15 +2,18 @@
 
 > Report recorrente (segunda, antes das **10h** / reunião de liderança). Tracker multi-departamento: cada owner preenche a sua.
 
-## Destinos da segunda (1 run do script alimenta tudo)
+## Destinos da segunda
 
-São **3 lugares** — **2 planilhas que atualizo** + 1 cópia manual do Darwin:
+> ⚠️ **ATUALIZADO 13/07/2026: método virou MTD acumulado + Confluence aposentado.** Muito deste playbook abaixo (WoW semanal, Tracking Semanal, Confluence Row 5) está DESATUALIZADO. O método corrente (MTD por coluna, CPA blended por verba total de MKT, escopo BR+BWBRA+Todos, metas do forecast, reconciliar com o Main KPIs Report) vive na memória **`project_pedro_mtd_standard`** — ler ela primeiro.
 
-1. **Planilha mensal do Pedro** (*Weekly KPI Tracker — BetWarrior Brazil*; **link NOVO a cada mês, o Darwin informa**) — **DUAS abas:**
-   - **📈 Marketing** — coluna da semana corrente + Comments (col H).
-   - **🏠 Dashboard** — row 4 (semana/datas) + row 6 (Marketing: Target / Current / Δ / Status / Trend).
-2. **Planilha Tracking Semanal (Linha 5)** no Drive (`1r1BKEPoIRKm_H-xletID8mav3L3-Wh0ZewlvZn6mXTY`, aba Tracking) — preencher a linha da semana (REAL\|TARGET, WoW Diff%, Comentários). **É DAQUI que o Darwin copia pro Confluence.**
-3. **Confluence DB Row 5** (database "KPIs Tracker", space PM) — **cópia manual** da planilha do passo 2. Database não tem API limpa de escrita → **copiar e colar à mão** (detalhe na última seção).
+São **2 destinos** agora:
+
+1. **KPI Tracker** (*Weekly KPI Tracker — Brazil Leadership Meeting*; **link NOVO a cada mês**; jul = `1cN1sLuw69w4YCFmdhg69I93XJX-QXJvu4mtLkvagzvo`) — **DUAS abas:**
+   - **📈 Marketing** — B = Target MTD; colunas por semana com valor **MTD acumulado** (C=Jul 1-5, D=Jul 1-12…) + Comments (col H, inglês).
+   - **🏠 Dashboard** — row 6 (Marketing: Target / Current(FTD) / Δ / Status "🔴 Below target" / Trend inglês).
+2. **GTM Tracker** (*Brazil GTM - Initiative & Blocker Tracker*, `1deeRCbufnOdVsGPLHEDgNuS9ETle0vDseh18GCgINMQ`) — na aba **History**, append no fim: iniciativas do Darwin = **`Paid Media (Acquisition / Perfo)`** e **`Affiliates`**. Col A = nome EXATO (copiar da Current Status), col B = data real ("Jul 20", alinhada à direita), col C = update. A Current Status atualiza sozinha.
+
+~~3. Tracking Semanal (Linha 5) / Confluence Row 5~~ — **APOSENTADOS** (Pedro saiu do Confluence 13/07).
 
 ## Planilha de destino — arquivo NOVO a cada mês
 
