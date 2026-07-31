@@ -403,3 +403,20 @@ CR alto não é boa fonte por si só. Trazer **ticket médio** (`SUM(FactFirstDe
 
 ### 14.3 P1/P4 , Hold de Sports negativo é ESTRUTURAL, não Copa
 Nunca atribuir NGR negativo a "favoritos da Copa, evento que normaliza" (overclaim, `feedback_no_causal_overclaim`). Driver real (Trading/BI): Tennis ITF Men/Women + eFootball, ~R$65k GGR negativo/mês há ~30 dias, mais high-rollers idiossincráticos no Casino (bloqueio AML pós-aposta, threshold R$10k). Copa é secundária. O dataset não quebra Sports por liga (`DimGame` Sports = 1 linha "KAMBI_GAME_ID"); o detalhe por liga vive no Kambi/Omega, citar lastreado no Trading/BI.
+
+## 15. P3 — Pipeline de Afiliados (a partir de Jul 01-30/2026)
+
+Estrutura atual do WPR: **P1 + P2 + P3** (o P3 de mídia e o P4 foram aposentados pós-corte). O P3 é a foto do **board CRM Interno do Ruan** (pipeline de prospecção de afiliados), forward-looking. Markup exato e detalhes na memória `project_wpr_p3_pipeline`; deck ref: `Semanais/WPR/Entregas/Jul01-30/wpr-jul-01-30-slide-p3.html`.
+
+**Layout (copiar, não redesenhar):**
+- Topo, **largura cheia (painel precisa de `flex:1`)**: "Distribuição por Etapa" = tirinha de chips (Lead→Campanha Ativa), cor fria→quente, nº grande (42px) + Δ vs snapshot anterior.
+- Base-esquerda estreita (`flex:0.62`): "Pipeline por Tipo" = **rosca (donut)** conic-gradient, total no centro, Top 5 tipos + "Outros" (cauda + sem tipo).
+- Base-direita larga (`flex:1.55`, fontes maiores): "Deals & Integração em Destaque" (cards com termo comercial + próximo passo; featured com selo).
+
+**Fontes:** board Slack List `F0BJ2BVLXBJ`; Δ vs snapshot em `Afiliados/Reports/forecast-ruan/snapshots/`; status de deals/blocks **confirmado nos e-mails** (não só nos comentários do board).
+
+**Regra de dimensão:** cada painel corta por dimensão distinta (o quê=tipo · onde+movimento=etapa · destaques=deals). Nunca dois painéis pela mesma dimensão (funil macro + tirinha = redundante).
+
+**Tom:** construtivo, **sem holofote no negativo** (memória `feedback_report_sem_holofote_negativo`) — número honesto em cor neutra, texto no progresso/destrava.
+
+**Entrega versionada:** o working folder `Semanais/WPR/*` é gitignored; só `Semanais/WPR/Entregas/[Período]/` é versionado. Copiar os arquivos (master + P1 + P2 + P3) para lá antes do commit.
