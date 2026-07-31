@@ -419,4 +419,4 @@ Estrutura atual do WPR: **P1 + P2 + P3** (o P3 de mídia e o P4 foram aposentado
 
 **Tom:** construtivo, **sem holofote no negativo** (memória `feedback_report_sem_holofote_negativo`) — número honesto em cor neutra, texto no progresso/destrava.
 
-**Entrega versionada:** o working folder `Semanais/WPR/*` é gitignored; só `Semanais/WPR/Entregas/[Período]/` é versionado. Copiar os arquivos (master + P1 + P2 + P3) para lá antes do commit.
+**Versionamento (revisado 31/07):** os arquivos leves do WPR (HTML, `.md`, `.py`) são versionados **automaticamente** no working folder; só os dados pesados/sensíveis (`*.xlsx`, `*.pdf`, `*.csv`) ficam ignorados. Não precisa mais copiar pra `Entregas/` (a pasta segue existindo pro histórico) — basta commitar.

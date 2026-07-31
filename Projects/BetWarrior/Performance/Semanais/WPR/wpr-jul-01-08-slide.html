@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>WPR Brasil · P1 · Jul 01–08/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body { width:1920px; height:1080px; overflow:hidden; background:#F2F2F2; color:#111; font-family:'Archivo',sans-serif; display:flex; flex-direction:column; }
+.hdr { background:#FFF; border-bottom:2px solid #FF3900; display:flex; align-items:center; gap:24px; padding:0 28px; height:80px; flex-shrink:0; }
+.logo-block { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.logo-bar { width:4px; height:36px; background:#FF3900; }
+.logo-text .brand { font-family:'Archivo Black'; font-size:17px; letter-spacing:1px; }
+.logo-text .sub { font-size:9px; color:#999; letter-spacing:3px; text-transform:uppercase; }
+.hdr-sep { width:1px; height:44px; background:#E0E0E0; }
+.hdr-body { flex:1; }
+.hdr-title { font-family:'Archivo Black'; font-size:22px; letter-spacing:3px; text-transform:uppercase; line-height:1; margin-bottom:6px; }
+.hdr-sub { font-size:12px; color:#777; line-height:1.4; }
+.hdr-sub strong { color:#FF3900; }
+.hdr-meta { font-size:11px; color:#999; text-align:right; line-height:1.8; flex-shrink:0; letter-spacing:.5px; }
+.body { flex:1; padding:14px 20px; display:flex; flex-direction:column; gap:12px; min-height:0; }
+.row { display:flex; gap:12px; }
+.row-top { flex:1; min-height:0; }
+.row-bot { flex:1.05; min-height:0; }
+.panel { background:#FFF; border:1px solid #E0E0E0; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; overflow:hidden; min-height:0; }
+.p-1 { flex:1; } .p-hi { flex:3.2; } .p-wide { flex:4.8; }
+.ph { display:flex; align-items:center; gap:10px; padding:10px 18px; border-bottom:2px solid #FF3900; flex-shrink:0; }
+.ph-title { font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+.ph-note { margin-left:auto; font-size:9px; color:#AAA; font-style:italic; }
+.p-body { flex:1; padding:14px 18px 12px; display:flex; flex-direction:column; min-height:0; }
+.trend-svg { flex:1; min-height:0; } .trend-svg svg { display:block; width:100%; height:100%; }
+.chart-legend { display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding-top:8px; border-top:1px solid #F0F0F0; margin-top:7px; flex-shrink:0; min-height:28px; }
+.cl { display:flex; align-items:center; gap:6px; font-size:10px; color:#999; }
+.cl-dot { width:9px; height:9px; border-radius:2px; }
+/* Funil (linhas=meses · colunas=estágios que afunilam) */
+.fmx { flex:1; display:flex; flex-direction:column; justify-content:center; gap:11px; padding:2px 0; }
+.fnl-row { display:flex; align-items:center; justify-content:center; }
+.fnl-ml { width:40px; flex-shrink:0; font-family:'Archivo Black'; font-size:12px; color:#888; }
+.fnl-ml.cur { color:#FF3900; }
+.fnl-box { display:flex; align-items:center; justify-content:center; font-family:'Archivo Black'; font-size:12px; color:#fff; border-radius:2px; flex-shrink:0; }
+.s1 { width:90px; } .s2 { width:76px; } .s3 { width:68px; } .s4 { width:56px; }
+.fnl-box.s1 { height:48px; } .fnl-box.s2 { height:39px; } .fnl-box.s3 { height:31px; } .fnl-box.s4 { height:24px; }
+.fnl-gap { width:64px; flex-shrink:0; text-align:center; line-height:1.1; }
+.fnl-gap .p { font-size:12px; font-weight:700; color:#555; }
+.fnl-gap .p.hot { color:#22C55E; }
+.fnl-gap .d { font-size:9px; font-weight:700; display:block; margin-top:1px; }
+.fnl-gap .d.up { color:#22C55E; } .fnl-gap .d.dn { color:#EF4444; } .fnl-gap .d.fl { color:#BBB; }
+.fnl-hdr div[class^="s"] { text-align:center; font-family:'Archivo Black'; font-size:8.5px; text-transform:uppercase; color:#999; line-height:1.05; }
+.fmx-foot { font-size:9.5px; color:#BBB; margin-top:8px; padding-top:5px; border-top:1px solid #F0F0F0; }
+/* PIX panel */
+.pix-sub { font-size:11px; color:#666; margin-bottom:4px; }
+.pix-svg { flex:1; min-height:0; } .pix-svg svg { display:block; width:100%; height:100%; }
+.pix-foot { font-size:10px; color:#555; line-height:1.45; margin-top:6px; padding-top:6px; border-top:1px solid #F0F0F0; }
+.pix-foot b { color:#111; }
+/* Table */
+table { width:100%; border-collapse:collapse; flex-shrink:0; }
+thead tr { background:#FF3900; }
+thead th { padding:5px; text-align:center; white-space:nowrap; color:#FFF; font-family:'Archivo Black'; font-size:12px; letter-spacing:.5px; text-transform:uppercase; }
+thead th:first-child { text-align:left; }
+thead th.th-hi { background:#CC2E00; }
+tbody tr:nth-child(odd) { background:#FFF; }
+tbody tr:nth-child(even) { background:#F8F8F8; }
+tbody tr.cw { background:#FFF5F2; border-left:3px solid #FF3900; }
+tbody tr.dr { background:#F5F5F5; }
+tbody tr.mt { background:#FFF; border-top:1px dashed #E0E0E0; }
+tbody tr.mt td { color:#555; }
+tbody td { padding:5px 8px; text-align:center; white-space:nowrap; font-size:13px; color:#777; }
+tbody td:first-child { text-align:left; color:#333; font-family:'Archivo Black'; font-size:12px; }
+.n { color:#EF4444 !important; font-weight:700; }
+.g { color:#22C55E !important; font-weight:700; }
+.mu { color:#CCC !important; }
+.rev { color:#BBB !important; font-style:italic; }
+.tnote { margin-top:4px; font-size:11px; color:#BBB; line-height:1.5; flex-shrink:0; }
+.row-bot .p-body { padding:10px 14px 8px; }
+.ba-t { font-family:'Archivo Black'; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#AAA; margin-bottom:8px; }
+.ba-cards { display:flex; gap:10px; }
+.ba-c { flex:1; background:#F8F8F8; border:1px solid #EFEFEF; border-radius:3px; padding:8px 10px; text-align:center; }
+.ba-c .l { font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:3px; }
+.ba-c .v { font-family:'Archivo Black'; font-size:24px; }
+.ba-c .d { font-size:12px; font-weight:600; margin-top:2px; }
+.ftr { height:30px; background:#FFF; border-top:1px solid #E8E8E8; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:10px; color:#BBB; letter-spacing:1px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="logo-block"><div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div></div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body"><div class="hdr-title">WEEKLY PERFORMANCE REPORT</div>
+    <div class="hdr-sub"><strong>Julho adere ao plano reduzido: FTD a 115% do pacing MTD, e a CR sobe (21,8%). Mas a receita segue no vermelho, NGR −R$4,7k com margem a 1,1%, refletindo o corte de mídia e o fim da fase de grupos. Destaque estrutural: o PIX automático eliminou a fricção do dado bancário, onde 40-50% dos usuários quentes abandonavam.</strong></div></div>
+  <div class="hdr-meta">01–08 / Jul 2026<br>SB + Casino · BRL<br>Gerado 10/07</div>
+</div>
+<div class="body">
+  <div class="row row-top">
+    <!-- FTD vs Meta -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">FTD vs Meta · Jul 01–08</span><span class="ph-note">janela normalizada · meta recomposta (plano reduzido)</span></div>
+      <div class="p-body"><div class="trend-svg"><svg viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="314" x2="880" y2="314" stroke="#E0E0E0"/>
+        <!-- Mai 955/830 = 115% -->
+        <rect x="122.7" y="127.2" width="50" height="186.8" fill="#FF3900" rx="2"/><rect x="180.7" y="151.7" width="50" height="162.3" fill="#C8C8C8" rx="2"/>
+        <text x="147.7" y="120" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#FF3900">955</text>
+        <text x="205.7" y="144" text-anchor="middle" font-size="16" fill="#999" font-weight="700">830</text>
+        <text x="176.7" y="34" text-anchor="middle" font-family="Archivo Black" font-size="26" fill="#22C55E">115%</text>
+        <text x="176.7" y="343" text-anchor="middle" font-size="18" fill="#888" font-weight="700">Mai</text>
+        <!-- Jun 923/1278 = 72% -->
+        <rect x="396" y="133.5" width="50" height="180.5" fill="#FF3900" rx="2"/><rect x="454" y="64" width="50" height="250" fill="#C8C8C8" rx="2"/>
+        <text x="421" y="126" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#FF3900">923</text>
+        <text x="479" y="57" text-anchor="middle" font-size="16" fill="#999" font-weight="700">1.278</text>
+        <text x="450" y="34" text-anchor="middle" font-family="Archivo Black" font-size="26" fill="#EF4444">72%</text>
+        <text x="450" y="343" text-anchor="middle" font-size="18" fill="#888" font-weight="700">Jun</text>
+        <!-- Jul 385/336 = 115% -->
+        <rect x="669.3" y="238.7" width="50" height="75.3" fill="#FF3900" rx="2"/><rect x="727.3" y="248.3" width="50" height="65.7" fill="#C8C8C8" rx="2"/>
+        <text x="694.3" y="231" text-anchor="middle" font-family="Archivo Black" font-size="16" fill="#FF3900">385</text>
+        <text x="752.3" y="241" text-anchor="middle" font-size="16" fill="#999" font-weight="700">336</text>
+        <text x="723.3" y="34" text-anchor="middle" font-family="Archivo Black" font-size="26" fill="#22C55E">115%</text>
+        <text x="723.3" y="343" text-anchor="middle" font-size="18" fill="#FF3900" font-weight="700">Jul ▶</text>
+      </svg></div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900"></div>Realizado</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8"></div>Meta janela</div>
+          <div class="cl" style="margin-left:auto;color:#AAA">Jul: 115% do pacing (não-afiliado)</div></div></div>
+    </div>
+    <!-- Dep Médio -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">Depósito Médio por FTD · Jul 01–08</span><span class="ph-note">1º depósito · FactFirstDeposit · External</span></div>
+      <div class="p-body"><div class="trend-svg"><svg viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="318" x2="880" y2="318" stroke="#E0E0E0"/>
+        <rect x="134.7" y="46" width="84" height="272" fill="#C8C8C8" rx="2"/><text x="176.7" y="37" text-anchor="middle" font-family="Archivo Black" font-size="20" fill="#999">R$124</text><text x="176.7" y="346" text-anchor="middle" font-size="18" fill="#888" font-weight="700">Mai</text>
+        <rect x="408" y="57.4" width="84" height="260.6" fill="#C8C8C8" rx="2"/><text x="450" y="48" text-anchor="middle" font-family="Archivo Black" font-size="20" fill="#999">R$119</text><text x="450" y="346" text-anchor="middle" font-size="18" fill="#888" font-weight="700">Jun</text>
+        <rect x="681.3" y="81.5" width="84" height="236.5" fill="#FF3900" rx="2"/><text x="723.3" y="72" text-anchor="middle" font-family="Archivo Black" font-size="20" fill="#FF3900">R$108</text><text x="723.3" y="346" text-anchor="middle" font-size="18" fill="#FF3900" font-weight="700">Jul ▶</text>
+      </svg></div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900"></div>Período atual (Jul)</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8"></div>Meses anteriores</div>
+          <div class="cl" style="margin-left:auto;color:#AAA">Ticket em queda: R$124 → R$108</div></div></div>
+    </div>
+    <!-- Funil matriz -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">Funil de Ativação · evolução</span><span class="ph-note">GA4 + PowerBI · janelas Mai/Jun/Jul</span></div>
+      <div class="p-body">
+        <div class="fmx">
+          <div class="fnl-row fnl-hdr"><div class="fnl-ml"></div>
+            <div class="s1">Sessões</div><div class="fnl-gap"></div>
+            <div class="s2">Registros</div><div class="fnl-gap"></div>
+            <div class="s3">Pronto p/Dep</div><div class="fnl-gap"></div>
+            <div class="s4">FTD</div></div>
+          <div class="fnl-row"><div class="fnl-ml">Mai</div>
+            <div class="fnl-box s1" style="background:#FF7A50">120,3k</div>
+            <div class="fnl-gap"><span class="p">4,0%</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">4.801</div>
+            <div class="fnl-gap"><span class="p">30%</span></div>
+            <div class="fnl-box s3" style="background:#CC2E00">1.457</div>
+            <div class="fnl-gap"><span class="p">66%</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">955</div></div>
+          <div class="fnl-row"><div class="fnl-ml">Jun</div>
+            <div class="fnl-box s1" style="background:#FF7A50">101,3k</div>
+            <div class="fnl-gap"><span class="p">4,4%</span><span class="d up">+0,4pp</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">4.437</div>
+            <div class="fnl-gap"><span class="p">32%</span><span class="d up">+1,4pp</span></div>
+            <div class="fnl-box s3" style="background:#CC2E00">1.409</div>
+            <div class="fnl-gap"><span class="p">66%</span><span class="d fl">0,0pp</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">923</div></div>
+          <div class="fnl-row"><div class="fnl-ml cur">Jul ▶</div>
+            <div class="fnl-box s1" style="background:#FF7A50">49,4k</div>
+            <div class="fnl-gap"><span class="p">3,6%</span><span class="d dn">−0,8pp</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">1.763</div>
+            <div class="fnl-gap"><span class="p">23%</span><span class="d dn">−8,7pp</span></div>
+            <div class="fnl-box s3" style="background:#CC2E00">406</div>
+            <div class="fnl-gap"><span class="p hot">95%</span><span class="d up">+29,3pp</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">385</div></div>
+        </div>
+        <div class="fmx-foot">Janelas MTD normalizadas (Mai 06–13 · Jun 03–10 · Jul 01–08). Conversão entre estágios + Δ p.p. MoM. O salto Pronto→FTD <b style="color:#22C55E">+29,3pp</b> é o efeito do PIX. Sessões: GA4 BR · Registros: 1º step · FTD: PowerBI</div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-bot">
+    <!-- PIX -->
+    <div class="panel p-hi">
+      <div class="ph"><span class="ph-title">Efeito do PIX automático no onboarding</span><span class="ph-note">Julho 01–08 · diário</span></div>
+      <div class="p-body">
+        <div class="pix-sub">% de cadastros retidos no passo <b>"Pronto p/ Depósito"</b> (preenchimento manual de conta bancária)</div>
+        <div class="pix-svg"><svg viewBox="0 0 900 340" preserveAspectRatio="xMidYMid meet">
+          <line x1="55" y1="290" x2="860" y2="290" stroke="#DDD"/>
+          <line x1="55" y1="175" x2="860" y2="175" stroke="#F0F0F0"/>
+          <line x1="55" y1="60"  x2="860" y2="60"  stroke="#F0F0F0"/>
+          <text x="48" y="294" text-anchor="end" font-size="14" fill="#AAA">0%</text>
+          <text x="48" y="179" text-anchor="end" font-size="14" fill="#AAA">25%</text>
+          <text x="48" y="64"  text-anchor="end" font-size="14" fill="#AAA">50%</text>
+          <rect x="545" y="45" width="200" height="245" fill="#FF3900" opacity="0.05"/>
+          <line x1="545" y1="45" x2="545" y2="295" stroke="#111" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <text x="550" y="40" font-size="15" font-weight="700" fill="#111">◂ PIX · rollout 06/07, pleno a partir do 07</text>
+          <!-- bars (rate/50*230, base 290) -->
+          <rect x="82"  y="182.4" width="46" height="107.6" fill="#FF3900"/><text x="105" y="175" text-anchor="middle" font-size="15" font-weight="700" fill="#FF3900">23%</text>
+          <rect x="182" y="147.9" width="46" height="142.1" fill="#FF3900"/><text x="205" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#FF3900">31%</text>
+          <rect x="282" y="156.6" width="46" height="133.4" fill="#FF3900"/><text x="305" y="149" text-anchor="middle" font-size="15" font-weight="700" fill="#FF3900">29%</text>
+          <rect x="382" y="137.3" width="46" height="152.7" fill="#FF3900"/><text x="405" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#FF3900">33%</text>
+          <rect x="482" y="89.9"  width="46" height="200.1" fill="#FF3900"/><text x="505" y="82" text-anchor="middle" font-size="15" font-weight="700" fill="#FF3900">44%</text>
+          <rect x="582" y="223.3" width="46" height="66.7"  fill="#F59E0B"/><text x="605" y="216" text-anchor="middle" font-size="15" font-weight="700" fill="#F59E0B">15%</text>
+          <rect x="682" y="284.5" width="46" height="5.5"   fill="#22C55E"/><text x="705" y="278" text-anchor="middle" font-size="15" font-weight="700" fill="#22C55E">1,2%</text>
+          <rect x="782" y="284"   width="46" height="6"     fill="#22C55E"/><text x="805" y="278" text-anchor="middle" font-size="15" font-weight="700" fill="#22C55E">1,3%</text>
+          <text x="105" y="308" text-anchor="middle" font-size="14" fill="#666">01</text><text x="205" y="308" text-anchor="middle" font-size="14" fill="#666">02</text><text x="305" y="308" text-anchor="middle" font-size="14" fill="#666">03</text><text x="405" y="308" text-anchor="middle" font-size="14" fill="#666">04</text><text x="505" y="308" text-anchor="middle" font-size="14" fill="#666">05</text><text x="605" y="308" text-anchor="middle" font-size="14" fill="#666">06</text><text x="705" y="308" text-anchor="middle" font-size="14" fill="#666" font-weight="700">07</text><text x="805" y="308" text-anchor="middle" font-size="14" fill="#666">08</text>
+          <text x="150" y="52" font-size="12.5" font-weight="700" fill="#111">Gargalo do dado bancário:</text>
+          <text x="150" y="68" font-size="12.5" font-weight="700" fill="#EF4444">40-50% dos quentes abandonavam aqui (Mar-Jun)</text>
+          <text x="755" y="248" text-anchor="middle" font-size="11.5" font-weight="700" fill="#22C55E">passo eliminado</text>
+        </svg></div>
+        <div class="pix-foot">Neste passo, <b>40-50% de quem já tinha terminado o onboarding abandonava</b> na fricção do preenchimento manual (Mar 50% · Abr 39% · Mai 43% · Jun 42%). Com a captura automática via PIX, a retenção nele caiu para <b>~1%</b>. O FTD manteve-se; o ganho de conversão é gated pelo volume no topo (jul reduzido) e fecha com a coorte madura (~14/07).</div>
+      </div>
+    </div>
+    <!-- Tabela + Base -->
+    <div class="panel p-wide">
+      <div class="ph"><span class="ph-title">Métricas de Negócio · Jul 01–08</span><span class="ph-note">SB + Casino · BRL · janelas normalizadas por dia da semana</span></div>
+      <div class="p-body">
+        <table><thead><tr><th>Mês</th><th>Registros</th><th>FTDs</th><th>CR%</th><th class="th-hi">GGR (R$)</th><th class="th-hi">NGR (R$)</th><th class="th-hi">Marg.</th><th>SB</th><th>CS</th></tr></thead>
+          <tbody>
+            <tr><td>Mai 06–13</td><td>4.801</td><td>955</td><td>19.9%</td><td>135k</td><td>130k</td><td>6.2%</td><td>7.1%</td><td>5.2%</td></tr>
+            <tr><td>Jun 03–10</td><td>4.437</td><td>923</td><td>20.8%</td><td>58k</td><td>50k</td><td>4.0%</td><td>-0.5%</td><td>5.7%</td></tr>
+            <tr class="cw"><td>Jul 01–08 ▶</td><td>1.763</td><td>385</td><td>21.8%</td><td>6k</td><td>-5k</td><td>1.1%</td><td>-4.2%</td><td>4.6%</td></tr>
+            <tr class="dr"><td class="mu">Δ vs Jun</td><td class="n">−60,3%</td><td class="n">−58,3%</td><td class="g">+1,0pp</td><td class="n">−89,2%</td><td class="n">−109,4%</td><td class="n">−2,9pp</td><td class="n">−3,7pp</td><td class="n">−1,1pp</td></tr>
+            <tr class="mt"><td>Meta</td><td>1.344</td><td>336</td><td>25.0%</td><td class="rev">rev.</td><td class="rev">rev.</td><td class="rev">rev.</td><td class="rev">n/d</td><td class="rev">n/d</td></tr>
+            <tr class="dr"><td class="mu">vs Meta</td><td class="g">131%</td><td class="g">115%</td><td class="n">−3,2pp</td><td class="rev">rev.</td><td class="rev">rev.</td><td class="rev">rev.</td><td class="rev">n/d</td><td class="rev">n/d</td></tr>
+          </tbody></table>
+        <div class="tnote">▶ Período atual · Registros = 1º step do onboarding · Δ vs Jun = variação MoM (janela normalizada) · vs Meta = atingimento (absolutos em %, taxas em p.p.) · Meta FTD = plano reduzido recomposto; Registros = FTD ÷ CR alvo 25% · <b>GGR/NGR meta em revisão</b> (re-baseamento do plano pós-corte, pendente) · GGR/NGR em R$k.</div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid #F0F0F0;flex-shrink:0;">
+          <div class="ba-t">Base Ativa · janela 8 dias · Jul vs Jun</div>
+          <div class="ba-cards">
+            <div class="ba-c"><div class="l">GB Total</div><div class="v" style="color:#EF4444">R$557k</div><div class="d" style="color:#EF4444">−61,3% vs R$1,44M</div></div>
+            <div class="ba-c"><div class="l">Apostadores Ativos</div><div class="v" style="color:#EF4444">1.246</div><div class="d" style="color:#EF4444">−36,1% vs 1.949</div></div>
+            <div class="ba-c"><div class="l">Gross Bets / Apostador</div><div class="v" style="color:#EF4444">R$447</div><div class="d" style="color:#EF4444">−39,4% vs R$738</div></div>
+            <div class="ba-c"><div class="l">GB · Novos FTDs</div><div class="v" style="color:#EF4444">R$97k</div><div class="d" style="color:#EF4444">−84,1% vs R$610k</div></div>
+            <div class="ba-c"><div class="l">GB · Base Existente</div><div class="v" style="color:#EF4444">R$460k</div><div class="d" style="color:#EF4444">−44,4% vs R$828k</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ftr"><span>BETWARRIOR BRASIL · CONFIDENTIAL</span><span>WPR · PÁG. 1 · MÉTRICAS DE NEGÓCIO · JUL 01–08/2026</span><span>10/07/2026</span></div>
+</body></html>

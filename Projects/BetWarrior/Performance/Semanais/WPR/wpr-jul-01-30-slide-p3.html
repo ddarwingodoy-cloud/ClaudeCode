@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>WPR Brasil · P3 Pipeline de Afiliados · Jul 01–30/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body { width:1920px; height:1080px; overflow:hidden; background:#F2F2F2; color:#111; font-family:'Archivo',sans-serif; display:flex; flex-direction:column; }
+.hdr { background:#FFF; border-bottom:2px solid #FF3900; display:flex; align-items:center; gap:24px; padding:0 28px; height:80px; flex-shrink:0; }
+.logo-block { display:flex; align-items:center; gap:10px; }
+.logo-bar { width:4px; height:36px; background:#FF3900; }
+.logo-text .brand { font-family:'Archivo Black'; font-size:17px; letter-spacing:1px; }
+.logo-text .sub { font-size:9px; color:#999; letter-spacing:3px; text-transform:uppercase; }
+.hdr-sep { width:1px; height:44px; background:#E0E0E0; }
+.hdr-body { flex:1; }
+.hdr-title { font-family:'Archivo Black'; font-size:22px; letter-spacing:3px; text-transform:uppercase; line-height:1; margin-bottom:6px; }
+.hdr-sub { font-size:12px; color:#777; line-height:1.4; }
+.hdr-sub strong { color:#FF3900; }
+.hdr-meta { font-size:11px; color:#999; text-align:right; line-height:1.8; letter-spacing:.5px; }
+.body { flex:1; padding:14px 20px; display:flex; flex-direction:column; gap:12px; min-height:0; }
+.row { display:flex; gap:12px; min-height:0; }
+.row-strip { flex:0.86; }
+.row-bot { flex:1.25; }
+.panel { background:#FFF; border:1px solid #E0E0E0; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; overflow:hidden; min-height:0; }
+.p-strip { flex:1; } .p-tipo { flex:0.62; } .p-deals { flex:1.55; }
+.ph { display:flex; align-items:center; gap:10px; padding:10px 18px; border-bottom:2px solid #FF3900; flex-shrink:0; }
+.ph-title { font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+.ph-note { margin-left:auto; font-size:9px; color:#AAA; font-style:italic; }
+.p-body { flex:1; padding:16px 20px 14px; display:flex; flex-direction:column; min-height:0; }
+/* Tirinha (distribuição por etapa) */
+.strip { flex:1; display:flex; align-items:stretch; gap:6px; padding:4px 0; }
+.chip { flex:1; border-radius:6px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 4px; }
+.chip-lbl { font-size:12.5px; color:#FFF; text-transform:uppercase; letter-spacing:.3px; text-align:center; line-height:1.15; opacity:.92; margin-bottom:6px; min-height:32px; display:flex; align-items:center; }
+.chip-n { font-family:'Archivo Black'; font-size:42px; color:#FFF; line-height:1; }
+.chip-d { font-size:14px; font-weight:700; margin-top:6px; padding:2px 10px; border-radius:10px; background:rgba(255,255,255,.9); }
+.chip-d.up { color:#16A34A; } .chip-d.dn { color:#DC2626; } .chip-d.fl { color:#999; }
+.chip.act { background:#FAFAFA !important; border:2px dashed #D8D8D8; }
+.chip.act .chip-lbl { color:#999; opacity:1; } .chip.act .chip-n { color:#BBB; }
+.arrow { align-self:center; color:#CCC; font-size:15px; flex-shrink:0; }
+.snote { font-size:13.5px; color:#555; line-height:1.5; margin-top:12px; padding-top:9px; border-top:1px solid #F0F0F0; flex-shrink:0; }
+.snote b { color:#111; }
+/* Donut Tipo de Afiliado */
+.tipo-body { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.donut { width:186px; height:186px; border-radius:50%; position:relative; flex-shrink:0;
+  background:conic-gradient(#FF3900 0 21.62%, #FF7A50 21.62% 35.14%, #CC2E00 35.14% 48.65%, #FF9E7D 48.65% 59.46%, #99230A 59.46% 67.57%, #D0D0D0 67.57% 100%); }
+.donut-hole { position:absolute; inset:27%; background:#FFF; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.donut-total { font-family:'Archivo Black'; font-size:38px; color:#111; line-height:1; }
+.donut-sub { font-size:9.5px; color:#999; text-transform:uppercase; letter-spacing:1.5px; margin-top:2px; }
+.legend { width:100%; display:flex; flex-direction:column; gap:8px; margin-top:18px; }
+.leg-item { display:flex; align-items:center; gap:9px; font-size:12.5px; color:#444; }
+.leg-dot { width:12px; height:12px; border-radius:3px; flex-shrink:0; }
+.leg-name { flex:1; }
+.leg-n { font-family:'Archivo Black'; font-size:13px; color:#111; }
+.leg-pct { color:#AAA; font-size:11px; width:36px; text-align:right; }
+.tnote { font-size:10px; color:#BBB; line-height:1.45; margin-top:14px; padding-top:9px; border-top:1px solid #F0F0F0; flex-shrink:0; }
+/* Deals (largo, fontes maiores) */
+.deals { flex:1; display:flex; flex-direction:column; gap:11px; }
+.deal { border:1px solid #EAEAEA; border-radius:6px; padding:14px 18px; background:#FCFCFC; }
+.deal.feat { border-left:4px solid #FF3900; background:#FFF5F2; }
+.deal-top { display:flex; align-items:center; gap:9px; margin-bottom:6px; }
+.deal-name { font-family:'Archivo Black'; font-size:17px; color:#111; }
+.badge { font-size:10px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 9px; border-radius:11px; margin-left:auto; }
+.badge.adv { background:#22C55E; color:#FFF; }
+.badge.stg { background:#EEE; color:#888; }
+.deal-terms { font-size:14.5px; color:#222; font-weight:600; margin-bottom:4px; }
+.deal-next { font-size:12.5px; color:#999; line-height:1.4; }
+.deal-next b { color:#666; }
+.deal-lines { display:flex; flex-direction:column; gap:6px; margin-top:3px; }
+.dline { font-size:12.5px; color:#555; line-height:1.4; }
+.dline b { color:#555; }
+.ftr { height:30px; background:#FFF; border-top:1px solid #E8E8E8; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:10px; color:#BBB; letter-spacing:1px; flex-shrink:0; }
+</style></head><body>
+<div class="hdr">
+  <div class="logo-block"><div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div></div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body"><div class="hdr-title">Pipeline de Afiliados</div>
+    <div class="hdr-sub"><strong>O pipeline cresceu para 37 mapeados (+3 na semana), com a mesa de negociação cheia e o Grupo Dupla fechando o CPA em R$160, a caminho de ir ao ar na próxima semana. Em paralelo, a integração da Clever com a Kambi avança (NDA em assinatura).</strong></div></div>
+  <div class="hdr-meta">CRM Interno · Ruan<br>foto 31/07 · Δ vs 27/07<br>Gerado 31/07</div>
+</div>
+<div class="body">
+  <!-- TOPO: Distribuição por Etapa (largura cheia) -->
+  <div class="row row-strip">
+    <div class="panel p-strip"><div class="ph"><span class="ph-title">Distribuição por Etapa · foto do board</span><span class="ph-note">CRM Interno · nº por etapa · Δ vs 27/07</span></div>
+      <div class="p-body">
+        <div class="strip">
+          <div class="chip" style="background:#D0D0D0;"><div class="chip-lbl" style="color:#666;">Lead</div><div class="chip-n" style="color:#555;">18</div><div class="chip-d dn">−2</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#FFB79E;"><div class="chip-lbl">Contato realizado</div><div class="chip-n">2</div><div class="chip-d fl">0</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#FF8C5A;"><div class="chip-lbl">Contato consolidado</div><div class="chip-n">7</div><div class="chip-d up">+4</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#FF7043;"><div class="chip-lbl">Reunião agendada</div><div class="chip-n">1</div><div class="chip-d up">+1</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#FF5A2B;"><div class="chip-lbl">Reunião realizada</div><div class="chip-n">2</div><div class="chip-d fl">0</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#FF3900;"><div class="chip-lbl">Negociação</div><div class="chip-n">1</div><div class="chip-d dn">−1</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#E23100;"><div class="chip-lbl">Definição contratual</div><div class="chip-n">5</div><div class="chip-d up">+1</div></div>
+          <div class="arrow">›</div>
+          <div class="chip" style="background:#B02600;"><div class="chip-lbl">Liberação painel</div><div class="chip-n">1</div><div class="chip-d fl">0</div></div>
+          <div class="arrow">›</div>
+          <div class="chip act"><div class="chip-lbl">Campanha ativa</div><div class="chip-n">0</div><div class="chip-d fl">0</div></div>
+        </div>
+        <div class="snote"><b>Movimento da semana:</b> Grupo Dupla fechou o CPA e encaminha a primeira ativação; Kiko e Zé Roleta consolidaram; entraram 3 novos (Laura Puhlmann, Hastad, Beto Oliver). <b>37 mapeados (+3)</b>. Fonte: board CRM Interno (Ruan), foto de 31/07.</div>
+      </div></div>
+  </div>
+  <!-- BASE: Tipo de Afiliado (estreito) + Deals (largo) -->
+  <div class="row row-bot">
+    <div class="panel p-tipo"><div class="ph"><span class="ph-title">Pipeline por Tipo</span><span class="ph-note">tipo principal · nº de afiliados</span></div>
+      <div class="p-body">
+        <div class="tipo-body">
+          <div class="donut"><div class="donut-hole"><div class="donut-total">37</div><div class="donut-sub">mapeados</div></div></div>
+          <div class="legend">
+            <div class="leg-item"><span class="leg-dot" style="background:#FF3900"></span><span class="leg-name">Influencer</span><span class="leg-n">8</span><span class="leg-pct">22%</span></div>
+            <div class="leg-item"><span class="leg-dot" style="background:#FF7A50"></span><span class="leg-name">Tipster</span><span class="leg-n">5</span><span class="leg-pct">14%</span></div>
+            <div class="leg-item"><span class="leg-dot" style="background:#CC2E00"></span><span class="leg-name">Rede de Afiliados</span><span class="leg-n">5</span><span class="leg-pct">14%</span></div>
+            <div class="leg-item"><span class="leg-dot" style="background:#FF9E7D"></span><span class="leg-name">Grupo/Comunidade</span><span class="leg-n">4</span><span class="leg-pct">11%</span></div>
+            <div class="leg-item"><span class="leg-dot" style="background:#99230A"></span><span class="leg-name">Compra de Mídia</span><span class="leg-n">3</span><span class="leg-pct">8%</span></div>
+            <div class="leg-item"><span class="leg-dot" style="background:#D0D0D0"></span><span class="leg-name">Outros</span><span class="leg-n">12</span><span class="leg-pct">32%</span></div>
+          </div>
+        </div>
+        <div class="tnote">Tipo principal do card. Outros = Youtuber/Streamer, Agência, SEO e cards sem tipo definido.</div>
+      </div></div>
+    <div class="panel p-deals"><div class="ph"><span class="ph-title">Deals &amp; Integração em Destaque</span><span class="ph-note">termo comercial · próximo passo</span></div>
+      <div class="p-body"><div class="deals">
+        <div class="deal feat"><div class="deal-top"><span class="deal-name">Grupo Dupla · Arena</span><span class="badge adv">▲ fechando</span></div>
+          <div class="deal-terms">CPA R$160 · valor final padronizado</div>
+          <div class="deal-next">Docs solicitados · contrato via Gala priorizado · mercados Kambi já OK (José Miguel) · <b>meta: no ar semana que vem</b></div></div>
+        <div class="deal"><div class="deal-top"><span class="deal-name">Mail in Box</span><span class="badge stg">Def. contratual</span></div>
+          <div class="deal-terms">R$80 CPA + 30% RevShare</div>
+          <div class="deal-next">Contrato enviado · aguardando assinatura</div></div>
+        <div class="deal"><div class="deal-top"><span class="deal-name">Paulo · Só Super Odds</span><span class="badge stg">Def. contratual</span></div>
+          <div class="deal-terms">R$75 CPA + 25% RevShare</div>
+          <div class="deal-next">Falta doc (CRF/FGTS) no KYP</div></div>
+        <div class="deal"><div class="deal-top"><span class="deal-name">Clever · Integração Kambi</span><span class="badge stg">em curso</span></div>
+          <div class="deal-lines">
+            <div class="dline"><b>Kambi:</b> NDA enviado (29/07), em revisão no Legal da Clever; assina via DocuSign e libera o feed (ticket no roadmap)</div>
+            <div class="dline"><b>SEO BR:</b> largada com SEO; Ruan enviou dados de NF p/ concluir cadastro (compra de mídia simultânea em negociação)</div>
+            <div class="dline"><b>Argentina:</b> Clever definindo a estrutura de recebimento (BR 0% retenção c/ 4 condições · Malta/PT 31,5%)</div>
+          </div></div>
+      </div></div></div>
+  </div>
+</div>
+<div class="ftr"><span>BETWARRIOR BRASIL · CONFIDENTIAL</span><span>WPR · PÁG. 3 · PIPELINE DE AFILIADOS · JUL 01–30/2026</span><span>31/07/2026</span></div>
+</body></html>

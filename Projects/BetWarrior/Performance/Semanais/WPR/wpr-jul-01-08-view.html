@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPR Brasil · Jul 01–08/2026 · Visualização</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:#1a1a1a; }
+  .stage { width:100%; display:flex; justify-content:center; padding:16px 0; }
+  .slide-wrap { width:min(1920px, 100vw - 24px); position:relative; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,.5); }
+  .slide-wrap iframe { width:1920px; height:1080px; border:0; transform-origin:top left; display:block; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="slide-wrap"><iframe src="wpr-jul-01-08-slide.html?v=3" scrolling="no"></iframe></div>
+  </div>
+<script>
+function scaleSlides(){
+  document.querySelectorAll('.slide-wrap').forEach(wrap=>{
+    const scale = wrap.clientWidth / 1920;
+    wrap.style.height = Math.round(1080*scale) + 'px';
+    const ifr = wrap.querySelector('iframe');
+    if (ifr) ifr.style.transform = 'scale(' + scale + ')';
+  });
+}
+scaleSlides();
+window.addEventListener('resize', scaleSlides);
+</script>
+</body>
+</html>

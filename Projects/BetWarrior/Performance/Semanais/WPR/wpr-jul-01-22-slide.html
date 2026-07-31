@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>WPR Brasil · P1 · Jul 01–22/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body { width:1920px; height:1080px; overflow:hidden; background:#F2F2F2; color:#111; font-family:'Archivo',sans-serif; display:flex; flex-direction:column; }
+.hdr { background:#FFF; border-bottom:2px solid #FF3900; display:flex; align-items:center; gap:24px; padding:0 28px; height:80px; flex-shrink:0; }
+.logo-block { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.logo-bar { width:4px; height:36px; background:#FF3900; }
+.logo-text .brand { font-family:'Archivo Black'; font-size:17px; letter-spacing:1px; }
+.logo-text .sub { font-size:9px; color:#999; letter-spacing:3px; text-transform:uppercase; }
+.hdr-sep { width:1px; height:44px; background:#E0E0E0; }
+.hdr-body { flex:1; }
+.hdr-title { font-family:'Archivo Black'; font-size:22px; letter-spacing:3px; text-transform:uppercase; line-height:1; margin-bottom:6px; }
+.hdr-sub { font-size:12px; color:#777; line-height:1.4; }
+.hdr-sub strong { color:#FF3900; }
+.hdr-meta { font-size:11px; color:#999; text-align:right; line-height:1.8; flex-shrink:0; letter-spacing:.5px; }
+.body { flex:1; padding:14px 20px; display:flex; flex-direction:column; gap:12px; min-height:0; }
+.row { display:flex; gap:12px; }
+.row-top { flex:1; min-height:0; }
+.row-bot { flex:1.05; min-height:0; }
+.panel { background:#FFF; border:1px solid #E0E0E0; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; overflow:hidden; min-height:0; }
+.p-1 { flex:1; } .p-hi { flex:3.2; } .p-wide { flex:4.8; }
+.ph { display:flex; align-items:center; gap:10px; padding:10px 18px; border-bottom:2px solid #FF3900; flex-shrink:0; }
+.ph-title { font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+.ph-note { margin-left:auto; font-size:9px; color:#AAA; font-style:italic; }
+.p-body { flex:1; padding:14px 18px 12px; display:flex; flex-direction:column; min-height:0; }
+.trend-svg { flex:1; min-height:0; } .trend-svg svg { display:block; width:100%; height:100%; }
+.chart-legend { display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding-top:8px; border-top:1px solid #F0F0F0; margin-top:7px; flex-shrink:0; min-height:28px; }
+.cl { display:flex; align-items:center; gap:6px; font-size:10px; color:#999; }
+.cl-dot { width:9px; height:9px; border-radius:2px; }
+/* Funil (linhas=meses · colunas=estágios que afunilam) */
+.fmx { flex:1; display:flex; flex-direction:column; justify-content:center; gap:22px; padding:6px 0; }
+.fnl-row { display:flex; align-items:center; justify-content:center; }
+.fnl-ml { width:52px; flex-shrink:0; font-family:'Archivo Black'; font-size:16px; color:#888; }
+.fnl-ml.cur { color:#FF3900; }
+.fnl-box { display:flex; align-items:center; justify-content:center; font-family:'Archivo Black'; font-size:16px; color:#fff; border-radius:3px; flex-shrink:0; }
+.s1 { width:118px; } .s2 { width:100px; } .s3 { width:84px; } .s4 { width:78px; }
+.fnl-box.s1 { height:60px; } .fnl-box.s2 { height:49px; } .fnl-box.s3 { height:39px; } .fnl-box.s4 { height:38px; }
+.fnl-gap { width:96px; flex-shrink:0; text-align:center; line-height:1.15; }
+.fnl-gap .p { font-size:17px; font-weight:700; color:#555; }
+.fnl-gap .p.hot { color:#22C55E; }
+.fnl-gap .d { font-size:12px; font-weight:700; display:block; margin-top:2px; }
+.fnl-gap .d.up { color:#22C55E; } .fnl-gap .d.dn { color:#EF4444; } .fnl-gap .d.fl { color:#BBB; }
+.fnl-hdr div[class^="s"] { text-align:center; font-family:'Archivo Black'; font-size:11px; text-transform:uppercase; color:#999; line-height:1.05; }
+.fmx-foot { font-size:11px; color:#BBB; margin-top:10px; padding-top:7px; border-top:1px solid #F0F0F0; }
+/* CR quadro (antes x depois · efeito PIX) */
+.cr-hero { display:flex; align-items:center; gap:14px; padding:2px 0 10px; border-bottom:1px solid #F0F0F0; margin-bottom:11px; flex-shrink:0; }
+.cr-hero .lbl { font-size:10.5px; color:#888; text-transform:uppercase; letter-spacing:.6px; margin-bottom:3px; }
+.cr-hero .big { font-family:'Archivo Black'; font-size:27px; line-height:1; }
+.cr-hero .big .ar { color:#CCC; margin:0 7px; font-size:19px; }
+.cr-hero .big .to { color:#22C55E; }
+.cr-hero .dl { margin-left:auto; text-align:right; font-size:13px; font-weight:700; color:#22C55E; line-height:1.3; }
+.cr-rows { flex:1; display:flex; flex-direction:column; gap:9px; justify-content:center; }
+.cr-row { display:flex; align-items:center; gap:12px; }
+.cr-nm { width:236px; font-size:11.5px; color:#555; flex-shrink:0; }
+.cr-nm b { color:#111; }
+.cr-tr { flex:1; height:20px; background:#F2F2F2; border-radius:3px; position:relative; }
+.cr-b { position:absolute; left:0; top:0; height:100%; border-radius:3px; }
+.cr-b.pre { background:#D0D0D0; }
+.cr-b.pos { background:#FF3900; opacity:.9; }
+.cr-row.elim .cr-b.pos { background:#F59E0B; }
+.cr-row.hero .cr-b.pos { background:#22C55E; }
+.cr-vl { width:150px; flex-shrink:0; font-size:12px; display:flex; align-items:baseline; gap:7px; }
+.cr-vl .pre { color:#999; } .cr-vl .pos { font-family:'Archivo Black'; font-size:14px; }
+.cr-row.hero .cr-vl .pos { color:#22C55E; } .cr-row.elim .cr-vl .pos { color:#F59E0B; }
+.cr-vl .d { font-size:10.5px; font-weight:700; }
+.cr-vl .d.up { color:#22C55E; } .cr-vl .d.dn { color:#F59E0B; } .cr-vl .d.nt { color:#BBB; }
+.cr-foot { font-size:10px; color:#555; line-height:1.45; margin-top:8px; padding-top:6px; border-top:1px solid #F0F0F0; flex-shrink:0; }
+.cr-foot b { color:#111; }
+/* Table */
+table { width:100%; border-collapse:collapse; flex-shrink:0; }
+thead tr { background:#FF3900; }
+thead th { padding:11px 8px; text-align:center; white-space:nowrap; color:#FFF; font-family:'Archivo Black'; font-size:14px; letter-spacing:.5px; text-transform:uppercase; }
+thead th:first-child { text-align:left; }
+thead th.th-hi { background:#CC2E00; }
+tbody tr:nth-child(odd) { background:#FFF; }
+tbody tr:nth-child(even) { background:#F8F8F8; }
+tbody tr.cw { background:#FFF5F2; border-left:3px solid #FF3900; }
+tbody tr.dr { background:#F5F5F5; }
+tbody tr.mt { background:#FFF; border-top:1px dashed #E0E0E0; }
+tbody tr.mt td { color:#555; }
+tbody td { padding:13px 8px; text-align:center; white-space:nowrap; font-size:15px; color:#777; }
+tbody td:first-child { text-align:left; color:#333; font-family:'Archivo Black'; font-size:14px; }
+.n { color:#EF4444 !important; font-weight:700; }
+.g { color:#22C55E !important; font-weight:700; }
+.mu { color:#CCC !important; }
+.rev { color:#BBB !important; font-style:italic; }
+.tnote { margin-top:10px; font-size:11.5px; color:#BBB; line-height:1.55; flex-shrink:0; }
+.row-bot .p-body { padding:14px 16px 12px; }
+.p-tbl .p-body { justify-content:center; }
+.ba-t { font-family:'Archivo Black'; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#AAA; margin-bottom:8px; }
+.ba-cards { display:flex; gap:11px; flex-shrink:0; }
+.ba-c { flex:1; background:#F8F8F8; border:1px solid #EFEFEF; border-radius:4px; padding:11px 8px; text-align:center; }
+.ba-c .l { font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; white-space:nowrap; }
+.ba-c .v { font-family:'Archivo Black'; font-size:27px; }
+.ba-c .d { font-size:14px; font-weight:700; margin-top:4px; }
+.ba-c .dv { font-size:10.5px; color:#BBB; margin-top:1px; }
+.p-tbl { flex:1.08; } .p-base { flex:1; }
+.comp { margin-top:13px; padding-top:12px; border-top:1px solid #F0F0F0; flex:1; display:flex; flex-direction:column; min-height:0; }
+.comp-t { font-family:'Archivo Black'; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#AAA; margin-bottom:8px; }
+.comp-key { display:flex; gap:16px; margin-bottom:10px; }
+.comp-key span { display:flex; align-items:center; gap:6px; font-size:11.5px; color:#999; }
+.comp-key i { width:11px; height:11px; border-radius:2px; display:inline-block; }
+.comp-rows { flex:1; display:flex; flex-direction:column; justify-content:center; gap:13px; }
+.comp-row { display:flex; align-items:center; gap:14px; }
+.comp-m { width:46px; font-family:'Archivo Black'; font-size:15px; color:#888; flex-shrink:0; }
+.comp-row.cur .comp-m { color:#FF3900; }
+.comp-bar { flex:1; height:34px; display:flex; border-radius:4px; overflow:hidden; }
+.comp-seg { display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; }
+.comp-seg.nov { background:#D8D8D8; color:#777; }
+.comp-seg.bas { background:#FF3900; color:#FFF; }
+.comp-leg { font-size:11px; color:#555; line-height:1.5; padding-top:10px; margin-top:8px; border-top:1px solid #F0F0F0; flex-shrink:0; }
+.comp-leg b { color:#111; }
+.ftr { height:30px; background:#FFF; border-top:1px solid #E8E8E8; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:10px; color:#BBB; letter-spacing:1px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="logo-block"><div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div></div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body"><div class="hdr-title">WEEKLY PERFORMANCE REPORT</div>
+    <div class="hdr-sub"><strong>Julho 01–22 segue muito abaixo do Forecast (não flexibilizado pós-corte): FTD a 16% do plano e receita no vermelho, NGR −R$20k com margem em 0,6%, reflexo do corte de mídia pós-Copa. Contraponto de eficiência: a CR% atingiu 25,0% (melhor da série e na meta) e o ticket médio se manteve resiliente em R$134, sustentados pela captura automática de PIX.</strong></div></div>
+  <div class="hdr-meta">01–22 / Jul 2026<br>SB + Casino · BRL<br>Gerado 24/07</div>
+</div>
+<div class="body">
+  <div class="row row-top">
+    <!-- FTD vs Meta -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">FTD vs Meta · Jul 01–22</span><span class="ph-note">janela normalizada · meta = Forecast (não flexibilizada)</span></div>
+      <div class="p-body"><div class="trend-svg"><svg viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="314" x2="880" y2="314" stroke="#E0E0E0"/>
+        <!-- Mai 2254/2282 = 99% -->
+        <rect x="107.7" y="209.0" width="66" height="105.0" fill="#FF3900" rx="2"/><rect x="179.7" y="207.6" width="66" height="106.4" fill="#C8C8C8" rx="2"/>
+        <text x="140.7" y="200" text-anchor="middle" font-family="Archivo Black" font-size="21" fill="#FF3900">2.254</text>
+        <text x="212.7" y="199" text-anchor="middle" font-size="21" fill="#999" font-weight="700">2.282</text>
+        <text x="176.7" y="36" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#22C55E">99%</text>
+        <text x="176.7" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Mai</text>
+        <!-- Jun 2541/5211 = 49% -->
+        <rect x="381" y="195.6" width="66" height="118.4" fill="#FF3900" rx="2"/><rect x="453" y="71.1" width="66" height="242.9" fill="#C8C8C8" rx="2"/>
+        <text x="414" y="187" text-anchor="middle" font-family="Archivo Black" font-size="21" fill="#FF3900">2.541</text>
+        <text x="486" y="63" text-anchor="middle" font-size="21" fill="#999" font-weight="700">5.211</text>
+        <text x="450" y="36" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#EF4444">49%</text>
+        <text x="450" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Jun</text>
+        <!-- Jul 876/5364 = 16% -->
+        <rect x="654.3" y="273.2" width="66" height="40.8" fill="#FF3900" rx="2"/><rect x="726.3" y="64" width="66" height="250" fill="#C8C8C8" rx="2"/>
+        <text x="687.3" y="265" text-anchor="middle" font-family="Archivo Black" font-size="21" fill="#FF3900">876</text>
+        <text x="759.3" y="56" text-anchor="middle" font-size="21" fill="#999" font-weight="700">5.364</text>
+        <text x="723.3" y="36" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#EF4444">16%</text>
+        <text x="723.3" y="348" text-anchor="middle" font-size="25" fill="#FF3900" font-weight="700">Jul ▶</text>
+      </svg></div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900"></div>Realizado</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8"></div>Meta Forecast</div>
+          <div class="cl" style="margin-left:auto;color:#AAA">Jul: afiliados na meta a partir de 13/07</div></div></div>
+    </div>
+    <!-- Dep Médio -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">Depósito Médio por FTD · Jul 01–22</span><span class="ph-note">1º depósito · FactFirstDeposit · External</span></div>
+      <div class="p-body"><div class="trend-svg"><svg viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="318" x2="880" y2="318" stroke="#E0E0E0"/>
+        <rect x="96.7" y="48.0" width="160" height="270.0" fill="#C8C8C8" rx="2"/><text x="176.7" y="38" text-anchor="middle" font-family="Archivo Black" font-size="27" fill="#999">R$133</text><text x="176.7" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Mai</text>
+        <rect x="370" y="88.6" width="160" height="229.4" fill="#C8C8C8" rx="2"/><text x="450" y="79" text-anchor="middle" font-family="Archivo Black" font-size="27" fill="#999">R$113</text><text x="450" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Jun</text>
+        <rect x="643.3" y="46.0" width="160" height="272.0" fill="#FF3900" rx="2"/><text x="723.3" y="36" text-anchor="middle" font-family="Archivo Black" font-size="27" fill="#FF3900">R$134</text><text x="723.3" y="348" text-anchor="middle" font-size="25" fill="#FF3900" font-weight="700">Jul ▶</text>
+      </svg></div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900"></div>Período atual (Jul)</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8"></div>Meses anteriores</div>
+          <div class="cl" style="margin-left:auto;color:#AAA">Ticket resiliente: R$134, acima de jun (R$113)</div></div></div>
+    </div>
+    <!-- Funil matriz -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">Funil de Ativação · evolução</span><span class="ph-note">GA4 + PowerBI · janelas Mai/Jun/Jul</span></div>
+      <div class="p-body">
+        <div class="fmx">
+          <div class="fnl-row fnl-hdr"><div class="fnl-ml"></div>
+            <div class="s1">Sessões</div><div class="fnl-gap"></div>
+            <div class="s2">Registros</div><div class="fnl-gap"></div>
+            <div class="s4">FTD</div></div>
+          <div class="fnl-row"><div class="fnl-ml">Mai</div>
+            <div class="fnl-box s1" style="background:#FF7A50">440k</div>
+            <div class="fnl-gap"><span class="p">3,3%</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">14.380</div>
+            <div class="fnl-gap"><span class="p">15,7%</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">2.254</div></div>
+          <div class="fnl-row"><div class="fnl-ml">Jun</div>
+            <div class="fnl-box s1" style="background:#FF7A50">281k</div>
+            <div class="fnl-gap"><span class="p">4,5%</span><span class="d up">+1,2pp</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">12.646</div>
+            <div class="fnl-gap"><span class="p">20,1%</span><span class="d up">+4,4pp</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">2.541</div></div>
+          <div class="fnl-row"><div class="fnl-ml cur">Jul ▶</div>
+            <div class="fnl-box s1" style="background:#FF7A50">168k</div>
+            <div class="fnl-gap"><span class="p">2,1%</span><span class="d dn">−2,4pp</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">3.499</div>
+            <div class="fnl-gap"><span class="p">25,0%</span><span class="d up">+4,9pp</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">876</div></div>
+        </div>
+        <div class="fmx-foot">Janelas normalizadas (Mai 06–27 · Jun 03–24 · Jul 01–22). <b style="color:#22C55E">A CR (Registros→FTD) sobe mesmo com o volume caindo</b>: 15,7% → 20,1% → 25,0%. A etapa Pronto p/Dep saiu do funil: o PIX automático a eliminou do caminho crítico (o dado bancário é capturado sozinho). Sessões: GA4 BR · Registros: New Registrations (PowerBI) · FTD: PowerBI</div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-bot">
+    <!-- Métricas de Negócio (tabela) -->
+    <div class="panel p-tbl">
+      <div class="ph"><span class="ph-title">Métricas de Negócio · Jul 01–22</span><span class="ph-note">SB + Casino · BRL · janelas normalizadas por dia da semana</span></div>
+      <div class="p-body">
+        <table><thead><tr><th>Mês</th><th>Registros</th><th>FTDs</th><th>CR%</th><th class="th-hi">GGR (R$)</th><th class="th-hi">NGR (R$)</th><th class="th-hi">Marg.</th><th>SB</th><th>CS</th></tr></thead>
+          <tbody>
+            <tr><td>Mai 06–27</td><td>14.380</td><td>2.254</td><td>15.7%</td><td>166k</td><td>148k</td><td>3.7%</td><td>2.9%</td><td>4.3%</td></tr>
+            <tr><td>Jun 03–24</td><td>12.646</td><td>2.541</td><td>20.1%</td><td>9k</td><td>-12k</td><td>0.2%</td><td>-2.5%</td><td>1.1%</td></tr>
+            <tr class="cw"><td>Jul 01–22 ▶</td><td>3.499</td><td>876</td><td>25.0%</td><td>8k</td><td>-20k</td><td>0.6%</td><td>0.7%</td><td>0.6%</td></tr>
+            <tr class="dr"><td class="mu">Δ vs Jun</td><td class="n">−72,3%</td><td class="n">−65,5%</td><td class="g">+4,9pp</td><td class="n">−3,3%</td><td class="n">−66,7%</td><td class="g">+0,4pp</td><td class="g">+3,3pp</td><td class="n">−0,5pp</td></tr>
+            <tr class="mt"><td>Meta</td><td>21.456</td><td>5.364</td><td>25.0%</td><td>347k</td><td>305k</td><td>4.8%</td><td>6.0%</td><td>4.0%</td></tr>
+            <tr class="dr"><td class="mu">vs Meta</td><td class="n">16%</td><td class="n">16%</td><td class="g">0,0pp</td><td class="n">2%</td><td class="n">−7%</td><td class="n">−4,2pp</td><td class="n">−5,3pp</td><td class="n">−3,4pp</td></tr>
+          </tbody></table>
+        <div class="tnote"><b>Por que o NGR está negativo:</b> o GGR positivo mostra que o livro não perde para o apostador. O vermelho vem do <b>bônus (R$28k) superar um GGR que afinou para R$8k</b> (hold de SB estrutural), e o bônus pesou 5x mais no período, <b>saltando de 0,4% para 2,1% do Gross Bets</b>. Não é apostador ganhando, é hold fino somado a bônus alto.</div>
+      </div>
+    </div>
+    <!-- Saúde da Base Ativa -->
+    <div class="panel p-base">
+      <div class="ph"><span class="ph-title">Saúde da Base Ativa · Jul 01–22</span><span class="ph-note">janela 22 dias · Jul vs Jun · Gross Bets</span></div>
+      <div class="p-body">
+        <div class="ba-cards">
+          <div class="ba-c"><div class="l">GB Total</div><div class="v" style="color:#EF4444">R$1,33M</div><div class="d" style="color:#EF4444">−70,8%</div><div class="dv">vs R$4,55M</div></div>
+          <div class="ba-c"><div class="l">Apostadores</div><div class="v" style="color:#EF4444">2.288</div><div class="d" style="color:#EF4444">−44,7%</div><div class="dv">vs 4.136</div></div>
+          <div class="ba-c"><div class="l">GB / Apostador</div><div class="v" style="color:#EF4444">R$580</div><div class="d" style="color:#EF4444">−47,2%</div><div class="dv">vs R$1.099</div></div>
+          <div class="ba-c"><div class="l">GB · Novos FTDs</div><div class="v" style="color:#EF4444">R$353k</div><div class="d" style="color:#EF4444">−86,7%</div><div class="dv">vs R$2,66M</div></div>
+          <div class="ba-c"><div class="l">GB · Base Existente</div><div class="v" style="color:#EF4444">R$973k</div><div class="d" style="color:#EF4444">−48,5%</div><div class="dv">vs R$1,89M</div></div>
+        </div>
+        <div class="comp">
+          <div class="comp-t">Composição do Gross Bets · Novos vs Base Existente</div>
+          <div class="comp-key"><span><i style="background:#D8D8D8"></i>Novos FTDs</span><span><i style="background:#FF3900"></i>Base Existente</span></div>
+          <div class="comp-rows">
+            <div class="comp-row"><span class="comp-m">Mai</span><div class="comp-bar"><div class="comp-seg nov" style="width:54%">54%</div><div class="comp-seg bas" style="width:46%">46%</div></div></div>
+            <div class="comp-row"><span class="comp-m">Jun</span><div class="comp-bar"><div class="comp-seg nov" style="width:58%">58%</div><div class="comp-seg bas" style="width:42%">42%</div></div></div>
+            <div class="comp-row cur"><span class="comp-m">Jul ▶</span><div class="comp-bar"><div class="comp-seg nov" style="width:27%">27%</div><div class="comp-seg bas" style="width:73%">73%</div></div></div>
+          </div>
+          <div class="comp-leg"><b>Com o corte de mídia, a base existente saltou de ~42% para 73% do Gross Bets.</b> Enquanto estruturamos as frentes de Afiliados e VIP, a receita está sendo carregada por quem já estava na casa, o que reforça a régua de retenção/CRM sobre a base.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ftr"><span>BETWARRIOR BRASIL · CONFIDENTIAL</span><span>WPR · PÁG. 1 · MÉTRICAS DE NEGÓCIO · JUL 01–22/2026</span><span>24/07/2026</span></div>
+</body></html>

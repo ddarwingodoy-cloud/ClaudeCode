@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPR Brasil · P2 Aquisição por Canal · Jun 01–10/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+body { min-width: 1100px; min-height: 100vh; background: #F2F2F2; color: #111111; font-family: 'Archivo', sans-serif; display: flex; flex-direction: column; }
+.hdr { background: #FFFFFF; border-bottom: 2px solid #FF3900; display: flex; align-items: center; gap: 24px; padding: 0 28px; height: 80px; flex-shrink: 0; }
+.logo-block { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-bar { width: 4px; height: 36px; background: #FF3900; }
+.logo-text .brand { font-family: 'Archivo Black', sans-serif; font-size: 17px; letter-spacing: 1px; color: #111; }
+.logo-text .sub { font-size: 9px; color: #999; letter-spacing: 3px; text-transform: uppercase; }
+.hdr-sep { width: 1px; height: 44px; background: #E0E0E0; flex-shrink: 0; }
+.hdr-body { flex: 1; }
+.hdr-title { font-family: 'Archivo Black', sans-serif; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #111; line-height: 1; margin-bottom: 6px; }
+.hdr-sub { font-size: 12px; color: #777; line-height: 1.4; }
+.hdr-sub strong { color: #FF3900; }
+.hdr-meta { font-size: 11px; color: #999; text-align: right; line-height: 1.8; flex-shrink: 0; letter-spacing: 0.5px; }
+.body { flex: 1; padding: 14px 20px; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.row { display: flex; gap: 12px; flex: 1; min-height: 0; }
+.panel { background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); display: flex; flex-direction: column; overflow: hidden; flex: 1; }
+.ph { display: flex; align-items: center; gap: 10px; background: #FFFFFF; padding: 10px 18px; border-bottom: 2px solid #FF3900; flex-shrink: 0; }
+.ph-title { font-family: 'Archivo Black', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #111; }
+.ph-note { margin-left: auto; font-size: 9px; color: #AAAAAA; font-style: italic; }
+.p-body { flex: 1; padding: 18px 20px 14px; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
+.hbar-list { display: flex; flex-direction: column; gap: 0; flex: 1; justify-content: space-around; }
+.hbar-row { display: flex; align-items: center; gap: 12px; }
+.hbar-lbl { font-family: 'Archivo Black', sans-serif; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #AAAAAA; width: 88px; text-align: right; flex-shrink: 0; line-height: 1.3; }
+.hbar-track { flex: 1; height: 22px; background: #F2F2F2; border-radius: 2px; overflow: hidden; }
+.hbar-fill { height: 100%; background: #1C1C1E; border-radius: 2px; min-width: 3px; }
+.hbar-fill.hi { background: #FF3900; }
+.hbar-val { font-family: 'Archivo Black', sans-serif; font-size: 13px; color: #111111; width: 58px; flex-shrink: 0; text-align: left; }
+.chart-foot { margin-top: 10px; padding-top: 8px; border-top: 1px solid #F0F0F0; font-size: 9px; color: #BBBBBB; display: flex; justify-content: space-between; flex-shrink: 0; }
+.ch-group { display: flex; flex-direction: column; flex: 1; justify-content: space-around; }
+.ch-block { display: flex; align-items: center; gap: 12px; }
+.ch-lbl { font-family: 'Archivo Black', sans-serif; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #AAAAAA; width: 88px; text-align: right; flex-shrink: 0; line-height: 1.3; }
+.ch-bars { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.ch-bar-row { display: flex; align-items: center; gap: 6px; }
+.ch-per { font-family: 'Archivo', sans-serif; font-size: 8px; color: #AAAAAA; width: 22px; flex-shrink: 0; text-align: right; }
+.ch-per.cur { color: #FF3900; font-family: 'Archivo Black', sans-serif; }
+.ch-track { flex: 1; height: 11px; background: #F2F2F2; border-radius: 2px; overflow: hidden; }
+.ch-fill { height: 100%; border-radius: 2px; min-width: 2px; }
+.ch-fill.mai { background: #999999; }
+.ch-fill.jun { background: #FF3900; }
+.ch-val { font-family: 'Archivo Black', sans-serif; font-size: 10px; color: #111; width: 44px; flex-shrink: 0; }
+.ch-val.cur { color: #FF3900; }
+.ftr { height: 30px; background: #FFFFFF; border-top: 1px solid #E8E8E8; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 10px; color: #BBBBBB; letter-spacing: 1px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo-block">
+    <div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div>
+  </div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body">
+    <div class="hdr-title">WEEKLY PERFORMANCE REPORT · PÁG. 2</div>
+    <div class="hdr-sub">
+      <strong>Aquisição por canal · Jun 01–10. Org./Direct lidera volume e Affiliates lidera eficiência (CR 43,3%, Gross Bets quase dobrou vs maio).</strong>
+      Paid Media forte em FTD (479, CR 29,9%) · Org./Direct concentra o maior volume com CR menor (16,8%, tráfego untracked) · CR média 23,5%
+    </div>
+  </div>
+  <div class="hdr-meta">01–10 / Jun 2026<br>SB + Casino · BRL<br>Gerado 11/06</div>
+</div>
+
+<div class="body">
+
+  <!-- ROW 1 -->
+  <div class="row">
+
+    <!-- Full Registration -->
+    <div class="panel">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><circle cx="6.5" cy="4" r="3" stroke="#FF3900" stroke-width="2" fill="none"/><path d="M1 12c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#FF3900" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        <span class="ph-title">Full Registration</span>
+        <span class="ph-note">FactFullRegistration · NOT_LOCKED · Jun 01–10</span>
+      </div>
+      <div class="p-body">
+        <div class="hbar-list">
+          <div class="hbar-row"><div class="hbar-lbl">Org. / Direct</div><div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div><div class="hbar-val">3.319</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Paid Media</div><div class="hbar-track"><div class="hbar-fill" style="width:48.3%"></div></div><div class="hbar-val">1.603</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Affiliates</div><div class="hbar-track"><div class="hbar-fill" style="width:16.8%"></div></div><div class="hbar-val">557</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Others</div><div class="hbar-track"><div class="hbar-fill" style="width:2.0%"></div></div><div class="hbar-val">66</div></div>
+        </div>
+        <div class="chart-foot">
+          <span>CR geral: 23,5%</span>
+          <span>Total: 5.545</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FTDs -->
+    <div class="panel">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="1" y="7" width="3" height="5" rx="1" fill="#FF3900"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#FF3900" opacity=".6"/><rect x="9" y="1" width="3" height="11" rx="1" fill="#FF3900" opacity=".35"/></svg>
+        <span class="ph-title">FTDs</span>
+        <span class="ph-note">FactFirstDeposit · Jun 01–10</span>
+      </div>
+      <div class="p-body">
+        <div class="hbar-list">
+          <div class="hbar-row"><div class="hbar-lbl">Org. / Direct</div><div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div><div class="hbar-val">557</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Paid Media</div><div class="hbar-track"><div class="hbar-fill" style="width:86.0%"></div></div><div class="hbar-val">479</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Affiliates</div><div class="hbar-track"><div class="hbar-fill" style="width:43.3%"></div></div><div class="hbar-val">241</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Others</div><div class="hbar-track"><div class="hbar-fill" style="width:4.3%"></div></div><div class="hbar-val">24</div></div>
+        </div>
+        <div class="chart-foot">
+          <span>FactFirstDeposit · PowerBI · External</span>
+          <span>Total: 1.301</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="row">
+
+    <!-- CR% -->
+    <div class="panel">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><path d="M1 10 L4 5 L7 7 L10 2 L12 4" stroke="#FF3900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="ph-title">CR% · FTD / FullReg</span>
+        <span class="ph-note">Média geral: 23,5%</span>
+      </div>
+      <div class="p-body">
+        <div class="hbar-list">
+          <div class="hbar-row"><div class="hbar-lbl">Affiliates</div><div class="hbar-track"><div class="hbar-fill hi" style="width:100%"></div></div><div class="hbar-val">43,3%</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Others</div><div class="hbar-track"><div class="hbar-fill" style="width:84.1%"></div></div><div class="hbar-val">36,4%</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Paid Media</div><div class="hbar-track"><div class="hbar-fill" style="width:69.1%"></div></div><div class="hbar-val">29,9%</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Org. / Direct</div><div class="hbar-track"><div class="hbar-fill" style="width:38.8%;background:#AAAAAA;"></div></div><div class="hbar-val" style="color:#AAAAAA;">16,8%</div></div>
+        </div>
+        <div class="chart-foot">
+          <span>Affiliates lidera · Org./Direct abaixo da média (tráfego untracked)</span>
+          <span>Média: 23,5%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gross Bets evolução -->
+    <div class="panel">
+      <div class="ph">
+        <svg width="13" height="13" viewBox="0 0 13 13"><rect x="2" y="5" width="3" height="8" rx="1" fill="#999"/><rect x="8" y="1" width="3" height="12" rx="1" fill="#FF3900"/></svg>
+        <span class="ph-title">Gross Bets por Canal · Mai vs Jun</span>
+        <span class="ph-note">GB janela 01–10 · utm_medium_signup · PowerBI</span>
+      </div>
+      <div class="p-body">
+        <div class="ch-group">
+
+          <div class="ch-block">
+            <div class="ch-lbl">Org. / Direct</div>
+            <div class="ch-bars">
+              <div class="ch-bar-row"><div class="ch-per">Mai</div><div class="ch-track"><div class="ch-fill mai" style="width:100%"></div></div><div class="ch-val">R$1,8M</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">Jun</div><div class="ch-track"><div class="ch-fill jun" style="width:68.5%"></div></div><div class="ch-val cur">R$1,3M</div></div>
+            </div>
+          </div>
+
+          <div class="ch-block">
+            <div class="ch-lbl">Paid Media</div>
+            <div class="ch-bars">
+              <div class="ch-bar-row"><div class="ch-per">Mai</div><div class="ch-track"><div class="ch-fill mai" style="width:38.0%"></div></div><div class="ch-val">R$702k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">Jun</div><div class="ch-track"><div class="ch-fill jun" style="width:32.4%"></div></div><div class="ch-val cur">R$600k</div></div>
+            </div>
+          </div>
+
+          <div class="ch-block">
+            <div class="ch-lbl">Affiliates</div>
+            <div class="ch-bars">
+              <div class="ch-bar-row"><div class="ch-per">Mai</div><div class="ch-track"><div class="ch-fill mai" style="width:6.7%"></div></div><div class="ch-val">R$124k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">Jun</div><div class="ch-track"><div class="ch-fill jun" style="width:12.5%"></div></div><div class="ch-val cur">R$232k</div></div>
+            </div>
+          </div>
+
+          <div class="ch-block">
+            <div class="ch-lbl">Others</div>
+            <div class="ch-bars">
+              <div class="ch-bar-row"><div class="ch-per">Mai</div><div class="ch-track"><div class="ch-fill mai" style="width:8.8%"></div></div><div class="ch-val">R$163k</div></div>
+              <div class="ch-bar-row"><div class="ch-per cur">Jun</div><div class="ch-track"><div class="ch-fill jun" style="width:1.5%"></div></div><div class="ch-val cur">R$28k</div></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="chart-foot">
+          <div style="display:flex;gap:14px;align-items:center;">
+            <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:1px;background:#999999;flex-shrink:0;"></div>Mai R$2,8M</div>
+            <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:1px;background:#FF3900;flex-shrink:0;"></div>Jun R$2,1M</div>
+          </div>
+          <span>Abr sem tag de canal (pré-taxonomia) · janela 01–10</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="ftr">
+  <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+  <span>WPR · PÁG. 2 · AQUISIÇÃO POR CANAL · JUN 01–10/2026</span>
+  <span>11/06/2026</span>
+</div>
+
+</body>
+</html>

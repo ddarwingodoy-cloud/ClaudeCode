@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>WPR Brasil — P1 Métricas de Negócio — Mai 01–27/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;}
+body{width:1920px;height:1080px;background:#F2F2F2;font-family:'Archivo',sans-serif;color:#111;display:flex;flex-direction:column;}
+/* ─ Header ─ */
+.hdr{height:72px;background:#FFF;border-bottom:3px solid #FF3900;display:flex;align-items:center;gap:20px;padding:0 28px;flex-shrink:0;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-bar{width:4px;height:38px;background:#FF3900;}
+.logo-text .brand{font-family:'Archivo Black',sans-serif;font-size:16px;letter-spacing:1.5px;color:#111;}
+.logo-text .sub{font-size:8px;color:#999;letter-spacing:3px;text-transform:uppercase;}
+.vsep{width:1px;height:44px;background:#DCDCDC;}
+.hdr-center{flex:1;}
+.hdr-title{font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;}
+.hdr-sub{font-size:11px;color:#777;line-height:1.4;}
+.hdr-sub strong{color:#FF3900;}
+.hdr-meta{font-size:10px;color:#999;text-align:right;line-height:1.9;}
+/* ─ Body grid ─ */
+.body{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;padding:10px;}
+/* ─ Panel ─ */
+.panel{background:#FFF;border:1px solid #E0E0E0;border-radius:3px;display:flex;flex-direction:column;min-height:0;overflow:hidden;}
+.ph{display:flex;align-items:center;gap:8px;padding:7px 14px;border-bottom:2px solid #FF3900;flex-shrink:0;}
+.ph-icon{width:13px;height:13px;flex-shrink:0;}
+.ph-title{font-family:'Archivo Black',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#111;}
+.ph-note{margin-left:auto;font-size:8px;color:#BBBBBB;font-style:italic;white-space:nowrap;}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;padding:10px 14px;}
+/* ─ Footer ─ */
+.ftr{height:28px;background:#FFF;border-top:1px solid #E8E8E8;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:9px;color:#BBBBBB;letter-spacing:1px;flex-shrink:0;}
+/* ─ Table ─ */
+table{width:100%;border-collapse:collapse;}
+thead th{background:#FF3900;color:#FFF;font-family:'Archivo Black',sans-serif;font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:5px 6px;text-align:center;white-space:nowrap;}
+thead th:first-child{text-align:left;}
+tbody tr:nth-child(odd){background:#FFF;}
+tbody tr:nth-child(even){background:#F9F9F9;}
+tbody tr.cur{background:#FFF8F6;}
+tbody tr.delta{background:#F4F4F4;border-top:1px solid #E0E0E0;}
+tbody td{padding:5px 6px;text-align:center;font-size:11px;color:#666;white-space:nowrap;}
+tbody td:first-child{text-align:left;font-family:'Archivo Black',sans-serif;font-size:9px;color:#555;letter-spacing:.3px;}
+tbody tr.delta td:first-child{font-size:8px;color:#AAAAAA;}
+.vc{color:#111!important;font-weight:700;font-size:12px!important;}
+.vh{color:#FF3900!important;font-weight:700;font-size:12px!important;}
+.pos{color:#22C55E!important;font-weight:700;}
+.neg{color:#EF4444!important;font-weight:700;}
+.neu{color:#AAAAAA!important;}
+.pp{font-size:8px;color:#999;margin-left:1px;}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo"><div class="logo-bar"></div><div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div></div>
+  <div class="vsep"></div>
+  <div class="hdr-center">
+    <div class="hdr-title">Weekly Performance Report</div>
+    <div class="hdr-sub"><strong>FTDs recuam −31% mas resultado financeiro avança: GGR +11,6%, NGR +12,6%, margem 3,9% — máximo do ano.</strong> Funil perde força no KYC (−9,9pp) e na conversão depósito (−3,8pp) · GB/apostador +14,9% · dep. médio R$129 mínimo da série · base ativa entrega mais com menos.</div>
+  </div>
+  <div class="hdr-meta">01–27 / Mai 2026<br>SB + Casino · BRL<br>Gerado 28/05</div>
+</div>
+
+<div class="body">
+
+<!-- ▌ TOP-LEFT: FTDs por Canal ▐ -->
+<div class="panel">
+  <div class="ph">
+    <svg class="ph-icon" viewBox="0 0 13 13"><rect x="0" y="8" width="2" height="5" fill="#FF3900"/><rect x="3" y="5" width="2" height="8" fill="#FF3900" opacity=".6"/><rect x="6" y="2" width="2" height="11" fill="#FF3900" opacity=".4"/><rect x="9" y="0" width="2" height="13" fill="#FF3900" opacity=".25"/></svg>
+    <span class="ph-title">FTDs MTD 27D Normalizado — Canal</span>
+    <span class="ph-note">FactFirstDeposit · PowerBI · BWBRA · âncora 1ª Sex · Jan 02–28 → Mai 01–27</span>
+  </div>
+  <div class="pbody" style="flex-direction:column;gap:6px;">
+    <!-- Bar chart: preserveAspectRatio="none" fills container exactly -->
+    <!-- viewBox 0 0 780 290 → bars area y=20..260 (h=240), x-labels y=263..290 -->
+    <!-- Baseline y=260, max=3889 -->
+    <!-- Jan:1760 h=109 top=151 | Feb:1172 h=72 top=188 | Mar:1682 h=104 top=156 | Abr:3889 h=240 top=20 | Mai:2679 h=165 top=95 -->
+    <svg style="flex:1;width:100%;min-height:0;" viewBox="0 0 780 290" preserveAspectRatio="none">
+      <!-- baseline -->
+      <line x1="20" y1="260" x2="760" y2="260" stroke="#E0E0E0" stroke-width="1"/>
+
+      <!-- JAN (center=78, left=39, w=78) -->
+      <rect x="39" y="151" width="78" height="15" fill="#FF3900"/>
+      <rect x="39" y="166" width="78" height="94" fill="#777777"/>
+      <text x="78" y="144" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="13" fill="#333">1.760</text>
+      <text x="78" y="161" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9.5" fill="#FFF">13%</text>
+      <text x="78" y="273" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#888">JAN</text>
+
+      <!-- FEV (center=234, left=195) -->
+      <rect x="195" y="188" width="78" height="11" fill="#FF3900"/>
+      <rect x="195" y="199" width="78" height="7"  fill="#FF8C00"/>
+      <rect x="195" y="206" width="78" height="54" fill="#777777"/>
+      <text x="234" y="181" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="13" fill="#333">1.172</text>
+      <text x="234" y="197" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9.5" fill="#FFF">15%</text>
+      <text x="234" y="273" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#888">FEV</text>
+
+      <!-- MAR (center=390, left=351) -->
+      <rect x="351" y="156" width="78" height="19" fill="#FF3900"/>
+      <rect x="351" y="175" width="78" height="4"  fill="#FF8C00"/>
+      <rect x="351" y="179" width="78" height="81" fill="#777777"/>
+      <text x="390" y="149" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="13" fill="#333">1.682</text>
+      <text x="390" y="168" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9.5" fill="#FFF">19%</text>
+      <text x="390" y="273" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#888">MAR</text>
+
+      <!-- ABR (center=546, left=507) — h=240, top=20 -->
+      <rect x="507" y="20"  width="78" height="85" fill="#FF3900"/>
+      <rect x="507" y="105" width="78" height="5"  fill="#FF8C00"/>
+      <rect x="507" y="110" width="78" height="150" fill="#777777"/>
+      <text x="546" y="13"  text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="13" fill="#FF3900">3.889</text>
+      <text x="546" y="65"  text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9.5" fill="#FFF">35%</text>
+      <text x="536" y="273" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#FF3900">ABR ★</text>
+
+      <!-- MAI (center=702, left=663) — h=165, top=95 -->
+      <rect x="663" y="95"  width="78" height="37" fill="#FF3900"/>
+      <rect x="663" y="132" width="78" height="4"  fill="#FF8C00"/>
+      <rect x="663" y="136" width="78" height="124" fill="#777777"/>
+      <text x="702" y="88"  text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="13" fill="#FF3900">2.679</text>
+      <text x="702" y="116" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9.5" fill="#FFF">22%</text>
+      <text x="692" y="273" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#FF3900">MAI ▶</text>
+    </svg>
+    <!-- Legend -->
+    <div style="display:flex;gap:16px;flex-shrink:0;padding:0 8px;">
+      <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:#666;"><div style="width:10px;height:10px;background:#FF3900;border-radius:1px;"></div>Affiliates</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:#666;"><div style="width:10px;height:10px;background:#FF8C00;border-radius:1px;"></div>Paid Social</div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:#666;"><div style="width:10px;height:10px;background:#777777;border-radius:1px;"></div>Demais canais</div>
+    </div>
+  </div>
+</div>
+
+<!-- ▌ TOP-RIGHT: Dep. Médio ▐ -->
+<div class="panel">
+  <div class="ph">
+    <svg class="ph-icon" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="5.5" stroke="#FF3900" stroke-width="1.5" fill="none"/><line x1="6.5" y1="3" x2="6.5" y2="6.5" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/><line x1="6.5" y1="6.5" x2="9" y2="8" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span class="ph-title">Primeiro Depósito Médio — MTD 27D Normalizado</span>
+    <span class="ph-note">1º dep. médio · FactFirstDeposit · PowerBI · âncora 1ª Sex</span>
+  </div>
+  <div class="pbody" style="gap:14px;">
+    <!-- Bar chart: viewBox 0 0 550 270, bars y=25..245 (h=220), baseline y=245, x-labels y=250..270 -->
+    <!-- Jan:795→h=220 top=25 | Feb:400→h=111 top=134 | Mar:247→h=68 top=177 | Abr:147→h=41 top=204 | Mai:129→h=36 top=209 -->
+    <svg style="flex:1;min-height:0;" viewBox="0 0 550 270" preserveAspectRatio="none">
+      <line x1="20" y1="245" x2="530" y2="245" stroke="#E0E0E0" stroke-width="1"/>
+
+      <!-- JAN: center=55, left=28, w=54, h=220, top=25 -->
+      <rect x="28"  y="25"  width="54" height="220" fill="#CCCCCC" rx="2"/>
+      <text x="55"  y="18"  text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="12" fill="#888">R$795</text>
+      <text x="55"  y="258" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#888">JAN</text>
+
+      <!-- FEV: center=165, left=138, h=111, top=134 -->
+      <rect x="138" y="134" width="54" height="111" fill="#CCCCCC" rx="2"/>
+      <text x="165" y="127" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="12" fill="#888">R$400</text>
+      <text x="165" y="258" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#888">FEV</text>
+
+      <!-- MAR: center=275, left=248, h=68, top=177 -->
+      <rect x="248" y="177" width="54" height="68"  fill="#CCCCCC" rx="2"/>
+      <text x="275" y="170" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="12" fill="#888">R$247</text>
+      <text x="275" y="258" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#888">MAR</text>
+
+      <!-- ABR: center=385, left=358, h=41, top=204 -->
+      <rect x="358" y="204" width="54" height="41"  fill="#CCCCCC" rx="2"/>
+      <text x="385" y="197" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="12" fill="#888">R$147</text>
+      <text x="375" y="258" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#FF3900">ABR ★</text>
+
+      <!-- MAI: center=495, left=468, h=36, top=209 -->
+      <rect x="468" y="209" width="54" height="36"  fill="#FF3900" rx="2"/>
+      <text x="495" y="202" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="13" fill="#FF3900">R$129</text>
+      <text x="483" y="258" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#FF3900">MAI ▶</text>
+    </svg>
+    <!-- Canal breakdown -->
+    <div style="width:170px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;gap:0;">
+      <div style="font-family:'Archivo Black',sans-serif;font-size:8px;color:#AAAAAA;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Dep. médio<br>por canal — Mai</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div><div style="display:flex;justify-content:space-between;"><span style="font-size:9px;color:#666;">ORG./DIRECT</span><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:#111;">R$297</span></div><div style="height:3px;background:#FF3900;border-radius:1px;width:100%;margin-top:2px;"></div></div>
+        <div><div style="display:flex;justify-content:space-between;"><span style="font-size:9px;color:#666;">PAID SOCIAL</span><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:#111;">R$119</span></div><div style="height:3px;background:#FF3900;border-radius:1px;width:40%;margin-top:2px;"></div></div>
+        <div><div style="display:flex;justify-content:space-between;"><span style="font-size:9px;color:#666;">PAID MEDIA</span><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:#111;">R$105</span></div><div style="height:3px;background:#FF3900;border-radius:1px;width:35%;margin-top:2px;"></div></div>
+        <div><div style="display:flex;justify-content:space-between;"><span style="font-size:9px;color:#666;">OTHERS</span><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:#111;">R$62</span></div><div style="height:3px;background:#FF3900;border-radius:1px;width:21%;margin-top:2px;"></div></div>
+        <div><div style="display:flex;justify-content:space-between;"><span style="font-size:9px;color:#666;">AFFILIATES</span><span style="font-family:'Archivo Black',sans-serif;font-size:10px;color:#111;">R$59</span></div><div style="height:3px;background:#FF3900;border-radius:1px;width:20%;margin-top:2px;"></div></div>
+        <div style="border-top:2px solid #FF3900;padding-top:5px;margin-top:2px;display:flex;justify-content:space-between;"><span style="font-size:9px;color:#FF3900;font-weight:600;">GERAL</span><span style="font-family:'Archivo Black',sans-serif;font-size:11px;color:#FF3900;">R$129</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ▌ BOTTOM-LEFT: Funil de Ativação ▐ -->
+<div class="panel">
+  <div class="ph">
+    <svg class="ph-icon" viewBox="0 0 13 13"><path d="M1 2h11l-4 5v4l-3-2V7L1 2z" fill="none" stroke="#FF3900" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    <span class="ph-title">Funil de Ativação</span>
+    <span class="ph-note">GA4 + PowerBI · Mai 01–27 vs Abr 03–29 · âncora normalizada</span>
+  </div>
+  <div class="pbody" style="flex-direction:column;justify-content:center;gap:10px;padding:14px 18px;">
+    <!-- Steps -->
+    <div style="display:flex;gap:4px;align-items:stretch;height:148px;">
+      <div style="flex:1;background:#F6F6F6;border:1px solid #E0E0E0;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 6px;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#AAAAAA;margin-bottom:2px;">SESSÕES</div>
+        <div style="font-size:7.5px;color:#CCCCCC;margin-bottom:7px;">GA4</div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:18px;color:#111;">493.860</div>
+      </div>
+      <div style="width:20px;display:flex;align-items:center;justify-content:center;color:#CCCCCC;font-size:22px;flex-shrink:0;">›</div>
+      <div style="flex:1;background:#F6F6F6;border:1px solid #E0E0E0;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 6px;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#AAAAAA;margin-bottom:2px;">NO LOCK</div>
+        <div style="font-size:7.5px;color:#CCCCCC;margin-bottom:7px;">PowerBI</div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:18px;color:#111;">9.233</div>
+      </div>
+      <div style="width:20px;display:flex;align-items:center;justify-content:center;color:#CCCCCC;font-size:22px;flex-shrink:0;">›</div>
+      <div style="flex:1;background:#FFF5F3;border:1px solid #FF3900;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 6px;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#AAAAAA;margin-bottom:2px;">PRONTO P/DEP</div>
+        <div style="font-size:7.5px;color:#CCCCCC;margin-bottom:7px;">KYC PASS</div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:18px;color:#FF3900;">4.783</div>
+      </div>
+      <div style="width:20px;display:flex;align-items:center;justify-content:center;color:#CCCCCC;font-size:22px;flex-shrink:0;">›</div>
+      <div style="flex:1;background:#F6F6F6;border:1px solid #E0E0E0;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 6px;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#AAAAAA;margin-bottom:2px;">FTD</div>
+        <div style="font-size:7.5px;color:#CCCCCC;margin-bottom:7px;">PowerBI</div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:18px;color:#111;">2.679</div>
+      </div>
+    </div>
+    <!-- Conversion rates -->
+    <div style="display:flex;gap:4px;">
+      <div style="flex:1;text-align:center;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:20px;color:#FF3900;">1,87%</div>
+        <div style="font-size:10px;font-weight:600;color:#EF4444;margin-top:1px;">−0,51pp vs Abr</div>
+        <div style="font-size:8px;color:#AAAAAA;margin-top:1px;">Sessões → No Lock</div>
+      </div>
+      <div style="width:20px;flex-shrink:0;"></div>
+      <div style="flex:1;text-align:center;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:20px;color:#FF3900;">51,8%</div>
+        <div style="font-size:10px;font-weight:600;color:#EF4444;margin-top:1px;">−9,9pp vs Abr</div>
+        <div style="font-size:8px;color:#AAAAAA;margin-top:1px;">No Lock → KYC</div>
+      </div>
+      <div style="width:20px;flex-shrink:0;"></div>
+      <div style="flex:1;text-align:center;">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:20px;color:#FF3900;">56,0%</div>
+        <div style="font-size:10px;font-weight:600;color:#EF4444;margin-top:1px;">−3,8pp vs Abr</div>
+        <div style="font-size:8px;color:#AAAAAA;margin-top:1px;">KYC → FTD</div>
+      </div>
+      <div style="width:20px;flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+    </div>
+    <div style="font-size:7.5px;color:#CCCCCC;text-align:center;flex-shrink:0;">Sessões: GA4 · No Lock: FullReg NOT_LOCKED · Pronto p/Dep: KYC PASS (READY_FOR_DEPOSIT) · FTD: PowerBI BWBRA</div>
+  </div>
+</div>
+
+<!-- ▌ BOTTOM-RIGHT: Métricas de Negócio ▐ -->
+<div class="panel">
+  <div class="ph">
+    <svg class="ph-icon" viewBox="0 0 13 13"><rect x="0" y="0" width="13" height="3" rx="1" fill="#FF3900"/><rect x="0" y="5" width="13" height="3" rx="1" fill="#FF3900" opacity=".5"/><rect x="0" y="10" width="13" height="3" rx="1" fill="#FF3900" opacity=".25"/></svg>
+    <span class="ph-title">Métricas de Negócio — MTD 27D Normalizado</span>
+    <span class="ph-note">SB+Casino · BRL · âncora 1ª Sex · 27 dias normalizados</span>
+  </div>
+  <div class="pbody" style="flex-direction:column;gap:10px;">
+    <div style="flex-shrink:0;">
+      <table>
+        <thead><tr><th>Mês</th><th>FullReg</th><th>FTDs</th><th>CR%</th><th>GGR (R$)</th><th>NGR (R$)</th><th>Marg.</th><th>SB</th><th>CS</th></tr></thead>
+        <tbody>
+          <tr><td>Jan</td><td>7.159</td><td>1.760</td><td>24,6%</td><td style="color:#EF4444;font-weight:700;">−78k</td><td style="color:#EF4444;font-weight:700;">−134k</td><td class="neg">−1,2%</td><td class="neg">−3,6%</td><td class="pos">4,9%</td></tr>
+          <tr><td>Fev</td><td>7.817</td><td>1.172</td><td>15,0%</td><td>87k</td><td>33k</td><td>2,7%</td><td class="neu">0,3%</td><td class="pos">7,0%</td></tr>
+          <tr><td>Mar</td><td>9.300</td><td>1.682</td><td>18,1%</td><td>106k</td><td>63k</td><td>3,2%</td><td>0,9%</td><td>5,7%</td></tr>
+          <tr><td>Abr ★</td><td class="vc">14.429</td><td class="vc">3.889</td><td class="vc">27,0%</td><td class="vc">202k</td><td class="vc">180k</td><td class="vc">3,1%</td><td class="vc">3,2%</td><td class="vc">3,0%</td></tr>
+          <tr class="cur"><td style="color:#FF3900;font-family:'Archivo Black',sans-serif;font-size:9px;">Mai ▶</td><td class="vh">12.313</td><td class="vh">2.679</td><td class="vh">21,8%</td><td class="vh">226k</td><td class="vh">203k</td><td class="vh">3,9%</td><td class="vh">3,1%</td><td class="vh">4,7%</td></tr>
+          <tr class="delta"><td>Δ MoM</td><td class="neg">−14,7%</td><td class="neg">−31,1%</td><td class="neg">−5,2<span class="pp">pp</span></td><td class="pos">+11,6%</td><td class="pos">+12,6%</td><td class="pos">+0,8<span class="pp">pp</span></td><td class="neu">−0,1<span class="pp">pp</span></td><td class="pos">+1,7<span class="pp">pp</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- BASE ATIVA -->
+    <div style="flex-shrink:0;border-top:1px solid #EEEEEE;padding-top:10px;">
+      <div style="font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#AAAAAA;margin-bottom:8px;">Base Ativa — Menos apostadores, mais resultado</div>
+      <div style="display:flex;gap:8px;">
+        <div style="flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:10px;text-align:center;">
+          <div style="font-size:7.5px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Apostadores Ativos</div>
+          <div style="font-family:'Archivo Black',sans-serif;font-size:22px;color:#111;">4.218</div>
+          <div style="font-size:9.5px;font-weight:600;color:#EF4444;margin-top:3px;">−23,4% vs 5.507 Abr</div>
+        </div>
+        <div style="flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:10px;text-align:center;">
+          <div style="font-size:7.5px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Gross Bets / Apostador</div>
+          <div style="font-family:'Archivo Black',sans-serif;font-size:22px;color:#22C55E;">R$1.370</div>
+          <div style="font-size:9.5px;font-weight:600;color:#22C55E;margin-top:3px;">+14,9% vs R$1.192 Abr</div>
+        </div>
+        <div style="flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:10px;text-align:center;">
+          <div style="font-size:7.5px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Gross Bets Total</div>
+          <div style="font-family:'Archivo Black',sans-serif;font-size:22px;color:#111;">R$5,78M</div>
+          <div style="font-size:9.5px;font-weight:600;color:#EF4444;margin-top:3px;">−12,0% vs R$6,57M Abr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="ftr">
+  <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+  <span>WPR · PÁG. 1 · MÉTRICAS DE NEGÓCIO · MAI 01–27/2026</span>
+  <span>28/05/2026</span>
+</div>
+</body>
+</html>

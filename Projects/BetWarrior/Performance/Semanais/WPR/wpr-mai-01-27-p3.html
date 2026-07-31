@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>WPR Brasil — P3 Performance de Mídia — Mai 01–27/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;}
+body{width:1920px;height:1080px;background:#F2F2F2;font-family:'Archivo',sans-serif;color:#111;display:flex;flex-direction:column;}
+.hdr{height:72px;background:#FFF;border-bottom:3px solid #FF3900;display:flex;align-items:center;gap:20px;padding:0 28px;flex-shrink:0;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-bar{width:4px;height:38px;background:#FF3900;}
+.logo-text .brand{font-family:'Archivo Black',sans-serif;font-size:16px;letter-spacing:1.5px;color:#111;}
+.logo-text .sub{font-size:8px;color:#999;letter-spacing:3px;text-transform:uppercase;}
+.sep{width:1px;height:44px;background:#DCDCDC;}
+.hdr-center{flex:1;}
+.hdr-title{font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:3px;text-transform:uppercase;color:#111;margin-bottom:4px;}
+.hdr-sub{font-size:11px;color:#777;line-height:1.4;}
+.hdr-sub strong{color:#FF3900;}
+.hdr-meta{font-size:10px;color:#999;text-align:right;line-height:1.9;letter-spacing:0.4px;}
+.body{flex:1;display:flex;flex-direction:column;gap:10px;padding:10px;min-height:0;}
+.top-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;min-height:0;}
+.panel{background:#FFF;border:1px solid #E0E0E0;border-radius:3px;display:flex;flex-direction:column;overflow:hidden;}
+.ph{display:flex;align-items:center;gap:9px;padding:8px 16px;border-bottom:2px solid #FF3900;flex-shrink:0;}
+.ph-icon{width:13px;height:13px;flex-shrink:0;}
+.ph-title{font-family:'Archivo Black',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#111;}
+.ph-note{margin-left:auto;font-size:8.5px;color:#BBBBBB;font-style:italic;white-space:nowrap;}
+.pbody{flex:1;padding:10px 14px;display:flex;min-height:0;overflow:hidden;}
+.ftr{height:28px;background:#FFF;border-top:1px solid #E8E8E8;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:9px;color:#BBBBBB;letter-spacing:1px;flex-shrink:0;}
+/* PACING bottom panel */
+.pacing-panel{background:#FFF;border:1px solid #E0E0E0;border-radius:3px;display:flex;flex-direction:column;overflow:hidden;}
+.pacing-body{flex:1;padding:10px 20px;display:flex;flex-direction:column;gap:6px;min-height:0;}
+.pacing-headline{font-family:'Archivo Black',sans-serif;font-size:14px;color:#FF3900;text-align:center;margin-bottom:4px;}
+.pacing-cards{display:flex;gap:8px;flex:1;align-items:stretch;}
+.pacing-card{flex:1;background:#F8F8F8;border:1px solid #EFEFEF;border-radius:3px;padding:10px 14px;display:flex;flex-direction:column;justify-content:space-between;}
+.pc-platform{font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:1px;color:#333;margin-bottom:6px;}
+.pc-metrics{display:flex;flex-direction:column;gap:5px;}
+.pc-metric-row{display:flex;flex-direction:column;gap:2px;}
+.pc-label{font-size:8px;color:#AAAAAA;text-transform:uppercase;letter-spacing:1px;}
+.pc-bar-track{background:#EEEEEE;height:8px;border-radius:2px;position:relative;overflow:hidden;}
+.pc-bar-fill{height:100%;border-radius:2px;}
+.pc-values{display:flex;justify-content:space-between;margin-top:1px;}
+.pc-pct{font-family:'Archivo Black',sans-serif;font-size:11px;color:#111;}
+.pc-delta{font-size:9px;font-weight:600;}
+.pc-delta.neg{color:#EF4444;}
+.pc-delta.pos{color:#22C55E;}
+.pc-ftds-note{font-size:8.5px;color:#666;margin-top:5px;border-top:1px solid #EEEEEE;padding-top:5px;}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">
+    <div class="logo-bar"></div>
+    <div class="logo-text">
+      <div class="brand">BETWARRIOR</div>
+      <div class="sub">BRASIL</div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="hdr-center">
+    <div class="hdr-title">Weekly Performance Report — Pág. 3</div>
+    <div class="hdr-sub">
+      <strong>Performance de Mídia — Mai 01–27.</strong>
+      Google lidera investimento (53%) e FTDs Paid Media (1.448) · Meta recua em CPA eficiência · Paid Social entrega R$3.124/apostador (alto valor LTV) · Todos os canais abaixo do pacing ideal de 87%.
+    </div>
+  </div>
+  <div class="hdr-meta">01–27 / Mai 2026<br>Mídia Paga · BRL<br>Gerado 28/05</div>
+</div>
+
+<div class="body">
+  <div class="top-row">
+
+    <!-- BUDGET VS FTDs — CPA por Plataforma -->
+    <div class="panel">
+      <div class="ph">
+        <svg class="ph-icon" viewBox="0 0 13 13"><rect x="0" y="6" width="3" height="7" fill="#FF3900"/><rect x="4" y="3" width="3" height="10" fill="#FF3900" opacity=".7"/><rect x="8" y="1" width="3" height="12" fill="#FF3900" opacity=".4"/><line x1="0" y1="4" x2="13" y2="4" stroke="#111" stroke-width="1" stroke-dasharray="2,1"/></svg>
+        <span class="ph-title">Budget vs FTDs — CPA por Plataforma</span>
+        <span class="ph-note">acumulado 01–13mai · PACING-PERFO (Diego) · CPA em BRL</span>
+      </div>
+      <div class="pbody" style="flex-direction:column;">
+        <svg width="100%" height="100%" viewBox="0 0 760 320" preserveAspectRatio="none">
+          <!-- Background grid -->
+          <line x1="80" y1="10" x2="80" y2="260" stroke="#F0F0F0" stroke-width="1"/>
+          <line x1="80" y1="10" x2="720" y2="10" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="80" y1="75" x2="720" y2="75" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="80" y1="140" x2="720" y2="140" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="80" y1="205" x2="720" y2="205" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="80" y1="260" x2="720" y2="260" stroke="#E0E0E0" stroke-width="1"/>
+          <!-- Y axis labels -->
+          <text x="75" y="14"  text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">60%</text>
+          <text x="75" y="79"  text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">45%</text>
+          <text x="75" y="144" text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">30%</text>
+          <text x="75" y="209" text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">15%</text>
+          <text x="75" y="264" text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">0%</text>
+
+          <!-- Scale: 60%=10px, 0%=260px → each %=(250/60)=4.17px -->
+          <!-- % Budget bar (gray), % FTD bar (orange), CPA line -->
+
+          <!-- GOOGLE: %budget=42.1% → h=175, %FTDs=19.1% → h=79 -->
+          <!-- bar top = 260 - h -->
+          <rect x="105" y="84"  width="35" height="176" fill="#BBBBBB" rx="2"/> <!-- 42.1% budget -->
+          <rect x="143" y="181" width="35" height="79"  fill="#FF3900" rx="2"/> <!-- 19.1% FTDs -->
+          <text x="143" y="275" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">GOOGLE</text>
+          <text x="143" y="285" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">322 FTDs</text>
+          <text x="143" y="295" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">R$45.644 inv.</text>
+
+          <!-- META: %budget=32.2% → h=134, %FTDs=11.4% → h=47 -->
+          <rect x="233" y="126" width="35" height="134" fill="#BBBBBB" rx="2"/>
+          <rect x="271" y="213" width="35" height="47"  fill="#FF3900" rx="2"/>
+          <text x="271" y="275" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">META</text>
+          <text x="271" y="285" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">151 FTDs</text>
+          <text x="271" y="295" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">R$25.771 inv.</text>
+
+          <!-- TIKTOK: %budget=17.0% → h=71, %FTDs=5.3% → h=22 -->
+          <rect x="361" y="189" width="35" height="71"  fill="#BBBBBB" rx="2"/>
+          <rect x="399" y="238" width="35" height="22"  fill="#FF3900" rx="2"/>
+          <text x="399" y="275" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">TIKTOK</text>
+          <text x="399" y="285" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">22 FTDs</text>
+          <text x="399" y="295" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">R$4.241 inv.</text>
+
+          <!-- X: %budget=19.6% → h=82, %FTDs=1.0% → h=4 -->
+          <rect x="489" y="178" width="35" height="82"  fill="#BBBBBB" rx="2"/>
+          <rect x="527" y="256" width="35" height="4"   fill="#FF3900" rx="2"/>
+          <text x="527" y="275" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">X</text>
+          <text x="527" y="285" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">3 FTDs</text>
+          <text x="527" y="295" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">R$3.525 inv.</text>
+
+          <!-- TABOOLA: %budget=16.5% → h=69, %FTDs=2.2% → h=9 -->
+          <rect x="617" y="191" width="35" height="69"  fill="#BBBBBB" rx="2"/>
+          <rect x="655" y="251" width="35" height="9"   fill="#FF3900" rx="2"/>
+          <text x="655" y="275" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">TABOOLA</text>
+          <text x="655" y="285" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">4 FTDs</text>
+          <text x="655" y="295" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">R$3.304 inv.</text>
+
+          <!-- CPA line (inverted: high CPA = lower on right secondary axis) -->
+          <!-- CPA values: G=142, M=171, T=193, Tab=826, X=1175 -->
+          <!-- Secondary axis: max=1200 → right side 10px; 0 → 260px; scale=250/1200 -->
+          <!-- G: 260-(142/1200*250)=260-30=230 → x=143 -->
+          <!-- M: 260-(171/1200*250)=260-36=224 → x=271 -->
+          <!-- T: 260-(193/1200*250)=260-40=220 → x=399 -->
+          <!-- Tab: 260-(826/1200*250)=260-172=88 → x=655 -->
+          <!-- X: 260-(1175/1200*250)=260-245=15 → x=527 -->
+          <polyline points="143,230 271,224 399,220 527,15 655,88" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
+          <circle cx="143" cy="230" r="4" fill="#111"/>
+          <circle cx="271" cy="224" r="4" fill="#111"/>
+          <circle cx="399" cy="220" r="4" fill="#111"/>
+          <circle cx="527" cy="15"  r="4" fill="#EF4444"/>
+          <circle cx="655" cy="88"  r="4" fill="#EF4444"/>
+          <!-- CPA labels -->
+          <text x="143" y="222" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#111">R$142</text>
+          <text x="271" y="216" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#111">R$171</text>
+          <text x="399" y="212" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#111">R$193</text>
+          <text x="527" y="8"   text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#EF4444">R$1.175</text>
+          <text x="655" y="80"  text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#EF4444">R$826</text>
+
+          <!-- Legend -->
+          <rect x="85"  y="308" width="14" height="8" fill="#BBBBBB"/>
+          <text x="103" y="316" font-family="'Archivo',sans-serif" font-size="9" fill="#777">% Budget</text>
+          <rect x="185" y="308" width="14" height="8" fill="#FF3900"/>
+          <text x="203" y="316" font-family="'Archivo',sans-serif" font-size="9" fill="#777">% FTDs</text>
+          <line x1="275" y1="312" x2="295" y2="312" stroke="#111" stroke-width="2" stroke-dasharray="4,2"/>
+          <circle cx="285" cy="312" r="3" fill="#111"/>
+          <text x="300" y="316" font-family="'Archivo',sans-serif" font-size="9" fill="#777">CPA (R$)</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- GROSS BETS POR CANAL — R$/Apostador -->
+    <div class="panel">
+      <div class="ph">
+        <svg class="ph-icon" viewBox="0 0 13 13"><circle cx="4" cy="9" r="2" fill="#FF3900"/><circle cx="9" cy="4" r="3" fill="#FF3900" opacity=".5"/><line x1="4" y1="9" x2="9" y2="4" stroke="#FF3900" stroke-width="1.5"/></svg>
+        <span class="ph-title">Gross Bets por Canal — R$/Apostador</span>
+        <span class="ph-note">utm_medium · PowerBI · Mai 01–27 · apostadores únicos no período</span>
+      </div>
+      <div class="pbody" style="flex-direction:column;">
+        <svg width="100%" height="100%" viewBox="0 0 760 340" preserveAspectRatio="none">
+          <!-- Legend top -->
+          <rect x="50"  y="5" width="12" height="8" fill="#CCCCCC"/>
+          <text x="66"  y="13" font-family="'Archivo',sans-serif" font-size="9" fill="#777">% Apostadores</text>
+          <rect x="200" y="5" width="12" height="8" fill="#FF3900"/>
+          <text x="216" y="13" font-family="'Archivo',sans-serif" font-size="9" fill="#777">% Gross Bets</text>
+          <line x1="350" y1="9" x2="370" y2="9" stroke="#111" stroke-width="2"/>
+          <circle cx="360" cy="9" r="3" fill="#111"/>
+          <text x="375" y="13" font-family="'Archivo',sans-serif" font-size="9" fill="#777">R$/Apostador</text>
+
+          <!-- Grid -->
+          <line x1="50" y1="30"  x2="710" y2="30"  stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="50" y1="85"  x2="710" y2="85"  stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="50" y1="140" x2="710" y2="140" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="50" y1="195" x2="710" y2="195" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="50" y1="250" x2="710" y2="250" stroke="#E0E0E0" stroke-width="1"/>
+          <text x="45" y="34"  text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">60%</text>
+          <text x="45" y="89"  text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">45%</text>
+          <text x="45" y="144" text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">30%</text>
+          <text x="45" y="199" text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">15%</text>
+          <text x="45" y="254" text-anchor="end" font-family="'Archivo',sans-serif" font-size="8" fill="#AAAAAA">0%</text>
+
+          <!-- Scale: 60%→30px (top), 0%→250px; px = 250 - pct/60*220 -->
+
+          <!-- PAID MEDIA: apost=46.1%, GB=55.7% -->
+          <!-- apost bar: 250-(46.1/60*220)=250-169=81, h=169 -->
+          <!-- GB bar: 250-(55.7/60*220)=250-204=46, h=204 -->
+          <rect x="90"  y="81"  width="30" height="169" fill="#CCCCCC" rx="2"/>
+          <rect x="124" y="46"  width="30" height="204" fill="#FF3900" rx="2"/>
+          <text x="112" y="270" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">PAID MEDIA</text>
+          <text x="90"  y="72"  text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">46%</text>
+          <text x="139" y="37"  text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#FF3900">56%</text>
+
+          <!-- ORG./DIRECT: apost=30.4%, GB=29.5% -->
+          <rect x="233" y="139" width="30" height="111" fill="#CCCCCC" rx="2"/>
+          <rect x="267" y="142" width="30" height="108" fill="#FF3900" rx="2"/>
+          <text x="255" y="270" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">ORG./DIRECT</text>
+          <text x="248" y="130" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">30%</text>
+
+          <!-- AFFILIATES: apost=18.7%, GB=8.4% -->
+          <rect x="376" y="181" width="30" height="69"  fill="#CCCCCC" rx="2"/>
+          <rect x="410" y="219" width="30" height="31"  fill="#FF3900" rx="2"/>
+          <text x="398" y="270" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">AFFILIATES</text>
+          <text x="391" y="172" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#888">19%</text>
+
+          <!-- PAID SOCIAL: apost=2.3%, GB=5.2% -->
+          <rect x="519" y="241" width="30" height="9"   fill="#CCCCCC" rx="2"/>
+          <rect x="553" y="231" width="30" height="19"  fill="#FF3900" rx="2"/>
+          <text x="541" y="270" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">PAID SOCIAL</text>
+          <text x="568" y="222" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#FF3900">5%</text>
+
+          <!-- OTHERS: apost=2.5%, GB=1.2% -->
+          <rect x="645" y="241" width="30" height="9"   fill="#CCCCCC" rx="2"/>
+          <rect x="679" y="247" width="30" height="3"   fill="#FF3900" rx="2"/>
+          <text x="669" y="270" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="9" fill="#555">OTHERS</text>
+
+          <!-- R$/Apostador line (secondary Y: max=3200) -->
+          <!-- px = 250 - (val/3200*220) -->
+          <!-- PM: 250-(1654/3200*220)=250-114=136 → x=124 -->
+          <!-- ORG: 250-(1327/3200*220)=250-91=159 → x=267 -->
+          <!-- AFF: 250-(619/3200*220)=250-43=207 → x=410 -->
+          <!-- PS: 250-(3124/3200*220)=250-215=35 → x=553 -->
+          <!-- OTH: 250-(640/3200*220)=250-44=206 → x=679 -->
+          <polyline points="124,136 267,159 410,207 553,35 679,206" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="124" cy="136" r="4.5" fill="#111"/>
+          <circle cx="267" cy="159" r="4.5" fill="#111"/>
+          <circle cx="410" cy="207" r="4.5" fill="#111"/>
+          <circle cx="553" cy="35"  r="5.5" fill="#FF3900"/>
+          <circle cx="679" cy="206" r="4.5" fill="#111"/>
+          <!-- Labels -->
+          <text x="124" y="127" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#111">R$1.654</text>
+          <text x="267" y="150" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#111">R$1.327</text>
+          <text x="410" y="198" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#111">R$619</text>
+          <text x="553" y="26"  text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="11" fill="#FF3900">R$3.124</text>
+          <text x="679" y="197" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="10" fill="#111">R$640</text>
+
+          <!-- avg line -->
+          <!-- avg = 5776984/4218 = 1370 → 250-(1370/3200*220)=250-94=156 -->
+          <line x1="50" y1="156" x2="710" y2="156" stroke="#AAAAAA" stroke-width="1" stroke-dasharray="5,4"/>
+          <text x="715" y="160" font-family="'Archivo',sans-serif" font-size="8.5" fill="#AAAAAA">avg R$1.370</text>
+
+          <text x="380" y="310" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="8" fill="#BBBBBB">Apostadores únicos que apostaram no período · GB = Gross Bets acumulados · 27 dias normalizados</text>
+        </svg>
+      </div>
+    </div>
+
+  </div><!-- /top-row -->
+
+  <!-- PACING — MAI/26 -->
+  <div class="pacing-panel" style="height:240px;flex-shrink:0;">
+    <div class="ph">
+      <svg class="ph-icon" viewBox="0 0 13 13"><path d="M6.5 1a5.5 5.5 0 100 11A5.5 5.5 0 006.5 1z" fill="none" stroke="#FF3900" stroke-width="1.3"/><line x1="6.5" y1="6.5" x2="9.5" y2="4" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/><line x1="6.5" y1="2.5" x2="6.5" y2="6.5" stroke="#FF3900" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="ph-title">Pacing — Mai/26</span>
+      <span class="ph-note">Acumulado 01–13mai · 45,2% (14/31 dias) · Fonte: PACING-PERFO (Diego) — dados não atualizados após 14/05</span>
+    </div>
+    <div class="pacing-body">
+      <div style="text-align:center;font-family:'Archivo Black',sans-serif;font-size:13px;color:#FF3900;margin-bottom:2px;">
+        45,2% do mês consumido na data do PACING (14/05) — 27/31 dias = 87,1% do mês atual
+      </div>
+      <div class="pacing-cards">
+
+        <!-- GOOGLE -->
+        <div class="pacing-card">
+          <div class="pc-platform">GOOGLE</div>
+          <div class="pc-metrics">
+            <div class="pc-metric-row">
+              <div class="pc-label">Orçamento</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:42.1%;background:#FF3900;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct">42,1%</span>
+                <span class="pc-delta neg">−2,4pp</span>
+              </div>
+            </div>
+            <div class="pc-metric-row">
+              <div class="pc-label">FTDs</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:19.1%;background:#333;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct" style="color:#EF4444;">19,1%</span>
+                <span class="pc-delta neg">−26,1pp</span>
+              </div>
+            </div>
+          </div>
+          <div class="pc-ftds-note">R$45.644 invest. · 322 FTDs · CPA R$142</div>
+        </div>
+
+        <!-- META -->
+        <div class="pacing-card">
+          <div class="pc-platform">META</div>
+          <div class="pc-metrics">
+            <div class="pc-metric-row">
+              <div class="pc-label">Orçamento</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:32.2%;background:#FF3900;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct">32,2%</span>
+                <span class="pc-delta neg">−13,0pp</span>
+              </div>
+            </div>
+            <div class="pc-metric-row">
+              <div class="pc-label">FTDs</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:11.4%;background:#333;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct" style="color:#EF4444;">11,4%</span>
+                <span class="pc-delta neg">−33,8pp</span>
+              </div>
+            </div>
+          </div>
+          <div class="pc-ftds-note">R$25.771 invest. · 151 FTDs · CPA R$171</div>
+        </div>
+
+        <!-- TIKTOK -->
+        <div class="pacing-card">
+          <div class="pc-platform">TIKTOK</div>
+          <div class="pc-metrics">
+            <div class="pc-metric-row">
+              <div class="pc-label">Orçamento</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:17.0%;background:#FF3900;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct">17,0%</span>
+                <span class="pc-delta neg">−28,2pp</span>
+              </div>
+            </div>
+            <div class="pc-metric-row">
+              <div class="pc-label">FTDs</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:5.3%;background:#333;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct" style="color:#EF4444;">5,3%</span>
+                <span class="pc-delta neg">−39,9pp</span>
+              </div>
+            </div>
+          </div>
+          <div class="pc-ftds-note">R$4.241 invest. · 22 FTDs · CPA R$193</div>
+        </div>
+
+        <!-- X -->
+        <div class="pacing-card">
+          <div class="pc-platform">X</div>
+          <div class="pc-metrics">
+            <div class="pc-metric-row">
+              <div class="pc-label">Orçamento</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:19.6%;background:#FF3900;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct">19,6%</span>
+                <span class="pc-delta neg">−25,6pp</span>
+              </div>
+            </div>
+            <div class="pc-metric-row">
+              <div class="pc-label">FTDs</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:1.0%;background:#333;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct" style="color:#EF4444;">1,0%</span>
+                <span class="pc-delta neg">−44,2pp</span>
+              </div>
+            </div>
+          </div>
+          <div class="pc-ftds-note">R$3.525 invest. · 3 FTDs · s/attr.</div>
+        </div>
+
+        <!-- TABOOLA -->
+        <div class="pacing-card">
+          <div class="pc-platform">TABOOLA</div>
+          <div class="pc-metrics">
+            <div class="pc-metric-row">
+              <div class="pc-label">Orçamento</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:16.5%;background:#FF3900;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct">16,5%</span>
+                <span class="pc-delta neg">−28,7pp</span>
+              </div>
+            </div>
+            <div class="pc-metric-row">
+              <div class="pc-label">FTDs</div>
+              <div class="pc-bar-track">
+                <div class="pc-bar-fill" style="width:2.2%;background:#333;height:100%;"></div>
+              </div>
+              <div class="pc-values">
+                <span class="pc-pct" style="color:#EF4444;">2,2%</span>
+                <span class="pc-delta neg">−43,0pp</span>
+              </div>
+            </div>
+          </div>
+          <div class="pc-ftds-note">R$3.304 invest. · 4 FTDs · s/attr.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /body -->
+
+<div class="ftr">
+  <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+  <span>WPR · PÁG. 3 · PERFORMANCE DE MÍDIA · MAI 01–27/2026</span>
+  <span>28/05/2026</span>
+</div>
+
+</body>
+</html>

@@ -9,10 +9,11 @@ Projects/Ceramicando/Produto/*.csv
 # Documentos pessoais de terceiros
 Projects/BetWarrior/Pessoas/
 
-# Dados operacionais semanais (working files do WPR) — atualizados toda semana
-Projects/BetWarrior/Performance/Semanais/WPR/*
-# ...exceto as entregas finais, que ficam versionadas
-!Projects/BetWarrior/Performance/Semanais/WPR/Entregas
+# WPR: versiona os leves (HTML, .md, .py); ignora só os dados pesados/sensíveis
+# (revisado 31/07 — antes ignorava a pasta toda e perdia working files no disco)
+Projects/BetWarrior/Performance/Semanais/WPR/*.xlsx
+Projects/BetWarrior/Performance/Semanais/WPR/*.pdf
+Projects/BetWarrior/Performance/Semanais/WPR/*.csv
 
 # Arquivos grandes (acima do limite do GitHub)
 *.pptx

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPR BetWarrior Brasil · Jul 01–15/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:#0E0E0E; font-family:'Archivo',sans-serif; scroll-snap-type:y mandatory; overflow-y:scroll; height:100vh; }
+.slide { height:100vh; width:100vw; scroll-snap-align:start; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.frame { width:1920px; height:1080px; border:none; flex-shrink:0; transform-origin:center center; }
+iframe.frame { display:block; }
+.nav { position:fixed; right:20px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:11px; z-index:50; background:rgba(0,0,0,0.32); padding:11px 8px; border-radius:22px; backdrop-filter:blur(2px); }
+.nav a { width:9px; height:9px; border-radius:50%; background:#6A6A6E; display:block; transition:.2s; }
+.nav a:hover { background:#CCC; }
+.nav a.on { background:#FF3900; transform:scale(1.35); box-shadow:0 0 0 2px rgba(255,57,0,0.25); }
+.cv { background:#111; display:flex; flex-direction:column; }
+.cv-hdr { background:#111; border-bottom:2px solid #FF3900; display:flex; align-items:center; gap:23px; padding:0 28px; height:80px; flex-shrink:0; }
+.cv-logo-bar { width:4px; height:37px; background:#FF3900; }
+.cv-logo-brand { font-family:'Archivo Black'; font-size:21px; letter-spacing:1px; color:#FFF; }
+.cv-logo-sub { font-size:11px; color:#555; letter-spacing:3px; text-transform:uppercase; }
+.cv-hdr-sep { width:1px; height:43px; background:#2A2A2A; }
+.cv-body { flex:1; min-height:0; display:flex; }
+.cv-left { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; padding:43px 96px 43px 77px; }
+.cv-tag { font-size:13px; color:#FF3900; letter-spacing:4px; text-transform:uppercase; margin-bottom:26px; }
+.cv-title { font-family:'Archivo Black'; font-size:112px; color:#FFF; line-height:1; text-transform:uppercase; letter-spacing:2px; margin-bottom:44px; }
+.cv-bar { width:58px; height:3px; background:#FF3900; margin-bottom:38px; }
+.cv-period { font-family:'Archivo Black'; font-size:35px; color:#FFF; letter-spacing:2px; margin-bottom:14px; }
+.cv-detail { font-size:15px; color:#555; letter-spacing:2px; text-transform:uppercase; line-height:1.9; }
+.cv-right { width:691px; flex-shrink:0; background:#FF3900; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.cv-right-bg { font-family:'Archivo Black'; font-size:269px; color:rgba(0,0,0,0.12); line-height:1; letter-spacing:-4px; white-space:nowrap; }
+.cv-ftr { height:30px; background:#111; border-top:1px solid #1E1E1E; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:11px; color:#3A3A3A; letter-spacing:1px; flex-shrink:0; }
+.hint { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); font-size:11px; color:#555; letter-spacing:1px; z-index:50; user-select:none; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"></nav>
+
+<!-- CAPA -->
+<div class="slide" id="s0">
+  <div class="frame cv">
+    <div class="cv-hdr">
+      <div class="cv-logo-bar"></div>
+      <div><div class="cv-logo-brand">BETWARRIOR</div><div class="cv-logo-sub">BRASIL</div></div>
+      <div class="cv-hdr-sep"></div>
+    </div>
+    <div class="cv-body">
+      <div class="cv-left">
+        <div class="cv-tag">WPR · JUL 01–15 · 2026</div>
+        <div class="cv-title">WEEKLY<br>PERFORMANCE<br>REPORT</div>
+        <div class="cv-bar"></div>
+        <div class="cv-period">01–15 / JUL · 2026</div>
+        <div class="cv-detail">MTD Julho · pós-corte de orçamento · SB + Casino · BRL · Gerado 17/07<br>BetWarrior Brasil · Reunião WPR</div>
+      </div>
+      <div class="cv-right"><div class="cv-right-bg">WPR</div></div>
+    </div>
+    <div class="cv-ftr">
+      <span>BETWARRIOR BRASIL · CONFIDENTIAL</span>
+      <span>WPR · CAPA · JUL 01–15/2026</span>
+      <span>17/07/2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- PÁG. 1 · Métricas de Negócio -->
+<div class="slide" id="s1">
+  <iframe class="frame" src="wpr-jul-01-15-slide.html?v=1" scrolling="no" title="Pág. 1 · Métricas de Negócio"></iframe>
+</div>
+
+<!-- PÁG. 2 · Aquisição por Canal -->
+<div class="slide" id="s2">
+  <iframe class="frame" src="wpr-jul-01-15-slide-p2.html?v=3" scrolling="no" title="Pág. 2 · Aquisição por Canal"></iframe>
+</div>
+
+<div class="hint" id="hint">use as setas ou o scroll · clique nos pontos à direita</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const nav=document.getElementById('nav');
+slides.forEach((s)=>{const a=document.createElement('a');a.href='#'+s.id;nav.appendChild(a);});
+const dots=[...nav.children];
+let idx=0;
+function setActive(i){idx=i;dots.forEach(d=>d.classList.remove('on'));if(dots[i])dots[i].classList.add('on');}
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){setActive(slides.indexOf(e.target));}})},{threshold:.6});
+slides.forEach(s=>io.observe(s));
+function go(n){const t=Math.max(0,Math.min(slides.length-1,n));slides[t].scrollIntoView({behavior:'smooth'});}
+let lock=false;
+function goLocked(n){if(lock)return;const t=Math.max(0,Math.min(slides.length-1,n));if(t===idx)return;lock=true;go(t);setTimeout(()=>{lock=false;},800);}
+window.addEventListener('keydown',e=>{
+  if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();goLocked(idx+1);}
+  if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();goLocked(idx-1);}
+});
+window.addEventListener('wheel',e=>{e.preventDefault();if(Math.abs(e.deltaY)<12)return;goLocked(idx+(e.deltaY>0?1:-1));},{passive:false});
+setTimeout(()=>{const h=document.getElementById('hint');if(h)h.style.transition='opacity .6s',h.style.opacity='0';},4500);
+function scaleFrames(){const s=Math.min(window.innerWidth/1920,window.innerHeight/1080);document.querySelectorAll('.frame').forEach(f=>{f.style.transform='scale('+s+')';});}
+scaleFrames();
+window.addEventListener('resize',scaleFrames);
+</script>
+
+</body>
+</html>
