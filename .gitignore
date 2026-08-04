@@ -17,6 +17,11 @@ Projects/BetWarrior/Performance/Semanais/WPR/*.csv
 
 # Arquivos grandes (acima do limite do GitHub)
 *.pptx
+# Vídeos (gravações de benchmark/etc — grandes, nunca versionar)
+*.mp4
+*.MP4
+*.mov
+*.MOV
 
 # Arquivos temporarios/lock do Office
 ~$*

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update JP · Perfo / Aff · BetWarrior BR</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@media print { @page { size: A4 portrait; margin: 0; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } body { background:#fff; } }
+@media screen { body { background:#CCCCCC; padding:24px; } .cover,.page { margin:0 auto 24px; box-shadow:0 4px 24px rgba(0,0,0,.35); } }
+body { font-family:'Archivo',sans-serif; }
+
+/* COVER */
+.cover { width:210mm; height:297mm; background:#111; display:flex; flex-direction:column; position:relative; overflow:hidden; page-break-after:always; }
+.cover-top-stripe { position:absolute; top:0; right:0; width:55%; height:5px; background:#FF3900; }
+.cover-body { flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 58px; position:relative; z-index:1; }
+.cover-eyebrow { font-size:10px; font-weight:700; letter-spacing:.22em; color:#FF3900; text-transform:uppercase; margin-bottom:28px; }
+.cover-title { font-size:56px; font-weight:900; line-height:1.02; color:#fff; text-transform:uppercase; }
+.cover-title .accent { color:#FF3900; }
+.cover-divider { width:44px; height:3px; background:#FF3900; margin:28px 0; }
+.cover-subtitle { font-size:13.5px; color:#888; line-height:1.6; max-width:470px; }
+.cover-meta { display:flex; gap:52px; margin-top:52px; }
+.cover-meta-item label { display:block; font-size:8.5px; font-weight:700; letter-spacing:.18em; color:#FF3900; text-transform:uppercase; margin-bottom:5px; }
+.cover-meta-item span { font-size:13px; font-weight:600; color:#fff; }
+.cover-watermark { position:absolute; bottom:48px; right:-16px; font-size:190px; font-weight:900; color:rgba(255,255,255,.028); text-transform:uppercase; line-height:1; user-select:none; z-index:0; letter-spacing:-4px; }
+.cover-footer { display:flex; justify-content:space-between; align-items:center; padding:18px 58px; border-top:1px solid #222; z-index:1; }
+.cover-footer .bw-logo { font-size:15px; font-weight:900; color:#FF3900; letter-spacing:.06em; }
+.cover-footer .confidential { font-size:9px; font-weight:600; letter-spacing:.2em; color:#444; text-transform:uppercase; }
+
+/* PAGES */
+.page { width:210mm; height:297mm; background:#fff; display:flex; flex-direction:column; page-break-after:always; overflow:hidden; }
+.page:last-child { page-break-after:auto; }
+.page-header { background:#1C1C1E; display:flex; justify-content:space-between; align-items:center; padding:12px 32px; flex-shrink:0; }
+.page-header .bw-logo { font-size:12px; font-weight:900; color:#FF3900; letter-spacing:.06em; }
+.page-header .doc-label { font-size:9.5px; font-weight:600; color:#888; letter-spacing:.1em; text-transform:uppercase; }
+.page-content { flex:1; padding:26px 36px 16px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+.page-footer { display:flex; justify-content:space-between; align-items:center; padding:10px 36px; border-top:1px solid #EEE; flex-shrink:0; }
+.page-footer .footer-brand { font-size:8.5px; font-weight:600; letter-spacing:.15em; color:#AAA; text-transform:uppercase; }
+.page-footer .footer-page { font-size:8.5px; color:#BBB; }
+
+/* SECTIONS */
+.section { margin-bottom:0; }
+.section-badge { display:flex; align-items:center; gap:9px; margin-bottom:7px; }
+.badge-num { background:#FF3900; color:#fff; font-size:11px; font-weight:700; width:21px; height:21px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.badge-label { font-size:9.5px; font-weight:700; letter-spacing:.18em; color:#FF3900; text-transform:uppercase; }
+.section-title { font-size:16px; font-weight:900; color:#111; text-transform:uppercase; line-height:1.1; margin-bottom:9px; }
+.section-title .accent { color:#FF3900; }
+ul.bl { list-style:none; }
+ul.bl li { font-size:10.7px; color:#333; line-height:1.5; padding-left:15px; position:relative; margin-bottom:5px; }
+ul.bl li::before { content:""; position:absolute; left:0; top:7px; width:5px; height:5px; background:#FF3900; }
+ul.bl li b { color:#111; }
+.neg { color:#C0271A; font-weight:700; }
+.pos { color:#1E8A54; font-weight:700; }
+
+/* KPI cards */
+.kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin:4px 0 12px; }
+.kpi-card { background:#1C1C1E; padding:12px 14px; }
+.kpi-card .k-label { font-size:8px; font-weight:700; letter-spacing:.14em; color:#AAA; text-transform:uppercase; margin-bottom:6px; }
+.kpi-card .k-val { font-size:26px; font-weight:900; color:#fff; line-height:1; }
+.kpi-card .k-val.warn { color:#FF3900; }
+.kpi-card .k-sub { font-size:9px; color:#888; margin-top:5px; }
+
+/* callout */
+.callout { border-left:3px solid #FF3900; background:#FFF6F3; padding:11px 15px; margin:10px 0; }
+.callout.dark { border-left-color:#FF3900; background:#1C1C1E; }
+.callout .co-t { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#FF3900; margin-bottom:5px; }
+.callout p { font-size:10.5px; color:#333; line-height:1.55; }
+.callout p b { color:#111; }
+.callout.dark p { color:#CFCFCF; } .callout.dark p b { color:#fff; }
+.tag-note { font-size:9.5px; color:#999; font-style:italic; margin-top:3px; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top-stripe"></div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Performance · Reunião de Update</div>
+    <div class="cover-title">UPDATE JP<br><span class="accent">PERFO / AFF</span></div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">Estado da mídia paga e da aquisição no mês, o que está funcionando, a pressão sobre a receita e as decisões que dependem da liderança.</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>Período</label><span>MTD · Jul 01–26, 2026</span></div>
+      <div class="cover-meta-item"><label>Owner</label><span>Darwin Godoy · Growth BR</span></div>
+      <div class="cover-meta-item"><label>Afiliados</label><span>Ruan (à parte)</span></div>
+    </div>
+  </div>
+  <div class="cover-watermark">PERFO</div>
+  <div class="cover-footer">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="confidential">Uso Interno · Confidential</div>
+  </div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="page-header"><div class="bw-logo">BETWARRIOR</div><div class="doc-label">Update JP · Perfo / Aff · Jul 2026</div></div>
+  <div class="page-content">
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">1</div><div class="badge-label">Foto do mês · MTD Jul 01–26</div></div>
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="k-label">FTDs</div><div class="k-val warn">971</div><div class="k-sub">15% da meta MTD</div></div>
+        <div class="kpi-card"><div class="k-label">CPA Blended</div><div class="k-val">$341</div><div class="k-sub">vs meta $159</div></div>
+        <div class="kpi-card"><div class="k-label">GGR MTD</div><div class="k-val">+R$14k</div><div class="k-sub">recuperou (era −R$6,8k dia 19)</div></div>
+      </div>
+      <ul class="bl">
+        <li><b>Volume travado pela pausa de mídia.</b> FTD a 15% da meta; o CPA blended alto é aritmético (verba total fixa ÷ pouco volume).</li>
+        <li><b>Google (único canal pago ativo):</b> CPA ≈ <b>R$1.140</b> (fator Juanca ×1,33, R$50k / 33 FTDs GA4), <span class="neg">~3,8x o saudável de R$300</span> (bench Alfa). Não é ineficiência de canal, é <b>falta de escala</b> (R$50k gera só ~33 FTDs; nesse tamanho nenhum CPA fecha). <b>Estou trabalhando em um report detalhando as oportunidades de otimização das campanhas.</b></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">2</div><div class="badge-label">O que está funcionando · Eficiência</div></div>
+      <ul class="bl">
+        <li><b>PIX automático (BET-824)</b> no ar: CR do funil <span class="pos">~25% (na meta)</span>; Finished→FTD subiu de 20% para 29%.</li>
+        <li><b>Ticket resiliente: R$134</b> no 1º depósito, o melhor da série mai–jul.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">3</div><div class="badge-label">A dor · NGR negativo ~−R$18k MTD</div></div>
+      <ul class="bl">
+        <li><b>Não é apostador ganhando</b> (o GGR é positivo). São dois drivers:</li>
+        <li><b>Bônus:</b> bônus/Gross Bets saltou 5x (0,4% → 2,1%) com a atividade menor. É o principal e o <b>mais controlável</b>.</li>
+        <li><b>Hold estrutural de SB:</b> Tennis ITF / eFootball + high-rollers. Trading/BI.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">4</div><div class="badge-label">Canais · Status de mídia</div></div>
+      <ul class="bl">
+        <li><b>Google:</b> único pago ativo (CPA no bloco 1). <b>Meta / TikTok:</b> zerados.</li>
+        <li><b>Display (Verve/Match2One):</b> rescisão confirmada, encerra 31/07; saving a partir de agosto (confirmar valor de junho com o Luiz).</li>
+        <li><b>Ampfy:</b> aditivo de extensão no Jurídico (Gala) desde ~24/07 (ticket LI-59); <b>go depende da assinatura do contrato</b>. Libera Display / CPA-afiliado mediante verba.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">5</div><div class="badge-label">Pedidos do Pedro · Heads-up</div></div>
+      <ul class="bl">
+        <li><b>Influs:</b> report de performance <b>FBI Tricolor × Danilo</b> (apresento quarta, com a Gi). Virou <b>entregável semanal recorrente</b> (espelho do de afiliados do Ruan).</li>
+        <li><b>Novo fórum semanal Mkt / Perfo / Finance</b> (Darwin + Luiz + JP + Pedro), ver bloco 7.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">6</div><div class="badge-label">Decisões / inputs que preciso do JP</div></div>
+      <ul class="bl">
+        <li><b>Reativação de verba pós-corte:</b> qual o gatilho pra religar mídia? <b>Escala é o que traz o CPA de volta pro saudável.</b></li>
+        <li><b>Eficiência de bônus:</b> vale puxar junto com CRM/Promo, é o driver do NGR, e a régua de bônus é deles, não de Perfo.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">7</div><div class="badge-label">Financeiro · Quero teu radar</div></div>
+      <ul class="bl">
+        <li>O Pedro instituiu um <b>fórum semanal (Darwin + Luiz + JP + Pedro)</b> enquadrando como "acabar com silos e mais transparência", puxado pelo resultado abaixo da meta.</li>
+      </ul>
+      <div class="callout">
+        <div class="co-t">Meu incômodo · alinhar antes da 1ª reunião</div>
+        <p>A moldura arrisca ser lida como <b>problema da minha gestão</b>, e não é. Três pontos: <b>(1)</b> fui eu que trouxe o NGR na mesa na semanal, sou a fonte da transparência; <b>(2)</b> o NGR negativo é <b>bônus + hold de SB</b>, não a minha aquisição; <b>(3)</b> a fricção real com o Luis é <b>estrutural</b>: um descasamento <b>competência (uso) × caixa (pagamento)</b> no dimensionamento da mesada. Converter uso em desembolso é função de contas a pagar; eu entrego plano de uso + prazos, o cronograma de caixa é do Financeiro.</p>
+        <p style="margin-top:7px"><b>Postura:</b> entro construtivo, o fórum é o lugar certo pra amarrar esse processo. Mas quero você ciente de que a <b>raiz não é falha de Marketing</b>.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer"><div class="footer-brand">BetWarrior Brasil · Growth</div><div class="footer-page">1 / 1</div></div>
+</div>
+
+</body>
+</html>

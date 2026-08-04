@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ação Exiber · BetWarrior</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap');
+@page{ size:104mm 356mm; margin:0; }
+*{box-sizing:border-box;margin:0;padding:0}
+.kpis,.card,.note,table,.sec,.hd{break-inside:avoid}
+:root{--bg:#1C1C1E;--surface:#111;--surface2:#1A1A1A;--border:#2A2A2A;--orange:#FF3900;--white:#fff;--muted:#8A8A8A;--ink:#1a1a1a;--line:#E7E7E7}
+html,body{background:#fff}
+body{font-family:'Archivo',-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px}
+.page{width:104mm;min-height:206mm;padding:0 0 20px;background:#fff}
+h1,h2,h3{font-family:'Archivo Black','Archivo',sans-serif;text-transform:uppercase;letter-spacing:.4px;line-height:1.08}
+
+/* header */
+.hd{background:var(--bg);color:#fff;padding:22px 22px 20px}
+.brand{font-family:'Archivo Black';font-size:14px;letter-spacing:2px}.brand span{color:var(--orange)}
+.hd h1{font-size:25px;margin:14px 0 0}.hd h1 em{color:var(--orange);font-style:normal}
+.bar{width:46px;height:4px;background:var(--orange);border-radius:2px;margin:12px 0 12px}
+.hd .sub{color:#CFCFCF;font-size:12.5px;letter-spacing:.3px}
+
+.wrap{padding:20px 22px 0}
+.sec{color:var(--orange);font-size:10.5px;letter-spacing:1.6px;font-weight:700;text-transform:uppercase;margin:22px 0 8px}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff}
+.kpi.full{grid-column:1 / -1;background:#FFF4F1;border-color:#FFD9CE}
+.kpi .n{font-family:'Archivo Black';font-size:22px;color:var(--orange);line-height:1}
+.kpi .n.dark{color:var(--ink)}
+.kpi .l{color:#666;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;margin-top:6px}
+
+/* table */
+table{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px}
+th{background:var(--orange);color:#fff;font-weight:700;text-align:right;padding:9px 10px;font-size:12px}
+th:first-child{text-align:left;border-radius:8px 0 0 0}th:last-child{border-radius:0 8px 0 0}
+td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line)}
+td:first-child{text-align:left;font-weight:600}
+tbody tr:nth-child(even){background:#FAFAFA}
+tr.tot td{background:#F2F2F2;font-weight:700;border-top:2px solid var(--orange)}
+
+.card{border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-top:9px;font-size:13.5px}
+.card b{color:var(--ink)}
+.card .h{font-family:'Archivo Black';font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;color:var(--ink)}
+.note{background:#F7F7F7;border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:11px 13px;font-size:13px;color:#333;margin-top:9px}
+ul{margin:6px 0 0 17px}li{margin:5px 0;font-size:13.5px}
+.foot{margin:20px 22px 0;padding-top:12px;border-top:1px solid var(--line);color:#9a9a9a;font-size:10px;letter-spacing:.4px;text-transform:uppercase}
+.hl{color:var(--orange);font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hd">
+    <div class="brand">BET<span>WARRIOR</span></div>
+    <h1>Ação <em>Exiber</em><br>Grupo Unik</h1>
+    <div class="bar"></div>
+    <div class="sub">Programática · branding esportes · Sudeste<br>Maio a Julho 2026 · Mercado Brasil</div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="sec">Visão geral</div>
+    <div class="kpis">
+      <div class="kpi full"><div class="n">R$ 50.000</div><div class="l">Investimento na ação</div></div>
+      <div class="kpi"><div class="n dark">1.650</div><div class="l">Sessões geradas</div></div>
+      <div class="kpi"><div class="n dark">~1.505</div><div class="l">Visitantes (GA4)</div></div>
+      <div class="kpi"><div class="n">1</div><div class="l">Cadastro</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">Depósito (FTD)</div></div>
+    </div>
+
+    <div class="sec">Tráfego e participação no site</div>
+    <table>
+      <thead><tr><th>Mês</th><th>Sessões</th><th>% do site</th></tr></thead>
+      <tbody>
+        <tr><td>Maio</td><td>551</td><td>0,10%</td></tr>
+        <tr><td>Junho</td><td>1.096</td><td>0,22%</td></tr>
+        <tr><td>Julho</td><td>3</td><td>~0%</td></tr>
+        <tr class="tot"><td>Total</td><td>1.650</td><td>0,13%</td></tr>
+      </tbody>
+    </table>
+    <div class="note">A ação rodou em <b>maio e junho</b> (julho apenas residual). No pico, junho, respondeu por <span class="hl">0,22% das sessões</span> do site, um volume modesto no total do tráfego. Custo por sessão de <b>~R$30</b>.</div>
+
+    <div class="sec">Conversão</div>
+    <div class="card">
+      <div class="h">O que chegou ao funil</div>
+      Na nossa atribuição (last-click), a ação registrou <b>1 cadastro e nenhum depósito</b>. Custo por cadastro de <b>R$ 50.000</b>, sem FTD no período.
+    </div>
+
+    <div class="sec">Leitura</div>
+    <div class="card">
+      <div class="h">Contexto justo</div>
+      Foi uma ação de <b>topo de funil</b> (branding/programática), e o modelo last-click <b>subestima</b> esse tipo de mídia: efeito de view-through e conversões assistidas não são capturados pela nossa medição. Ainda assim, o <b>retorno direto ficou abaixo do que buscávamos</b> para o investimento.
+    </div>
+
+  </div>
+  <div class="foot">BetWarrior · Growth Brasil · Uso interno para alinhamento com o parceiro · Fontes: Power BI (BR+BWBRA) e GA4 · corte 28/07/2026</div>
+
+</div>
+</body>
+</html>

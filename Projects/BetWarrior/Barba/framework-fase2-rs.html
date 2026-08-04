@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 2 · Ativação RS · Framework · BetWarrior</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+@media print { @page { size:A4 portrait; margin:0; } * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; } body { background:#fff; } }
+@media screen { body { background:#CCC; padding:24px; } .cover,.page { margin:0 auto 24px; box-shadow:0 4px 24px rgba(0,0,0,.35); } }
+body { font-family:'Archivo',sans-serif; }
+
+.cover { width:210mm; height:297mm; background:#111; display:flex; flex-direction:column; position:relative; overflow:hidden; page-break-after:always; }
+.cover-top-stripe { position:absolute; top:0; right:0; width:55%; height:5px; background:#FF3900; }
+.cover-body { flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 58px; position:relative; z-index:1; }
+.cover-eyebrow { font-size:10px; font-weight:700; letter-spacing:.22em; color:#FF3900; text-transform:uppercase; margin-bottom:28px; }
+.cover-title { font-size:58px; font-weight:900; line-height:1.02; color:#fff; text-transform:uppercase; }
+.cover-title .accent { color:#FF3900; }
+.cover-divider { width:44px; height:3px; background:#FF3900; margin:28px 0; }
+.cover-subtitle { font-size:13.5px; color:#888; line-height:1.6; max-width:480px; }
+.cover-meta { display:flex; gap:48px; margin-top:52px; }
+.cover-meta-item label { display:block; font-size:8.5px; font-weight:700; letter-spacing:.18em; color:#FF3900; text-transform:uppercase; margin-bottom:5px; }
+.cover-meta-item span { font-size:13px; font-weight:600; color:#fff; }
+.cover-watermark { position:absolute; bottom:44px; right:22px; font-size:200px; font-weight:900; color:rgba(255,255,255,.03); text-transform:uppercase; line-height:1; user-select:none; z-index:0; letter-spacing:-4px; }
+.cover-footer { display:flex; justify-content:space-between; align-items:center; padding:18px 58px; border-top:1px solid #222; z-index:1; }
+.cover-footer .bw-logo { font-size:15px; font-weight:900; color:#FF3900; letter-spacing:.06em; }
+.cover-footer .confidential { font-size:9px; font-weight:600; letter-spacing:.2em; color:#444; text-transform:uppercase; }
+
+.page { width:210mm; height:297mm; background:#fff; display:flex; flex-direction:column; page-break-after:always; overflow:hidden; }
+.page:last-child { page-break-after:auto; }
+.page-header { background:#1C1C1E; display:flex; justify-content:space-between; align-items:center; padding:12px 32px; flex-shrink:0; }
+.page-header .bw-logo { font-size:12px; font-weight:900; color:#FF3900; letter-spacing:.06em; }
+.page-header .doc-label { font-size:9.5px; font-weight:600; color:#888; letter-spacing:.1em; text-transform:uppercase; }
+.page-content { flex:1; padding:24px 36px 16px; overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:22px; }
+.page-footer { display:flex; justify-content:space-between; align-items:center; padding:10px 36px; border-top:1px solid #EEE; flex-shrink:0; }
+.page-footer .footer-brand { font-size:8.5px; font-weight:600; letter-spacing:.15em; color:#AAA; text-transform:uppercase; }
+.page-footer .footer-page { font-size:8.5px; color:#BBB; }
+
+.section { margin-bottom:0; }
+.section-badge { display:flex; align-items:center; gap:9px; margin-bottom:6px; }
+.badge-num { background:#FF3900; color:#fff; font-size:11px; font-weight:700; width:21px; height:21px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.badge-label { font-size:9.5px; font-weight:700; letter-spacing:.18em; color:#FF3900; text-transform:uppercase; }
+.txt { font-size:12.5px; color:#333; line-height:1.65; }
+.txt b { color:#111; }
+.fill { color:#B98A2E; font-style:italic; font-weight:600; }
+ul.bl { list-style:none; }
+ul.bl li { font-size:12px; color:#333; line-height:1.6; padding-left:16px; position:relative; margin-bottom:7px; }
+ul.bl li::before { content:""; position:absolute; left:0; top:7px; width:5px; height:5px; background:#FF3900; }
+ul.bl li b { color:#111; }
+
+table.bt { width:100%; border-collapse:collapse; margin-top:2px; }
+table.bt th { background:#1C1C1E; color:#fff; font-size:9.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-align:left; padding:9px 10px; }
+table.bt th:not(:first-child), table.bt td:not(:first-child) { text-align:center; }
+table.bt td { font-size:11.5px; color:#333; padding:9px 10px; border-bottom:1px solid #EEE; }
+table.bt td:first-child { font-weight:600; color:#111; }
+table.bt tr.total td { background:#FFF6F3; font-weight:700; color:#111; border-top:2px solid #FF3900; border-bottom:none; }
+.note { font-size:9.5px; color:#999; margin-top:4px; }
+.note b { color:#666; }
+.closebox { background:#1C1C1E; padding:15px 18px; margin-top:2px; }
+.closebox .cb-t { font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#FF3900; margin-bottom:7px; }
+.closebox p { font-size:11.5px; color:#DDD; line-height:1.6; }
+.closebox p b { color:#fff; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top-stripe"></div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Growth BR · Ativação Regional</div>
+    <div class="cover-title">FASE 2<br><span class="accent">ATIVAÇÃO RS</span></div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">Piloto de eficiência para comprovar o modelo de ativação no Rio Grande do Sul fora do efeito Copa, e embasar a expansão para o Sul.</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>Projeto</label><span>Ativação RS · Bares + Rádio</span></div>
+      <div class="cover-meta-item"><label>Teto de budget</label><span>≤ R$ 100.000</span></div>
+      <div class="cover-meta-item"><label>Formato</label><span>Esqueleto p/ preencher</span></div>
+    </div>
+  </div>
+  <div class="cover-watermark">RS</div>
+  <div class="cover-footer">
+    <div class="bw-logo">BETWARRIOR</div>
+    <div class="confidential">Uso Interno · Confidential</div>
+  </div>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+  <div class="page-header"><div class="bw-logo">BETWARRIOR</div><div class="doc-label">Fase 2 · Ativação RS · Framework da Proposta</div></div>
+  <div class="page-content">
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">1</div><div class="badge-label">Objetivo</div></div>
+      <p class="txt">Provar que o modelo de ativação em RS é <b>eficiente e recorrente</b> (fora do efeito Copa), como base para escalar no Sul. A Fase 2 é um <b>teste de eficiência</b>, não uma expansão de contratos.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">2</div><div class="badge-label">Hipótese a testar</div></div>
+      <p class="txt">Bares que transmitem esporte de forma <b>recorrente</b> + rádio local geram FTDs de qualidade a custo eficiente, <b>sem depender de um evento pontual</b> como a Copa.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">3</div><div class="badge-label">Canais do piloto · cada um medido separado</div></div>
+      <ul class="bl">
+        <li><b>Bar de esporte 1</b> (transmissão recorrente) · <span class="fill">[ nome ]</span></li>
+        <li><b>Bar de esporte 2</b> (transmissão recorrente) · <span class="fill">[ nome ]</span></li>
+        <li><b>Rádio Importal</b> (YouTube), mídia recorrente · <span class="fill">[ formato / frequência ]</span></li>
+        <li><b>Baseline:</b> Espartano + Canto Bar · <span class="fill">[ incluir só se os contratos fecharem ]</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">4</div><div class="badge-label">Budget e meta por canal · total ≤ R$100K</div></div>
+      <table class="bt">
+        <tr><th>Canal</th><th>Investimento</th><th>FTD esperado</th><th>CPA meta</th><th>Qualidade alvo</th></tr>
+        <tr><td>Bar de esporte 1</td><td class="fill">R$ [ ]</td><td class="fill">[ ]</td><td class="fill">R$ [ ]</td><td class="fill">ticket ≥ R$ [ ]</td></tr>
+        <tr><td>Bar de esporte 2</td><td class="fill">R$ [ ]</td><td class="fill">[ ]</td><td class="fill">R$ [ ]</td><td class="fill">ticket ≥ R$ [ ]</td></tr>
+        <tr><td>Rádio Importal</td><td class="fill">R$ [ ]</td><td class="fill">[ ]</td><td class="fill">R$ [ ]</td><td class="fill">ticket ≥ R$ [ ]</td></tr>
+        <tr><td>Coordenação (Barba)</td><td class="fill">R$ [ ]</td><td>comissão fixa</td><td>·</td><td>transparente</td></tr>
+        <tr class="total"><td>TOTAL</td><td class="fill">R$ [ ≤100K ]</td><td class="fill">[ ]</td><td class="fill">R$ [ ]</td><td>·</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">5</div><div class="badge-label">Estrutura · simples e controlável</div></div>
+      <ul class="bl">
+        <li><b>BW contrata os veículos direto</b> (controle e atribuição por canal).</li>
+        <li><b>Coordenação a cargo do Barba,</b> com comissão transparente.</li>
+        <li><b>Tracking UTM próprio por canal</b> (padrão 1211-[canal]) para medir cada um isoladamente.</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="page-footer"><div class="footer-brand">BetWarrior Brasil · Growth · Ativação RS</div><div class="footer-page">1 / 2</div></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="page-header"><div class="bw-logo">BETWARRIOR</div><div class="doc-label">Fase 2 · Ativação RS · Framework da Proposta</div></div>
+  <div class="page-content">
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">6</div><div class="badge-label">Modelo de remuneração · escala com resultado</div></div>
+      <ul class="bl">
+        <li><b>Base de coordenação:</b> um fixo que cobre a operação e a gestão do projeto · <span class="fill">R$ [ ]</span>.</li>
+        <li><b>Bônus por FTD:</b> valor por FTD trazido · <span class="fill">R$ [ ] / FTD</span>.</li>
+        <li><b>Bônus de qualidade:</b> valor adicional por <b>FTD qualificado</b> (depósito ≥ <span class="fill">R$ [ ]</span> ou 2º depósito) · <span class="fill">R$ [ ] / FTD qualif.</span> É onde o ganho escala.</li>
+      </ul>
+      <p class="note"><b>Lógica:</b> o comissionamento escala com o resultado e premia qualidade, não só volume, alinhando o custo à eficiência que o piloto busca provar.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">7</div><div class="badge-label">Tamanho da oportunidade do Sul</div></div>
+      <ul class="bl">
+        <li><b>Pipeline endereçável:</b> quantos bares de esporte / veículos / ativações são recorrentes e replicáveis no Sul · <span class="fill">[ nº de bares · cidades · alcance ]</span>.</li>
+        <li><b>Volume potencial anual</b> se o modelo escalar · <span class="fill">[ FTDs qualificados / GGR estimado ]</span>.</li>
+        <li>Este dimensionamento <b>embasa o formato de operação do Sul</b> no médio prazo.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">8</div><div class="badge-label">KPIs de sucesso · o que prova o case</div></div>
+      <ul class="bl">
+        <li><b>Volume:</b> FTDs por canal.</li>
+        <li><b>Eficiência:</b> CPA por canal ≤ <span class="fill">R$ [ ]</span>.</li>
+        <li><b>Qualidade:</b> ticket médio / 2º depósito / recorrência, o que separa player de verdade de volume passageiro.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-badge"><div class="badge-num">9</div><div class="badge-label">Duração e critério de decisão</div></div>
+      <ul class="bl">
+        <li><b>Piloto de</b> <span class="fill">[ X ] semanas</span>.</li>
+        <li><b>Critério:</b> se CPA ≤ <span class="fill">R$ [ ]</span> e qualidade ≥ <span class="fill">[ ]</span> → modelo validado, base para escalar no Sul.</li>
+      </ul>
+    </div>
+
+    <div class="closebox">
+      <div class="cb-t">Os três pilares do piloto</div>
+      <p><b>1 · Transparência:</b> números por canal, limpos.&nbsp;&nbsp; <b>2 · Qualidade:</b> player que deposita e volta, não só volume.&nbsp;&nbsp; <b>3 · Escala:</b> o tamanho do Sul dimensionado.</p>
+    </div>
+
+  </div>
+  <div class="page-footer"><div class="footer-brand">BetWarrior Brasil · Growth · Ativação RS</div><div class="footer-page">2 / 2</div></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Guia Claude Code no VSCode — João Vitor</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1c2230; line-height: 1.55; font-size: 11pt; margin: 0; }
+  h1 { font-size: 26pt; margin: 0 0 4px; letter-spacing: -0.5px; }
+  h2 { font-size: 15pt; margin: 26px 0 8px; color: #123; border-bottom: 2px solid #2D5BFF; padding-bottom: 5px; }
+  h3 { font-size: 12.5pt; margin: 18px 0 4px; color: #2D5BFF; }
+  p { margin: 6px 0; }
+  ul, ol { margin: 6px 0 6px 0; padding-left: 22px; }
+  li { margin: 3px 0; }
+  a { color: #2D5BFF; text-decoration: none; }
+  code { background: #eef1f7; padding: 1px 5px; border-radius: 4px; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 9.5pt; }
+  pre { background: #0f1424; color: #e7ecf7; padding: 13px 15px; border-radius: 8px; overflow-x: auto; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 9pt; line-height: 1.5; margin: 8px 0; }
+  pre code { background: none; color: inherit; padding: 0; }
+  .lead { color: #556; font-size: 12pt; margin-bottom: 2px; }
+  .sub { color: #8792a6; font-size: 10pt; margin: 2px 0 0; }
+  .cover { border-bottom: 3px solid #2D5BFF; padding-bottom: 16px; margin-bottom: 8px; }
+  .tag { display:inline-block; background:#2D5BFF; color:#fff; font-size:8.5pt; letter-spacing:2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-bottom:14px; }
+  .box { background: #f5f7fc; border: 1px solid #dfe5f2; border-left: 4px solid #2D5BFF; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; page-break-inside: avoid; }
+  .box.warn { border-left-color: #F59E0B; background: #fff8ec; border-color: #f3e2bf; }
+  .box.tip { border-left-color: #22A06B; background: #f0faf5; border-color: #cdeede; }
+  .box b { color: #123; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+  th { background: #2D5BFF; color: #fff; text-align: left; padding: 7px 10px; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e3e8f2; }
+  tr:nth-child(even) td { background: #f7f9fd; }
+  .step { page-break-inside: avoid; }
+  .foot { margin-top: 30px; padding-top: 12px; border-top: 1px solid #e3e8f2; color: #8792a6; font-size: 9.5pt; }
+  .tree { background:#0f1424; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="tag">Guia rápido</div>
+  <h1>Claude Code no VSCode</h1>
+  <p class="lead">Do zero: instalar, entrar, organizar as pastas e ter o Claude como assistente pessoal.</p>
+  <p class="sub">Feito para o João Vitor · leva ~20 minutos o básico</p>
+</div>
+
+<h2>O que é isso?</h2>
+<p>O <b>Claude Code</b> é o Claude (a IA) rodando <b>dentro do seu editor (VSCode)</b>. Ele lê seus arquivos, responde perguntas, escreve e revisa textos e código, roda comandos e te ajuda em tarefas, tudo conversando em português normal, como uma pessoa do seu lado.</p>
+
+<h2>Antes de começar</h2>
+<ul>
+  <li><b>Uma conta Claude com plano</b> (Pro ou Max). <i>Fala com o Darwin sobre isso.</i></li>
+  <li><b>Um computador</b> (Mac ou Windows).</li>
+  <li><b>O VSCode instalado e atualizado</b> (versão 1.98 ou mais nova, a gente confere no Passo 1).</li>
+</ul>
+
+<h2>Passo 1 — Instalar o VSCode</h2>
+<ol class="step">
+  <li>Vai em <a>code.visualstudio.com</a> e baixa a versão do seu sistema (Mac ou Windows).</li>
+  <li>Instala normalmente (avançar, avançar, concluir).</li>
+  <li>Abre o VSCode. Pra conferir a versão: <b>Help → About</b> (<b>Ajuda → Sobre</b>). Se for <b>1.98 ou maior</b>, tá certo.</li>
+</ol>
+
+<h2>Passo 2 — Instalar a extensão do Claude Code</h2>
+<ol class="step">
+  <li>Com o VSCode aberto, aperta <code>Cmd+Shift+X</code> (Mac) ou <code>Ctrl+Shift+X</code> (Windows). Isso abre as <b>Extensões</b>.</li>
+  <li>Na busca, digita <b>Claude Code</b>.</li>
+  <li>Clica em <b>Install</b> na extensão oficial da <b>Anthropic</b> (o publisher aparece como <code>anthropic.claude-code</code>).</li>
+  <li>Se não aparecer na hora, fecha e abre o VSCode de novo.</li>
+</ol>
+
+<h2>Passo 3 — Entrar (login)</h2>
+<ol class="step">
+  <li>Aparece um <b>ícone de faísca ✱</b> no canto do editor (em cima à direita, ou embaixo na barra de status). Clica nele.</li>
+  <li>Clica em <b>Sign in</b>.</li>
+  <li>Abre o navegador pra você logar com a sua <b>conta Claude</b>. Autoriza.</li>
+  <li>Volta pro VSCode. Conectado! Ele guarda o login, você não repete toda vez.</li>
+</ol>
+
+<h2>Passo 4 — Criar a estrutura de pastas</h2>
+<p>A ideia é ter <b>uma pasta principal só sua</b>, e dentro dela as subpastas por assunto. É essa pasta principal que você abre no VSCode.</p>
+
+<h3>4.1 — Criar a pasta principal</h3>
+<p><b>No Mac:</b> abre o <b>Finder</b> → <b>Documentos</b> → botão direito no vazio → <b>Nova Pasta</b> → nome <code>JoaoVitor</code> (sem espaço e sem acento) → Enter.</p>
+<p><b>No Windows:</b> abre o <b>Explorador de Arquivos</b> → <b>Documentos</b> → botão direito no vazio → <b>Novo → Pasta</b> → nome <code>JoaoVitor</code> → Enter.</p>
+
+<h3>4.2 — Abrir essa pasta no VSCode</h3>
+<ol>
+  <li>Menu <b>File → Open Folder</b> (<b>Arquivo → Abrir Pasta</b>).</li>
+  <li>Navega até <b>Documentos → JoaoVitor</b> e clica em <b>Open / Abrir</b>.</li>
+  <li>Na primeira vez pode aparecer <i>"Do you trust the authors...?"</i> → clica em <b>Yes, I trust the authors</b> (é sua pasta, pode confiar).</li>
+  <li>Do lado esquerdo abre o painel <b>EXPLORER</b> com <b>JOAOVITOR</b> no topo. Deu certo.</li>
+</ol>
+
+<h3>4.3 — Criar as subpastas (dentro do VSCode)</h3>
+<ol>
+  <li>Passa o mouse em cima de <b>JOAOVITOR</b> (no topo do EXPLORER). Aparecem uns ícones.</li>
+  <li>Clica no ícone de <b>Nova Pasta</b> (pastinha com <code>+</code>).</li>
+  <li>Digita <code>Estudos</code> e Enter. Repete pra <code>Projetos</code> e <code>Candidaturas</code>.</li>
+</ol>
+
+<h3>4.4 — Criar o arquivo CLAUDE.md</h3>
+<p>Mesma coisa, mas no ícone de <b>Novo Arquivo</b> (folha com <code>+</code>). Digita <code>CLAUDE.md</code> e Enter. Pode deixar vazio por enquanto, a gente preenche no Nível 2.</p>
+
+<p>No fim, seu EXPLORER fica assim:</p>
+<pre class="tree"><code>JOAOVITOR
+├── CLAUDE.md
+├── Candidaturas
+├── Estudos
+└── Projetos</code></pre>
+
+<div class="box tip"><b>Atalho preguiçoso:</b> pula o 4.3 e 4.4 e pede pro próprio Claude. Abre a faísca ✱ e escreve: <i>"cria as pastas Estudos, Projetos e Candidaturas, e um arquivo CLAUDE.md vazio na raiz"</i>. Ele faz (você só clica em Aceitar). Bom jeito de sentir como ele trabalha.</div>
+
+<h2>Passo 5 — Primeira conversa</h2>
+<ol class="step">
+  <li>Abre a faísca ✱.</li>
+  <li>Escreve algo simples, tipo <i>"o que tem nessa pasta?"</i> ou <i>"cria um hello.txt com uma mensagem de boas-vindas"</i>.</li>
+  <li>A partir daí é só conversar em português, pede o que quiser.</li>
+</ol>
+
+<div class="box warn"><b>Como funcionam as "aprovações":</b> quando o Claude quer mexer num arquivo ou rodar um comando, ele <b>pergunta antes</b> e mostra o que vai fazer. Você escolhe <b>Aceitar</b>, <b>Recusar</b> ou <b>Pedir mudança</b>. Você está sempre no controle. No começo, vai aceitando com calma e lendo o que ele faz, é assim que se aprende. Erra sem medo: com git dá pra desfazer tudo.</div>
+
+<h3>Comandos e atalhos úteis</h3>
+<table>
+  <tr><th>Comando</th><th>O que faz</th></tr>
+  <tr><td><code>/help</code></td><td>Mostra os comandos disponíveis</td></tr>
+  <tr><td><code>/login</code></td><td>Entrar / trocar de conta</td></tr>
+  <tr><td><code>/clear</code></td><td>Limpar a conversa e começar do zero</td></tr>
+  <tr><td><code>/usage</code></td><td>Ver seu uso e limites</td></tr>
+  <tr><td><code>@arquivo</code></td><td>Perguntar sobre um arquivo específico (ex: <code>@curriculo.md</code>)</td></tr>
+</table>
+
+<h2>Nível 2 — Transformar o Claude num assistente que te conhece</h2>
+<p>Aqui o Claude deixa de começar do zero toda vez e passa a saber quem você é. Três coisas (a 3ª é opcional).</p>
+
+<h3>2.1 — Preencher o CLAUDE.md (o mais importante)</h3>
+<p>Esse arquivo o Claude lê <b>no começo de toda conversa</b>. Abre o <code>CLAUDE.md</code> e cola isto, ajustando o que está entre colchetes:</p>
+<pre><code># Claude — João Vitor
+
+Você é o assistente pessoal do João Vitor.
+Sempre responda em português do Brasil.
+
+## Quem sou
+- Nome: João Vitor
+- Momento: buscando uma nova oportunidade profissional;
+  estudando [sua área/curso]
+- Idiomas: português, espanhol e inglês
+
+## Minhas pastas
+- Estudos/ — cursos, anotações e materiais
+- Projetos/ — projetos pessoais e testes
+- Candidaturas/ — vagas, currículo e entrevistas
+
+## Como quero que você me ajude
+- Revisar e melhorar meu currículo e cartas de apresentação
+- Preparar entrevistas (perguntas, respostas, simulações)
+- Organizar e resumir meus estudos
+- Escrever e revisar textos (e-mails, mensagens, posts)
+
+## Preferências
+- Respostas diretas e claras, sem enrolação
+- Me explique quando eu usar um termo que talvez eu não conheça
+- Nunca envie nada (e-mail, mensagem) sem eu aprovar antes</code></pre>
+<p>Salva (<code>Cmd+S</code> / <code>Ctrl+S</code>). Da próxima vez, ele já chega sabendo quem você é.</p>
+
+<div class="box warn"><b>Importante:</b> use este modelo como base. <b>Nunca copie o CLAUDE.md de outra pessoa que tenha informação de trabalho / confidencial.</b> O seu é só seu.</div>
+
+<h3>2.2 — Parar de aprovar leitura toda hora (permissões)</h3>
+<p>No começo ele pergunta antes de cada ação. Pra ele parar de perguntar em coisas seguras:</p>
+<ul>
+  <li><b>Jeito fácil:</b> quando ele pedir aprovação pra <b>ler</b> um arquivo ou <b>rodar</b> um comando e você confiar, clica em <b>"Always allow"</b> (Sempre permitir). Isso monta as permissões sozinho.</li>
+  <li><b>Jeito direto:</b> pede pro Claude: <i>"abre meu ~/.claude/settings.json e libera leitura, escrita e edição de arquivos sem aprovação, mas mantém envios externos (e-mail, mensagens) sempre pedindo confirmação"</i>.</li>
+</ul>
+<div class="box tip"><b>Regra de ouro:</b> ler e escrever arquivos pode liberar; <b>enviar coisa pra fora (e-mail, mensagem) sempre pede OK</b>.</div>
+
+<h3>2.3 — Fazer ele aprender com você (memória)</h3>
+<p>Quando quiser que ele lembre de algo pra sempre, é só falar: <i>"lembra disso pras próximas conversas: [a coisa]"</i>. Ex: <i>"lembra que eu prefiro currículo em uma página só"</i>. Dias depois, ele já sabe. Pra apagar: <i>"esquece aquela regra sobre X"</i>.</p>
+
+<h3>2.4 — Hooks (opcional, pro futuro)</h3>
+<p>Existe um nível 3 (automações que disparam sozinhas em certos eventos). Não precisa agora. Está no guia de setup avançado, para quando você quiser se aprofundar.</p>
+
+<div class="foot">
+  Fala com o Claude como você falaria com uma pessoa. Não precisa saber "os termos certos", se ele fizer algo diferente, é só corrigir que ele ajusta. Bem-vindo, João Vitor! 🚀
+</div>
+
+</body>
+</html>
