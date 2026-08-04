@@ -32,7 +32,9 @@ Para período de comparação WoW: `data_inicio − 7d` e `data_fim − 7d`.
 
 ---
 
-### Etapa 2 — Coleta paralela (4 fontes)
+### Etapa 2 — Coleta paralela (fontes)
+
+> **Determinação (04/08/2026) — varredura COMPLETA do período em TODAS as fontes.** Não inferir do assunto/resumo nem pescar por palavra-chave. Varrer, no período analisado: **todos os e-mails**, **todas as mensagens do Slack (canais + DMs)**, o **Calendar**, o **GA4** e o **PowerBI**.
 
 #### 2a. Gmail — Gemini Notes
 - **Ferramenta:** `mcp__google_workspace__search_gmail_messages` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
@@ -44,7 +46,7 @@ Para período de comparação WoW: `data_inicio − 7d` e `data_fim − 7d`.
 #### 2b. Gmail — E-mails estratégicos gerais
 - **Ferramenta:** `mcp__google_workspace__search_gmail_messages` (parâmetro obrigatório: `user_google_email: darwingodoy@betwarrior.com`)
 - **Query:** `after:YYYY/MM/DD before:YYYY/MM/DD -from:gemini-notes@google.com -from:noreply -from:no-reply -category:promotions -category:updates`
-- **Ler conteúdo:** `mcp__google_workspace__get_gmail_thread_content` para threads relevantes
+- **Ler conteúdo:** `mcp__google_workspace__get_gmail_thread_content` — **ler os CORPOS de TODAS as threads do período**, não inferir do assunto. Só descartar depois de ler.
 - **Filtro pós-leitura:** manter apenas threads com relevância para CMO — resultados, lançamentos, problemas, decisões, alinhamentos com outras frentes
 - **Descartar:** notificações automáticas, alertas de sistema, newsletters
 
@@ -69,6 +71,12 @@ Para período de comparação WoW: `data_inicio − 7d` e `data_fim − 7d`.
 - **Métricas período anterior (WoW):** mesmas métricas, datas − 7 dias
 - **Calcular:** variação % WoW para cada métrica
 - **Regras:** filtros obrigatórios External, NOT_LOCKED, BR, BWBRA (ver `BI/pbi-overview-bira.md`)
+
+#### 2f. Slack — TODAS as mensagens do período (canais + DMs)
+- **Determinação (04/08/2026):** varrer **tudo** que passou na semana (não só afiliados) e **por data, não por palavra-chave** — o *search* do Slack exige termo e junta com AND, então fura; e cuidado com o timestamp (conferir o ANO, errado dá vazio).
+- **Método correto:** ler cada conversa **por intervalo de data** com `slack_read_channel` (`oldest`/`latest` em Unix). Enumerar canais com `slack_search_channels`; ler DMs usando o **user_id como channel_id** (`slack_search_users` pega os IDs).
+- **Cobrir:** canais BR (`#bw-brasil` C078QJRRF9Q · `#mkt-brasil` C09V8KYMRU3 · `#br-weekly-updates` · `#cs-brasil-promotions` C0AUD2WUHB5 · `#br-mkt-copa` C0AQF8VHHBP · `#affiliates_br` · `#project-brasil-afiliates` C089SRN4VEW) + o espelho do **CRM-Interno** (C0BJ2BVLXBJ — comentários vivem em THREADS, usar `slack_read_thread`) + DMs/group DMs relevantes (Ruan, Gi, JP, Juanca, Diego, Giuliano, Gala, Clara, Lucas Vagione, Jocelyne, grupos Pedro/JP/Ruan e Legal).
+- Canais gerais costumam estar **quietos**; a substância vive em **DMs + CRM-Interno**.
 
 ---
 
