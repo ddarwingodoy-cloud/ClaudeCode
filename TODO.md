@@ -34,6 +34,7 @@
 - [ ] **MyAffiliates Mkt_Brasil (hierarquia)** — proposta ao JP; aguardando decisão dos 3 agrupamentos.
 
 ### Ampfy
+- [ ] **Revisão de cláusulas com a Clara (em curso, 05/08)** — confirmado o **mandato de compra de mídia** (Cláusula 8, "por conta e ordem", fee NÃO cobre mídia, ativação futura via Scope Change 2.3); mídia fica FORA das exclusões só como pass-through; **DPA como gatilho** (assinar só quando ativar mídia com dados nossos). Mídia = escopo excluído do fee, validado pra ativação futura.
 - [ ] **Verba de Display** — Ampfy pode operar compra de mídia (modelo tipo PicPay-Alfa) sob o novo contrato, quando houver retorno; alinhar com Ruan pra não conflitar com afiliados.
 
 ### Regulatório (radar)
@@ -53,12 +54,17 @@
 - [ ] **Power BI — licença** — conta Free; ticket **BMA-8843** no IT (API/token OK, só UI travada).
 - [ ] **WPR — pacing por canal** — backlog, modelo indefinido.
 - [ ] **Perfo BR — distribuição de investimento Jul–Dez** (cronograma do Juanca) — encaminhado ao Diego (04/08); Agosto entra **Meta**. Acompanhar execução.
+- [ ] **Apple Developer / MERCURY DIGITAL MEDIA SL** — convite pra entrar no time (Apple Search Ads). E-mail legítimo. **Antes de aceitar: confirmar com o Juanca/Perfo o que é a MERCURY + qual papel.** Não se inscrever no programa próprio (pago); aceite é via link do convite, com conta **@betwarrior.com** (não a pessoal).
+
+### Time / Gestão
+- [ ] **Feedback da Gi (BambooHR, First 2 months)** — selecionar avaliadores (sugestão: Giuliano, Ruan, Diego). **Prazo 16/08.** ⚠ escala de DECISÕES invertida em outras perguntas do Bamboo.
 
 ### Pessoal / Marca
 - [ ] **Vagas** — aplicar **Petlove** (form comportamental feito) e **Blip**; C&A pendente. + indicação do **JV pro Demian** (WhatsApp pronto).
 - [ ] **LinkedIn** — definir próximo tema (evitar operacional; territórios: branding econômico, priorização por margem/LTV, CRM/retenção). Post "fricção≠conversão" teve baixa performance — repensar.
 - [ ] **Levi's PROCON** (protocolo 1643351/2026) — "não resolvida"; avaliar **Juizado Especial Cível** (R$121,96 + diferença).
 - [ ] **Urologista** — follow-up (Dr. André Marani, 16/07).
+- [ ] **Resposta à Inês (Bwise Media)** — "não neste momento" (ajuste de orçamento + foco em outras frentes) **em rascunho no Gmail**, falta enviar.
 
 ---
 
