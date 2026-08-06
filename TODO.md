@@ -66,6 +66,10 @@
 - [ ] **Urologista** — follow-up (Dr. André Marani, 16/07).
 - [ ] **Resposta à Inês (Bwise Media)** — "não neste momento" (ajuste de orçamento + foco em outras frentes) **em rascunho no Gmail**, falta enviar.
 
+### Automações pessoais (dados sensíveis — LOCAL, nunca versionar)
+- [ ] **Apple Health → monitoramento de saúde** — configurar leitura dos dados do app Saúde pro Bira acompanhar evolução. Caminho: iPhone > app Saúde > foto do perfil > **"Exportar Todos os Dados de Saúde"** (gera `export.zip` com `export.xml`); passar o arquivo pro Mac (scratchpad/local). ⚠ dado de saúde: fica local, já coberto pelo .gitignore (Exames/historico-saude).
+- [ ] **Cartão de crédito → organização financeira** — definir export das faturas/transações pro Bira organizar. Caminho: app do banco > exportar fatura em **CSV/OFX** (melhor que PDF pra parsear); ou Open Finance. ⚠ financeiro sensível: local, já coberto pelo .gitignore (Financeiro).
+
 ---
 
 ## ✅ Concluído recente
