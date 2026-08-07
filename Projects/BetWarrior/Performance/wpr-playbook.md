@@ -8,11 +8,14 @@
 
 ## 1. Periodicidade e Entrega
 
-- Entrega: toda **quarta-feira** (reunião WPR)
-- Período: **definido por Darwin na solicitação** — sempre comparar períodos com os mesmos dias da semana (normalização por dia, não por contagem fixa de dias)
-- Arquivos individuais em `Semanais/WPR/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1–P4)
-- Arquivo unificado: `WPR_Brasil_[Mês][DD-DD]_[YYYY].html` — capa + P1 + P2 + P3 + P4 empilhados, escalagem automática via JS
-- Fonte de mídia paga (P3): **PACING - PERFO** (Google Sheet vivo do Diego, ID `1LnnVk3mtjmx6ibXXtyA7_JqIxu0gf8DyeCK9MGve53w`). **Checar `modifiedTime` antes de usar** — o xlsx local em `Semanais/WPR/PACING - PERFO (1).xlsx` fica desatualizado (era de maio em 18/06). Não perguntar ao Darwin: verificar a versão do Drive direto.
+- **Formato atual (travado): 3 slides — P1 Métricas de Negócio · P2 Aquisição por Canal · P3 Pipeline de Afiliados.** O P3 de mídia e o P4 (Próximos Passos) foram **APOSENTADOS pós-corte**. Não recriar.
+- **É SEMANAL e INEGOCIÁVEL.** A reunião é semanal e o número tem que aparecer TODA semana. **NUNCA propor pular, adiar ou "fechar o mês anterior" no lugar**, mesmo início de mês com janela fina (ex: Ago 01-06 = 6 dias). Rodar a janela do período, por menor que seja. (Sugerir pular = testar a paciência do Darwin, aconteceu 07/08.)
+- Período: **calcular pela regra do §2, NÃO perguntar** (nem "confirmar" a janela). MTD normalizado por dia da semana.
+- **Inputs que o Darwin fornece na própria sessão (fonte de verdade, não re-derivar):** (a) **print do PowerBI** — New Data Model, aba **Local Currency = BRL**, é a fonte de verdade do P1 (Registros/FullReg/FTD/GGR/NGR/Bonus/GrossBets); (b) **CSV do MyAffiliates** em `Afiliados/Reports/` (performance de afiliado da semana); (c) **print do "The Dashboard"** pro P3 (estrutura do board). O resto eu puxo sozinho (`wpr_pull.py`, GA4, Forecast). O ETL do report **não tem lag relevante** — não usar "lag" como desculpa.
+- **Mídia paga foi REDUZIDA, NÃO zerada** (pacificado há ~1 mês, não reabrir). Agosto tem orçamento de **~R$80K** (Google + Meta), foco em **Google Search last-click** (por isso o Perfo tem CR alta). **NUNCA escrever "paid zerado".** "Investimento cortado/reduzido" ≠ zerado. **Não comentar que o Meta "ainda não começou".**
+- Arquivos individuais em `Semanais/WPR/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1) · `-slide-p2.html` · `-slide-p3.html`
+- Arquivo unificado: `WPR_Brasil_[Mês][DD-DD]_[YYYY].html` — capa + P1 + P2 + P3 empilhados, escalagem automática via JS. **Sempre `open` no navegador ao entregar** (o Darwin revisa no browser, não no terminal).
+- **Método de construção (regra de ouro):** copiar o deck aprovado da semana anterior (`wpr-[mes ant]-*-slide*.html` + master), **trocar só o dado**, nunca redesenhar. Recalcular só as coordenadas dos SVGs.
 
 ---
 
@@ -413,7 +416,11 @@ Estrutura atual do WPR: **P1 + P2 + P3** (o P3 de mídia e o P4 foram aposentado
 - Base-esquerda estreita (`flex:0.62`): "Pipeline por Tipo" = **rosca (donut)** conic-gradient, total no centro, Top 5 tipos + "Outros" (cauda + sem tipo).
 - Base-direita larga (`flex:1.55`, fontes maiores): "Deals & Integração em Destaque" (cards com termo comercial + próximo passo; featured com selo).
 
-**Fontes:** board Slack List `F0BJ2BVLXBJ`; Δ vs snapshot em `Afiliados/Reports/forecast-ruan/snapshots/`; status de deals/blocks **confirmado nos e-mails** (não só nos comentários do board).
+**Fontes + COMO PUXAR (travado 07/08 — não esquecer, irritou o Darwin):**
+1. **Estrutura/contagem das etapas:** a Slack List `F0BJ2BVLXBJ` **NÃO é legível** pelas tools (`slack_read_channel` → `channel_not_found`; List ≠ canal). O Darwin manda um **print do "The Dashboard"** (painel do JP+Betinho, puxa do Slack diariamente) = títulos + contagem por etapa + cards. **Ordenação das colunas é FIXA toda semana, não perguntar:** Lead · Contato realizado · Contato consolidado · Reunião agendada · Reunião realizada · Negociação · Definição contratual · Liberação do painel · Campanha ativa. Print cortado = seguir essa ordem; etapa ausente = 0.
+2. **Destaques (deals) = comentários do Ruan**, lidos no canal-espelho **`C0BJ2BVLXBJ`** (#CRM-Interno): `slack_read_channel(C0BJ2BVLXBJ, detailed)` pega os `message_ts` (cada "A comment was added" = thread de um card) → `slack_read_thread` nas mais ativas/recentes = CPA/RevShare/status/próximos passos. Cruzar com os **e-mails**.
+3. **Δ** = contagens de etapa vs o snapshot CSV anterior em `Afiliados/Reports/forecast-ruan/snapshots/`; salvar o novo snapshot datado.
+Resumo: **print = estrutura/contagem · comentários (C0BJ2BVLXBJ) + e-mails = destaques.** Nunca mais pedir CSV/List nem dizer "não consigo ler o board".
 
 **Regra de dimensão:** cada painel corta por dimensão distinta (o quê=tipo · onde+movimento=etapa · destaques=deals). Nunca dois painéis pela mesma dimensão (funil macro + tirinha = redundante).
 
