@@ -34,9 +34,10 @@ META_MES={
  4:{"FTD":4369,"GGR":259570,"NGR":230758,"MargSB":0.0550,"MargCS":0.0239,"MixSB":0.32},
  5:{"FTD":3216,"GGR":327423,"NGR":294681,"MargSB":0.0600,"MargCS":0.0400,"MixSB":0.40},
  6:{"FTD":7343,"GGR":438137,"NGR":385561,"MargSB":0.0600,"MargCS":0.0400,"MixSB":0.40},
- 7:{"FTD":8376,"GGR":488475,"NGR":429858,"MargSB":0.0600,"MargCS":0.0400,"MixSB":0.40},  # Jul: Forecast Dada col E (FTD 6.876 + Afiliados 1.500; GGR/NGR R$)
+ 7:{"FTD":2294,"GGR":269836,"NGR":240592,"MargSB":0.0600,"MargCS":0.0400,"MixSB":0.495},  # Jul: Targets Reforecast Luiz (Jul26) — FTD 1.682+612 afiliados
+ 8:{"FTD":1842,"GGR":239737,"NGR":214823,"MargSB":0.0600,"MargCS":0.0400,"MixSB":0.507},  # Ago: Targets Reforecast Luiz (Jul26) — FTD 1.331+511 afiliados
 }
-CR_ALVO=0.1427   # CR alvo registros(1o step)->FTD = YTD 2026 (01/01-17/06): 14.447/101.226 = 14,27% (recalibrar a cada ciclo)
+CR_ALVO=0.25   # CR alvo agosto = 25% (mesmo do deck Jul/Ago 01-20; memoria project_wpr_meta_julho). O 14,27% YTD era de jun.
 COPA={"mes":6,"lift":0.80,"inicio":11}   # lift +80% a partir do dia 11 (inicio da Copa)
 
 def refresh():
@@ -59,7 +60,7 @@ def q(query):
     return d["results"][0]["tables"][0]["rows"][0]
 
 def dr(m,d1,d2): return f'FILTER(DimDate,DimDate[Date]>=DATE(2026,{m},{d1})&&DimDate[Date]<=DATE(2026,{m},{d2}))'
-EXT='FILTER(DimPlayer,DimPlayer[player_country_name]="Brazil"&&DimPlayer[brand_name]="BWBRA")'
+EXT='FILTER(DimPlayer,DimPlayer[player_country_name]="Brazil"&&DimPlayer[brand_name]="BWBRA"&&DimPlayer[internal_external_player]="External")'
 A='SUM(FactAGGAccountTransaction[account_transaction_amount])'
 TY='FactAGGAccountTransaction[account_transaction_type]'
 SA='FactAGGAccountTransaction[dim_sub_account_key]'
@@ -92,7 +93,7 @@ def metrics(m,d1,d2):
 "DepMed",CALCULATE(AVERAGE(FactFirstDeposit[payment_amount]),{D},{EXT}),
 "GB",CALCULATE(ABS({A}),{D},{TY}="GAME_BET",{EXT}),
 "GW",CALCULATE({A},{D},{TY} IN {{"GAME_WIN","CASH_OUT","CORRECTION"}},{EXT}),
-"BonusCost",CALCULATE({A},{D},{TY} IN {{"CRE_BONUS","PRODUC_BON","CANC_BONUS"}},{EXT}),
+"BonusCost",CALCULATE({A},{D},{TY} IN {{"CRE_BONUS","PRODUC_BON","CANC_BONUS","MAN_BONUS","BONUS_REL","EXP_BONUS","MAN_ADJUST"}},{EXT}),
 "SBGB",CALCULATE(ABS({A}),{D},{TY}="GAME_BET",{EXT},FILTER(DimGame,DimGame[game_platform_name]="Sports")),
 "SBGW",CALCULATE({A},{D},{TY} IN {{"GAME_WIN","CASH_OUT","CORRECTION"}},{EXT},FILTER(DimGame,DimGame[game_platform_name]="Sports")),
 "CSGB",CALCULATE(ABS({A}),{D},{TY}="GAME_BET",{EXT},FILTER(DimGame,DimGame[game_platform_name]="Casino")),
