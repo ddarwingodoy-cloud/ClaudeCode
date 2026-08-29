@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Case · Presentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0B1F1D;font-family:'Inter',sans-serif;color:#12211F;scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh;}
+.slide{height:100vh;width:100vw;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:48px 90px;background:#EEF2F1;}
+.slide.dark{background:#0B1F1D;color:#EAF4F2;}
+.inner{width:100%;max-width:1000px;}
+.khead{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#14837B;margin-bottom:16px;}
+.slide.dark .khead{color:#5FD3C2;}
+/* nav dots (left) */
+.nav{position:fixed;left:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;z-index:50;background:rgba(0,0,0,.28);padding:11px 8px;border-radius:22px;}
+.nav a{width:9px;height:9px;border-radius:50%;background:#7FA39E;display:block;transition:.2s;}
+.nav a:hover{background:#CFE0DD;}
+.nav a.on{background:#5FD3C2;transform:scale(1.35);box-shadow:0 0 0 2px rgba(95,211,194,.25);}
+.hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);font-size:11px;color:#7FA39E;letter-spacing:1px;z-index:50;user-select:none;}
+/* opener */
+.title{font-size:40px;font-weight:800;letter-spacing:-.8px;line-height:1.1;margin-bottom:8px;}
+.subt{font-size:14px;color:#9FC7C0;margin-bottom:26px;}
+.diag{font-size:22px;font-weight:700;color:#FFF;margin-bottom:20px;}
+.calc{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+.chip{background:rgba(95,211,194,.10);border:1px solid rgba(95,211,194,.28);border-radius:9px;padding:12px 16px;flex:1;min-width:170px;}
+.chip .k{font-size:10px;color:#9FC7C0;text-transform:uppercase;letter-spacing:1px;}
+.chip .v{font-size:22px;font-weight:800;margin-top:4px;color:#EAF4F2;}
+.chip .v b{color:#5FD3C2;}
+.lead{font-size:15px;color:#C7DAD7;line-height:1.6;max-width:860px;}
+.lead b{color:#FFF;}
+.star{margin-top:22px;background:#14837B;color:#fff;border-radius:9px;padding:14px 20px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:12px;}
+.star span{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:rgba(255,255,255,.18);padding:4px 9px;border-radius:6px;}
+/* recommendation slides */
+.rtop{display:flex;align-items:center;gap:14px;margin-bottom:26px;}
+.rnum{width:44px;height:44px;background:#14837B;color:#fff;border-radius:10px;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rtitle{font-size:30px;font-weight:800;letter-spacing:-.5px;color:#0E2B28;}
+.beats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.beat{background:#fff;border:1px solid #DCE6E4;border-radius:10px;padding:18px 20px;}
+.beat .lbl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#14837B;margin-bottom:7px;}
+.beat .txt{font-size:15px;color:#2C3E3B;line-height:1.55;}
+.beat .txt b{color:#0E2B28;}
+/* expanded recommendation layout */
+.thesis{background:#fff;border:1px solid #DCE6E4;border-left:4px solid #14837B;border-radius:10px;padding:15px 20px;margin-bottom:14px;}
+.thesis .lbl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#14837B;margin-bottom:6px;}
+.thesis .txt{font-size:17px;color:#0E2B28;line-height:1.5;font-weight:500;}
+.thesis .txt b{font-weight:800;}
+.moves{display:flex;flex-direction:column;gap:9px;margin-bottom:14px;}
+.move{background:#fff;border:1px solid #DCE6E4;border-radius:9px;padding:12px 18px;font-size:14px;color:#3A4E4A;line-height:1.5;position:relative;padding-left:34px;}
+.move:before{content:"›";position:absolute;left:15px;top:11px;color:#14837B;font-weight:800;font-size:16px;}
+.move b{color:#0E2B28;}
+.frow{display:flex;gap:14px;}
+.fbox{flex:1;background:#F1F6F5;border:1px solid #DCE6E4;border-radius:9px;padding:13px 18px;}
+.fbox .lbl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#14837B;margin-bottom:6px;}
+.fbox .txt{font-size:13.5px;color:#2C3E3B;line-height:1.5;}
+.fbox .txt b{color:#0E2B28;}
+.src{margin-top:14px;font-size:11px;color:#8AA39E;line-height:1.5;font-style:italic;}
+/* growth synthesis */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+.step{background:#12312D;border:1px solid #22463F;border-radius:9px;padding:15px 18px;}
+.step .s{font-size:11px;font-weight:800;color:#5FD3C2;text-transform:uppercase;letter-spacing:1px;}
+.step .d{font-size:14.5px;color:#C7DAD7;margin-top:5px;line-height:1.5;}
+.step .d b{color:#FFF;}
+.rule{margin-top:20px;background:rgba(95,211,194,.08);border:1px dashed rgba(95,211,194,.4);border-radius:9px;padding:14px 18px;font-size:13.5px;color:#C7DAD7;line-height:1.55;}
+.rule b{color:#FFF;}
+.guard{margin-top:14px;background:rgba(245,158,11,.10);border:1px solid rgba(245,158,11,.4);border-radius:9px;padding:14px 18px;font-size:13.5px;color:#EAD9B8;line-height:1.55;}
+.guard b{color:#FFD27A;}
+/* timeline */
+.tl-row{display:flex;align-items:stretch;gap:8px;margin:6px 0 4px;}
+.tl-card{flex:1;background:#fff;border:1px solid #DCE6E4;border-radius:10px;padding:14px 13px;display:flex;flex-direction:column;}
+.tl-card.now{border-color:#14837B;box-shadow:0 3px 12px rgba(20,131,123,.12);}
+.tl-ph{font-size:14px;font-weight:800;color:#0E2B28;line-height:1.15;}
+.tl-when{font-size:10.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#14837B;margin:4px 0 10px;}
+.tl-focus{font-size:12px;color:#41544F;line-height:1.45;flex:1;}
+.tl-badges{display:flex;gap:6px;margin-top:12px;}
+.tl-b{flex:1;border-radius:7px;padding:7px 4px;text-align:center;}
+.tl-b .l{font-size:8.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;opacity:.75;}
+.tl-b .v{font-size:15px;font-weight:800;margin-top:2px;}
+.tl-b.cvr{background:#E4F3F0;color:#0E5B54;}
+.tl-b.cac{background:#FBE9DE;color:#9A3B12;}
+.tl-arrow{align-self:center;color:#B7CBC7;font-size:16px;font-weight:700;}
+.tl-note{margin-top:14px;background:#fff;border:1px solid #DCE6E4;border-radius:9px;padding:13px 18px;font-size:13px;color:#2C3E3B;line-height:1.55;}
+.tl-note b{color:#0E2B28;}
+/* Q2 */
+.q2tbl{width:100%;border-collapse:collapse;font-size:13.5px;}
+.q2tbl th{background:#14837B;color:#fff;text-align:right;padding:8px 11px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;}
+.q2tbl th:first-child{text-align:left;}
+.q2tbl td{padding:6px 11px;text-align:right;border-bottom:1px solid #E4EBE9;color:#2C3E3B;}
+.q2tbl td:first-child{text-align:left;font-weight:700;color:#0E2B28;}
+.q2tbl tr.win td{background:#EAF6F2;}
+.q2tbl tr.lose td{background:#FBEDE8;}
+.q2tbl .pos{color:#0E7A5F;font-weight:800;}
+.q2tbl .neg{color:#C0392B;font-weight:800;}
+.q2read{margin-top:14px;font-size:13px;color:#2C3E3B;line-height:1.6;}
+.q2read b{color:#0E2B28;}
+.realloc{margin-top:14px;background:#14837B;color:#fff;border-radius:10px;padding:15px 20px;font-size:14px;line-height:1.55;}
+.realloc b{color:#fff;font-weight:800;}
+.realloc .big{font-size:20px;font-weight:800;}
+</style></head><body>
+<nav class="nav" id="nav"></nav>
+
+<!-- 1 · DIAGNOSIS -->
+<section class="slide dark" id="s0"><div class="inner">
+  <div class="khead">Growth Case · Q1 · WL Proposition, Brazil</div>
+  <div class="title">Obesity / GLP-1 in Brazil</div>
+  <div class="subt">One argument, six answers, anchored to a single diagnosis.</div>
+  <div class="diag">The primary lever is conversion, not more budget.</div>
+  <div class="calc">
+    <div class="chip"><div class="k">CAC today</div><div class="v">$1 ÷ 0.5% = <b>$200</b></div></div>
+    <div class="chip"><div class="k">Target CAC</div><div class="v">≤ <b>$100</b>, 2x over</div></div>
+    <div class="chip"><div class="k">The lever</div><div class="v">CVR <b>0.5% → 1%</b></div></div>
+    <div class="chip"><div class="k">Target</div><div class="v"><b>4k</b> @ $100 by M6</div></div>
+  </div>
+  <div class="lead">CAC = CPC ÷ CVR. With CPC near $1, conversion is the cheapest way to scale: closing the gap toward 1% CVR bends CAC from $200 toward $100 on the same budget. <b>This is a phased 6-month target, not a switch</b> (see the timeline) and part of the price objection is unclear total cost and targeting, not only messaging. The non-converter signal (50% price, 30% clarity, 10% want a human, from 20 respondents) <b>points to where conversion leaks first</b>. We treat it as the priority to validate and quantify as volume grows.</div>
+  <div class="star"><span>North Star</span> Acquisitions at CAC ≤ $100. Every answer ladders up to CVR, LTV, or category growth.</div>
+</div></section>
+
+<!-- 2 · VALUE PROPOSITION -->
+<section class="slide" id="s1"><div class="inner">
+  <div class="rtop"><div class="rnum">1</div><div class="rtitle">Value Proposition &amp; Pricing</div></div>
+  <div class="thesis"><div class="lbl">Thesis</div><div class="txt">We don't sell the drug the way a pharmacy does. We sell a <b>managed outcome program</b>, which is both our differentiation and our defense on price.</div></div>
+  <div class="moves">
+    <div class="move"><b>Make the total cost transparent.</b> The R$599/mo plan is the support layer; the medication is bought separately, so the price reads as an open-ended cost. State plainly what is included and show an honest all-in figure (service + drug) over the 6-month journey, quoted per week, so people stop mentally adding an unknown number and bouncing.</div>
+    <div class="move"><b>Defend the service premium with outcomes, not a discount.</b> Voy sits on top of the drug, so the pitch is effectiveness and safety (its own claims: better results with medical and nutrition support), not "cheaper than a pharmacy", which is not a like-for-like we can stand behind.</div>
+    <div class="move"><b>Make it payable.</b> Installments and an entry tier (lower starting dose, lighter service) remove the upfront barrier without discounting, which would erode margin and signal commodity.</div>
+    <div class="move"><b>Make the included care visible.</b> The plan already bundles doctor, nutritionist and unlimited WhatsApp support; surface that so the customer sees a program, not a pill and perceives more for the same price instead of us cutting it.</div>
+  </div>
+  <div class="frow">
+    <div class="fbox"><div class="lbl">Why it works</div><div class="txt">The "too high" (50%) and "confused" (30%) objections are linked: the R$599 shown may read as not including the drug, so people add an unknown cost and leave. Transparency on the all-in price plus an outcome-based reason for the service fee attacks both, without a discount claim we cannot defend. A pharmacy is a one-off transaction; Voy is a months-long managed journey.</div></div>
+    <div class="fbox"><div class="lbl">How we measure</div><div class="txt">Aggregate CVR lift from an A/B test of the price changes on all traffic (the survey tells us what to test, the test tells us if it works), drop-off rate at the pricing / checkout step as the observable proxy for price friction and a continuous exit survey to watch the share citing price fall. Tier mix as a guardrail so the entry plan grows the base instead of cannibalizing the full plan.</div></div>
+  </div>
+</div></section>
+
+<!-- 3 · ACQUISITION -->
+<section class="slide" id="s2"><div class="inner">
+  <div class="rtop"><div class="rnum">2</div><div class="rtitle">Acquisition Strategy</div></div>
+  <div class="thesis"><div class="lbl">Thesis</div><div class="txt">The bottleneck is <b>conversion (0.5% CVR)</b>, not the channel or the CPC. We fix the funnel before buying more traffic.</div></div>
+  <div class="moves">
+    <div class="move"><b>Fix clarity on the landing (the 30%).</b> Rebuild the page so the offer, eligibility and price are understood in seconds, since confusion is the second-largest reason people do not convert.</div>
+    <div class="move"><b>Proactive WhatsApp on hesitation.</b> Voy already runs unlimited WhatsApp support and a free 1-day medical review; trigger the chat by dwell time on the price / eligibility step so a specialist reaches out at the moment of doubt. It serves all three objections at once: the human contact the 10% asked for, clarity on what R$599 includes for the 30% who are confused and the cost framing for the 50% who find it expensive. Lean team, two shifts on the evening browsing peak, run as an experiment with a holdout and read by cost per assisted conversion.</div>
+    <div class="move"><b>Diversify beyond Meta.</b> Add high-intent Google Search (people already looking for GLP-1), partnerships and creators for trust and a referral program so customers bring customers. Meta is the primary channel today; these reach demand it does not.</div>
+    <div class="move"><b>Sharpen the targeting.</b> Aim Meta at audiences who can realistically afford the plan (better lookalikes, interest and income signals), so we pay for clicks more likely to convert instead of clicks that bounce on price. Targeting handles "cannot afford"; the value proposition handles "can afford but found it expensive".</div>
+  </div>
+  <div class="frow">
+    <div class="fbox"><div class="lbl">Why it works</div><div class="txt">CAC = CPC ÷ CVR and a $1 CPC is healthy, so doubling CVR is the cheapest way to scale. Search captures bottom-funnel intent that Meta prospecting does not and a broader mix reduces dependence on one channel while reaching demand Meta alone misses.</div></div>
+    <div class="fbox"><div class="lbl">How we measure</div><div class="txt">CVR by funnel step to locate the drop-off, plus CAC, CPC and volume by channel (watching CPC as we sharpen targeting), cost per assisted conversion on the WhatsApp experiment (against a holdout) and referral CAC. Blended CAC is the north-star check across the mix.</div></div>
+  </div>
+</div></section>
+
+<!-- 4 · RETENTION -->
+<section class="slide" id="s3"><div class="inner">
+  <div class="rtop"><div class="rnum">3</div><div class="rtitle">High-Retaining Product</div></div>
+  <div class="thesis"><div class="lbl">Thesis</div><div class="txt">In a GLP-1 subscription, <b>retention is the business</b>: CAC only pays back over months and the care wrap is the moat versus pharmacies. Most of that wrap already exists at Voy; the growth job is to <b>deploy it proactively</b>, not build from zero.</div></div>
+  <div class="moves">
+    <div class="move"><b>Make clinical adherence proactive.</b> Voy already has doctors, nurses and pharmacists; the move is to turn support from reactive to scheduled, titration guidance, side-effect check-ins and reminders through the hard early weeks, when most would otherwise quit.</div>
+    <div class="move"><b>Turn coaching into a lifecycle.</b> The nutritionist coaching already exists (rated 4.98); make it a proactive rhythm of check-ins, progress milestones and WhatsApp nudges, so a monthly refill becomes a relationship, not a transaction that is easy to drop. A dedicated app is optional, not required to start.</div>
+    <div class="move"><b>Continuity of supply.</b> Guaranteed stock and auto-refill remove the top operational reason to leave, which is running out and buying elsewhere.</div>
+    <div class="move"><b>Maintenance plan against "graduation" churn.</b> When patients hit their goal they tend to leave; a lighter maintenance tier keeps them and real weight-regain risk makes it a medical need, not just a retention trick.</div>
+  </div>
+  <div class="frow">
+    <div class="fbox"><div class="lbl">Why it works</div><div class="txt">The likely churn drivers are side effects, cost, goal reached and cheaper at a pharmacy. Reliable supply plus care is a switching cost pharmacies cannot match and maintenance directly addresses the "goal reached" exit.</div></div>
+    <div class="fbox"><div class="lbl">How we measure</div><div class="txt">Month-N retention curves, churn-reason mix from cancellation surveys, adherence rate and<b>LTV/CAC</b> as the payback guardrail that decides how hard we can scale.</div></div>
+  </div>
+</div></section>
+
+<!-- 5 · ITERATION -->
+<section class="slide" id="s4"><div class="inner">
+  <div class="rtop"><div class="rnum">4</div><div class="rtitle">Iteration Process</div></div>
+  <div class="thesis"><div class="lbl">Thesis</div><div class="txt">Go-to-market is an <b>experiment engine</b>, not a one-off launch. The 20 non-converters are round one of a continuous loop.</div></div>
+  <div class="moves">
+    <div class="move"><b>Instrument the funnel first.</b> Event tracking on every step so we see exactly where users drop before optimizing anything. You cannot improve what you do not measure.</div>
+    <div class="move"><b>Build a prioritized test backlog.</b> Score ideas by impact and effort (ICE or RICE) against the three known objections, so the team works on what moves CVR most.</div>
+    <div class="move"><b>Run a weekly A/B cadence.</b> A fixed rhythm of shipping and reading tests, so learning compounds instead of betting on one big redesign.</div>
+    <div class="move"><b>Feed learning back in.</b> Winning tests become the new baseline, losing tests retire the hypothesis and the continuous exit survey keeps refreshing what to test next.</div>
+  </div>
+  <div class="frow">
+    <div class="fbox"><div class="lbl">Why it works</div><div class="txt">A 20-person sample is directional, not conclusive, so the answer is not one perfect fix but a system that keeps finding and validating fixes. It also ties every recommendation to a measurable experiment rather than opinion.</div></div>
+    <div class="fbox"><div class="lbl">How we measure</div><div class="txt">Tests shipped per week, win rate and cumulative CVR lift over time. Velocity of learning is the leading indicator; CVR is the lagging one.</div></div>
+  </div>
+</div></section>
+
+<!-- 6 · CATEGORY -->
+<section class="slide" id="s5"><div class="inner">
+  <div class="rtop"><div class="rnum">5</div><div class="rtitle">Overall Category Strategy</div></div>
+  <div class="thesis"><div class="lbl">Thesis</div><div class="txt">Beyond fixing the funnel, the biggest lever is <b>growing the category itself</b>: reach, clinical outcomes and trust. With the semaglutide patent gone and the market roughly doubling in 2026, the drug is commoditizing, so the service around it is what wins.</div></div>
+  <div class="moves">
+    <div class="move"><b>Expand the addressable audience.</b> Move from obesity alone into adjacent needs (overweight, pre-diabetes, metabolic health) so the top of the funnel grows, not only its conversion.</div>
+    <div class="move"><b>Adherence and outcomes as the moat.</b> In the real world about 40 to 50% of patients quit GLP-1 within 12 months, mostly on side effects and endocrinologist-led care cuts dropout by roughly 10%. Keeping the half that would drop and winning back those who return, is the largest growth pool and is copy-resistant because it rests on clinical protocol, not media spend. Supply is now hygiene (do not run out), not a moat.</div>
+    <div class="move"><b>Open B2B2C channels.</b> Employers, health plans and clinics bring qualified members at a lower CAC than paid media and lend medical credibility.</div>
+    <div class="move"><b>Build medical authority and content.</b> Doctor-led education grows the category and directly attacks the confusion objection, so it compounds with the acquisition work.</div>
+  </div>
+  <div class="frow">
+    <div class="fbox"><div class="lbl">Why it works</div><div class="txt">The market is large and roughly doubling in 2026 (the largest pharmacy alone moves 150k units per month). With the patent expired the constraint is no longer supply but dropout and access: as the drug gets cheaper, demand expands and the winner is whoever keeps patients on therapy and earns their trust.</div></div>
+    <div class="fbox"><div class="lbl">How we measure</div><div class="txt">Category share versus pharmacies, CAC and LTV in each new segment and channel, 12-month adherence and retention versus the market baseline and win-back rate of lapsed patients.</div></div>
+  </div>
+  <div class="src">Sources: market outlook, InvestNews 2026. Real-world discontinuation (~40 to 50% at 12 months) and endocrinologist effect, Portal Afya. Return to treatment, Exame.</div>
+</div></section>
+
+<!-- 7 · TIMELINE -->
+<section class="slide" id="s6"><div class="inner">
+  <div class="rtop"><div class="rnum">6</div><div class="rtitle">Timeline to Results</div></div>
+  <div class="lead" style="color:#41544F;margin-bottom:18px;">4k at $100 is a 6-month target, not a day-one flip. We ship the trajectory in month 1, not the endpoint. CVR and CAC are realistic per phase; optimization compounds, it is not a switch.</div>
+  <div class="tl-row">
+    <div class="tl-card"><div class="tl-ph">Diagnose</div><div class="tl-when">Weeks 0 to 2</div><div class="tl-focus">Instrument the funnel, larger non-converter survey. No lift yet, we measure first.</div>
+      <div class="tl-badges"><div class="tl-b cvr"><div class="l">CVR</div><div class="v">0.5%</div></div><div class="tl-b cac"><div class="l">CAC</div><div class="v">$200</div></div></div></div>
+    <div class="tl-arrow">›</div>
+    <div class="tl-card now"><div class="tl-ph">Quick wins</div><div class="tl-when">Month 1</div><div class="tl-focus">Landing clarity, price transparency, Meta creative and targeting tests. Realistic 10 to 30% lift.</div>
+      <div class="tl-badges"><div class="tl-b cvr"><div class="l">CVR</div><div class="v">~0.65%</div></div><div class="tl-b cac"><div class="l">CAC</div><div class="v">~$150</div></div></div></div>
+    <div class="tl-arrow">›</div>
+    <div class="tl-card"><div class="tl-ph">Funnel + assist</div><div class="tl-when">Months 2 to 3</div><div class="tl-focus">WhatsApp assist, Search intent and channel diversification, weekly A/B cadence.</div>
+      <div class="tl-badges"><div class="tl-b cvr"><div class="l">CVR</div><div class="v">~0.8%</div></div><div class="tl-b cac"><div class="l">CAC</div><div class="v">~$125</div></div></div></div>
+    <div class="tl-arrow">›</div>
+    <div class="tl-card"><div class="tl-ph">Structural</div><div class="tl-when">Months 4 to 6</div><div class="tl-focus">CVR near 1%, budget reallocated to the best channels, retention and LTV paying back.</div>
+      <div class="tl-badges"><div class="tl-b cvr"><div class="l">CVR</div><div class="v">~1.0%</div></div><div class="tl-b cac"><div class="l">CAC</div><div class="v">~$100</div></div></div></div>
+    <div class="tl-arrow">›</div>
+    <div class="tl-card"><div class="tl-ph">Scale</div><div class="tl-when">6 to 12 months</div><div class="tl-focus">Category expansion, B2B2C, adherence as the moat.</div>
+      <div class="tl-badges"><div class="tl-b cvr"><div class="l">CVR</div><div class="v">hold</div></div><div class="tl-b cac"><div class="l">CAC</div><div class="v">hold</div></div></div></div>
+  </div>
+  <div class="tl-note"><b>How we read it before CVR moves:</b> leading indicators per phase (funnel step drop-off, WhatsApp assist rate, price-page engagement) plus weekly LTV/CAC and month-1 / month-3 retention checks. Search intent runs in parallel, adding qualified volume as CVR ramps.</div>
+</div></section>
+
+<!-- 8 · GROWTH SYNTHESIS -->
+<section class="slide dark" id="s7"><div class="inner">
+  <div class="khead">The growth ask · 2k to 4k with 50% better efficiency, this month</div>
+  <div class="title" style="font-size:32px;color:#FFF;margin-bottom:18px;">How I'd attack it this month and the path that makes 4k at $100 stick.</div>
+  <div class="steps">
+    <div class="step"><div class="s">1 · The math</div><div class="d">CVR 1% turns the same ~$400k and $1 CPC into <b>4k at $100</b>. That is the target and every lever below drives to it.</div></div>
+    <div class="step"><div class="s">2 · This month</div><div class="d">Ship the fastest movers first: price transparency, landing clarity, WhatsApp assist and Meta creative and targeting tests. A 10 to 30% CVR lift in-month, with the experiment engine live from week one.</div></div>
+    <div class="step"><div class="s">3 · Close the gap</div><div class="d">The rest compounds across the phased plan, plus reallocating spend to higher-converting Search intent: same budget, better blended CVR.</div></div>
+    <div class="step"><div class="s">4 · Cheapest scale</div><div class="d">Lean into the lowest-CAC fronts in parallel: member-get-member and referral, plus reactivating the return cohort (most who stop GLP-1 come back). This is where the 50% efficiency gain compounds.</div></div>
+  </div>
+  <div class="guard"><b>Operating health:</b> LTV/CAC and month-1 / month-3 retention are the weekly gauge; they tell us where to accelerate and where to hold, so we scale on unit economics, not vanity volume.</div>
+  <div class="rule"><b>Bottom line:</b> fix conversion first, keep patients on therapy and the same budget delivers more customers at half the CAC, on a path we measure every week.</div>
+</div></section>
+
+<!-- 9 · Q2 CHANNEL MAP -->
+<section class="slide" id="s8"><div class="inner">
+  <div class="khead">Growth Case · Q2 · Channel Performance · 12 weeks, BRL</div>
+  <div class="rtitle" style="margin-bottom:14px;">Where growth is efficient, where budget leaks</div>
+  <table class="q2tbl">
+    <thead><tr><th>Channel</th><th>Spend</th><th>Acq</th><th>CVR</th><th>CAC</th><th>ROAS</th><th>Approval</th></tr></thead>
+    <tbody>
+      <tr class="win"><td>CRM</td><td>R$0.66M</td><td>13.8k</td><td>3.04%</td><td class="pos">R$47</td><td class="pos">20.6</td><td>88%</td></tr>
+      <tr class="win"><td>RAF (referral)</td><td>R$0.33M</td><td>6.9k</td><td>2.16%</td><td class="pos">R$48</td><td class="pos">19.8</td><td>90%</td></tr>
+      <tr class="win"><td>Google</td><td>R$16.7M</td><td>86.6k</td><td>0.75%</td><td class="pos">R$193</td><td class="pos">4.71</td><td>84%</td></tr>
+      <tr><td>Organic</td><td>R$0</td><td>2.2k</td><td>0.63%</td><td>R$0</td><td>free</td><td>86%</td></tr>
+      <tr><td>Meta</td><td>R$31.5M</td><td>97.3k</td><td>0.50%</td><td>R$324</td><td>2.40</td><td>82%</td></tr>
+      <tr><td>TikTok</td><td>R$9.2M</td><td>33.0k</td><td>0.41%</td><td>R$278</td><td>2.37</td><td>80%</td></tr>
+      <tr><td>Creators</td><td>R$2.56M</td><td>7.1k</td><td>0.45%</td><td>R$361</td><td>2.24</td><td>84%</td></tr>
+      <tr class="lose"><td>Affiliates</td><td>R$0.97M</td><td>2.2k</td><td>0.39%</td><td class="neg">R$438</td><td>1.78</td><td class="neg">64%</td></tr>
+      <tr class="lose"><td>Programmatic</td><td>R$3.93M</td><td>3.8k</td><td>0.27%</td><td class="neg">R$1,026</td><td class="neg">0.70</td><td>80%</td></tr>
+    </tbody>
+  </table>
+  <div class="q2read"><b>Google</b> is the scalable star, high volume at the best paid economics. <b>CRM and RAF</b> are efficiency gems (ROAS ~20) but starved, under 1.5% of spend for 8% of acquisitions. <b>Programmatic</b> destroys value (ROAS 0.70) and <b>Affiliates</b> buys low-quality traffic (64% approval versus 80 to 90%). <b>Meta</b> carries volume at 48% of the budget but the worst economics of the big three and it is saturating.</div>
+</div></section>
+
+<!-- 10 · Q2 PLATEAU -->
+<section class="slide dark" id="s9"><div class="inner">
+  <div class="khead">Growth Case · Q2 · Why efficiency plateaued</div>
+  <div class="title" style="font-size:30px;color:#FFF;margin-bottom:16px;">The budget is stuck in the saturating channel.</div>
+  <div class="steps">
+    <div class="step"><div class="s">Meta · saturating</div><div class="d">CVR 0.53% to 0.41%, CAC <b>R$236 to R$462</b>, ROAS 3.48 to 1.62. More budget, worse return.</div></div>
+    <div class="step"><div class="s">Google · resilient</div><div class="d">CAC R$152 to ~R$200, ROAS 6.1 to 4.4. Softening but still the best paid channel by far.</div></div>
+    <div class="step"><div class="s">TikTok · fading</div><div class="d">CVR 0.44% to 0.35%, ROAS 2.6 to 1.9. Following Meta down.</div></div>
+    <div class="step"><div class="s">CRM and RAF · steady</div><div class="d">ROAS near 20 every week, CAC ~R$47. Stable and starved of budget.</div></div>
+  </div>
+  <div class="guard"><b>Attribution trap:</b> under its own pixel Meta claims 102k acquisitions, but last-click gives it 92k, it over-credits itself. Google is the reverse (91k platform vs 95k last-click), under-credited. Optimizing to Meta's self-reported numbers over-invests in the saturating channel.</div>
+  <div class="rule"><b>The plateau is a mix problem:</b> 48% of budget sits in a saturating Meta while Google, CRM, RAF and Organic are underfunded and Programmatic burns R$3.9M below break-even. Blended CAC is dragged up by spending most where efficiency is lowest.</div>
+</div></section>
+
+<!-- 11 · Q2 LEVERS + REALLOCATION -->
+<section class="slide" id="s10"><div class="inner">
+  <div class="khead">Growth Case · Q2 · Levers and reallocation</div>
+  <div class="rtitle" style="margin-bottom:14px;">Same budget, better allocated</div>
+  <div class="frow">
+    <div class="fbox"><div class="lbl">Top 3 efficiency levers</div><div class="txt"><b>1. Cut Programmatic</b> (ROAS 0.70, frees R$3.9M spent below break-even). <b>2. Fix or cut Affiliates</b> (64% approval signals incentivized, low-quality traffic). <b>3. Shift Meta to the R$499 price point</b> and top creatives, capping spend where marginal CAC exceeds target.</div></div>
+    <div class="fbox"><div class="lbl">Top 3 scaling levers</div><div class="txt"><b>1. Scale Google</b>, the best mix of volume and efficiency (CAC R$193, ROAS 4.71). <b>2. Scale CRM and referral (RAF)</b>, ROAS ~20, the member-get-member engine from Q1. <b>3. Grow Organic</b> (zero CAC) with content and SEO.</div></div>
+  </div>
+  <div class="realloc">Reallocation at flat spend: cutting Programmatic and Affiliates frees <b>~R$4.9M</b>. At Google's ~R$193 CAC that is <b>~25k acquisitions</b>, versus the ~6k those two delivered. <span class="big">Net +~19k acquisitions, no extra budget</span>, before even scaling CRM, RAF and Organic. The same money buys more because it moves to where CAC is lowest.</div>
+  <div class="src">Note: the 7,000-acquisition target does not match the dataset scale (~253k acquisitions over 12 weeks). Likely a sub-scope or a typo; the reallocation method holds regardless. Confirm the intended target before fixing the final number.</div>
+</div></section>
+
+<div class="hint" id="hint">use the down arrow or scroll · dots on the left</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const nav=document.getElementById('nav');
+slides.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;nav.appendChild(a);});
+const dots=[...nav.children];
+let idx=0;
+function setActive(i){idx=i;dots.forEach(d=>d.classList.remove('on'));if(dots[i])dots[i].classList.add('on');}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(slides.indexOf(e.target));}),{threshold:.6});
+slides.forEach(s=>io.observe(s));
+function go(n){const t=Math.max(0,Math.min(slides.length-1,n));slides[t].scrollIntoView({behavior:'smooth'});}
+let lock=false;
+function goLocked(n){if(lock)return;const t=Math.max(0,Math.min(slides.length-1,n));if(t===idx)return;lock=true;go(t);setTimeout(()=>{lock=false;},800);}
+window.addEventListener('keydown',e=>{
+  if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();goLocked(idx+1);}
+  if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();goLocked(idx-1);}
+});
+window.addEventListener('wheel',e=>{e.preventDefault();if(Math.abs(e.deltaY)<12)return;goLocked(idx+(e.deltaY>0?1:-1));},{passive:false});
+setTimeout(()=>{const h=document.getElementById('hint');if(h){h.style.transition='opacity .6s';h.style.opacity='0';}},4500);
+</script>
+</body></html>

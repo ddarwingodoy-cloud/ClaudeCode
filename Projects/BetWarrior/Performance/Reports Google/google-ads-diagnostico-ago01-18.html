@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads — Diagnóstico & Oportunidades</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap');
+:root{
+  --bg:#1C1C1E; --surf:#111111; --surf2:#1A1A1A; --border:#2A2A2A;
+  --orange:#FF3900; --white:#FFFFFF; --muted:#AAAAAA;
+  --green:#22C55E; --amber:#F59E0B; --red:#EF4444;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--white);font-family:'Archivo',sans-serif;line-height:1.5;padding:40px 20px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.5px}
+.head{border-left:6px solid var(--orange);padding:6px 0 6px 18px;margin-bottom:8px}
+.head h1{font-size:30px;line-height:1.1}
+.head .sub{color:var(--muted);font-size:13px;margin-top:6px;letter-spacing:.3px}
+.sec{margin-top:38px}
+.sec>h2{font-size:19px;border-left:5px solid var(--orange);padding-left:12px;margin-bottom:16px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.kpi{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.kpi .lbl{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px}
+.kpi .val{font-family:'Archivo Black',sans-serif;font-size:26px;margin-top:6px}
+.kpi .foot{font-size:11px;color:var(--muted);margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--surf);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+thead th{background:var(--orange);color:#fff;font-weight:700;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+tbody td{padding:10px 12px;border-top:1px solid var(--border)}
+tbody tr:nth-child(odd){background:var(--surf)}
+tbody tr:nth-child(even){background:var(--surf2)}
+.pos{color:var(--green);font-weight:700}
+.neg{color:var(--red);font-weight:700}
+.warn{color:var(--amber);font-weight:700}
+.mono{font-variant-numeric:tabular-nums}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:14px}
+.card.p1{border-left:4px solid var(--red)}
+.card.p2{border-left:4px solid var(--amber)}
+.card.p3{border-left:4px solid var(--muted)}
+.card h3{font-size:15px;margin-bottom:8px}
+.card p{font-size:13.5px;color:#ddd}
+.card p+p{margin-top:8px}
+.tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:5px;margin-right:8px;vertical-align:middle}
+.t-red{background:rgba(239,68,68,.15);color:var(--red);border:1px solid var(--red)}
+.t-amber{background:rgba(245,158,11,.15);color:var(--amber);border:1px solid var(--amber)}
+.t-mut{background:rgba(170,170,170,.12);color:var(--muted);border:1px solid var(--border)}
+.hl{color:var(--orange);font-weight:700}
+ul.lst{list-style:none;font-size:13px;margin-top:8px}
+ul.lst li{padding:5px 0 5px 18px;position:relative;border-top:1px solid var(--border);color:#ddd}
+ul.lst li:before{content:"›";position:absolute;left:2px;color:var(--orange);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:12px;background:var(--surf2);border:1px solid var(--border);border-radius:6px;padding:4px 9px;color:#ddd}
+.chip b{color:var(--red)}
+.foot-note{color:var(--muted);font-size:11px;margin-top:10px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <h1>Google Ads · Diagnóstico & Oportunidades</h1>
+    <div class="sub">Conta BetWarrior BR (589-071-5644) · Período 1 a 18 de agosto de 2026 · Growth BR</div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">Investimento</div><div class="val">US$ 9.147</div><div class="foot">US$ 464/dia · 5 campanhas ativas</div></div>
+    <div class="kpi"><div class="lbl">FTDs</div><div class="val">150</div><div class="foot">deposit_ftd (conversão medida)</div></div>
+    <div class="kpi"><div class="lbl">CPA blended</div><div class="val">US$ 61</div><div class="foot">vs meta US$ 60 · no alvo</div></div>
+    <div class="kpi"><div class="lbl">Otimização</div><div class="val">FTD</div><div class="foot">Maximizar conv. · sem tCPA</div></div>
+  </div>
+
+  <div class="sec">
+    <h2>1 · Veredito por campanha</h2>
+    <table>
+      <thead><tr><th>Campanha</th><th>Tipo</th><th>Custo</th><th>FTD</th><th>CPA</th><th>vs meta US$60</th><th>Gargalo (impr. perdida)</th><th>Ação</th></tr></thead>
+      <tbody>
+        <tr><td>brand_exacta</td><td>Search</td><td class="mono">US$ 1.340</td><td class="mono">35</td><td class="mono pos">US$ 38</td><td class="pos">-37%</td><td>Orçamento 23% · rank 1%</td><td>Escalar (tem folga)</td></tr>
+        <tr><td>competencia</td><td>Search</td><td class="mono">US$ 1.720</td><td class="mono">35</td><td class="mono pos">US$ 49</td><td class="pos">-18%</td><td>Rank 72% · orçamento 27%</td><td>Podar perdedores</td></tr>
+        <tr><td>apuestas</td><td>PMax</td><td class="mono">US$ 3.317</td><td class="mono">55</td><td class="mono warn">US$ 60*</td><td class="warn">no alvo*</td><td class="neg">Rank &gt;90%</td><td>Corrigir sinal + excluir marca</td></tr>
+        <tr><td>casino_slots</td><td>PMax</td><td class="mono">US$ 2.710</td><td class="mono">25</td><td class="mono neg">US$ 108</td><td class="neg">+80%</td><td>Rank 52% · orçamento 45%</td><td>Negativar lixo · reduzir verba</td></tr>
+        <tr><td>generico_cassino</td><td>Search</td><td class="mono">US$ 49</td><td class="mono">0</td><td class="mono neg">sem FTD</td><td class="neg">—</td><td>Orçamento 69%</td><td>Pausar</td></tr>
+      </tbody>
+    </table>
+    <p class="foot-note">*O CPA de US$60 da apuestas é <span class="hl">inflado por captura de marca</span>. Ver achado 2. Blended da conta no alvo, mas puxado pra cima por casino_slots (US$108) e pelo buraco da generico.</p>
+  </div>
+
+  <div class="sec">
+    <h2>2 · Achados centrais</h2>
+
+    <div class="card p1">
+      <h3><span class="tag t-red">Rank</span>Sinal de público da PMax está errado</h3>
+      <p>Todos os grupos de recursos ativos da <b>apuestas</b> usam o mesmo público-alvo: <span class="hl">"Finanzas e inversion (AO)"</span> — finanças/investimento, e o sufixo "(AO)" indica um público <b>da Argentina</b>. Para apostas esportivas isso é irrelevante: o algoritmo procura o público errado, o que degrada o Ad Rank e explica os <b>&gt;90% de impressão perdida por classificação</b>.</p>
+      <p>Os <b>temas de pesquisa</b> estão corretos e segmentados (apostas, brasileirão, libertadores, sul-americana). O problema é só o sinal de público. <span class="hl">Alavanca de maior impacto da conta.</span></p>
+    </div>
+
+    <div class="card p1">
+      <h3><span class="tag t-red">Eficiência mascarada</span>A PMax canibaliza a marca</h3>
+      <p>Nos termos de pesquisa, a apuestas captura <b>~21 FTD do termo "betwarrior" a US$ 39</b> (tráfego de marca, não prospecção). Isolando a marca, a <b>prospecção real da apuestas custa <span class="neg">US$ 78/FTD</span></b> (28,9 FTD), 30% acima da meta. O US$60 aparente vive de roubar marca.</p>
+      <p>Ação: aplicar <b>exclusão de marca</b> nas duas PMax para que façam prospecção pura, deixando a marca na campanha dedicada (US$38). Isso revela o CPA verdadeiro e para a canibalização.</p>
+    </div>
+
+    <div class="card p2">
+      <h3><span class="tag t-amber">Desperdício</span>casino_slots gasta em lixo e concorrente</h3>
+      <p>A PMax casino_slots (CPA US$108) está casando com termos genéricos e de concorrente que não convertem: <span class="hl">meridianbet, novibet, icebet, betonline, superbet, "plataforma pagando muito agora", "bet novas 2026", "casa de aposta de 1 real deposito"</span>. Explica o CPA 80% acima da meta.</p>
+    </div>
+
+    <div class="card p2">
+      <h3><span class="tag t-amber">Sem guardrail</span>Nenhuma campanha tem teto de CPA</h3>
+      <p>Todas em <b>Maximizar conversões sem tCPA</b>. A otimização está corretamente ligada a FTD (bom), mas não há teto de eficiência. Onde há volume (apuestas, competencia, brand), dá para testar <b>tCPA = US$60</b> para travar o CPA sem depender só de budget.</p>
+    </div>
+
+    <div class="card p3">
+      <h3><span class="tag t-mut">Morto</span>generico_cassino não converte</h3>
+      <p>1 termo ("cassino online dinheiro real"), 18 cliques, <b>0 FTD</b>, US$49. Pausar ou reformular por completo (termos + negativas + landing).</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>3 · Oportunidades priorizadas</h2>
+    <table>
+      <thead><tr><th>#</th><th>Ação</th><th>Onde</th><th>Impacto</th><th>Esforço</th></tr></thead>
+      <tbody>
+        <tr><td class="neg">P1</td><td>Trocar sinal de público "Finanzas e inversion" por público de apostas esportivas BR (+ dados próprios / lista de convertedores)</td><td>PMax apuestas e casino_slots</td><td class="pos">Alto (ataca rank e prospecção US$78)</td><td>Médio</td></tr>
+        <tr><td class="neg">P1</td><td>Excluir marca das PMax (brand exclusions)</td><td>PMax apuestas e casino_slots</td><td class="pos">Alto (revela CPA real, para canibalização)</td><td>Baixo</td></tr>
+        <tr><td class="neg">P1</td><td>Adicionar negativas de lixo/concorrente e reduzir verba se CPA seguir &gt;US$60</td><td>PMax casino_slots</td><td class="pos">Alto (US$108 → alvo)</td><td>Baixo</td></tr>
+        <tr><td class="warn">P2</td><td>Pausar (ou reformular) a campanha</td><td>generico_cassino</td><td>Médio (corta desperdício)</td><td>Baixo</td></tr>
+        <tr><td class="warn">P2</td><td>Podar termos 0-conv/acima do alvo, manter os que convertem</td><td>competencia</td><td>Médio</td><td>Baixo</td></tr>
+        <tr><td class="warn">P2</td><td>Testar tCPA = US$60 nas campanhas com volume</td><td>apuestas, competencia, brand</td><td>Médio (trava eficiência)</td><td>Baixo</td></tr>
+        <tr><td class="mono">P3</td><td>Escalar orçamento (23% perdido por orçamento, CPA US$38)</td><td>brand_exacta</td><td>Médio (conversão mais barata)</td><td>Baixo</td></tr>
+        <tr><td class="mono">P3</td><td>Corrigir "betwarrior br" (US$91, 0 FTD) e avaliar geo de marca (hoje só RS/RJ/SP)</td><td>brand_exacta</td><td>Baixo-Médio</td><td>Baixo</td></tr>
+        <tr><td class="mono">P3</td><td>Higiene: remover idiomas EN/ES; rever grupo champions_league (assets fracos, US$90)</td><td>Conta / apuestas</td><td>Baixo</td><td>Baixo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="split sec">
+    <div>
+      <h2 style="font-size:16px;border-left:5px solid var(--orange);padding-left:12px;margin-bottom:14px">4 · Termos para negativar</h2>
+      <p style="font-size:12.5px;color:#ddd">Gastaram sem converter. Cortar cirurgicamente (os que convertem ficam):</p>
+      <div class="chips">
+        <span class="chip">betano <b>US$99</b></span>
+        <span class="chip">betwarrior br <b>US$91</b></span>
+        <span class="chip">betson <b>US$52</b></span>
+        <span class="chip">brazino 777 <b>US$52</b></span>
+        <span class="chip">meridianbet <b>US$52</b></span>
+        <span class="chip">vbet <b>US$50</b></span>
+        <span class="chip">novibet <b>US$44</b></span>
+        <span class="chip">icebet <b>US$39</b></span>
+        <span class="chip">betonline <b>US$35</b></span>
+        <span class="chip">multibet <b>US$31</b></span>
+        <span class="chip">"plataforma pagando muito agora" <b>US$30</b></span>
+        <span class="chip">betboom <b>US$28</b></span>
+        <span class="chip">superbet <b>US$24</b></span>
+        <span class="chip">"bet novas 2026" <b>US$27</b></span>
+      </div>
+      <p class="foot-note">Manter (convertem &lt; meta): betsson, brazino777, rivalo bet, casas de apostas, aposta ganha, stake bet.</p>
+    </div>
+    <div>
+      <h2 style="font-size:16px;border-left:5px solid var(--orange);padding-left:12px;margin-bottom:14px">5 · Grupos de recursos · apuestas</h2>
+      <table>
+        <thead><tr><th>Grupo</th><th>Força</th><th>CPA</th></tr></thead>
+        <tbody>
+          <tr><td>generico_brasileirao</td><td class="pos">Excelente</td><td class="mono pos">US$ 37</td></tr>
+          <tr><td>generico_copa_sud</td><td class="pos">Excelente</td><td class="mono pos">US$ 51</td></tr>
+          <tr><td>generico_deportes</td><td class="warn">Boa</td><td class="mono warn">US$ 65</td></tr>
+          <tr><td>generico_copa_lib</td><td class="pos">Excelente</td><td class="mono warn">US$ 74</td></tr>
+          <tr><td>generico_champions</td><td class="neg">Na média</td><td class="mono neg">US$ 90</td></tr>
+        </tbody>
+      </table>
+      <p class="foot-note">Todos com o mesmo sinal errado ("Finanzas e inversion"). Escalar brasileirão e copa_sud; corrigir/pausar champions (assets fracos + CPA alto).</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>6 · Próximos passos</h2>
+    <ul class="lst">
+      <li><b>Esta semana:</b> corrigir sinal de público das PMax + aplicar exclusão de marca + negativas de lixo na casino_slots. São as ações de maior impacto e menor esforço.</li>
+      <li><b>Medir por 7-14 dias:</b> reavaliar o CPA de prospecção da apuestas (hoje US$78) e da casino_slots (US$108) já sem marca e sem lixo.</li>
+      <li><b>Depois:</b> testar tCPA US$60 nas campanhas com volume; decidir escala da brand_exacta; pausar generico_cassino.</li>
+      <li><b>Higiene contínua:</b> revisão semanal de termos de pesquisa para novas negativas.</li>
+    </ul>
+    <p class="foot-note">Fonte: Google Ads (conta 589-071-5644), relatórios de campanhas, termos de pesquisa, keywords e grupos de recursos · 1-18 ago 2026. Conversão medida e otimizada = deposit_ftd (FTD). Meta de CPA = US$60. Valores em USD.</p>
+  </div>
+
+</div>
+</body>
+</html>

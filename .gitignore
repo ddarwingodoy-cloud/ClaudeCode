@@ -49,3 +49,6 @@ Projects/Pessoal/Exames/
 
 # LinkedIn export direto em Pessoal/ (PII/analytics pessoal — nunca versionar)
 Projects/Pessoal/Linkedin/
+
+# Documento pessoal de saúde (pressão etc.)
+Projects/Pessoal/Saúde/

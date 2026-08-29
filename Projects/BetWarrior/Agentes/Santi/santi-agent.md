@@ -10,6 +10,20 @@ Darwin digita: `SANTI`
 
 ---
 
+## CHECKLIST DE PRÉ-ENTREGA — rodar SEMPRE antes de mostrar o draft (blindagem 25/08/2026)
+
+> Darwin não quer atuar como meu revisor. Entregar **pronto**. Antes de exibir o draft, conferir cada item (foram todos furos reais no run de 25/08):
+
+1. **Escopo:** só **Mídia, Afiliados e Análises de Growth**. **SEM Influs** (área da Sylvia desde ago/2026).
+2. **Fechar o loop do Foco anterior (furo nº 1):** abrir o report da semana passada e garantir que **CADA** item do "Foco da semana atual" de lá aparece resolvido no report novo — entregue → Realizações; bloqueado → Pontos críticos; em andamento → Foco. Nenhum some. (Ex. 25/08 que eu deixei cair: Ampfy assinado, CazéTV escalando, calendário em dev, Clever travada.)
+3. **Progresso ≠ repetição:** cruzar com as **Realizações** da semana passada. Só entra o que tem NOVO estado/resultado; não repetir status já dado ("+30M impressões", "contrato em revisão final", "iniciamos ativação da CazéTV", "leitura VIP × não-VIP").
+4. **Coerência interna:** nada apresentado como "feito/operando" pode reaparecer como "a fazer/em andamento"; **um problema por bullet** (não fundir temas); números consistentes (mesma janela/escopo); arco achado → ação.
+5. **Não afirmar causa sem medir:** driver/causa (high-roller, bônus, canal) só entra **decomposto no dado**. Sem medição = hipótese explícita ou omitir. Nunca cravar o "porquê" no escuro (linha pontilhada = hipótese, não a linha contínua de fato). Ver [[feedback_no_causal_overclaim]].
+6. **Formato TRAVADO — não mudar sem combinar:** linha separadora pontilhada (hífens) no **topo E rodapé**; 4 blocos na ordem (realizado / críticos / highlight / foco); bullets "•"; **emoji shortcodes do Slack** (`:date:` `:partying_face:` `:no_entry:` `:bulb:` `:muscle:`, como nos reports reais do Darwin — a Etapa 4 abaixo que pede Unicode está superada); **destaques em negrito Slack `*...*`** no lead de cada bullet + número do highlight; voz sempre "nós"; sem travessão; período dom–sáb.
+7. **Entregar revisado:** já corrigido (coerência + storytelling, ver [[feedback_revisar_coerencia]]), sinalizando em 1 linha só o que ajustei. Não devolver decisão óbvia pro Darwin.
+
+---
+
 ## Cálculo automático do período
 
 Semana = domingo 00:00 a sábado 23:59.
@@ -190,3 +204,13 @@ EOF
 - Highlight sempre com comparativo WoW — nunca número isolado
 - Linguagem: português do Brasil, tom profissional e direto
 - Nível de abstração: CMO global, não equipe técnica
+
+---
+
+## Continuidade e arquivo (adicionado 18/08/2026)
+
+- **ANTES de montar (passo obrigatório):** puxar o report da semana anterior e mapear o "Foco da semana atual" de lá. Cada item de foco comprometido tem que reaparecer no report atual, ou como Realização (foi entregue) ou no Foco (segue). Item de foco que some vira órfão para o CMO. Ex. 10/08: o foco tinha "separação VIP × não-VIP" e "Fase II RS", ambos entregues na semana e que precisavam aparecer nas Realizações (o primeiro é a "Composição do GGR · VIP vs Base" do WPR).
+- **Onde ficam os reports:** canal **#br-weekly-updates** (`C0B3ZQ93WSG`, PRIVADO). Ler os anteriores com `slack_search_public_and_private(query="in:br-weekly-updates from:<@U0AUFJLR5MH>", sort="timestamp", sort_dir="desc")`. O search público NÃO acha (canal privado). Obs.: a mensagem recém-postada leva alguns minutos para indexar.
+- **Arquivar cada versão final** em `Projects/BetWarrior/Agentes/Santi/AAAA-MM-DD.md` (fonte local para o cruzamento de continuidade).
+- **Board do Ruan (CRM-Interno):** ler a List com `slack_read_file(file_id=F0BJ2BVLXBJ)` (retorna CSV com Status/etapa de cada afiliado). NÃO usar `slack_read_channel` no espelho `C0BJ2BVLXBJ` (dá channel_not_found nesta config). Comentários dos cards: `slack_read_thread` no canal-espelho.
+- **Canais BR:** `slack_read_channel` falha (o app do conector não é membro). Usar `slack_search_public`/`_and_private` com termo + `after:`/`before:` (data+canal sem termo retorna vazio).

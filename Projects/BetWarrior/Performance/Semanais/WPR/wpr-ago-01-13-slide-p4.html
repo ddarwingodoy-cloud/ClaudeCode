@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>WPR Brasil · P4 Eficiência & Alocação · Ago 01–13/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body { width:1920px; height:1080px; overflow:hidden; background:#F2F2F2; color:#111; font-family:'Archivo',sans-serif; display:flex; flex-direction:column; }
+.hdr { background:#FFF; border-bottom:2px solid #FF3900; display:flex; align-items:center; gap:24px; padding:0 28px; height:80px; flex-shrink:0; }
+.logo-block { display:flex; align-items:center; gap:10px; }
+.logo-bar { width:4px; height:36px; background:#FF3900; }
+.logo-text .brand { font-family:'Archivo Black'; font-size:17px; letter-spacing:1px; }
+.logo-text .sub { font-size:9px; color:#999; letter-spacing:3px; text-transform:uppercase; }
+.hdr-sep { width:1px; height:44px; background:#E0E0E0; }
+.hdr-body { flex:1; }
+.hdr-title { font-family:'Archivo Black'; font-size:22px; letter-spacing:3px; text-transform:uppercase; line-height:1; margin-bottom:6px; }
+.hdr-sub { font-size:12px; color:#777; line-height:1.4; }
+.hdr-sub strong { color:#FF3900; }
+.hdr-meta { font-size:11px; color:#999; text-align:right; line-height:1.8; letter-spacing:.5px; }
+.body { flex:1; padding:14px 20px; display:flex; flex-direction:column; gap:12px; min-height:0; }
+.row { display:flex; gap:12px; flex:1; min-height:0; }
+.panel { background:#FFF; border:1px solid #E0E0E0; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; overflow:hidden; min-height:0; flex:1; }
+.ph { display:flex; align-items:center; gap:10px; padding:10px 18px; border-bottom:2px solid #FF3900; flex-shrink:0; }
+.ph-title { font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+.ph-note { margin-left:auto; font-size:9px; color:#AAA; font-style:italic; }
+.p-body { flex:1; padding:14px 20px 12px; display:flex; flex-direction:column; min-height:0; }
+/* CAC dois recortes */
+.rec { display:flex; flex-direction:column; gap:16px; flex:1; justify-content:center; padding:6px 0; }
+.rec-row { }
+.rec-lbl { display:flex; align-items:baseline; gap:8px; margin-bottom:7px; }
+.rec-lbl b { font-family:'Archivo Black'; font-size:13px; letter-spacing:.5px; text-transform:uppercase; }
+.rec-lbl .d { font-size:12px; font-weight:700; }
+.rec-bars { display:flex; align-items:center; gap:14px; }
+.rec-m { width:42px; font-size:13px; color:#888; font-weight:700; flex-shrink:0; }
+.rec-track { flex:1; height:30px; background:#F2F2F2; border-radius:3px; overflow:hidden; display:flex; align-items:center; }
+.rec-fill { height:100%; border-radius:3px; display:flex; align-items:center; justify-content:flex-end; padding-right:10px; color:#FFF; font-family:'Archivo Black'; font-size:14px; }
+.rec-note { font-size:11px; color:#BBB; line-height:1.5; margin-top:10px; padding-top:9px; border-top:1px solid #F0F0F0; flex-shrink:0; }
+.rec-note b { color:#111; }
+/* bars generic */
+.blk-wrap { display:flex; flex-direction:column; gap:14px; flex:1; justify-content:center; padding:8px 4px; }
+.blk { display:flex; align-items:center; gap:12px; }
+.blk-name { width:88px; font-size:13px; color:#333; font-weight:600; flex-shrink:0; text-align:right; }
+.blk-track { flex:1; height:28px; background:#F2F2F2; border-radius:3px; overflow:hidden; }
+.blk-fill { height:100%; border-radius:3px; }
+.blk-val { width:132px; text-align:left; flex-shrink:0; }
+.blk-val b { font-family:'Archivo Black'; font-size:16px; color:#111; }
+.blk-val span { font-size:11px; color:#AAA; margin-left:5px; }
+.tnote { font-size:11px; color:#BBB; line-height:1.5; flex-shrink:0; margin-top:8px; padding-top:8px; border-top:1px solid #F0F0F0; }
+.tnote b { color:#111; }
+/* LTV coorte cards */
+.coh { display:flex; gap:12px; flex:1; align-items:stretch; padding:6px 0; }
+.coh-c { flex:1; border:1px solid #EFEFEF; border-radius:5px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#F8F8F8; }
+.coh-c .age { font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:1px; }
+.coh-c .mo { font-family:'Archivo Black'; font-size:15px; color:#333; margin:3px 0 8px; }
+.coh-c .v { font-family:'Archivo Black'; font-size:30px; line-height:1; }
+.coh-c .u { font-size:9.5px; color:#BBB; margin-top:4px; }
+/* verdict */
+.vd { flex:1; display:flex; flex-direction:column; gap:10px; padding:4px 0; }
+.vd-i { display:flex; gap:11px; align-items:flex-start; font-size:13.5px; color:#333; line-height:1.45; }
+.vd-i i { width:8px; height:8px; border-radius:2px; margin-top:6px; flex-shrink:0; }
+.vd-i b { color:#111; }
+.vd-pre { font-size:11.5px; color:#888; line-height:1.5; margin-top:8px; padding-top:9px; border-top:1px dashed #E0E0E0; }
+.vd-pre b { color:#555; }
+.ftr { height:30px; background:#FFF; border-top:1px solid #E8E8E8; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:10px; color:#BBB; letter-spacing:1px; flex-shrink:0; }
+</style></head><body>
+<div class="hdr">
+  <div class="logo-block"><div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div></div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body"><div class="hdr-title">Eficiência &amp; Alocação</div>
+    <div class="hdr-sub"><strong>Primeira leitura de eficiência (v1). O corte de mídia barateou 71% a aquisição rastreável (CAC R$794 → R$229), mas o all-in piorou porque Awareness (R$943k, 54% do spend de Julho) segue intacto e sem FTD rastreável. Afiliados é a vertical mais eficiente (CAC R$93). O LTV das coortes ainda é jovem e abaixo do breakeven: dá pra rastrear payback, não pra cravar LTV:CAC ainda.</strong></div></div>
+  <div class="hdr-meta">Spend: PLANO (realizado)<br>FTD/NGR: PowerBI · coortes<br>Gerado 14/08</div>
+</div>
+<div class="body">
+  <div class="row">
+    <div class="panel"><div class="ph"><span class="ph-title">CAC · dois recortes</span><span class="ph-note">spend ÷ FTD · Jun → Jul (pós-corte)</span></div>
+      <div class="p-body"><div class="rec">
+        <div class="rec-row">
+          <div class="rec-lbl"><b>Pago rastreável</b><span class="d" style="color:#22C55E">−71%</span><span style="font-size:10px;color:#AAA">Perfo + Afiliados + Influ</span></div>
+          <div class="rec-bars"><span class="rec-m">Jun</span><div class="rec-track"><div class="rec-fill" style="width:50%;background:#C8886A">R$794</div></div></div>
+          <div class="rec-bars" style="margin-top:6px"><span class="rec-m">Jul</span><div class="rec-track"><div class="rec-fill" style="width:14.4%;background:#22C55E">R$229</div></div></div>
+        </div>
+        <div class="rec-row">
+          <div class="rec-lbl"><b>All-in</b><span class="d" style="color:#EF4444">+35%</span><span style="font-size:10px;color:#AAA">todo o spend ÷ todo FTD</span></div>
+          <div class="rec-bars"><span class="rec-m">Jun</span><div class="rec-track"><div class="rec-fill" style="width:74%;background:#B0B0B0">R$1.185</div></div></div>
+          <div class="rec-bars" style="margin-top:6px"><span class="rec-m">Jul</span><div class="rec-track"><div class="rec-fill" style="width:100%;background:#EF4444">R$1.599</div></div></div>
+        </div>
+        <div class="rec-note"><b>O corte tornou a aquisição rastreável muito mais barata, mas o all-in piorou:</b> a maior linha (Awareness R$943k/mês) ficou intacta enquanto os FTDs caíram. O delta entre os dois recortes é o custo de marca sem FTD atribuível. FTD: atribuição PowerBI (Jun 3.385 · Jul 1.092).</div>
+      </div></div>
+    <div class="panel"><div class="ph"><span class="ph-title">CAC por vertical · Julho</span><span class="ph-note">rastreável · spend ÷ FTD do canal</span></div>
+      <div class="p-body"><div class="blk-wrap">
+        <div class="blk"><div class="blk-name">Afiliados</div><div class="blk-track"><div class="blk-fill" style="width:3.7%;background:#22C55E"></div></div><div class="blk-val"><b>R$ 93</b><span>407 FTD</span></div></div>
+        <div class="blk"><div class="blk-name">Perfo</div><div class="blk-track"><div class="blk-fill" style="width:13.3%;background:#FF3900"></div></div><div class="blk-val"><b>R$ 338</b><span>148 FTD</span></div></div>
+        <div class="blk"><div class="blk-name">Influ</div><div class="blk-track"><div class="blk-fill" style="width:100%;background:#99230A"></div></div><div class="blk-val"><b>R$ 2.535</b><span>17 FTD</span></div></div>
+        <div class="blk"><div class="blk-name">Awareness</div><div class="blk-track"><div class="blk-fill" style="width:0%"></div></div><div class="blk-val"><b>s/ FTD</b><span>R$943k gasto</span></div></div>
+      </div>
+      <div class="tnote"><b>Afiliados é a aquisição mais barata</b> (R$93), por isso o scale-up de Agosto (forecast R$593k) faz sentido. <b>Awareness é 54% do spend e não tem FTD rastreável</b>: é a maior alavanca de eficiência a auditar. Perfo com spillover para tráfego sem tag (subestima o volume real do canal).</div>
+      </div></div>
+  </div>
+  <div class="row">
+    <div class="panel"><div class="ph"><span class="ph-title">LTV · curva de maturação</span><span class="ph-note">NGR realizado por FTD · por idade de coorte</span></div>
+      <div class="p-body">
+        <div class="coh">
+          <div class="coh-c"><div class="age">madura ~2,5m</div><div class="mo">Jun</div><div class="v" style="color:#EF4444">−R$11</div><div class="u">3.385 FTD</div></div>
+          <div class="coh-c"><div class="age">~1,5 mês</div><div class="mo">Jul</div><div class="v" style="color:#999">~R$0</div><div class="u">1.092 FTD</div></div>
+          <div class="coh-c" style="border-color:#FFD5C6;background:#FFF5F2"><div class="age">2 semanas</div><div class="mo" style="color:#FF3900">Ago ▶</div><div class="v" style="color:#FF3900">+R$205</div><div class="u">490 FTD</div></div>
+        </div>
+        <div class="tnote">A curva sobe ao contrário do esperado: <b>a coorte mais nova parece a melhor porque é baleia VIP que ainda não reverteu</b> (Ago +R$205), enquanto a coorte madura (Jun) está em −R$11. NGR jovem é deprimido por bônus front-load e domina por poucos jogadores. <b>Ainda abaixo do breakeven: dá pra rastrear payback, não pra cravar LTV.</b></div>
+      </div></div>
+    <div class="panel"><div class="ph"><span class="ph-title">Veredito de Alocação</span><span class="ph-note">o que é sólido hoje · e o que falta</span></div>
+      <div class="p-body"><div class="vd">
+        <div class="vd-i"><i style="background:#22C55E"></i><span><b>Afiliados é a aquisição eficiente:</b> CAC R$93 vs all-in R$1.599. LTV:CAC 0,47x em 1,5 mês (recuperou metade do CAC, coorte ainda jovem). Escalar aqui é a aposta certa.</span></div>
+        <div class="vd-i"><i style="background:#F59E0B"></i><span><b>Awareness é o ponto a auditar:</b> R$943k/mês (54% do spend) sem FTD rastreável. Ou provamos o retorno de marca, ou é a maior fonte de ineficiência.</span></div>
+        <div class="vd-i"><i style="background:#FF3900"></i><span><b>A alavanca de margem agora não é spend, é a base:</b> como o NGR maduro é dirigido por bônus, o ganho vem de controle de CRM/bônus, não de mais aquisição.</span></div>
+        <div class="vd-pre"><b>Pré-condições para o LTV:CAC de verdade:</b> (1) fechar a atribuição (59% dos registros sem UTM); (2) deixar as coortes maturarem 1-2 meses; (3) unificar o escopo de FTD entre o spend (PLANO) e o PowerBI. Até lá, isto é rastreio de eficiência, não veredito fechado.</div>
+      </div></div>
+  </div>
+</div>
+<div class="ftr"><span>BETWARRIOR BRASIL · CONFIDENTIAL</span><span>WPR · PÁG. 4 · EFICIÊNCIA &amp; ALOCAÇÃO · AGO 01–13/2026</span><span>14/08/2026</span></div>
+</body></html>

@@ -1,0 +1,13 @@
+Relatório de campanha
+1 de agosto de 2026 - 18 de agosto de 2026
+Status da campanha,Campanha,Orçamento,Nome do orçamento,Tipo de orçamento,Código da moeda,Status,Motivos do status,Pontuação de otimização,Tipo de campanha,Custo,Cliques,Impr.,Conversões,Parcela impr rede de pesquisa,Parc impr perd rede de pesquisa (class.),Parc impr perd rede de pesquisa (orç)
+Ativada,BR_search_aon_conv_generico_cassino,"43,00", --,Diário,USD,Qualificado (limitado),a maioria dos anúncios foi limitada pela política; estratégia de lances com aprendizado em andamento,"96,71",Pesquisa,"49,05",18,695,"0,00",< 10%,"7,82%",> 90%
+Ativada,BR_pmax_aon_conv_casino_slots_otros,"88,00", --,Diário,USD,Qualificado (limitado),limitado pelo orçamento; a maioria dos grupos de recursos está limitada pela política,"100,00",Performance Max,"2717,56",2.083,69.752,"25,00",< 10%,"52,36%","45,52%"
+Ativada,BR_search_aon_conv_brand_exacta,"75,00", --,Diário,USD,Qualificado (limitado),a maioria dos anúncios foi limitada pela política,"100,00",Pesquisa,"1339,59",682,909,"37,00","75,81%","0,77%","23,41%"
+Ativada,BR_search_aon_conv_competencia,"38,00", --,Diário,USD,Qualificado (limitado),limitado pelo orçamento; a maioria dos anúncios foi limitada pela política,"100,00",Pesquisa,"1724,48",695,6.352,"35,00",< 10%,"72,66%","26,17%"
+Ativada,br_pmax_aon_conv_apuestas,"220,00", --,Diário,USD,Qualificado (limitado),limitado pelo orçamento; limitado pelo tipo de estratégia de lances; a maioria dos grupos de recursos está limitada pela política,"94,02",Performance Max,"3315,96",1.228,27.157,"54,86",< 10%,> 90%,"7,77%"
+Total: Campanhas, --, --, --, --,USD, --,, --, --,"9146,64",4.706,104.865,"151,86",< 10%,"73,59%","24,72%"
+Total: Conta,,,,,USD,,,,,"9146,64",4.706,104.865,"151,86",< 10%,"73,59%","24,72%"
+Total: Pesquisa,,,,,USD,,,,Pesquisa,"3113,12",1.395,7.956,"72,00",< 10%,"69,19%","29,44%"
+Total: Performance Max,,,,,USD,,,,Performance Max,"6033,52",3.311,96.909,"79,86",< 10%,"75,51%","22,65%"
+Total: Vídeo,,,,,USD,,,,Vídeo,"0,00",0,0,"0,00", --, --, --

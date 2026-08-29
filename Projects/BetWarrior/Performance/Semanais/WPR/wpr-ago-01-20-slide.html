@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>WPR Brasil · P1 · Ago 01–20/2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html { height:100%; }
+body { width:1920px; height:1080px; overflow:hidden; background:#F2F2F2; color:#111; font-family:'Archivo',sans-serif; display:flex; flex-direction:column; }
+.hdr { background:#FFF; border-bottom:2px solid #FF3900; display:flex; align-items:center; gap:24px; padding:0 28px; height:80px; flex-shrink:0; }
+.logo-block { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.logo-bar { width:4px; height:36px; background:#FF3900; }
+.logo-text .brand { font-family:'Archivo Black'; font-size:17px; letter-spacing:1px; }
+.logo-text .sub { font-size:9px; color:#999; letter-spacing:3px; text-transform:uppercase; }
+.hdr-sep { width:1px; height:44px; background:#E0E0E0; }
+.hdr-body { flex:1; }
+.hdr-title { font-family:'Archivo Black'; font-size:22px; letter-spacing:3px; text-transform:uppercase; line-height:1; margin-bottom:6px; }
+.hdr-sub { font-size:12px; color:#777; line-height:1.4; }
+.hdr-sub strong { color:#FF3900; }
+.hdr-meta { font-size:11px; color:#999; text-align:right; line-height:1.8; flex-shrink:0; letter-spacing:.5px; }
+.body { flex:1; padding:14px 20px; display:flex; flex-direction:column; gap:12px; min-height:0; }
+.row { display:flex; gap:12px; }
+.row-top { flex:1; min-height:0; }
+.row-bot { flex:1.05; min-height:0; }
+.panel { background:#FFF; border:1px solid #E0E0E0; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; overflow:hidden; min-height:0; }
+.p-1 { flex:1; }
+.ph { display:flex; align-items:center; gap:10px; padding:10px 18px; border-bottom:2px solid #FF3900; flex-shrink:0; }
+.ph-title { font-family:'Archivo Black'; font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+.ph-note { margin-left:auto; font-size:9px; color:#AAA; font-style:italic; }
+.p-body { flex:1; padding:14px 18px 12px; display:flex; flex-direction:column; min-height:0; }
+.trend-svg { flex:1; min-height:0; } .trend-svg svg { display:block; width:100%; height:100%; }
+.chart-legend { display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding-top:8px; border-top:1px solid #F0F0F0; margin-top:7px; flex-shrink:0; min-height:28px; }
+.cl { display:flex; align-items:center; gap:6px; font-size:10px; color:#999; }
+.cl-dot { width:9px; height:9px; border-radius:2px; }
+.fmx { flex:1; display:flex; flex-direction:column; justify-content:center; gap:22px; padding:6px 0; }
+.fnl-row { display:flex; align-items:center; justify-content:center; }
+.fnl-ml { width:52px; flex-shrink:0; font-family:'Archivo Black'; font-size:16px; color:#888; }
+.fnl-ml.cur { color:#FF3900; }
+.fnl-box { display:flex; align-items:center; justify-content:center; font-family:'Archivo Black'; font-size:16px; color:#fff; border-radius:3px; flex-shrink:0; }
+.s1 { width:118px; } .s2 { width:100px; } .s4 { width:78px; }
+.fnl-box.s1 { height:60px; } .fnl-box.s2 { height:49px; } .fnl-box.s4 { height:38px; }
+.fnl-gap { width:96px; flex-shrink:0; text-align:center; line-height:1.15; }
+.fnl-gap .p { font-size:17px; font-weight:700; color:#555; }
+.fnl-gap .d { font-size:12px; font-weight:700; display:block; margin-top:2px; }
+.fnl-gap .d.up { color:#22C55E; } .fnl-gap .d.dn { color:#EF4444; } .fnl-gap .d.fl { color:#BBB; }
+.fnl-hdr div[class^="s"] { text-align:center; font-family:'Archivo Black'; font-size:11px; text-transform:uppercase; color:#999; line-height:1.05; }
+.fmx-foot { font-size:11px; color:#BBB; margin-top:10px; padding-top:7px; border-top:1px solid #F0F0F0; }
+table { width:100%; border-collapse:collapse; flex-shrink:0; }
+thead tr { background:#FF3900; }
+thead th { padding:11px 8px; text-align:center; white-space:nowrap; color:#FFF; font-family:'Archivo Black'; font-size:14px; letter-spacing:.5px; text-transform:uppercase; }
+thead th:first-child { text-align:left; }
+thead th.th-hi { background:#CC2E00; }
+tbody tr:nth-child(odd) { background:#FFF; }
+tbody tr:nth-child(even) { background:#F8F8F8; }
+tbody tr.cw { background:#FFF5F2; border-left:3px solid #FF3900; }
+tbody tr.dr { background:#F5F5F5; }
+tbody tr.mt { background:#FFF; border-top:1px dashed #E0E0E0; }
+tbody tr.mt td { color:#555; }
+tbody td { padding:13px 8px; text-align:center; white-space:nowrap; font-size:15px; color:#777; }
+tbody td:first-child { text-align:left; color:#333; font-family:'Archivo Black'; font-size:14px; }
+.n { color:#EF4444 !important; font-weight:700; }
+.g { color:#22C55E !important; font-weight:700; }
+.mu { color:#CCC !important; }
+.tnote { margin-top:10px; font-size:11.5px; color:#BBB; line-height:1.55; flex-shrink:0; }
+.tnote b { color:#111; }
+.row-bot .p-body { padding:14px 16px 12px; }
+.p-tbl .p-body { justify-content:center; }
+.ba-cards { display:flex; gap:11px; flex-shrink:0; }
+.ba-c { flex:1; background:#F8F8F8; border:1px solid #EFEFEF; border-radius:4px; padding:11px 8px; text-align:center; }
+.ba-c .l { font-size:12px; color:#AAA; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; white-space:nowrap; }
+.ba-c .v { font-family:'Archivo Black'; font-size:29px; }
+.ba-c .d { font-size:16px; font-weight:700; margin-top:4px; }
+.ba-c .dv { font-size:12.5px; color:#BBB; margin-top:1px; }
+.p-tbl { flex:1.08; } .p-base { flex:1; }
+.comp { margin-top:13px; padding-top:12px; border-top:1px solid #F0F0F0; flex:1; display:flex; flex-direction:column; min-height:0; }
+.comp-t { font-family:'Archivo Black'; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#AAA; margin-bottom:6px; }
+.comp-key { display:flex; gap:16px; margin-bottom:4px; }
+.comp-key span { display:flex; align-items:center; gap:6px; font-size:11.5px; color:#999; }
+.comp-key i { width:11px; height:11px; border-radius:2px; display:inline-block; }
+.comp-leg { font-size:11px; color:#555; line-height:1.5; padding-top:8px; margin-top:6px; border-top:1px solid #F0F0F0; flex-shrink:0; }
+.comp-leg b { color:#111; }
+.ftr { height:30px; background:#FFF; border-top:1px solid #E8E8E8; display:flex; align-items:center; justify-content:space-between; padding:0 28px; font-size:10px; color:#BBB; letter-spacing:1px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="logo-block"><div class="logo-bar"></div>
+    <div class="logo-text"><div class="brand">BETWARRIOR</div><div class="sub">BRASIL</div></div></div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-body"><div class="hdr-title">WEEKLY PERFORMANCE REPORT</div>
+    <div class="hdr-sub"><strong>Agosto acelera a aquisição com a ativação do Grupo Dupla: FTD salta para 2.177 (46% do Forecast) e a CR bate 40,7% (melhor do ano), com GGR R$181k, margem 9,9% e NGR fortemente positivo (+R$138k). O ticket cai para R$95 com o mix de afiliado (entrada a R$40, esperado); o ponto é monitorar a atividade (redepósito + turnover) desses jogadores. O GGR ainda é liderado por VIP (14 jogadores), mas a base não-VIP virou positiva pela primeira vez (+R$8k).</strong></div></div>
+  <div class="hdr-meta">01–20 / Ago 2026<br>SB + Casino · BRL<br>Gerado 21/08</div>
+</div>
+<div class="body">
+  <div class="row row-top">
+    <!-- FTD vs Meta -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">FTD vs Meta · Ago 01–20</span><span class="ph-note">janela normalizada · meta = Forecast (não flexibilizada)</span></div>
+      <div class="p-body"><div class="trend-svg"><svg viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="314" x2="880" y2="314" stroke="#E0E0E0"/>
+        <!-- Jun 2.298/4.737 = 49% -->
+        <rect x="107.7" y="208" width="66" height="106" fill="#FF3900" rx="2"/><rect x="179.7" y="95" width="66" height="219" fill="#C8C8C8" rx="2"/>
+        <text x="140.7" y="199" text-anchor="middle" font-family="Archivo Black" font-size="21" fill="#FF3900">2.298</text>
+        <text x="212.7" y="86" text-anchor="middle" font-size="21" fill="#999" font-weight="700">4.737</text>
+        <text x="176.7" y="36" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#EF4444">49%</text>
+        <text x="176.7" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Jun</text>
+        <!-- Jul 749/5.404 = 14% -->
+        <rect x="381" y="279" width="66" height="35" fill="#FF3900" rx="2"/><rect x="453" y="64" width="66" height="250" fill="#C8C8C8" rx="2"/>
+        <text x="414" y="270" text-anchor="middle" font-family="Archivo Black" font-size="21" fill="#FF3900">749</text>
+        <text x="486" y="55" text-anchor="middle" font-size="21" fill="#999" font-weight="700">5.404</text>
+        <text x="450" y="36" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#EF4444">14%</text>
+        <text x="450" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Jul</text>
+        <!-- Ago 2.177/4.706 = 46% -->
+        <rect x="654.3" y="213" width="66" height="101" fill="#FF3900" rx="2"/><rect x="726.3" y="96" width="66" height="218" fill="#C8C8C8" rx="2"/>
+        <text x="687.3" y="204" text-anchor="middle" font-family="Archivo Black" font-size="21" fill="#FF3900">2.177</text>
+        <text x="759.3" y="87" text-anchor="middle" font-size="21" fill="#999" font-weight="700">4.706</text>
+        <text x="723.3" y="36" text-anchor="middle" font-family="Archivo Black" font-size="34" fill="#EF4444">46%</text>
+        <text x="723.3" y="348" text-anchor="middle" font-size="25" fill="#FF3900" font-weight="700">Ago ▶</text>
+      </svg></div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900"></div>Realizado</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8"></div>Meta Forecast</div>
+          <div class="cl" style="margin-left:auto;color:#AAA">Aquisição retomada pelos Afiliados (Grupo Dupla), mídia ainda reduzida</div></div></div>
+    </div>
+    <!-- Dep Médio -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">Depósito Médio por FTD · Ago 01–20</span><span class="ph-note">1º depósito · FactFirstDeposit · External</span></div>
+      <div class="p-body"><div class="trend-svg"><svg viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet">
+        <line x1="20" y1="318" x2="880" y2="318" stroke="#E0E0E0"/>
+        <rect x="96.7" y="99" width="160" height="219" fill="#C8C8C8" rx="2"/><text x="176.7" y="89" text-anchor="middle" font-family="Archivo Black" font-size="27" fill="#999">R$107</text><text x="176.7" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Jun</text>
+        <rect x="370" y="46" width="160" height="272" fill="#C8C8C8" rx="2"/><text x="450" y="36" text-anchor="middle" font-family="Archivo Black" font-size="27" fill="#999">R$133</text><text x="450" y="348" text-anchor="middle" font-size="25" fill="#888" font-weight="700">Jul</text>
+        <rect x="643.3" y="124" width="160" height="194" fill="#FF3900" rx="2"/><text x="723.3" y="114" text-anchor="middle" font-family="Archivo Black" font-size="27" fill="#FF3900">R$95</text><text x="723.3" y="348" text-anchor="middle" font-size="25" fill="#FF3900" font-weight="700">Ago ▶</text>
+      </svg></div>
+        <div class="chart-legend">
+          <div class="cl"><div class="cl-dot" style="background:#FF3900"></div>Período atual (Ago)</div>
+          <div class="cl"><div class="cl-dot" style="background:#C8C8C8"></div>Meses anteriores</div>
+          <div class="cl" style="margin-left:auto;color:#AAA">Ticket cai com o mix de afiliado (Dupla a R$40, 4x o mínimo); atividade a monitorar</div></div></div>
+    </div>
+    <!-- Funil matriz -->
+    <div class="panel p-1">
+      <div class="ph"><span class="ph-title">Funil de Ativação · evolução</span><span class="ph-note">GA4 + PowerBI · janelas Jun/Jul/Ago</span></div>
+      <div class="p-body">
+        <div class="fmx">
+          <div class="fnl-row fnl-hdr"><div class="fnl-ml"></div>
+            <div class="s1">Sessões</div><div class="fnl-gap"></div>
+            <div class="s2">Registros</div><div class="fnl-gap"></div>
+            <div class="s4">FTD</div></div>
+          <div class="fnl-row"><div class="fnl-ml">Jun</div>
+            <div class="fnl-box s1" style="background:#FF7A50">258k</div>
+            <div class="fnl-gap"><span class="p">4,5%</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">11.737</div>
+            <div class="fnl-gap"><span class="p">19,6%</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">2.298</div></div>
+          <div class="fnl-row"><div class="fnl-ml">Jul</div>
+            <div class="fnl-box s1" style="background:#FF7A50">151k</div>
+            <div class="fnl-gap"><span class="p">2,0%</span><span class="d dn">−2,5pp</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">3.056</div>
+            <div class="fnl-gap"><span class="p">24,5%</span><span class="d up">+4,9pp</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">749</div></div>
+          <div class="fnl-row"><div class="fnl-ml cur">Ago ▶</div>
+            <div class="fnl-box s1" style="background:#FF7A50">88k</div>
+            <div class="fnl-gap"><span class="p">6,1%</span><span class="d up">+4,1pp</span></div>
+            <div class="fnl-box s2" style="background:#FF3900">5.354</div>
+            <div class="fnl-gap"><span class="p">40,7%</span><span class="d up">+16,2pp</span></div>
+            <div class="fnl-box s4" style="background:#8B1500">2.177</div></div>
+        </div>
+        <div class="fmx-foot">Janelas normalizadas (Jun 06–25 · Jul 04–23 · Ago 01–20). <b style="color:#22C55E">A CR (Registros→FTD) dispara para 40,7%</b>, o melhor do ano, com a entrada dos Afiliados. Sessões: GA4 BR · Registros: New Registrations (PowerBI) · FTD: PowerBI</div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-bot">
+    <!-- Métricas de Negócio (tabela) -->
+    <div class="panel p-tbl">
+      <div class="ph"><span class="ph-title">Métricas de Negócio · Ago 01–20</span><span class="ph-note">SB + Casino · BRL · janelas normalizadas por dia da semana</span></div>
+      <div class="p-body">
+        <table><thead><tr><th>Mês</th><th>Registros</th><th>FTDs</th><th>CR%</th><th class="th-hi">GGR (R$)</th><th class="th-hi">NGR (R$)</th><th class="th-hi">Marg.</th><th>SB</th><th>CS</th></tr></thead>
+          <tbody>
+            <tr><td>Jun 06–25</td><td>11.737</td><td>2.298</td><td>19.6%</td><td>-5k</td><td>-41k</td><td>-0.1%</td><td>-1.7%</td><td>0.4%</td></tr>
+            <tr><td>Jul 04–23</td><td>3.056</td><td>749</td><td>24.5%</td><td>-11k</td><td>-37k</td><td>-1.0%</td><td>-1.7%</td><td>-0.4%</td></tr>
+            <tr class="cw"><td>Ago 01–20 ▶</td><td>5.354</td><td>2.177</td><td>40.7%</td><td>181k</td><td>138k</td><td>9.9%</td><td>15.8%</td><td>4.1%</td></tr>
+            <tr class="dr"><td class="mu">Δ vs Jul</td><td class="g">+75,2%</td><td class="g">+190,7%</td><td class="g">+16,2pp</td><td class="g">+R$192k</td><td class="g">+R$175k</td><td class="g">+11,0pp</td><td class="g">+17,5pp</td><td class="g">+4,5pp</td></tr>
+            <tr class="mt"><td>Meta</td><td>18.824</td><td>4.706</td><td>25.0%</td><td>293k</td><td>264k</td><td>4.8%</td><td>6.0%</td><td>4.0%</td></tr>
+            <tr class="dr"><td class="mu">vs Meta</td><td class="n">28%</td><td class="n">46%</td><td class="g">+15,7pp</td><td class="n">62%</td><td class="n">52%</td><td class="g">+5,2pp</td><td class="g">+9,8pp</td><td class="g">+0,1pp</td></tr>
+          </tbody></table>
+        <div class="tnote"><b>Por que o NGR fechou fortemente positivo:</b> o GGR subiu para R$181k com margem de 9,9% e o bônus contido, revertendo o vermelho de Julho. <b>O motor segue VIP: 14 jogadores respondem por ~R$135k</b>, mas a <b>base não-VIP virou positiva pela primeira vez (+R$8k)</b>, saindo de −R$114k (Jun) e −R$47k (Jul). O FTD saltou para 2.177 (46% do Forecast) com a ativação do Grupo Dupla, a ticket menor (R$95): volume de afiliado, qualidade a acompanhar pelo redepósito.</div>
+      </div>
+    </div>
+    <!-- Saúde da Base Ativa -->
+    <div class="panel p-base">
+      <div class="ph"><span class="ph-title">Saúde da Base Ativa · Ago 01–20</span><span class="ph-note">Ago vs Jul · Gross Bets + GGR · corte 19/08</span></div>
+      <div class="p-body">
+        <div class="ba-cards">
+          <div class="ba-c"><div class="l">GB Total</div><div class="v" style="color:#22C55E">R$1,68M</div><div class="d" style="color:#22C55E">+52,8%</div><div class="dv">vs R$1,10M</div></div>
+          <div class="ba-c"><div class="l">Apostadores</div><div class="v" style="color:#22C55E">2.783</div><div class="d" style="color:#22C55E">+36,2%</div><div class="dv">vs 2.044</div></div>
+          <div class="ba-c"><div class="l">GB / Apostador</div><div class="v" style="color:#22C55E">R$604</div><div class="d" style="color:#22C55E">+12,3%</div><div class="dv">vs R$538</div></div>
+          <div class="ba-c"><div class="l">VIPs Ativos</div><div class="v" style="color:#111">14</div><div class="d" style="color:#999">jogadores</div><div class="dv">player_value=VIP</div></div>
+          <div class="ba-c"><div class="l">GGR VIP</div><div class="v" style="color:#FF3900">R$135k</div><div class="d" style="color:#FF3900">94%</div><div class="dv">base +R$8k</div></div>
+        </div>
+        <div class="comp">
+          <div class="comp-t">Composição do GGR · VIP vs Base (não-VIP)</div>
+          <div class="comp-key"><span><i style="background:#FF3900"></i>GGR VIP</span><span><i style="background:#D8D8D8"></i>Base positiva</span><span><i style="background:#EF4444;opacity:.55"></i>Base negativa</span></div>
+          <div class="trend-svg"><svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet">
+            <line x1="340" y1="24" x2="340" y2="258" stroke="#CCC" stroke-dasharray="3 3"/>
+            <text x="340" y="280" text-anchor="middle" font-size="15" fill="#BBB">R$0</text>
+            <!-- Jun: VIP 109k / base -114k -->
+            <text x="20" y="71" font-family="Archivo Black" font-size="22" fill="#888">Jun</text>
+            <rect x="44" y="40" width="296" height="46" fill="#EF4444" opacity=".55" rx="2"/>
+            <text x="192" y="71" text-anchor="middle" font-size="16" font-weight="700" fill="#FFF">−R$114k</text>
+            <rect x="340" y="40" width="283" height="46" fill="#FF3900" rx="2"/>
+            <text x="481" y="71" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF">R$109k</text>
+            <!-- Jul: VIP 36k / base -47k -->
+            <text x="20" y="151" font-family="Archivo Black" font-size="22" fill="#888">Jul</text>
+            <rect x="218" y="120" width="122" height="46" fill="#EF4444" opacity=".55" rx="2"/>
+            <text x="279" y="151" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">−R$47k</text>
+            <rect x="340" y="120" width="94" height="46" fill="#FF3900" rx="2"/>
+            <text x="387" y="151" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">R$36k</text>
+            <!-- Ago: VIP 135k / base +8k -->
+            <text x="20" y="231" font-family="Archivo Black" font-size="22" fill="#FF3900">Ago ▶</text>
+            <rect x="340" y="200" width="351" height="46" fill="#FF3900" rx="2"/>
+            <text x="515" y="231" text-anchor="middle" font-size="20" font-weight="700" fill="#FFF">VIP R$135k · 94%</text>
+            <rect x="691" y="200" width="21" height="46" fill="#D8D8D8" rx="2"/>
+            <text x="720" y="231" text-anchor="start" font-size="15" font-weight="700" fill="#777">+R$8k</text>
+          </svg></div>
+          <div class="comp-leg"><b>O GGR segue liderado por VIP (14 jogadores = ~R$135k, 94%)</b>, mas a boa notícia é a <b>virada da base não-VIP: de Jun −R$114k e Jul −R$47k para +R$8k em Agosto</b>, o primeiro mês positivo. A receita começa a depender menos exclusivamente de poucos VIPs. Corte em 19/08 (transações do dia 20 ainda liquidando).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ftr"><span>BETWARRIOR BRASIL · CONFIDENTIAL</span><span>WPR · PÁG. 1 · MÉTRICAS DE NEGÓCIO · AGO 01–20/2026</span><span>21/08/2026</span></div>
+</body></html>
