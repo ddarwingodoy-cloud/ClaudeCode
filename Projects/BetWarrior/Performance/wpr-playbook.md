@@ -16,6 +16,8 @@
 - Arquivos individuais em `Semanais/WPR/`: `wpr-[mes]-[dd]-[dd]-slide.html` (P1) · `-slide-p2.html` · `-slide-p3.html`
 - Arquivo unificado: `WPR_Brasil_[Mês][DD-DD]_[YYYY].html` — capa + P1 + P2 + P3 empilhados, escalagem automática via JS. **Sempre `open` no navegador ao entregar** (o Darwin revisa no browser, não no terminal).
 - **Método de construção (regra de ouro):** copiar o deck aprovado da semana anterior (`wpr-[mes ant]-*-slide*.html` + master), **trocar só o dado**, nunca redesenhar. Recalcular só as coordenadas dos SVGs.
+- **Envio pós-reunião ao Pedro (etapa fixa, pedido do Pedro em 28/08):** **após a reunião**, enviar um **e-mail em inglês** ao Pedro (Pedro Nicolau — confirmar o endereço, não chutar) com o **PDF do WPR em anexo** e os **principais highlights no corpo** (atingimento vs meta do reforecast, drivers de GGR/NGR, destaques de canal/pipeline). Ele encaminha ao board. Draft via API em HTML com assinatura; **aprovação explícita do Darwin antes de enviar** (nunca enviar direto).
+- **Como gerar o PDF widescreen (sem perder formatação):** o master escala via JS (bom pra tela, ruim pra impressão). Então **renderizar cada slide no tamanho nativo via Chrome headless** (`--headless=new --force-device-scale-factor=2 --window-size=1920,1080 --screenshot`) e montar o PDF juntando os PNGs (Pillow, `save_all=True`), uma página por slide. Saída: `WPR_Brasil_[Mês][DD-DD]_[YYYY].pdf`. Fica no `.gitignore` (PDF) → `git add -f` pra versionar.
 
 ---
 

@@ -1,0 +1,261 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Brazil Affiliates · 1 Year</title>
+<style>
+@font-face{font-family:'Archivo Black';src:local('Archivo Black');}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:940px;background:#fff;color:#111;font-family:'Inter','Archivo',Arial,sans-serif;overflow:hidden}
+.page{width:1920px;height:940px;padding:24px 56px 14px;display:flex;flex-direction:column}
+.head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #FF3900;padding-bottom:10px;margin-bottom:11px}
+.brand{font-size:12px;letter-spacing:3px;color:#888;font-weight:700;margin-bottom:8px}
+h1{font-family:'Archivo Black',Arial;font-weight:900;font-size:39px;letter-spacing:.5px;text-transform:uppercase;line-height:1;color:#111}
+h1 b{color:#FF3900}
+.sub{font-size:15px;color:#555;margin-top:9px;max-width:1180px;line-height:1.35}
+.sub b{color:#111}
+.meta{text-align:right;font-size:13px;color:#777;line-height:1.7;white-space:nowrap}
+.meta b{color:#111}
+.kpis{display:flex;gap:16px;margin-bottom:11px}
+.kpi{flex:1;background:#F7F7F7;border:1px solid #E6E6E6;border-radius:12px;padding:10px 20px}
+.kpi .k{font-size:11.5px;letter-spacing:1.5px;color:#888;text-transform:uppercase;margin-bottom:6px}
+.kpi .v{font-family:'Archivo Black',Arial;font-size:30px;line-height:1;color:#111}
+.kpi .d{font-size:12.5px;color:#888;margin-top:5px}
+.pos{color:#16A34A} .neg{color:#DC2626} .warn{color:#D97706}
+.body{display:flex;gap:26px;flex:0 0 auto;align-items:stretch}
+.left{flex:2.15;display:flex;flex-direction:column}
+.right{flex:1;display:flex;flex-direction:column}
+.secttl{height:24px;display:flex;align-items:baseline;gap:10px;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#111;font-weight:800;margin-bottom:8px}
+.secttl span{color:#999;font-weight:400;letter-spacing:.5px;font-size:12.5px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{background:#FF3900;color:#fff;font-weight:700;text-align:right;padding:9px 11px;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+thead th:first-child{text-align:left}
+thead th .sort{font-size:9px;opacity:.75;margin-left:3px;vertical-align:middle;font-weight:400}
+tbody td{padding:5px 11px;border-bottom:1px solid #EEE}
+tbody tr.z{background:#F7F7F7}
+tbody tr.hl{background:#FFF1EC;box-shadow:inset 3px 0 0 #FF3900}
+tbody tr.agg{background:#F1F1F1}
+tbody tr.agg .nm{color:#444}
+tbody tr.dead .nm{color:#999}
+td.nm{text-align:left;font-weight:600;color:#111}
+td.r{text-align:right;font-variant-numeric:tabular-nums}
+td.b{font-weight:800}
+td.gbcol{color:#555}
+.muted{color:#999!important;font-weight:400}
+.mix{font-size:10px;color:#aaa;margin-left:3px}
+.tag{background:#FF3900;color:#fff;font-size:10px;padding:2px 7px;border-radius:20px;margin-left:7px;letter-spacing:.5px;vertical-align:middle;font-weight:700}
+.card{flex:1;background:#F7F7F7;border:1px solid #E6E6E6;border-radius:12px;padding:16px 18px;display:flex;flex-direction:column}
+.cmp{display:flex;gap:12px}
+.cmp .col{flex:1;background:#fff;border:1px solid #E6E6E6;border-radius:10px;padding:13px}
+.cmp .col.d{border:1.5px solid #FF3900}
+.cmp .h{font-size:11.5px;letter-spacing:.8px;text-transform:uppercase;color:#888;margin-bottom:9px}
+.cmp .h b{color:#111}
+.cmp .line{display:flex;justify-content:space-between;font-size:13px;padding:3.5px 0;color:#444}
+.cmp .line b{font-variant-numeric:tabular-nums;color:#111}
+.bars{flex:1;display:flex;flex-direction:column;justify-content:space-between;margin-top:16px;margin-bottom:8px}
+.brow{}
+.blbl{font-size:12px;color:#444;margin-bottom:5px}
+.btrack{height:9px;background:#ECECEC;border-radius:5px;margin-bottom:3px;overflow:hidden}
+.bnet{height:100%;background:#22C55E;border-radius:5px}
+.bearn{height:100%;background:#FF3900;border-radius:5px}
+.leg{display:flex;gap:18px;font-size:12px;color:#777}
+.leg i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:-1px}
+.takeaway{flex:0 0 auto;display:grid;grid-template-columns:2.4fr 1fr 1fr 1fr;gap:16px;align-items:stretch;background:#F7F7F7;border:1px solid #E6E6E6;border-left:4px solid #FF3900;border-radius:12px;padding:13px 22px;margin-top:11px}
+.tk-lead{min-width:0;display:flex;flex-direction:column;justify-content:center;font-size:15px;line-height:1.55;color:#444;padding-right:14px}
+.tk-lead .lbl{font-family:'Archivo Black',Arial;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:#111;margin-bottom:9px}
+.tk-lead .tk-p{width:100%}
+.tk-lead b{color:#111}
+.rec{min-width:0;background:#fff;border:1px solid #E6E6E6;border-radius:10px;padding:14px 15px;display:flex;flex-direction:column;justify-content:center}
+.rec .rn{width:22px;height:22px;border-radius:50%;background:#FF3900;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}
+.rec .rt{font-weight:800;color:#111;font-size:13.5px;margin-bottom:5px}
+.rec .rd{font-size:12.5px;color:#666;line-height:1.4}
+.foot{display:flex;justify-content:space-between;font-size:11px;color:#999;margin-top:auto;padding-top:10px;letter-spacing:.4px}
+</style></head><body><div class="page">
+<div class="head">
+  <div>
+    <div class="brand">BETWARRIOR BRAZIL · CONFIDENTIAL</div>
+    <h1>BRAZIL AFFILIATES · <b>1 YEAR</b> OF OPERATION</h1>
+    <div class="sub">Per-affiliate read: <b>Net Revenue</b> (GGR coming in) against <b>Earnings</b> (commission going out). Over 12 months the program paid more in commission than it generated in gross revenue.</div>
+  </div>
+  <div class="meta"><b>Aug 2025 – Aug 2026</b><br>Values in <b>USD</b><br>Source: MyAffiliates<br>Cutoff: Aug 27, 2026</div>
+</div>
+<div class="kpis">
+  <div class="kpi"><div class="k">FTD (year)</div><div class="v">9,220</div><div class="d">21 affiliates operated</div></div>
+  <div class="kpi"><div class="k">Net Revenue (GGR)</div><div class="v">$110.9k</div><div class="d">gross revenue generated</div></div>
+  <div class="kpi"><div class="k">Earnings (commission)</div><div class="v">$197.8k</div><div class="d">cost paid to affiliates</div></div>
+  <div class="kpi"><div class="k">Result</div><div class="v neg">-$86.8k</div><div class="d">Net Revenue minus Earnings</div></div>
+  <div class="kpi"><div class="k">Program ROI</div><div class="v neg">0.56</div><div class="d">US$0.56 of GGR per US$1 paid</div></div>
+</div>
+<div class="body">
+  <div class="left">
+    <div class="secttl">Net Revenue vs Earnings by affiliate <span>· sorted by commission paid · FTD &gt; 50</span></div>
+    <table>
+      <thead><tr><th>Affiliate</th><th>FTD</th><th>Net Rev.</th><th>Earnings<span class="sort">▼</span></th><th>Result</th><th>ROI</th><th>Gross Bets</th><th>Hold</th></tr></thead>
+      <tbody><tr class=" hl">
+      <td class="nm">Grupo Dupla <span class="tag">new · 10d</span></td>
+      <td class="r">4,499</td>
+      <td class="r">$18,094</td>
+      <td class="r">$76,166</td>
+      <td class="r neg b">-$58.1k</td>
+      <td class="r neg b">0.24</td>
+      <td class="r gbcol">$97.1k</td>
+      <td class="r ">18.6% <span class="mix">SB</span></td>
+    </tr><tr class="z">
+      <td class="nm">Costamedia</td>
+      <td class="r">1,110</td>
+      <td class="r">$71,253</td>
+      <td class="r">$56,824</td>
+      <td class="r pos b">+$14.4k</td>
+      <td class="r pos b">1.25</td>
+      <td class="r gbcol">$952.9k</td>
+      <td class="r muted">7.5% <span class="mix">CS</span></td>
+    </tr><tr class="">
+      <td class="nm">AfiliagamblingBR</td>
+      <td class="r">1,215</td>
+      <td class="r">$2,327</td>
+      <td class="r">$20,351</td>
+      <td class="r neg b">-$18.0k</td>
+      <td class="r neg b">0.11</td>
+      <td class="r gbcol">$55.6k</td>
+      <td class="r muted">4.2% <span class="mix">SB</span></td>
+    </tr><tr class="z">
+      <td class="nm">Raphaelrossi</td>
+      <td class="r">864</td>
+      <td class="r">$3,077</td>
+      <td class="r">$17,933</td>
+      <td class="r neg b">-$14.9k</td>
+      <td class="r neg b">0.17</td>
+      <td class="r gbcol">$48.1k</td>
+      <td class="r muted">6.4% <span class="mix">CS</span></td>
+    </tr><tr class="">
+      <td class="nm">NorhstarBR</td>
+      <td class="r">372</td>
+      <td class="r">$2,983</td>
+      <td class="r">$7,224</td>
+      <td class="r neg b">-$4.2k</td>
+      <td class="r neg b">0.41</td>
+      <td class="r gbcol">$164.8k</td>
+      <td class="r muted">1.8% <span class="mix">CS</span></td>
+    </tr><tr class="z">
+      <td class="nm">Eightroom_Brasil25</td>
+      <td class="r">241</td>
+      <td class="r">$823</td>
+      <td class="r">$6,375</td>
+      <td class="r neg b">-$5.6k</td>
+      <td class="r neg b">0.13</td>
+      <td class="r gbcol">$6.9k</td>
+      <td class="r ">12.0% <span class="mix">SB</span></td>
+    </tr><tr class="">
+      <td class="nm">EightroomBR2</td>
+      <td class="r">223</td>
+      <td class="r">$12,152</td>
+      <td class="r">$5,285</td>
+      <td class="r pos b">+$6.9k</td>
+      <td class="r pos b">2.30</td>
+      <td class="r gbcol">$259.9k</td>
+      <td class="r muted">4.7% <span class="mix">CS</span></td>
+    </tr><tr class="z">
+      <td class="nm">Apuestasfree</td>
+      <td class="r">76</td>
+      <td class="r">$809</td>
+      <td class="r">$2,161</td>
+      <td class="r neg b">-$1.4k</td>
+      <td class="r neg b">0.37</td>
+      <td class="r gbcol">$19.2k</td>
+      <td class="r muted">4.2% <span class="mix">SB</span></td>
+    </tr><tr class="">
+      <td class="nm">Dbbtwar</td>
+      <td class="r">83</td>
+      <td class="r">$1,254</td>
+      <td class="r">$1,342</td>
+      <td class="r neg b">-$0.1k</td>
+      <td class="r warn b">0.93</td>
+      <td class="r gbcol">$7.4k</td>
+      <td class="r ">17.0% <span class="mix">CS</span></td>
+    </tr><tr class="z">
+      <td class="nm">Sosuperodds</td>
+      <td class="r">182</td>
+      <td class="r">$88</td>
+      <td class="r">$1,320</td>
+      <td class="r neg b">-$1.2k</td>
+      <td class="r neg b">0.07</td>
+      <td class="r gbcol">$3.5k</td>
+      <td class="r muted">2.5% <span class="mix">SB</span></td>
+    </tr><tr class="">
+      <td class="nm">BW1703RBR26</td>
+      <td class="r">113</td>
+      <td class="r">-$7,470</td>
+      <td class="r">$999</td>
+      <td class="r neg b">-$8.5k</td>
+      <td class="r neg b">-7.48</td>
+      <td class="r gbcol">$79.7k</td>
+      <td class="r muted">-9.4% <span class="mix">CS</span></td>
+    </tr><tr class="z">
+      <td class="nm">Player7777</td>
+      <td class="r">110</td>
+      <td class="r">$3,156</td>
+      <td class="r">$452</td>
+      <td class="r pos b">+$2.7k</td>
+      <td class="r pos b">6.98</td>
+      <td class="r gbcol">$8.7k</td>
+      <td class="r ">36.2% <span class="mix">SB</span></td>
+    </tr><tr class="">
+      <td class="nm">Asaph</td>
+      <td class="r">95</td>
+      <td class="r">$168</td>
+      <td class="r">$340</td>
+      <td class="r neg b">-$0.2k</td>
+      <td class="r neg b">0.50</td>
+      <td class="r gbcol">$7.8k</td>
+      <td class="r muted">2.2% <span class="mix">CS</span></td>
+    </tr><tr class="agg">
+      <td class="nm">Other active (low FTD) <span class="muted">(8)</span></td>
+      <td class="r">37</td><td class="r">$2,230</td><td class="r">$998</td>
+      <td class="r pos b">+$1.2k</td>
+      <td class="r pos b">2.23</td>
+      <td class="r gbcol">$5.6k</td><td class="r muted">·</td></tr><tr class="agg dead"><td class="nm">Accounts with no activity <span class="muted">(never an FTD) (22)</span></td>
+  <td class="r">0</td><td class="r">$0</td><td class="r">$0</td><td class="r muted">$0</td><td class="r muted">·</td><td class="r muted">$0</td><td class="r muted">·</td></tr></tbody>
+    </table>
+  </div>
+  <div class="right">
+    <div class="secttl">Volume &amp; maturation <span>· 10 days vs 1 year</span></div>
+    <div class="card">
+      <div class="cmp">
+        <div class="col d"><div class="h"><b>Grupo Dupla</b> · 10 days</div>
+          <div class="line"><span>FTD</span><b>4,499</b></div>
+          <div class="line"><span>Net / Cost</span><b>$18.1k / $76.2k</b></div>
+          <div class="line"><span>Result</span><b class="neg">-$58.1k</b></div>
+          <div class="line"><span>Hold</span><b>18.6%</b></div>
+        </div>
+        <div class="col"><div class="h"><b>Inherited</b> · ~1 year · 12/20 neg</div>
+          <div class="line"><span>FTD</span><b>4,721</b></div>
+          <div class="line"><span>Net / Cost</span><b>$92.9k / $121.6k</b></div>
+          <div class="line"><span>Result</span><b class="neg">-$28.8k</b></div>
+          <div class="line"><span>Hold</span><b>5.7%</b></div>
+        </div>
+      </div>
+      <div class="bars"><div class="brow"><div class="blbl">Grupo Dupla</div>
+      <div class="btrack"><div class="bnet" style="width:23.8%"></div></div>
+      <div class="btrack"><div class="bearn" style="width:100.0%"></div></div></div><div class="brow"><div class="blbl">Costamedia</div>
+      <div class="btrack"><div class="bnet" style="width:93.6%"></div></div>
+      <div class="btrack"><div class="bearn" style="width:74.6%"></div></div></div><div class="brow"><div class="blbl">AfiliagamblingBR</div>
+      <div class="btrack"><div class="bnet" style="width:3.1%"></div></div>
+      <div class="btrack"><div class="bearn" style="width:26.7%"></div></div></div><div class="brow"><div class="blbl">Raphaelrossi</div>
+      <div class="btrack"><div class="bnet" style="width:4.0%"></div></div>
+      <div class="btrack"><div class="bearn" style="width:23.5%"></div></div></div><div class="brow"><div class="blbl">NorhstarBR</div>
+      <div class="btrack"><div class="bnet" style="width:3.9%"></div></div>
+      <div class="btrack"><div class="bearn" style="width:9.5%"></div></div></div><div class="brow"><div class="blbl">Eightroom_Brasil25</div>
+      <div class="btrack"><div class="bnet" style="width:1.1%"></div></div>
+      <div class="btrack"><div class="bearn" style="width:8.4%"></div></div></div></div>
+      <div class="leg"><span><i style="background:#22C55E"></i>Net Revenue (GGR)</span><span><i style="background:#FF3900"></i>Earnings (commission)</span></div>
+    </div>
+  </div>
+</div>
+<div class="takeaway">
+  <div class="tk-lead">
+    <div class="lbl">Takeaway</div>
+    <div class="tk-p">The year's commissions ($197.8k) outpaced the GGR generated ($110.9k): <b>program ROI 0.56</b>. Volume concentrates in <b>high-FTD, low-hold</b> names (AfiliagamblingBR: 1,215 FTD, 4.2% hold, 0.11 ROI), and <b>22 of 43 accounts never produced a single FTD</b>. Grupo Dupla alone drove <b>49% of the year's FTD</b> in its first 10 days.</div>
+  </div>
+  <div class="rec"><div class="rn">1</div><div class="rt">Cut the tail</div><div class="rd">Close the 22 dormant accounts and inherited affiliates with ROI below 0.3.</div></div>
+  <div class="rec"><div class="rn">2</div><div class="rt">Hold governance</div><div class="rd">Quality-based CPA cap to stop high-FTD, low-hold intake.</div></div>
+  <div class="rec"><div class="rn">3</div><div class="rt">Dupla as control</div><div class="rd">Structured CPA + RevShare deal; assess maturation at 60-90 days.</div></div>
+</div>
+<div class="foot"><span>BETWARRIOR BRAZIL · CONFIDENTIAL · BR AFFILIATES</span><span>Hold = Net Revenue / Gross Bets · Net Revenue = GGR (gross hold), before bonus and taxes</span></div>
+</div></body></html>
